@@ -1,0 +1,18 @@
+[project]
+name = "superconductivity-electron-liquids-gaia"
+version = "0.1.0"
+description = "Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)"
+readme = "README.md"
+authors = [
+    { name = "kunchen", email = "chenkun0228@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.gaia]
+type = "knowledge-package"
+uuid = "630d53a1-77e0-4ee5-bd2d-ca586926c43a"
