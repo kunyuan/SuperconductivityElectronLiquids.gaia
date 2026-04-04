@@ -20,15 +20,17 @@ from .s2_model import bse_kernel_decomposition, electron_phonon_action, precurso
 # Leaf claims (no strategies)
 # ---------------------------------------------------------------------------
 
-pair_propagator_decomposition = claim(
-    "The pair propagator can be decomposed into a low-energy coherent part "
-    "and a high-energy incoherent part: $G_{k\\omega}G_{-k,-\\omega} = "
-    "\\Pi_{\\mathrm{BCS}} + \\phi_{k\\omega}$. The coherent part is "
-    "expressed in terms of the quasiparticle weight $z^e$, frequency-dependent "
-    "quasiparticle weight $z_\\omega^{\\mathrm{ph}}$, and renormalized "
-    "dispersion $\\epsilon_k$. This decomposition introduces energy-scale "
-    "separation in the two-electron channel while preserving the dynamic "
-    "screening character.",
+pair_propagator_decomposition = setting(
+    "The pair propagator (product of two single-particle Green's functions "
+    "$G_{k\\omega}G_{-k,-\\omega}$) can be exactly decomposed into a "
+    "low-energy coherent part $\\Pi_{\\mathrm{BCS}}$ and a high-energy "
+    "incoherent remainder $\\phi_{k\\omega}$: "
+    "$G_{k\\omega}G_{-k,-\\omega} = \\Pi_{\\mathrm{BCS}} + \\phi_{k\\omega}$. "
+    "The coherent part is expressed in terms of the quasiparticle weight "
+    "$z^e$, frequency-dependent quasiparticle weight "
+    "$z_\\omega^{\\mathrm{ph}}$, and renormalized dispersion $\\epsilon_k$. "
+    "This is an exact mathematical identity introducing energy-scale "
+    "separation in the two-electron channel.",
     title="Pair Propagator Decomposition",
 )
 
@@ -133,26 +135,24 @@ downfolded_bse = claim(
 )
 
 infer(
-    premises=[pair_propagator_decomposition, cross_term_suppressed,
-              bse_kernel_decomposition],
+    premises=[cross_term_suppressed, bse_kernel_decomposition],
     conclusion=downfolded_bse,
-    background=[adiabatic_approx, me_framework],
+    background=[pair_propagator_decomposition, adiabatic_approx],
     reason=(
         "Starting from the full BSE with kernel decomposed into "
         "$\\tilde\\Gamma^e + W^{\\mathrm{ph}}$ (@bse_kernel_decomposition), "
-        "we substitute the pair propagator decomposition "
+        "we substitute the exact pair propagator decomposition "
         "(@pair_propagator_decomposition) which splits $GG$ into a BCS-like "
         "coherent piece $\\Pi_{\\mathrm{BCS}}$ and an incoherent remainder "
         "$\\phi$. The coherent piece carries the Cooper logarithm and defines "
         "the low-energy pairing channel. Momentum summation over the coherent "
         "part yields a frequency-only kernel. The cross terms mixing Coulomb "
         "and phonon channels are suppressed at $O(\\omega_c^2/\\omega_p^2)$ "
-        "(@cross_term_suppressed), justifying their neglect. The adiabatic "
-        "condition $\\omega_D/E_F \\ll 1$ (@adiabatic_approx) and Migdal's "
-        "theorem (@me_framework) ensure that residual phonon vertex corrections "
-        "are negligible. The result is a one-dimensional integral equation in "
-        "Matsubara frequency with microscopically defined $\\lambda$ and "
-        "$\\mu_{\\omega_c}$ kernels."
+        "(@cross_term_suppressed), justifying their neglect. Under the "
+        "adiabatic condition (@adiabatic_approx), residual phonon vertex "
+        "corrections are negligible. The result is a one-dimensional integral "
+        "equation in Matsubara frequency with microscopically defined "
+        "$\\lambda$ and $\\mu_{\\omega_c}$ kernels."
     ),
 )
 

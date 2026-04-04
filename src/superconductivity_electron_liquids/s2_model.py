@@ -5,10 +5,12 @@ the Bethe-Salpeter equation kernel decomposition, and the precursory Cooper flow
 that connects the normal-state four-point vertex to the superconducting Tc.
 """
 
-from gaia.lang import claim
+from gaia.lang import claim, infer
+
+from .motivation import me_framework
 
 # ---------------------------------------------------------------------------
-# Claims — all leaf nodes (no strategies)
+# Claims
 # ---------------------------------------------------------------------------
 
 electron_phonon_action = claim(
@@ -35,6 +37,23 @@ bse_kernel_decomposition = claim(
     "higher-order phonon vertex corrections are suppressed by the adiabatic "
     "small parameter.",
     title="BSE Kernel Decomposition",
+)
+
+infer(
+    premises=[me_framework],
+    conclusion=bse_kernel_decomposition,
+    reason=(
+        "Migdal's theorem (@me_framework) guarantees that phonon vertex "
+        "corrections to the BSE kernel are suppressed at $O(\\omega_D/E_F)$. "
+        "This allows the full particle-particle irreducible kernel to be "
+        "separated into a purely electronic four-point vertex $\\tilde\\Gamma^e$ "
+        "(which encodes all non-perturbative Coulomb correlations and is "
+        "independent of phonon details) and the phonon-mediated interaction "
+        "$W^{\\mathrm{ph}}$ (which includes the dressed phonon propagator, "
+        "bare coupling, electronic screening, and vertex corrections). "
+        "Cross terms between these two contributions are higher order in "
+        "$\\omega_D/E_F$ and can be neglected."
+    ),
 )
 
 precursory_cooper_flow = claim(

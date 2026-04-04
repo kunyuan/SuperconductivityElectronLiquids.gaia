@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:45c8fa10db52b9ded40c12b633c7838b40432d3fd335a6980f6898f77f02a7a0",
+  "ir_hash": "sha256:6090bf15592aa93614ad49471c960faaadad52be22ce8ab07174945e3178187c",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -14,28 +14,28 @@
       "type": "setting"
     },
     {
-      "content": "Migdal-Eliashberg (ME) theory: a rigorous treatment of the dynamic electron-phonon interaction built on BCS. Migdal's theorem guarantees that when the Debye frequency $\\omega_D$ is much smaller than the Fermi energy $E_F$, phonon vertex corrections are negligible at $O(\\omega_D/E_F)$.",
-      "content_hash": "4f3cd05d39994c9f107fdc468093cc9ed3cdaf4253ed1500ead643c627a78fc7",
-      "declaration_index": 1,
-      "exported": false,
-      "id": "github:superconductivity_electron_liquids::me_framework",
-      "label": "me_framework",
-      "module": "motivation",
-      "parameters": [],
-      "title": "Migdal-Eliashberg Framework",
-      "type": "setting"
-    },
-    {
       "content": "In conventional metals, the typical phonon frequency (Debye frequency $\\omega_D$) is much smaller than the electron Fermi energy $E_F$, i.e. $\\omega_D / E_F \\ll 1$ (adiabatic approximation). This energy-scale separation has three key consequences: (i) electrons adiabatically adjust to ionic motion, (ii) the electron-ion coupling can be linearized, and (iii) the space-time scale separation between electron and phonon physics permits a controlled effective field theory (EFT) treatment.",
-      "content_hash": "87b9f2dc051f32d21845c6ae271b224ffb63ad1b2c6a96315e960792cfad9477",
-      "declaration_index": 2,
+      "content_hash": "49c71ac1ec8a5e84e11fe9c925140fe9c5ae593b855b5de0841fbcaae77024d5",
+      "declaration_index": 1,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::adiabatic_approx",
       "label": "adiabatic_approx",
       "module": "motivation",
       "parameters": [],
       "title": "Adiabatic Approximation",
-      "type": "setting"
+      "type": "claim"
+    },
+    {
+      "content": "Migdal-Eliashberg (ME) theory provides a rigorous treatment of the dynamic electron-phonon interaction. Under the adiabatic condition $\\omega_D / E_F \\ll 1$, Migdal's theorem guarantees that phonon vertex corrections are suppressed at $O(\\omega_D/E_F)$, allowing the electron-phonon self-energy to be truncated at the self-consistent Fock diagram level. This justifies the ME formalism as a controlled low-energy theory for electron-phonon superconductors.",
+      "content_hash": "e8a6e81453f125f0f342e939e1c0b977d627e9396510f2b259dabfff9c77eef2",
+      "declaration_index": 2,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::me_framework",
+      "label": "me_framework",
+      "module": "motivation",
+      "parameters": [],
+      "title": "Migdal-Eliashberg Framework",
+      "type": "claim"
     },
     {
       "content": "The Bogoliubov-Tolmachev-Shirkov (BTS) renormalization relation connects the Coulomb pseudopotential $\\mu_{\\omega_c}$ (a dimensionless parameter describing the effective electron-electron repulsion strength in the pairing channel) defined at different energy cutoff scales $\\omega_c$: $\\mu_{\\omega_c} = \\mu_{\\omega_c'} / (1 + \\mu_{\\omega_c'} \\ln(\\omega_c'/\\omega_c))$. This relation ensures that physical observables do not depend on the choice of the arbitrary cutoff scale.",
@@ -230,8 +230,8 @@
       "type": "claim"
     },
     {
-      "content": "The pair propagator can be decomposed into a low-energy coherent part and a high-energy incoherent part: $G_{k\\omega}G_{-k,-\\omega} = \\Pi_{\\mathrm{BCS}} + \\phi_{k\\omega}$. The coherent part is expressed in terms of the quasiparticle weight $z^e$, frequency-dependent quasiparticle weight $z_\\omega^{\\mathrm{ph}}$, and renormalized dispersion $\\epsilon_k$. This decomposition introduces energy-scale separation in the two-electron channel while preserving the dynamic screening character.",
-      "content_hash": "95c8a9edbefaa61036d51aca7425d39c0aec5caad5c5f6eccb03c3495c22cdc5",
+      "content": "The pair propagator (product of two single-particle Green's functions $G_{k\\omega}G_{-k,-\\omega}$) can be exactly decomposed into a low-energy coherent part $\\Pi_{\\mathrm{BCS}}$ and a high-energy incoherent remainder $\\phi_{k\\omega}$: $G_{k\\omega}G_{-k,-\\omega} = \\Pi_{\\mathrm{BCS}} + \\phi_{k\\omega}$. The coherent part is expressed in terms of the quasiparticle weight $z^e$, frequency-dependent quasiparticle weight $z_\\omega^{\\mathrm{ph}}$, and renormalized dispersion $\\epsilon_k$. This is an exact mathematical identity introducing energy-scale separation in the two-electron channel.",
+      "content_hash": "5047da40e69dba296d587bc3709679e7980f4098d7a712351ff08fcf0b0bd78c",
       "declaration_index": 0,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::pair_propagator_decomposition",
@@ -239,7 +239,7 @@
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Pair Propagator Decomposition",
-      "type": "claim"
+      "type": "setting"
     },
     {
       "content": "Cross terms mixing Coulomb and phonon channels are suppressed by the plasma frequency $\\omega_p$, at order $O(\\omega_c^2/\\omega_p^2)$, where $\\omega_c$ is an intermediate energy cutoff satisfying $\\omega_D \\ll \\omega_c \\ll E_F$. For most three-dimensional metals $\\omega_c/\\omega_p \\lesssim 0.1$, so cross terms contribute no more than 1%.",
@@ -918,6 +918,33 @@
   "strategies": [
     {
       "background": [
+        "github:superconductivity_electron_liquids::bcs_theory"
+      ],
+      "conclusion": "github:superconductivity_electron_liquids::me_framework",
+      "metadata": {
+        "reason": "The adiabatic condition $\\omega_D/E_F \\ll 1$ (@adiabatic_approx) ensures that the ratio of ionic to electronic energy scales is small. Migdal's theorem then proves that phonon vertex corrections beyond the self-consistent Fock level are suppressed by $O(\\omega_D/E_F)$, establishing the Migdal-Eliashberg formalism as a controlled approximation built on the BCS pairing mechanism (@bcs_theory)."
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::adiabatic_approx"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_d5f5d62af83049db",
+      "type": "infer"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::bse_kernel_decomposition",
+      "metadata": {
+        "reason": "Migdal's theorem (@me_framework) guarantees that phonon vertex corrections to the BSE kernel are suppressed at $O(\\omega_D/E_F)$. This allows the full particle-particle irreducible kernel to be separated into a purely electronic four-point vertex $\\tilde\\Gamma^e$ (which encodes all non-perturbative Coulomb correlations and is independent of phonon details) and the phonon-mediated interaction $W^{\\mathrm{ph}}$ (which includes the dressed phonon propagator, bare coupling, electronic screening, and vertex corrections). Cross terms between these two contributions are higher order in $\\omega_D/E_F$ and can be neglected."
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::me_framework"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_cd42b338bdae5118",
+      "type": "infer"
+    },
+    {
+      "background": [
         "github:superconductivity_electron_liquids::rpa_dynamic_screening"
       ],
       "conclusion": "github:superconductivity_electron_liquids::full_bse_toy_model",
@@ -976,20 +1003,19 @@
     },
     {
       "background": [
-        "github:superconductivity_electron_liquids::adiabatic_approx",
-        "github:superconductivity_electron_liquids::me_framework"
+        "github:superconductivity_electron_liquids::pair_propagator_decomposition",
+        "github:superconductivity_electron_liquids::adiabatic_approx"
       ],
       "conclusion": "github:superconductivity_electron_liquids::downfolded_bse",
       "metadata": {
-        "reason": "Starting from the full BSE with kernel decomposed into $\\tilde\\Gamma^e + W^{\\mathrm{ph}}$ (@bse_kernel_decomposition), we substitute the pair propagator decomposition (@pair_propagator_decomposition) which splits $GG$ into a BCS-like coherent piece $\\Pi_{\\mathrm{BCS}}$ and an incoherent remainder $\\phi$. The coherent piece carries the Cooper logarithm and defines the low-energy pairing channel. Momentum summation over the coherent part yields a frequency-only kernel. The cross terms mixing Coulomb and phonon channels are suppressed at $O(\\omega_c^2/\\omega_p^2)$ (@cross_term_suppressed), justifying their neglect. The adiabatic condition $\\omega_D/E_F \\ll 1$ (@adiabatic_approx) and Migdal's theorem (@me_framework) ensure that residual phonon vertex corrections are negligible. The result is a one-dimensional integral equation in Matsubara frequency with microscopically defined $\\lambda$ and $\\mu_{\\omega_c}$ kernels."
+        "reason": "Starting from the full BSE with kernel decomposed into $\\tilde\\Gamma^e + W^{\\mathrm{ph}}$ (@bse_kernel_decomposition), we substitute the exact pair propagator decomposition (@pair_propagator_decomposition) which splits $GG$ into a BCS-like coherent piece $\\Pi_{\\mathrm{BCS}}$ and an incoherent remainder $\\phi$. The coherent piece carries the Cooper logarithm and defines the low-energy pairing channel. Momentum summation over the coherent part yields a frequency-only kernel. The cross terms mixing Coulomb and phonon channels are suppressed at $O(\\omega_c^2/\\omega_p^2)$ (@cross_term_suppressed), justifying their neglect. Under the adiabatic condition (@adiabatic_approx), residual phonon vertex corrections are negligible. The result is a one-dimensional integral equation in Matsubara frequency with microscopically defined $\\lambda$ and $\\mu_{\\omega_c}$ kernels."
       },
       "premises": [
-        "github:superconductivity_electron_liquids::pair_propagator_decomposition",
         "github:superconductivity_electron_liquids::cross_term_suppressed",
         "github:superconductivity_electron_liquids::bse_kernel_decomposition"
       ],
       "scope": "local",
-      "strategy_id": "lcs_27e39150cdd4a23a",
+      "strategy_id": "lcs_87d8c3e8ae4b27fe",
       "type": "infer"
     },
     {

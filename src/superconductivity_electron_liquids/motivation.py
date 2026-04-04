@@ -5,7 +5,7 @@ limitations of traditional approaches to predicting superconducting Tc, motivati
 need for a first-principles treatment of the Coulomb pseudopotential.
 """
 
-from gaia.lang import claim, question, setting
+from gaia.lang import claim, infer, question, setting
 
 # ---------------------------------------------------------------------------
 # Settings — background frameworks
@@ -18,20 +18,11 @@ bcs_theory = setting(
     title="BCS Theory",
 )
 
-me_framework = setting(
-    "Migdal-Eliashberg (ME) theory: a rigorous treatment of the dynamic "
-    "electron-phonon interaction built on BCS. Migdal's theorem guarantees "
-    "that when the Debye frequency $\\omega_D$ is much smaller than the Fermi "
-    "energy $E_F$, phonon vertex corrections are negligible at "
-    "$O(\\omega_D/E_F)$.",
-    title="Migdal-Eliashberg Framework",
-)
-
 # ---------------------------------------------------------------------------
 # Claims — leaf nodes (no strategies)
 # ---------------------------------------------------------------------------
 
-adiabatic_approx = setting(
+adiabatic_approx = claim(
     "In conventional metals, the typical phonon frequency (Debye frequency "
     "$\\omega_D$) is much smaller than the electron Fermi energy $E_F$, i.e. "
     "$\\omega_D / E_F \\ll 1$ (adiabatic approximation). This energy-scale "
@@ -40,6 +31,31 @@ adiabatic_approx = setting(
     "(iii) the space-time scale separation between electron and phonon physics "
     "permits a controlled effective field theory (EFT) treatment.",
     title="Adiabatic Approximation",
+)
+
+me_framework = claim(
+    "Migdal-Eliashberg (ME) theory provides a rigorous treatment of the dynamic "
+    "electron-phonon interaction. Under the adiabatic condition "
+    "$\\omega_D / E_F \\ll 1$, Migdal's theorem guarantees that phonon vertex "
+    "corrections are suppressed at $O(\\omega_D/E_F)$, allowing the "
+    "electron-phonon self-energy to be truncated at the self-consistent Fock "
+    "diagram level. This justifies the ME formalism as a controlled low-energy "
+    "theory for electron-phonon superconductors.",
+    title="Migdal-Eliashberg Framework",
+)
+
+infer(
+    premises=[adiabatic_approx],
+    conclusion=me_framework,
+    background=[bcs_theory],
+    reason=(
+        "The adiabatic condition $\\omega_D/E_F \\ll 1$ (@adiabatic_approx) "
+        "ensures that the ratio of ionic to electronic energy scales is small. "
+        "Migdal's theorem then proves that phonon vertex corrections beyond "
+        "the self-consistent Fock level are suppressed by $O(\\omega_D/E_F)$, "
+        "establishing the Migdal-Eliashberg formalism as a controlled "
+        "approximation built on the BCS pairing mechanism (@bcs_theory)."
+    ),
 )
 
 bts_renormalization = claim(
