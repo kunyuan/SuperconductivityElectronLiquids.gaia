@@ -6,7 +6,7 @@ and obtaining microscopic definitions for lambda and mu. Validates the
 downfolding against a full BSE toy-model calculation.
 """
 
-from gaia.lang import abduction, claim, equivalence, infer, setting
+from gaia.lang import abduction, claim, deduction, equivalence, noisy_and, setting
 
 from .motivation import (
     adiabatic_approx,
@@ -65,7 +65,7 @@ full_bse_toy_model = claim(
     title="Full BSE Toy Model Result",
 )
 
-infer(
+noisy_and(
     premises=[bse_kernel_decomposition],
     conclusion=full_bse_toy_model,
     background=[rpa_dynamic_screening],
@@ -134,7 +134,7 @@ downfolded_bse = claim(
     title="Downfolded BSE",
 )
 
-infer(
+deduction(
     premises=[cross_term_suppressed, bse_kernel_decomposition],
     conclusion=downfolded_bse,
     background=[pair_propagator_decomposition, adiabatic_approx],
@@ -156,8 +156,8 @@ infer(
     ),
 )
 
-# Now that downfolded_bse is defined, attach infer for the toy model result
-infer(
+# Now that downfolded_bse is defined, attach noisy_and for the toy model result
+noisy_and(
     premises=[downfolded_bse],
     conclusion=downfolded_bse_toy_model,
     background=[rpa_dynamic_screening],
@@ -187,7 +187,7 @@ downfolded_me_equation = claim(
     title="Downfolded ME Gap Equation",
 )
 
-infer(
+deduction(
     premises=[downfolded_bse],
     conclusion=downfolded_me_equation,
     background=[precursory_cooper_flow],
@@ -216,7 +216,7 @@ lambda_microscopic_definition = claim(
     title="Microscopic Definition of lambda",
 )
 
-infer(
+deduction(
     premises=[downfolded_bse],
     conclusion=lambda_microscopic_definition,
     background=[electron_phonon_action],
@@ -248,7 +248,7 @@ mu_microscopic_definition = claim(
     title="Microscopic Definition of mu",
 )
 
-infer(
+deduction(
     premises=[downfolded_bse],
     conclusion=mu_microscopic_definition,
     reason=(
@@ -276,7 +276,7 @@ mu_scale_independence = claim(
     title="BTS Relation as Corollary",
 )
 
-infer(
+deduction(
     premises=[mu_microscopic_definition],
     conclusion=mu_scale_independence,
     reason=(
@@ -324,7 +324,7 @@ ma_pseudopotential_justified = claim(
     title="Morel-Anderson Ansatz Justified",
 )
 
-infer(
+deduction(
     premises=[mu_microscopic_definition],
     conclusion=ma_pseudopotential_justified,
     background=[mu_star_phenomenological],

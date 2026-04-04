@@ -6,7 +6,7 @@ via vDiagMC and the Ward identity, and shows that quasiparticle mass renormaliza
 is close to unity.
 """
 
-from gaia.lang import claim, infer
+from gaia.lang import claim, composite, deduction, infer, noisy_and
 
 from .motivation import dfpt_computes_lambda
 from .s3_downfolding import lambda_microscopic_definition
@@ -74,7 +74,8 @@ eft_eph_vertex = claim(
     title="EFT Electron-Phonon Vertex",
 )
 
-infer(
+# deduction: λ microscopic definition → EFT vertex expression
+deduction(
     premises=[lambda_microscopic_definition],
     conclusion=eft_eph_vertex,
     reason=(
@@ -84,15 +85,11 @@ infer(
         "phonon propagator and electron-phonon vertices, and factoring out the "
         "quasiparticle weight $z^e$ from the pair propagator coherent part, "
         "yields the EFT vertex $g(k,q) = z^e \\cdot \\Gamma_3^e(k,q) \\cdot "
-        "g_0(k,q)$. The phonon-mediated interaction then becomes "
-        "$W^{\\mathrm{ph}} \\propto |g|^2 D$ where $D$ is the phonon propagator, "
-        "and $\\lambda$ is recovered as the Fermi-surface average of this "
-        "quantity. This factorization separates the electronic correlation "
-        "effects ($z^e$, $\\Gamma_3^e$) from the bare electron-ion coupling "
-        "($g_0$) and lattice dynamics ($D$)."
+        "g_0(k,q)$."
     ),
 )
 
+# TODO: when Gaia IR supports statistical induction, change to induction
 gamma3_approximation = claim(
     "The three-point vertex $\\Gamma_3^e(k, q)$ for states within the "
     "Fermi sphere can be accurately approximated by interpolation between "
@@ -121,37 +118,69 @@ infer(
     ),
 )
 
+# Intermediate claim for composite decomposition
+eft_vertex_matches_dfpt = claim(
+    "In the uniform electron gas at densities $r_s \\in [1,5]$, the "
+    "EFT electron-phonon vertex $g(\\mathbf{k},\\mathbf{q}) = "
+    "g^{(0)}_{\\mathbf{q}} \\cdot (z^e/\\epsilon_{\\mathbf{q}}) \\cdot "
+    "\\Gamma_3^e(\\mathbf{k};\\mathbf{q})$ is numerically well "
+    "approximated by the DFPT Kohn-Sham screened potential "
+    "$g^{\\mathrm{KS}}(\\mathbf{q}) = g^{(0)}_{\\mathbf{q}} / "
+    "[1 - (v_{\\mathbf{q}} + f_{xc})\\chi_0^e(\\mathbf{q})]$ "
+    "for Fermi-surface-relevant momentum transfers $|\\mathbf{q}| "
+    "\\leq 2k_F$, with weak residual $\\mathbf{k}$-dependence.",
+    title="EFT Vertex Matches DFPT",
+)
+
 dfpt_reliable_for_simple_metals = claim(
     "For simple metals, the DFPT calculation of the electron-phonon "
-    "coupling constant $\\lambda$ is reliable: the product "
-    "$z^e \\cdot \\Gamma_3^e \\approx z^e \\cdot m^*/m \\approx 1$ "
-    "because $z^e \\approx m/m^*$ and $m^*/m \\approx 1$, so the vertex "
-    "corrections and quasiparticle renormalization largely cancel. The "
-    "remaining corrections are at the few-percent level, well within "
-    "the intrinsic accuracy of DFPT for phonon frequencies and "
-    "electron-phonon matrix elements in simple metals.",
+    "coupling constant $\\lambda$ is reliable: the EFT vertex matches "
+    "the DFPT expression at the vertex level, and the quasiparticle "
+    "density of states $N_F^*$ nearly equals the band density of states "
+    "$N_F^{(0)}$, so $\\lambda_{\\mathrm{EFT}} \\approx "
+    "\\lambda_{\\mathrm{DFPT}}$ with corrections at the few-percent level.",
     title="DFPT Reliable for Simple Metals",
 )
 
-infer(
+# Sub-step 1: EFT vertex + Γ₃ approximation → vertex-level match
+_s1 = deduction(
+    premises=[eft_eph_vertex, gamma3_approximation],
+    conclusion=eft_vertex_matches_dfpt,
+    background=[dfpt_eph_ansatz],
+    reason=(
+        "Substituting the approximate $\\Gamma_3^e \\approx m^*/m$ "
+        "(@gamma3_approximation) into the EFT vertex expression "
+        "(@eft_eph_vertex) $g = z^e \\cdot \\Gamma_3^e \\cdot g_0$, "
+        "and using the Migdal relation $z^e \\approx m/m^*$, the product "
+        "$z^e \\cdot \\Gamma_3^e \\approx (m/m^*)(m^*/m) = 1$. "
+        "This means $g(k,q) \\approx g_0(k,q)$, which after screening "
+        "gives exactly the DFPT Kohn-Sham expression (@dfpt_eph_ansatz) "
+        "$g^{\\mathrm{KS}}(q)$. The vertex-level agreement holds for "
+        "$|q| \\leq 2k_F$ with weak residual $k$-dependence."
+    ),
+)
+
+# Sub-step 2: vertex match + mass near unity → λ match
+_s2 = deduction(
+    premises=[eft_vertex_matches_dfpt, quasiparticle_mass_near_unity],
+    conclusion=dfpt_reliable_for_simple_metals,
+    background=[dfpt_computes_lambda],
+    reason=(
+        "The vertex-level agreement $g \\approx g^{\\mathrm{KS}}$ "
+        "(@eft_vertex_matches_dfpt) ensures the electron-phonon matrix "
+        "elements match. To obtain $\\lambda$, these must be combined with "
+        "the density of states: EFT uses the quasiparticle $N_F^*$ while "
+        "DFPT (@dfpt_computes_lambda) uses the band $N_F^{(0)}$. Since "
+        "$m^*/m \\approx 1$ (@quasiparticle_mass_near_unity), we have "
+        "$N_F^* \\approx N_F^{(0)}$, and therefore "
+        "$\\lambda_{\\mathrm{EFT}} \\approx \\lambda_{\\mathrm{DFPT}}$."
+    ),
+)
+
+# Composite: preserves coarse view (3 premises → conclusion)
+composite(
     premises=[eft_eph_vertex, gamma3_approximation,
               quasiparticle_mass_near_unity],
     conclusion=dfpt_reliable_for_simple_metals,
-    background=[dfpt_eph_ansatz, dfpt_computes_lambda],
-    reason=(
-        "The EFT vertex expression (@eft_eph_vertex) gives "
-        "$g = z^e \\cdot \\Gamma_3^e \\cdot g_0$, so $\\lambda \\propto "
-        "|z^e \\cdot \\Gamma_3^e|^2 \\cdot \\lambda_0$ where $\\lambda_0$ "
-        "is the bare (DFPT-level) coupling. The approximate vertex "
-        "(@gamma3_approximation) gives $\\Gamma_3^e \\approx m^*/m$, and "
-        "the quasiparticle mass being near unity (@quasiparticle_mass_near_unity) "
-        "means $m^*/m \\approx 1$. Since $z^e \\approx m/m^*$ by the Migdal "
-        "relation, the product $z^e \\cdot \\Gamma_3^e \\approx "
-        "(m/m^*)(m^*/m) = 1$. The DFPT expression (@dfpt_eph_ansatz) "
-        "computes $\\lambda$ assuming this product equals unity, which is "
-        "precisely what the EFT analysis confirms for simple metals. "
-        "DFPT has been independently validated for these systems "
-        "(@dfpt_computes_lambda). Therefore DFPT $\\lambda$ values are "
-        "reliable for simple metals with corrections at the few-percent level."
-    ),
+    sub_strategies=[_s1, _s2],
 )

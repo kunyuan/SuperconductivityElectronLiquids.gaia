@@ -5,7 +5,7 @@ limitations of traditional approaches to predicting superconducting Tc, motivati
 need for a first-principles treatment of the Coulomb pseudopotential.
 """
 
-from gaia.lang import claim, infer, question, setting
+from gaia.lang import claim, deduction, question, setting
 
 # ---------------------------------------------------------------------------
 # Settings — background frameworks
@@ -44,7 +44,7 @@ me_framework = claim(
     title="Migdal-Eliashberg Framework",
 )
 
-infer(
+deduction(
     premises=[adiabatic_approx],
     conclusion=me_framework,
     background=[bcs_theory],

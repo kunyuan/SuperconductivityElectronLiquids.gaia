@@ -6,7 +6,7 @@ Monte Carlo (vDiagMC), obtaining numerically exact values of mu at the Fermi
 energy scale, and confronting the RPA prediction of attractive mu*.
 """
 
-from gaia.lang import claim, contradiction, infer
+from gaia.lang import claim, contradiction, noisy_and
 
 from .motivation import bts_renormalization, rpa_predicts_attractive_mu
 from .s3_downfolding import mu_microscopic_definition
@@ -67,7 +67,7 @@ mu_vdiagmc_values = claim(
     title="mu from vDiagMC: Numerical Values",
 )
 
-infer(
+noisy_and(
     premises=[vdiagmc_method, homotopic_expansion],
     conclusion=mu_vdiagmc_values,
     background=[ueg_vertex_challenge, mu_microscopic_definition,

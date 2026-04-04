@@ -60,8 +60,10 @@ from .s4_pseudopotential import (
 # Section V: Electron-Phonon Coupling
 from .s5_eph_coupling import (
     dfpt_eph_ansatz,
+    dfpt_eph_ansatz,
     dfpt_reliable_for_simple_metals,
     eft_eph_vertex,
+    eft_vertex_matches_dfpt,
     gamma3_approximation,
     gamma3_vdiagmc,
     quasiparticle_mass_near_unity,

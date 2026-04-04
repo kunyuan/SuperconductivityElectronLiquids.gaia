@@ -5,7 +5,7 @@ the Bethe-Salpeter equation kernel decomposition, and the precursory Cooper flow
 that connects the normal-state four-point vertex to the superconducting Tc.
 """
 
-from gaia.lang import claim, infer
+from gaia.lang import claim, deduction
 
 from .motivation import me_framework
 
@@ -39,7 +39,7 @@ bse_kernel_decomposition = claim(
     title="BSE Kernel Decomposition",
 )
 
-infer(
+deduction(
     premises=[me_framework],
     conclusion=bse_kernel_decomposition,
     reason=(
