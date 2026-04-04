@@ -5,7 +5,7 @@ the first-principles predictions for Al, Zn, Li, Na, and Mg, and confronts
 them with experiment via abduction.
 """
 
-from gaia.lang import abduction, claim, noisy_and, setting
+from gaia.lang import abduction, claim, composite, deduction, noisy_and, setting
 
 from .motivation import (
     bts_renormalization,
@@ -109,29 +109,55 @@ ab_initio_workflow = claim(
     title="Ab Initio Tc Prediction Workflow",
 )
 
-noisy_and(
+# Intermediate claim: μ* available for simple metals
+mu_available_for_simple_metals = claim(
+    "For simple metals, the Coulomb pseudopotential $\\mu^*$ can be obtained "
+    "from first principles without adjustable parameters: the vDiagMC-computed "
+    "$\\mu_{E_F}(r_s)$ for the uniform electron gas is mapped to real materials "
+    "via material-specific $r_s$ and band mass, then scaled to the Debye "
+    "frequency via the BTS renormalization relation.",
+    title="mu* Available for Simple Metals",
+)
+
+_s1 = noisy_and(
+    premises=[ueg_pseudopotential_parameterization, mu_vdiagmc_values],
+    conclusion=mu_available_for_simple_metals,
+    background=[simple_metals_weak_lattice, bts_renormalization],
+    reason=(
+        "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG "
+        "(@mu_vdiagmc_values). The parameterization procedure "
+        "(@ueg_pseudopotential_parameterization) maps these to real materials "
+        "using material-specific $r_s$ and band mass, justified by the weak "
+        "lattice effects in simple metals (@simple_metals_weak_lattice). "
+        "The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down "
+        "to $\\mu^*$ at the Debye frequency."
+    ),
+)
+
+_s2 = deduction(
+    premises=[downfolded_bse, mu_available_for_simple_metals,
+              dfpt_reliable_for_simple_metals],
+    conclusion=ab_initio_workflow,
+    background=[precursory_cooper_flow],
+    reason=(
+        "The downfolded BSE (@downfolded_bse) provides the theoretical "
+        "equation requiring two microscopic inputs: $\\mu^*$ and $\\lambda$. "
+        "Both are now available from first principles — $\\mu^*$ from the "
+        "UEG parameterization (@mu_available_for_simple_metals) and $\\lambda$ "
+        "from validated DFPT (@dfpt_reliable_for_simple_metals). The "
+        "precursory Cooper flow (@precursory_cooper_flow) provides the method "
+        "to extract $T_c$ from normal-state calculations. With all components "
+        "determined, the workflow is complete and parameter-free."
+    ),
+)
+
+composite(
     premises=[downfolded_bse, mu_vdiagmc_values, dfpt_reliable_for_simple_metals,
-              precursory_cooper_flow, simple_metals_weak_lattice,
               ueg_pseudopotential_parameterization],
     conclusion=ab_initio_workflow,
-    background=[bts_renormalization],
-    reason=(
-        "The ab initio workflow assembles all previously established components "
-        "into a complete prediction pipeline. The downfolded BSE "
-        "(@downfolded_bse) provides the theoretical framework. "
-        "The Coulomb pseudopotential $\\mu_{E_F}$ is obtained from vDiagMC "
-        "(@mu_vdiagmc_values) and mapped to real materials via the "
-        "parameterization procedure (@ueg_pseudopotential_parameterization), "
-        "justified by the weak lattice effects in simple metals "
-        "(@simple_metals_weak_lattice). The BTS relation (@bts_renormalization) "
-        "runs $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale. The "
-        "electron-phonon coupling $\\lambda$ comes from DFPT, validated for "
-        "simple metals (@dfpt_reliable_for_simple_metals). Finally, the "
-        "precursory Cooper flow (@precursory_cooper_flow) provides an "
-        "alternative route to $T_c$ via normal-state extrapolation. Together, "
-        "these yield a fully first-principles prediction with no adjustable "
-        "parameters."
-    ),
+    sub_strategies=[_s1, _s2],
+    background=[precursory_cooper_flow, simple_metals_weak_lattice,
+                bts_renormalization],
 )
 
 # ---------------------------------------------------------------------------

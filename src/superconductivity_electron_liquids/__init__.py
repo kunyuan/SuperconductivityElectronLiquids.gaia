@@ -74,6 +74,7 @@ from .s5_eph_coupling import (
 from .s6_superconductors import (
     ab_initio_workflow,
     al_pressure_transition,
+    mu_available_for_simple_metals,
     aluminum_parameters,
     lithium_parameters,
     magnesium_parameters,
