@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:d1d1e49feada25f9272827cb1b093d30d16a87b4e70c9a2ecfd0b920bdbb755e",
+  "ir_hash": "sha256:888cec16c1a12b96bbf4a7894653320063423c9ff2a2e371ceb5de464b6a7ffb",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) 理论将传统超导解释为声子交换介导的电子 Cooper 配对所产生的宏观量子态。该理论需要输入净有效电子-电子相互作用强度，即声子介导的吸引耦合与屏蔽 Coulomb 排斥之间的平衡。",
@@ -104,8 +104,8 @@
       "type": "claim"
     },
     {
-      "content": "在 downfolding 过程中，Coulomb 通道和声子通道之间的交叉耦合项（$\\tilde{\\Gamma}^e \\cdot \\varphi \\cdot W^{ph}$）被等离激元频率压制，量级为 $\\omega_c^2 / \\omega_p^2$。对于金属密度 $r_s \\geq 1$，该比值约为 0.1 或更小，保证了两个通道可独立处理。此压制依赖于动态屏蔽 Coulomb 相互作用在高频的渐近行为 $W^s \\propto (\\omega - \\omega')^2 / [(\\omega - \\omega')^2 + \\omega_p^2]$。",
-      "content_hash": "6a1d37741212cac5de04cf5a637758ddad32798426d918f0fe22792ca64da0b0",
+      "content": "在 downfolding 过程中，Coulomb 通道和声子通道之间的交叉耦合项（$\\tilde{\\Gamma}^e \\cdot \\varphi \\cdot W^{ph}$）被等离激元频率压制，量级为 $\\omega_c^2 / \\omega_p^2$。对于金属密度 $r_s \\geq 1$，$\\omega_c / \\omega_p \\lesssim 0.1$，故 $\\omega_c^2 / \\omega_p^2 \\lesssim 0.01$，保证了两个通道可独立处理。此压制依赖于动态屏蔽 Coulomb 相互作用在高频的渐近行为 $W^s \\propto (\\omega - \\omega')^2 / [(\\omega - \\omega')^2 + \\omega_p^2]$。",
+      "content_hash": "1ac02b55e2f45bcaadd69406046cbb7e34958cbf12648385aa08eaab76d6352b",
       "id": "github:superconductivity_electron_liquids::cross_term_suppressed",
       "label": "cross_term_suppressed",
       "parameters": [],
@@ -302,32 +302,32 @@
       "type": "claim"
     },
     {
-      "content": "铝（Al）的材料参数：Wigner-Seitz 半径 $r_s = 2.07$，Debye 温度 $\\Theta_D = 428$ K，实验超导转变温度 $T_c^{exp} = 1.175$ K。",
-      "content_hash": "ead9f2528e869147813edc49c1e8da19a7dbe1f8b334d947e2b70a1d9cf1f521",
+      "content": "铝（Al）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 2.07$，对数平均声子频率 $\\omega_{\\mathrm{log}} = 320$ K，电子-声子耦合 $\\lambda = 0.44$，实验超导转变温度 $T_c^{\\mathrm{exp}} = 1.2$ K。",
+      "content_hash": "aa7f4987bc8653a17efed8ab13e3601714f9fd6f4619db84b4650ee47387cb62",
       "id": "github:superconductivity_electron_liquids::aluminum_parameters",
       "label": "aluminum_parameters",
       "parameters": [],
       "type": "setting"
     },
     {
-      "content": "锂（Li）的材料参数：Wigner-Seitz 半径 $r_s = 3.25$，Debye 温度 $\\Theta_D = 344$ K，实验超导转变温度 $T_c^{exp} \\approx 0.4$ K。",
-      "content_hash": "06805fd41b364c437c28c8b0002114e5e6278047b5a39d790316e498a7c8dfa6",
+      "content": "锂（Li, 9R 结构）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 3.25$，对数平均声子频率 $\\omega_{\\mathrm{log}} = 242$ K，电子-声子耦合 $\\lambda = 0.34$，实验超导转变温度 $T_c^{\\mathrm{exp}} = 4 \\times 10^{-4}$ K（0.4 mK）。",
+      "content_hash": "657cadf154706f561f7fb933889127de9b003b2b61f90c059e3d52de12cbe876",
       "id": "github:superconductivity_electron_liquids::lithium_parameters",
       "label": "lithium_parameters",
       "parameters": [],
       "type": "setting"
     },
     {
-      "content": "镁（Mg）的材料参数：Wigner-Seitz 半径 $r_s = 2.66$，Debye 温度 $\\Theta_D = 400$ K，实验上未观测到超导转变。",
-      "content_hash": "537d2795f82782ab3d44deb2909dba605ba933ba4f832b7769c554bdf58889ae",
+      "content": "镁（Mg）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 2.66$，对数平均声子频率 $\\omega_{\\mathrm{log}} = 269$ K，电子-声子耦合 $\\lambda = 0.24$，实验上未观测到超导转变。",
+      "content_hash": "c46cb450b6615b413d59d43ee9307357c85a0d8dff5d1abde5f239c3a162bb97",
       "id": "github:superconductivity_electron_liquids::magnesium_parameters",
       "label": "magnesium_parameters",
       "parameters": [],
       "type": "setting"
     },
     {
-      "content": "钠（Na）的材料参数：Wigner-Seitz 半径 $r_s = 3.93$，Debye 温度 $\\Theta_D = 158$ K，实验上未观测到超导转变。",
-      "content_hash": "f8770136b15ac9900c6a6bd0e14fe02c3555ef8436e9063378256373bda63095",
+      "content": "钠（Na）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 3.96$，对数平均声子频率 $\\omega_{\\mathrm{log}} = 127$ K，电子-声子耦合 $\\lambda = 0.2$，实验上未观测到超导转变。",
+      "content_hash": "f928f075a1c8f95c10aa4e1f3c05ea024f945a59161ed2e430a0a648d5bea368",
       "id": "github:superconductivity_electron_liquids::sodium_parameters",
       "label": "sodium_parameters",
       "parameters": [],
@@ -348,10 +348,10 @@
       "type": "claim"
     },
     {
-      "content": "第一性原理预测铝的超导转变温度为 $T_c = 1.31$ K，实验值为 1.175 K。此前 Migdal-Eliashberg 理论使用经验 $\\mu^*$ 预测约 2.4 K，偏高约两倍。新框架将理论-实验偏差从约 100% 缩小到约 11%。",
-      "content_hash": "57e894fb222f59c7bb7c3fd3beedaa2480920b2ab0760c997341ffaa68eb3f38",
-      "id": "github:superconductivity_electron_liquids::tc_aluminum",
-      "label": "tc_aluminum",
+      "content": "第一性原理工作流预测铝的超导转变温度为 $T_c^{\\mathrm{EFT}} = 0.96$ K（Table II），与实验值 $T_c^{\\mathrm{exp}} = 1.2$ K 偏差约 20%。",
+      "content_hash": "b457f735c22a265f789e3d5661aa868c55ad8503f528401bf6e583e385945bbf",
+      "id": "github:superconductivity_electron_liquids::tc_al_predicted",
+      "label": "tc_al_predicted",
       "parameters": [],
       "provenance": [
         {
@@ -362,10 +362,10 @@
       "type": "claim"
     },
     {
-      "content": "第一性原理预测锂的超导转变温度为 $T_c = 0.38$ K，实验值约为 0.4–0.5 K。此前理论使用经验 $\\mu^*$ 的预测值偏高了三个数量级。这一长期存在的巨大偏差在新框架下得到解决，是该方法预测能力最戏剧性的展示。",
-      "content_hash": "d2877441052f1fb4e5b8e7a5ec1ea8e3d8a3f31774681ad342fbc2f364d73626",
-      "id": "github:superconductivity_electron_liquids::tc_lithium",
-      "label": "tc_lithium",
+      "content": "使用传统 McMillan 公式和标准 $\\mu^* = 0.1$ 预测铝的超导转变温度为 $T_c^{\\mu\\mathrm{MA}} = 1.9$ K（Table II），相对实验值 1.2 K 偏高约 58%。与第一性原理预测的 0.96 K（偏差 20%）相比，传统方法对铝的预测精度较低。",
+      "content_hash": "13d7f0bbce36555354ae04f65a89ee942b6778a347beff5389c3301d2d7a5b4b",
+      "id": "github:superconductivity_electron_liquids::tc_al_phenomenological",
+      "label": "tc_al_phenomenological",
       "parameters": [],
       "provenance": [
         {
@@ -376,8 +376,36 @@
       "type": "claim"
     },
     {
-      "content": "第一性原理计算预测镁和钠处于正常态-超导态量子相变的临界点附近，其 $T_c$ 极低（低于 10 K 区间）。这使它们成为研究超导量子临界标度行为的候选材料。",
-      "content_hash": "b05c13e59c6ce0c5ba10c09ac09b74cf049b308ba073412b06e21bd34dc8e038",
+      "content": "第一性原理工作流预测锂（9R 结构）的超导转变温度为 $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K（Table II），比实验值 $T_c^{\\mathrm{exp}} = 4 \\times 10^{-4}$ K 高约一个数量级，部分原因在于极低温下锂晶体结构的争议。",
+      "content_hash": "35116efc10cc28e35f9881a9ddf177153b0a3f817a3a45c8448b3425b90ff192",
+      "id": "github:superconductivity_electron_liquids::tc_li_predicted",
+      "label": "tc_li_predicted",
+      "parameters": [],
+      "provenance": [
+        {
+          "package_id": "paper:2512.19382",
+          "version": "2024"
+        }
+      ],
+      "type": "claim"
+    },
+    {
+      "content": "使用传统 McMillan 公式和标准 $\\mu^* = 0.1$ 预测锂（9R 结构）的超导转变温度为 $T_c^{\\mu\\mathrm{MA}} = 0.35$ K（Table II），相对实验值 $4 \\times 10^{-4}$ K 偏高约三个数量级。第一性原理预测的 $5 \\times 10^{-3}$ K 虽仍偏高一个数量级，但较传统方法改善了两个数量级。",
+      "content_hash": "3f6eb5a6c703a9ea2b9b5026951d8cbd010cb9f9c6a3519e6fa7be08eebf752a",
+      "id": "github:superconductivity_electron_liquids::tc_li_phenomenological",
+      "label": "tc_li_phenomenological",
+      "parameters": [],
+      "provenance": [
+        {
+          "package_id": "paper:2512.19382",
+          "version": "2024"
+        }
+      ],
+      "type": "claim"
+    },
+    {
+      "content": "第一性原理计算预测镁的 $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K、钠的 $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K（Table II），远低于当前实验探测能力。两者均处于正常态-超导态量子相变的临界点附近，配对场磁化率在 10 K 以下展现量子临界标度 $\\chi \\sim \\ln(T)$，无需精细调控参数。",
+      "content_hash": "8cf1b4797672a6cd0a90597cdd5885971b9a3974af4671ed101edc576a097602",
       "id": "github:superconductivity_electron_liquids::tc_mg_na_near_qpt",
       "label": "tc_mg_na_near_qpt",
       "parameters": [],
@@ -404,8 +432,8 @@
       "type": "claim"
     },
     {
-      "content": "与基于唯象 $\\mu^*$ 的传统方法相比，该第一性原理框架对亚开尔文超导体的 $T_c$ 预测实现了数量级的改进。改进的根本原因是用变分图形蒙特卡洛方法精确计算的 $\\mu_{E_F}$ 替代了拟合参数，消除了 $\\mu^*$ 微小变化导致 $T_c$ 数量级变化的不稳定性。",
-      "content_hash": "8bac23ba6f5b87287fab4483019e9adfcb948d646ae12d1ca65bf7b7cff40aa2",
+      "content": "与基于唯象 $\\mu^* = 0.1$ 的 McMillan 公式相比，第一性原理框架对亚开尔文超导体的 $T_c$ 预测实现了数量级的改进：铝从偏差 58% 缩小到 20%，锂从偏差三个数量级缩小到一个数量级。改进的根本原因是用变分图形蒙特卡洛方法精确计算的 $\\mu_{E_F}$ 替代了拟合参数。对于 $\\mu^*$ 微小变化导致 $T_c$ 数量级变化的低温超导体，精确的 $\\mu^*$ 值尤为关键。",
+      "content_hash": "e2aa289af364a3e94fd10b7ead2a70908483ad87c908cadb732afeb17b71763a",
       "id": "github:superconductivity_electron_liquids::tc_improvement_over_phenomenological",
       "label": "tc_improvement_over_phenomenological",
       "parameters": [],
@@ -424,6 +452,44 @@
       "label": "mu_rpa_vdiagmc_contradiction",
       "metadata": {
         "helper_kind": "contradiction_result"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "all_true(github:superconductivity_electron_liquids::pair_propagator_decomposition,github:superconductivity_electron_liquids::cross_term_suppressed,github:superconductivity_electron_liquids::adiabatic_approx)",
+      "content_hash": "8347fe63f3d6f2e8e14efd05596e82349d651815ce27c27b2d6c36e9f39213d2",
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_6c3014f7",
+      "label": "__conjunction_result_6c3014f7",
+      "metadata": {
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::pair_propagator_decomposition,github:superconductivity_electron_liquids::cross_term_suppressed,github:superconductivity_electron_liquids::adiabatic_approx)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "conjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "conjunction_result",
+        "owning_strategy_id": "lcs_4ef703432e982006",
+        "owning_strategy_type": "deduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "all_true(github:superconductivity_electron_liquids::bse_kernel_decomposition,github:superconductivity_electron_liquids::electron_phonon_action,github:superconductivity_electron_liquids::adiabatic_approx)",
+      "content_hash": "862adfb038eb5c854b4d533f5444cc389dbd71fd94f73faf7063e8b35c72a1da",
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_196e1d62",
+      "label": "__conjunction_result_196e1d62",
+      "metadata": {
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::bse_kernel_decomposition,github:superconductivity_electron_liquids::electron_phonon_action,github:superconductivity_electron_liquids::adiabatic_approx)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "conjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "conjunction_result",
+        "owning_strategy_id": "lcs_05ff6a7fc7d574bb",
+        "owning_strategy_type": "deduction",
+        "visibility": "formal_internal"
       },
       "parameters": [],
       "type": "claim"
@@ -507,24 +573,24 @@
       "background": [
         "github:superconductivity_electron_liquids::aluminum_parameters"
       ],
-      "conclusion": "github:superconductivity_electron_liquids::tc_aluminum",
+      "conclusion": "github:superconductivity_electron_liquids::tc_al_predicted",
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_2efc9b0bc1a405a9",
+      "strategy_id": "lcs_60db1a5c2094b4c0",
       "type": "noisy_and"
     },
     {
       "background": [
         "github:superconductivity_electron_liquids::lithium_parameters"
       ],
-      "conclusion": "github:superconductivity_electron_liquids::tc_lithium",
+      "conclusion": "github:superconductivity_electron_liquids::tc_li_predicted",
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_2f684de4760395f9",
+      "strategy_id": "lcs_a0804d50857edd40",
       "type": "noisy_and"
     },
     {
@@ -554,8 +620,30 @@
     },
     {
       "conclusion": "github:superconductivity_electron_liquids::downfolded_bse",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_6c3014f7",
+            "operator": "conjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::pair_propagator_decomposition",
+              "github:superconductivity_electron_liquids::cross_term_suppressed",
+              "github:superconductivity_electron_liquids::adiabatic_approx"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::downfolded_bse",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::__conjunction_result_6c3014f7"
+            ]
+          }
+        ]
+      },
       "metadata": {
-        "reason": "从配对传播子分解和交叉项压制推导出 downfolded BSE"
+        "formalization_template": "deduction",
+        "generated_formal_expr": true,
+        "reason": "配对传播子的相干/非相干分解提供了降标的数学基础，交叉项被 $\\omega_c^2/\\omega_p^2$ 压制保证了 Coulomb 和声子通道可独立处理，两者结合在绝热近似下严格推导出仅依赖频率的 Fermi 面 BSE。"
       },
       "premises": [
         "github:superconductivity_electron_liquids::pair_propagator_decomposition",
@@ -563,23 +651,35 @@
         "github:superconductivity_electron_liquids::adiabatic_approx"
       ],
       "scope": "local",
-      "steps": [
-        {
-          "conclusion": "github:superconductivity_electron_liquids::downfolded_bse",
-          "premises": [
-            "github:superconductivity_electron_liquids::pair_propagator_decomposition",
-            "github:superconductivity_electron_liquids::cross_term_suppressed"
-          ],
-          "reasoning": "配对传播子的相干/非相干分解提供了降标的数学基础，交叉项被 $\\omega_c^2/\\omega_p^2$ 压制保证了 Coulomb 和声子通道可独立处理，两者结合推导出仅依赖频率的 Fermi 面 BSE。"
-        }
-      ],
-      "strategy_id": "lcs_e6db49f804fe608c",
-      "type": "noisy_and"
+      "strategy_id": "lcs_4ef703432e982006",
+      "type": "deduction"
     },
     {
       "conclusion": "github:superconductivity_electron_liquids::precursory_cooper_flow",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_196e1d62",
+            "operator": "conjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::bse_kernel_decomposition",
+              "github:superconductivity_electron_liquids::electron_phonon_action",
+              "github:superconductivity_electron_liquids::adiabatic_approx"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::precursory_cooper_flow",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::__conjunction_result_196e1d62"
+            ]
+          }
+        ]
+      },
       "metadata": {
-        "reason": "从作用量分解、BSE 核分解和绝热近似推导出前驱 Cooper 流标度律"
+        "formalization_template": "deduction",
+        "generated_formal_expr": true,
+        "reason": "作用量的严格分解保证了电子-声子耦合的正确处理，BSE 积分核的 Coulomb/声子分离在绝热近似下成立，由此严格推导出反常顶点函数的普适对数标度律。"
       },
       "premises": [
         "github:superconductivity_electron_liquids::bse_kernel_decomposition",
@@ -587,24 +687,17 @@
         "github:superconductivity_electron_liquids::adiabatic_approx"
       ],
       "scope": "local",
-      "steps": [
-        {
-          "conclusion": "github:superconductivity_electron_liquids::precursory_cooper_flow",
-          "premises": [
-            "github:superconductivity_electron_liquids::bse_kernel_decomposition",
-            "github:superconductivity_electron_liquids::electron_phonon_action",
-            "github:superconductivity_electron_liquids::adiabatic_approx"
-          ],
-          "reasoning": "作用量的严格分解保证了电子-声子耦合的正确处理，BSE 积分核的 Coulomb/声子分离在绝热近似下成立，由此推导出反常顶点函数的普适对数标度律。"
-        }
-      ],
-      "strategy_id": "lcs_5a80c1bb28ae2e5f",
-      "type": "noisy_and"
+      "strategy_id": "lcs_05ff6a7fc7d574bb",
+      "type": "deduction"
     },
     {
+      "background": [
+        "github:superconductivity_electron_liquids::electron_gas_model",
+        "github:superconductivity_electron_liquids::pseudopotential_scale_relation"
+      ],
       "conclusion": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
       "metadata": {
-        "reason": "三项方法论进展共同支撑 μ 值的精确计算"
+        "reason": "在均匀电子气上用 VDiagMC 计算四点顶点函数，同伦展开解决低温收敛问题，BTS 标度关系保证尺度一致性，共同得到 $\\mu_{E_F}$ 的精确值。"
       },
       "premises": [
         "github:superconductivity_electron_liquids::vdiagmc_method",
@@ -612,24 +705,13 @@
         "github:superconductivity_electron_liquids::ueg_vertex_challenge"
       ],
       "scope": "local",
-      "steps": [
-        {
-          "conclusion": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
-          "premises": [
-            "github:superconductivity_electron_liquids::vdiagmc_method",
-            "github:superconductivity_electron_liquids::homotopic_expansion",
-            "github:superconductivity_electron_liquids::ueg_vertex_challenge"
-          ],
-          "reasoning": "传统方法无法计算 $r_s > 1$ 的顶点函数（ueg_vertex_challenge），变分图形蒙特卡洛方法提供了计算能力（vdiagmc_method），同伦展开解决了低温收敛问题（homotopic_expansion），三者共同使得 $\\mu_{E_F}$ 的精确计算成为可能。"
-        }
-      ],
       "strategy_id": "lcs_b38d74dd4dd0c503",
       "type": "noisy_and"
     },
     {
       "conclusion": "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals",
       "metadata": {
-        "reason": "大修正互相抵消 + 数值验证 → DFPT 可靠"
+        "reason": "各项多体修正单独很大，但在有效耦合中几乎精确抵消，并通过 VDiagMC 的逐点数值验证确认 → DFPT 对简单金属可靠。"
       },
       "premises": [
         "github:superconductivity_electron_liquids::individual_corrections_large",
@@ -637,24 +719,16 @@
         "github:superconductivity_electron_liquids::dfpt_validated_numerically"
       ],
       "scope": "local",
-      "steps": [
-        {
-          "conclusion": "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals",
-          "premises": [
-            "github:superconductivity_electron_liquids::individual_corrections_large",
-            "github:superconductivity_electron_liquids::corrections_cancel",
-            "github:superconductivity_electron_liquids::dfpt_validated_numerically"
-          ],
-          "reasoning": "观察到各项多体修正单独很大（individual_corrections_large），但在有效耦合中几乎精确抵消（corrections_cancel），并通过变分图形蒙特卡洛方法的逐点数值验证确认了这一抵消（dfpt_validated_numerically），从而演绎出 DFPT 对简单金属给出可靠的电子-声子耦合。"
-        }
-      ],
       "strategy_id": "lcs_4dedc28fdb93fa38",
       "type": "noisy_and"
     },
     {
+      "background": [
+        "github:superconductivity_electron_liquids::downfolding_validated"
+      ],
       "conclusion": "github:superconductivity_electron_liquids::ab_initio_workflow",
       "metadata": {
-        "reason": "三个独立组件集成为完整的第一性原理工作流"
+        "reason": "精确 $\\mu^*$ + 可靠 $\\lambda$ + PCF 方法 → 无可调参数的第一性原理工作流。"
       },
       "premises": [
         "github:superconductivity_electron_liquids::mu_vdiagmc_values",
@@ -662,41 +736,24 @@
         "github:superconductivity_electron_liquids::precursory_cooper_flow"
       ],
       "scope": "local",
-      "steps": [
-        {
-          "conclusion": "github:superconductivity_electron_liquids::ab_initio_workflow",
-          "premises": [
-            "github:superconductivity_electron_liquids::mu_vdiagmc_values",
-            "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals",
-            "github:superconductivity_electron_liquids::precursory_cooper_flow"
-          ],
-          "reasoning": "变分图形蒙特卡洛方法提供精确的 $\\mu^*$，DFPT 提供可靠的电子-声子耦合 $\\lambda$，前驱 Cooper 流提供高效的 $T_c$ 确定方法，三个独立验证的组件组合成无可调参数的第一性原理工作流。"
-        }
-      ],
       "strategy_id": "lcs_ba56929e30893863",
       "type": "noisy_and"
     },
     {
+      "background": [
+        "github:superconductivity_electron_liquids::tc_al_phenomenological",
+        "github:superconductivity_electron_liquids::tc_li_phenomenological"
+      ],
       "conclusion": "github:superconductivity_electron_liquids::tc_improvement_over_phenomenological",
       "metadata": {
-        "reason": "两个实验验证共同支撑总结论"
+        "reason": "铝（偏差 58%→20%）和锂（偏差 3 个数量级→1 个数量级）两个案例共同支撑总结论。"
       },
       "premises": [
-        "github:superconductivity_electron_liquids::tc_aluminum",
-        "github:superconductivity_electron_liquids::tc_lithium"
+        "github:superconductivity_electron_liquids::tc_al_predicted",
+        "github:superconductivity_electron_liquids::tc_li_predicted"
       ],
       "scope": "local",
-      "steps": [
-        {
-          "conclusion": "github:superconductivity_electron_liquids::tc_improvement_over_phenomenological",
-          "premises": [
-            "github:superconductivity_electron_liquids::tc_aluminum",
-            "github:superconductivity_electron_liquids::tc_lithium"
-          ],
-          "reasoning": "铝的预测将偏差从 100% 缩小到 11%，锂的预测解决了三个数量级的偏差，两个具体案例共同支撑了该框架相对唯象方法的数量级改进这一总结论。"
-        }
-      ],
-      "strategy_id": "lcs_4710ff0d613287ee",
+      "strategy_id": "lcs_b8dd0dd4a23335d4",
       "type": "noisy_and"
     },
     {
@@ -732,18 +789,13 @@
             "github:superconductivity_electron_liquids::corrections_cancel"
           ]
         },
-        "reason": "解释为什么 DFPT 修正量互相抵消"
+        "reason": "各项修正的近精确抵消不是数值巧合，而是 Ward 恒等式约束多体修正在物理可观测量中组合方式的必然结果。"
       },
       "premises": [
         "github:superconductivity_electron_liquids::corrections_cancel",
         "github:superconductivity_electron_liquids::__alternative_explanation_4069f2b3"
       ],
       "scope": "local",
-      "steps": [
-        {
-          "reasoning": "各项修正的近精确抵消不是数值巧合，而是反映了守恒律（Ward 恒等式）对多体修正在物理可观测量中组合方式的约束。"
-        }
-      ],
       "strategy_id": "lcs_638cfbb0499850d7",
       "type": "abduction"
     }

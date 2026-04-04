@@ -13,6 +13,9 @@ dependencies = []
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/superconductivity_electron_liquids"]
+
 [tool.gaia]
 type = "knowledge-package"
 uuid = "630d53a1-77e0-4ee5-bd2d-ca586926c43a"

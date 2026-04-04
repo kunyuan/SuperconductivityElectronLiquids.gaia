@@ -10,9 +10,9 @@ from gaia.lang import (
     claim,
     setting,
     question,
+    deduction,
     noisy_and,
     contradiction,
-    # deduction,  # has bug, use noisy_and instead
     abduction,
 )
 
@@ -121,7 +121,9 @@ cross_term_suppressed = claim(
     "在 downfolding 过程中，Coulomb 通道和声子通道之间的交叉耦合项"
     "（$\\tilde{\\Gamma}^e \\cdot \\varphi \\cdot W^{ph}$）被等离激元"
     "频率压制，量级为 $\\omega_c^2 / \\omega_p^2$。对于金属密度 "
-    "$r_s \\geq 1$，该比值约为 0.1 或更小，保证了两个通道可独立处理。"
+    "$r_s \\geq 1$，$\\omega_c / \\omega_p \\lesssim 0.1$，"
+    "故 $\\omega_c^2 / \\omega_p^2 \\lesssim 0.01$，"
+    "保证了两个通道可独立处理。"
     "此压制依赖于动态屏蔽 Coulomb 相互作用在高频的渐近行为 "
     "$W^s \\propto (\\omega - \\omega')^2 / [(\\omega - \\omega')^2 + \\omega_p^2]$。",
     provenance=PROVENANCE,
@@ -276,25 +278,29 @@ ward_identity_hypothesis = claim(
 # ── 材料参数（Settings）──
 
 aluminum_parameters = setting(
-    "铝（Al）的材料参数：Wigner-Seitz 半径 $r_s = 2.07$，"
-    "Debye 温度 $\\Theta_D = 428$ K，"
-    "实验超导转变温度 $T_c^{exp} = 1.175$ K。"
+    "铝（Al）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 2.07$，"
+    "对数平均声子频率 $\\omega_{\\mathrm{log}} = 320$ K，"
+    "电子-声子耦合 $\\lambda = 0.44$，"
+    "实验超导转变温度 $T_c^{\\mathrm{exp}} = 1.2$ K。"
 )
 
 lithium_parameters = setting(
-    "锂（Li）的材料参数：Wigner-Seitz 半径 $r_s = 3.25$，"
-    "Debye 温度 $\\Theta_D = 344$ K，"
-    "实验超导转变温度 $T_c^{exp} \\approx 0.4$ K。"
+    "锂（Li, 9R 结构）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 3.25$，"
+    "对数平均声子频率 $\\omega_{\\mathrm{log}} = 242$ K，"
+    "电子-声子耦合 $\\lambda = 0.34$，"
+    "实验超导转变温度 $T_c^{\\mathrm{exp}} = 4 \\times 10^{-4}$ K（0.4 mK）。"
 )
 
 magnesium_parameters = setting(
-    "镁（Mg）的材料参数：Wigner-Seitz 半径 $r_s = 2.66$，"
-    "Debye 温度 $\\Theta_D = 400$ K，实验上未观测到超导转变。"
+    "镁（Mg）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 2.66$，"
+    "对数平均声子频率 $\\omega_{\\mathrm{log}} = 269$ K，"
+    "电子-声子耦合 $\\lambda = 0.24$，实验上未观测到超导转变。"
 )
 
 sodium_parameters = setting(
-    "钠（Na）的材料参数：Wigner-Seitz 半径 $r_s = 3.93$，"
-    "Debye 温度 $\\Theta_D = 158$ K，实验上未观测到超导转变。"
+    "钠（Na）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 3.96$，"
+    "对数平均声子频率 $\\omega_{\\mathrm{log}} = 127$ K，"
+    "电子-声子耦合 $\\lambda = 0.2$，实验上未观测到超导转变。"
 )
 
 # ── VI.1 工作流 ──
@@ -312,29 +318,49 @@ ab_initio_workflow = claim(
 
 # ── VI.2 Tc 预测 ──
 
-tc_aluminum = claim(
-    "第一性原理预测铝的超导转变温度为 $T_c = 1.31$ K，实验值为 1.175 K。"
-    "此前 Migdal-Eliashberg 理论使用经验 $\\mu^*$ 预测约 2.4 K，"
-    "偏高约两倍。新框架将理论-实验偏差从约 100% 缩小到约 11%。",
+tc_al_predicted = claim(
+    "第一性原理工作流预测铝的超导转变温度为 $T_c^{\\mathrm{EFT}} = 0.96$ K"
+    "（Table II），与实验值 $T_c^{\\mathrm{exp}} = 1.2$ K 偏差约 20%。",
     given=[ab_initio_workflow],
     background=[aluminum_parameters],
     provenance=PROVENANCE,
 )
 
-tc_lithium = claim(
-    "第一性原理预测锂的超导转变温度为 $T_c = 0.38$ K，"
-    "实验值约为 0.4–0.5 K。此前理论使用经验 $\\mu^*$ 的预测值偏高了"
-    "三个数量级。这一长期存在的巨大偏差在新框架下得到解决，"
-    "是该方法预测能力最戏剧性的展示。",
+tc_al_phenomenological = claim(
+    "使用传统 McMillan 公式和标准 $\\mu^* = 0.1$ 预测铝的超导转变温度为 "
+    "$T_c^{\\mu\\mathrm{MA}} = 1.9$ K（Table II），相对实验值 1.2 K 偏高约 "
+    "58%。与第一性原理预测的 0.96 K（偏差 20%）相比，传统方法对铝的"
+    "预测精度较低。",
+    background=[aluminum_parameters],
+    provenance=PROVENANCE,
+)
+
+tc_li_predicted = claim(
+    "第一性原理工作流预测锂（9R 结构）的超导转变温度为 "
+    "$T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K（Table II），"
+    "比实验值 $T_c^{\\mathrm{exp}} = 4 \\times 10^{-4}$ K 高约一个数量级，"
+    "部分原因在于极低温下锂晶体结构的争议。",
     given=[ab_initio_workflow],
     background=[lithium_parameters],
     provenance=PROVENANCE,
 )
 
+tc_li_phenomenological = claim(
+    "使用传统 McMillan 公式和标准 $\\mu^* = 0.1$ 预测锂（9R 结构）的"
+    "超导转变温度为 $T_c^{\\mu\\mathrm{MA}} = 0.35$ K（Table II），"
+    "相对实验值 $4 \\times 10^{-4}$ K 偏高约三个数量级。"
+    "第一性原理预测的 $5 \\times 10^{-3}$ K 虽仍偏高一个数量级，"
+    "但较传统方法改善了两个数量级。",
+    background=[lithium_parameters],
+    provenance=PROVENANCE,
+)
+
 tc_mg_na_near_qpt = claim(
-    "第一性原理计算预测镁和钠处于正常态-超导态量子相变的临界点附近，"
-    "其 $T_c$ 极低（低于 10 K 区间）。这使它们成为研究超导量子临界"
-    "标度行为的候选材料。",
+    "第一性原理计算预测镁的 $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K、"
+    "钠的 $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K（Table II），"
+    "远低于当前实验探测能力。两者均处于正常态-超导态量子相变的临界点附近，"
+    "配对场磁化率在 10 K 以下展现量子临界标度 $\\chi \\sim \\ln(T)$，"
+    "无需精细调控参数。",
     given=[ab_initio_workflow],
     background=[magnesium_parameters, sodium_parameters],
     provenance=PROVENANCE,
@@ -349,10 +375,12 @@ al_pressure_transition = claim(
 )
 
 tc_improvement_over_phenomenological = claim(
-    "与基于唯象 $\\mu^*$ 的传统方法相比，该第一性原理框架对亚开尔文"
-    "超导体的 $T_c$ 预测实现了数量级的改进。改进的根本原因是用变分"
-    "图形蒙特卡洛方法精确计算的 $\\mu_{E_F}$ 替代了拟合参数，消除了 "
-    "$\\mu^*$ 微小变化导致 $T_c$ 数量级变化的不稳定性。",
+    "与基于唯象 $\\mu^* = 0.1$ 的 McMillan 公式相比，第一性原理框架"
+    "对亚开尔文超导体的 $T_c$ 预测实现了数量级的改进："
+    "铝从偏差 58% 缩小到 20%，锂从偏差三个数量级缩小到一个数量级。"
+    "改进的根本原因是用变分图形蒙特卡洛方法精确计算的 $\\mu_{E_F}$ "
+    "替代了拟合参数。对于 $\\mu^*$ 微小变化导致 $T_c$ 数量级变化的"
+    "低温超导体，精确的 $\\mu^*$ 值尤为关键。",
     provenance=PROVENANCE,
 )
 
@@ -363,66 +391,47 @@ tc_improvement_over_phenomenological = claim(
 # ── 第零层：Section III 内部推理 ──
 
 # pair_propagator_decomposition + cross_term_suppressed → downfolded_bse
-derive_downfolded_bse = noisy_and(
+derive_downfolded_bse = deduction(
     premises=[pair_propagator_decomposition, cross_term_suppressed, adiabatic_approx],
     conclusion=downfolded_bse,
-    steps=[{
-        "reasoning": "配对传播子的相干/非相干分解提供了降标的数学基础，"
-        "交叉项被 $\\omega_c^2/\\omega_p^2$ 压制保证了 Coulomb 和声子通道"
-        "可独立处理，两者结合推导出仅依赖频率的 Fermi 面 BSE。",
-        "premises": [pair_propagator_decomposition, cross_term_suppressed],
-        "conclusion": downfolded_bse,
-    }],
-    reason="从配对传播子分解和交叉项压制推导出 downfolded BSE",
+    reason="配对传播子的相干/非相干分解提供了降标的数学基础，"
+    "交叉项被 $\\omega_c^2/\\omega_p^2$ 压制保证了 Coulomb 和声子通道"
+    "可独立处理，两者结合在绝热近似下严格推导出仅依赖频率的 Fermi 面 BSE。",
 )
 
 # ── 第零层：Section II → precursory_cooper_flow ──
 
-derive_pcf = noisy_and(
+derive_pcf = deduction(
     premises=[bse_kernel_decomposition, electron_phonon_action, adiabatic_approx],
     conclusion=precursory_cooper_flow,
-    steps=[{
-        "reasoning": "作用量的严格分解保证了电子-声子耦合的正确处理，"
-        "BSE 积分核的 Coulomb/声子分离在绝热近似下成立，"
-        "由此推导出反常顶点函数的普适对数标度律。",
-        "premises": [bse_kernel_decomposition, electron_phonon_action, adiabatic_approx],
-        "conclusion": precursory_cooper_flow,
-    }],
-    reason="从作用量分解、BSE 核分解和绝热近似推导出前驱 Cooper 流标度律",
+    reason="作用量的严格分解保证了电子-声子耦合的正确处理，"
+    "BSE 积分核的 Coulomb/声子分离在绝热近似下成立，"
+    "由此严格推导出反常顶点函数的普适对数标度律。",
 )
 
 # ── 第一层：三个工作流组件的来源 ──
 
 # vdiagmc_method + homotopic_expansion + ueg_vertex_challenge → mu_vdiagmc_values
+# electron_gas_model, pseudopotential_scale_relation 共享背景（BP 暂不支持共享前提语义）
 derive_mu_values = noisy_and(
     premises=[vdiagmc_method, homotopic_expansion, ueg_vertex_challenge],
     conclusion=mu_vdiagmc_values,
-    steps=[{
-        "reasoning": "传统方法无法计算 $r_s > 1$ 的顶点函数"
-        "（ueg_vertex_challenge），变分图形蒙特卡洛方法提供了计算能力"
-        "（vdiagmc_method），同伦展开解决了低温收敛问题"
-        "（homotopic_expansion），三者共同使得 $\\mu_{E_F}$ 的精确计算成为可能。",
-        "premises": [vdiagmc_method, homotopic_expansion, ueg_vertex_challenge],
-        "conclusion": mu_vdiagmc_values,
-    }],
-    reason="三项方法论进展共同支撑 μ 值的精确计算",
+    background=[electron_gas_model, pseudopotential_scale_relation],
+    reason="在均匀电子气上用 VDiagMC 计算四点顶点函数，"
+    "同伦展开解决低温收敛问题，BTS 标度关系保证尺度一致性，"
+    "共同得到 $\\mu_{E_F}$ 的精确值。",
 )
 
 # individual_corrections_large + corrections_cancel + dfpt_validated_numerically
 #   → dfpt_reliable_for_simple_metals
+# 注：vdiagmc_method, electron_gas_model 是隐式共享前提（与 derive_mu_values 共享），
+# 但 noisy_and 的乘法语义会让加更多 premise 反而降低 belief，等 BP factor 层面
+# 支持共享前提语义后再改
 derive_dfpt_reliable = noisy_and(
     premises=[individual_corrections_large, corrections_cancel, dfpt_validated_numerically],
     conclusion=dfpt_reliable_for_simple_metals,
-    steps=[{
-        "reasoning": "观察到各项多体修正单独很大（individual_corrections_large），"
-        "但在有效耦合中几乎精确抵消（corrections_cancel），并通过变分图形"
-        "蒙特卡洛方法的逐点数值验证确认了这一抵消（dfpt_validated_numerically），"
-        "从而演绎出 DFPT 对简单金属给出可靠的电子-声子耦合。",
-        "premises": [individual_corrections_large, corrections_cancel,
-                     dfpt_validated_numerically],
-        "conclusion": dfpt_reliable_for_simple_metals,
-    }],
-    reason="大修正互相抵消 + 数值验证 → DFPT 可靠",
+    reason="各项多体修正单独很大，但在有效耦合中几乎精确抵消，"
+    "并通过 VDiagMC 的逐点数值验证确认 → DFPT 对简单金属可靠。",
 )
 
 # ── 第二层：三组件 → 工作流 ──
@@ -430,17 +439,12 @@ derive_dfpt_reliable = noisy_and(
 # mu_vdiagmc_values + dfpt_reliable_for_simple_metals + precursory_cooper_flow
 #   → ab_initio_workflow
 derive_workflow = noisy_and(
-    premises=[mu_vdiagmc_values, dfpt_reliable_for_simple_metals, precursory_cooper_flow],
+    premises=[mu_vdiagmc_values, dfpt_reliable_for_simple_metals,
+              precursory_cooper_flow],
     conclusion=ab_initio_workflow,
-    steps=[{
-        "reasoning": "变分图形蒙特卡洛方法提供精确的 $\\mu^*$，DFPT 提供"
-        "可靠的电子-声子耦合 $\\lambda$，前驱 Cooper 流提供高效的 $T_c$ "
-        "确定方法，三个独立验证的组件组合成无可调参数的第一性原理工作流。",
-        "premises": [mu_vdiagmc_values, dfpt_reliable_for_simple_metals,
-                     precursory_cooper_flow],
-        "conclusion": ab_initio_workflow,
-    }],
-    reason="三个独立组件集成为完整的第一性原理工作流",
+    background=[downfolding_validated],
+    reason="精确 $\\mu^*$ + 可靠 $\\lambda$ + PCF 方法"
+    " → 无可调参数的第一性原理工作流。",
 )
 
 # ── 第三层：工作流 + 材料参数 → 各金属 Tc ──
@@ -449,16 +453,11 @@ derive_workflow = noisy_and(
 # （各金属 Tc 预测已通过 given=[ab_initio_workflow] 自动连接）
 
 derive_improvement = noisy_and(
-    premises=[tc_aluminum, tc_lithium],
+    premises=[tc_al_predicted, tc_li_predicted],
     conclusion=tc_improvement_over_phenomenological,
-    steps=[{
-        "reasoning": "铝的预测将偏差从 100% 缩小到 11%，锂的预测解决了"
-        "三个数量级的偏差，两个具体案例共同支撑了该框架相对唯象方法的"
-        "数量级改进这一总结论。",
-        "premises": [tc_aluminum, tc_lithium],
-        "conclusion": tc_improvement_over_phenomenological,
-    }],
-    reason="两个实验验证共同支撑总结论",
+    background=[tc_al_phenomenological, tc_li_phenomenological],
+    reason="铝（偏差 58%→20%）和锂（偏差 3 个数量级→1 个数量级）"
+    "两个案例共同支撑总结论。",
 )
 
 # ── 横向：矛盾 ──
@@ -477,11 +476,8 @@ mu_rpa_vdiagmc_contradiction = contradiction(
 explain_dfpt_cancellation = abduction(
     observation=corrections_cancel,
     hypothesis=ward_identity_hypothesis,
-    steps=[{
-        "reasoning": "各项修正的近精确抵消不是数值巧合，而是反映了守恒律"
-        "（Ward 恒等式）对多体修正在物理可观测量中组合方式的约束。",
-    }],
-    reason="解释为什么 DFPT 修正量互相抵消",
+    reason="各项修正的近精确抵消不是数值巧合，而是 Ward 恒等式"
+    "约束多体修正在物理可观测量中组合方式的必然结果。",
 )
 
 
@@ -528,8 +524,10 @@ __all__ = [
     "sodium_parameters",
     # Section VI — Claims
     "ab_initio_workflow",
-    "tc_aluminum",
-    "tc_lithium",
+    "tc_al_predicted",
+    "tc_al_phenomenological",
+    "tc_li_predicted",
+    "tc_li_phenomenological",
     "tc_mg_na_near_qpt",
     "al_pressure_transition",
     "tc_improvement_over_phenomenological",

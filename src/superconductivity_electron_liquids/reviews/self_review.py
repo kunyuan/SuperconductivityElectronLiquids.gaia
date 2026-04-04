@@ -34,13 +34,10 @@ from .. import (
     corrections_cancel,
     dfpt_validated_numerically,
     ward_identity_hypothesis,
-    # 推导结论（需要中性 prior=0.5 满足 validator 要求，belief 由 BP 传播）
-    precursory_cooper_flow,
-    downfolded_bse,
-    mu_vdiagmc_values,
-    dfpt_reliable_for_simple_metals,
-    ab_initio_workflow,
-    # Strategies（用于 strategy review）
+    # 独立前提 — Section VI (phenomenological baselines)
+    tc_al_phenomenological,
+    tc_li_phenomenological,
+    # Strategies
     derive_downfolded_bse,
     derive_pcf,
     derive_mu_values,
@@ -48,9 +45,9 @@ from .. import (
     derive_workflow,
     derive_improvement,
     explain_dfpt_cancellation,
-    # 推导结论的 claim（只需 strategy review，不需要独立 prior）
-    tc_aluminum,
-    tc_lithium,
+    # 推导结论的 claim（自动创建的 strategy 需要 review）
+    tc_al_predicted,
+    tc_li_predicted,
     tc_mg_na_near_qpt,
     al_pressure_transition,
     tc_improvement_over_phenomenological,
@@ -66,7 +63,7 @@ REVIEW = ReviewBundle(
 
         # Section I — 基础假设
         review_claim(adiabatic_approx, prior=0.95,
-                     justification="绝热近似在传统金属中广泛成立，Migdal 定理已被大量验证。"),
+                     justification="绝热近似��传统金属中广泛成立，Migdal 定理已被大量验证。"),
         review_claim(electron_gas_model, prior=0.90,
                      justification="均匀电子气通过 LDA 支撑了 DFT 的成功，是公认的简单金属参考系统。"),
 
@@ -80,7 +77,8 @@ REVIEW = ReviewBundle(
         review_claim(pair_propagator_decomposition, prior=0.88,
                      justification="配对传播子分解是标准的 Wilsonian 重整化群操作，数学上严格。"),
         review_claim(cross_term_suppressed, prior=0.82,
-                     justification="交叉项压制依赖 $\\omega_c^2/\\omega_p^2 \\lesssim 0.01$，对大多数金属成立。"),
+                     justification="交叉项压制依赖 $\\omega_c/\\omega_p \\lesssim 0.1$"
+                     "（$\\omega_c^2/\\omega_p^2 \\lesssim 0.01$），对大多数金属成立。"),
         review_claim(pseudopotential_scale_relation, prior=0.92,
                      justification="BTS 关系是重整化群的标准结果，已在文献中广泛验证。"),
         review_claim(rpa_predicts_negative_mu, prior=0.50,
@@ -110,52 +108,39 @@ REVIEW = ReviewBundle(
                      justification="Ward 恒等式在 QFT 中已确立，但其在 DFPT 抵消中的具体角色"
                      "尚未被严格证明对所有金属成立。"),
 
-        # ════════════════════════════════════════════
-        # 推导结论 — 中性 prior（validator 要求，belief 由 BP 传播）
-        # ════════════════════════════════════════════
-        review_claim(precursory_cooper_flow, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
-        review_claim(downfolded_bse, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
-        review_claim(mu_vdiagmc_values, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
-        review_claim(dfpt_reliable_for_simple_metals, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
-        review_claim(ab_initio_workflow, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
-        review_claim(tc_aluminum, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
-        review_claim(tc_lithium, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
-        review_claim(tc_mg_na_near_qpt, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
-        review_claim(al_pressure_transition, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
-        review_claim(tc_improvement_over_phenomenological, prior=0.5,
-                     justification="推导结论，belief 由前提通过 BP 传播。"),
+        # Section VI — 唯象预测基线（独立前提，不依赖本文工作流）
+        review_claim(tc_al_phenomenological, prior=0.85,
+                     justification="McMillan 公式 + 标准 μ*=0.1 的计算是文献标准方法，"
+                     "结果可靠但精度受 μ* 不确定性限制。"),
+        review_claim(tc_li_phenomenological, prior=0.85,
+                     justification="同上，锂的传统预测偏差更大，反映了 μ* 对亚开尔文超导体的敏感性。"),
 
         # ════════════════════════════════════════════
         # Strategy reviews（条件概率）
         # ════════════════════════════════════════════
 
-        # 显式定义的 noisy_and 策略
-        review_strategy(derive_downfolded_bse, conditional_probability=0.92,
-                        justification="配对传播子分解 + 交叉项压制 + 绝热近似 → downfolded BSE。"),
-        review_strategy(derive_pcf, conditional_probability=0.88,
-                        justification="作用量分解 + BSE 核分解 + 绝热近似 → PCF 标度律。"),
+        # 严格演绎策略（deduction）— 不设 conditional_probability，前提成立则结论必然
+        review_strategy(derive_downfolded_bse,
+                        justification="严格数学推导：配对传播子分解 + 交叉项压制 "
+                        "+ 绝热近似 → downfolded BSE。"),
+        review_strategy(derive_pcf,
+                        justification="严格数学推导：作用量分解 + BSE 核分解 "
+                        "+ 绝热近似 → PCF 标度律。"),
+
+        # 归纳/综合策略（noisy_and）
         review_strategy(derive_mu_values, conditional_probability=0.90,
                         justification="三项方法论进展共同使 μ 值精确计算成为可能。"),
         review_strategy(derive_dfpt_reliable, conditional_probability=0.90,
                         justification="大修正抵消 + 数值验证 → DFPT 对简单金属可靠。"),
         review_strategy(derive_workflow, conditional_probability=0.88,
-                        justification="三个独立组件集成为无参数工作流。"),
+                        justification="三个独立组件 + downfolding 验证集成为无参数工作流。"),
         review_strategy(derive_improvement, conditional_probability=0.92,
                         justification="铝和锂的成功预测直接支撑总结论。"),
 
         # claim(..., given=[...]) 自动创建的 noisy_and 策略
-        review_strategy(tc_aluminum.strategy, conditional_probability=0.90,
+        review_strategy(tc_al_predicted.strategy, conditional_probability=0.90,
                         justification="工作流应用于铝的材料参数给出 Tc 预测。"),
-        review_strategy(tc_lithium.strategy, conditional_probability=0.90,
+        review_strategy(tc_li_predicted.strategy, conditional_probability=0.90,
                         justification="工作流应用于锂的材料参数给出 Tc 预测。"),
         review_strategy(tc_mg_na_near_qpt.strategy, conditional_probability=0.85,
                         justification="工作流对镁钠的外推可信度稍低。"),
