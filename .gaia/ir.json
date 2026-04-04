@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:3f2d38951a74211cd13163e12c295638bcf82b86307223ebc4981f290eebfb40",
+  "ir_hash": "sha256:d354e50ddcdc7a1af024bdc81696af0e96575a55b956dd63b688b360863041b5",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -1481,9 +1481,6 @@
       "type": "noisy_and"
     },
     {
-      "background": [
-        "github:superconductivity_electron_liquids::precursory_cooper_flow"
-      ],
       "conclusion": "github:superconductivity_electron_liquids::ab_initio_workflow",
       "formal_expr": {
         "operators": [
@@ -1508,7 +1505,7 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
-        "reason": "The downfolded BSE (@downfolded_bse) provides the theoretical equation requiring two microscopic inputs: $\\mu^*$ and $\\lambda$. Both are now available from first principles — $\\mu^*$ from the UEG parameterization (@mu_available_for_simple_metals) and $\\lambda$ from validated DFPT (@dfpt_reliable_for_simple_metals). The precursory Cooper flow (@precursory_cooper_flow) provides the method to extract $T_c$ from normal-state calculations. With all components determined, the workflow is complete and parameter-free."
+        "reason": "The downfolded BSE (@downfolded_bse) provides the theoretical equation requiring two microscopic inputs: $\\mu^*$ and $\\lambda$. Both are now available from first principles — $\\mu^*$ from the UEG parameterization (@mu_available_for_simple_metals) and $\\lambda$ from validated DFPT (@dfpt_reliable_for_simple_metals). With all components determined from first principles, the workflow is complete and parameter-free."
       },
       "premises": [
         "github:superconductivity_electron_liquids::downfolded_bse",
@@ -1521,7 +1518,6 @@
     },
     {
       "background": [
-        "github:superconductivity_electron_liquids::precursory_cooper_flow",
         "github:superconductivity_electron_liquids::simple_metals_weak_lattice",
         "github:superconductivity_electron_liquids::bts_renormalization"
       ],

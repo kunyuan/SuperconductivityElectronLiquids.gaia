@@ -138,16 +138,14 @@ _s2 = deduction(
     premises=[downfolded_bse, mu_available_for_simple_metals,
               dfpt_reliable_for_simple_metals],
     conclusion=ab_initio_workflow,
-    background=[precursory_cooper_flow],
     reason=(
         "The downfolded BSE (@downfolded_bse) provides the theoretical "
         "equation requiring two microscopic inputs: $\\mu^*$ and $\\lambda$. "
         "Both are now available from first principles — $\\mu^*$ from the "
         "UEG parameterization (@mu_available_for_simple_metals) and $\\lambda$ "
-        "from validated DFPT (@dfpt_reliable_for_simple_metals). The "
-        "precursory Cooper flow (@precursory_cooper_flow) provides the method "
-        "to extract $T_c$ from normal-state calculations. With all components "
-        "determined, the workflow is complete and parameter-free."
+        "from validated DFPT (@dfpt_reliable_for_simple_metals). With all "
+        "components determined from first principles, the workflow is "
+        "complete and parameter-free."
     ),
 )
 
@@ -156,8 +154,7 @@ composite(
               ueg_pseudopotential_parameterization],
     conclusion=ab_initio_workflow,
     sub_strategies=[_s1, _s2],
-    background=[precursory_cooper_flow, simple_metals_weak_lattice,
-                bts_renormalization],
+    background=[simple_metals_weak_lattice, bts_renormalization],
 )
 
 # ---------------------------------------------------------------------------
