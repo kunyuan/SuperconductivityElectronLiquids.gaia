@@ -1,0 +1,196 @@
+"""Introduction: Motivation and Background
+
+Establishes the theoretical context (BCS/Migdal-Eliashberg) and the phenomenological
+limitations of traditional approaches to predicting superconducting Tc, motivating the
+need for a first-principles treatment of the Coulomb pseudopotential.
+"""
+
+from gaia.lang import claim, question, setting
+
+# ---------------------------------------------------------------------------
+# Settings — background frameworks
+# ---------------------------------------------------------------------------
+
+bcs_theory = setting(
+    "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron "
+    "attraction leads to Cooper pairing instability at the Fermi surface, providing "
+    "the fundamental framework for understanding conventional superconductors.",
+    title="BCS Theory",
+)
+bcs_theory.label = "bcs_theory"
+
+me_framework = setting(
+    "Migdal-Eliashberg (ME) theory: a rigorous treatment of the dynamic "
+    "electron-phonon interaction built on BCS. Migdal's theorem guarantees "
+    "that when the Debye frequency $\\omega_D$ is much smaller than the Fermi "
+    "energy $E_F$, phonon vertex corrections are negligible at "
+    "$O(\\omega_D/E_F)$.",
+    title="Migdal-Eliashberg Framework",
+)
+me_framework.label = "me_framework"
+
+# ---------------------------------------------------------------------------
+# Claims — leaf nodes (no strategies)
+# ---------------------------------------------------------------------------
+
+adiabatic_approx = setting(
+    "In conventional metals, the typical phonon frequency (Debye frequency "
+    "$\\omega_D$) is much smaller than the electron Fermi energy $E_F$, i.e. "
+    "$\\omega_D / E_F \\ll 1$ (adiabatic approximation). This energy-scale "
+    "separation has three key consequences: (i) electrons adiabatically adjust "
+    "to ionic motion, (ii) the electron-ion coupling can be linearized, and "
+    "(iii) the space-time scale separation between electron and phonon physics "
+    "permits a controlled effective field theory (EFT) treatment.",
+    title="Adiabatic Approximation",
+)
+adiabatic_approx.label = "adiabatic_approx"
+
+bts_renormalization = claim(
+    "The Bogoliubov-Tolmachev-Shirkov (BTS) renormalization relation connects "
+    "the Coulomb pseudopotential $\\mu_{\\omega_c}$ (a dimensionless parameter "
+    "describing the effective electron-electron repulsion strength in the "
+    "pairing channel) defined at different energy cutoff scales $\\omega_c$: "
+    "$\\mu_{\\omega_c} = \\mu_{\\omega_c'} / "
+    "(1 + \\mu_{\\omega_c'} \\ln(\\omega_c'/\\omega_c))$. "
+    "This relation ensures that physical observables do not depend on the "
+    "choice of the arbitrary cutoff scale.",
+    title="BTS Renormalization Relation",
+)
+bts_renormalization.label = "bts_renormalization"
+
+me_downfolding_is_phenomenological = claim(
+    "The downfolding procedure (integrating out high-energy degrees of freedom "
+    "to obtain a low-energy effective theory) in traditional Migdal-Eliashberg "
+    "(ME) theory is phenomenological: the Coulomb effect is replaced by a "
+    "static pseudopotential $\\mu^*$, ignoring corrections from Coulomb "
+    "fluctuations to quasiparticle renormalization and electron-phonon "
+    "coupling, as well as non-local effects of screening.",
+    title="ME Downfolding is Phenomenological",
+)
+me_downfolding_is_phenomenological.label = "me_downfolding_is_phenomenological"
+
+phenomenological_me_theory = claim(
+    "Traditional electron-phonon superconductivity theory uses the McMillan "
+    "(or Allen-Dynes) formula, with the electron-phonon coupling constant "
+    "$\\lambda$ and Coulomb pseudopotential $\\mu^*$ as inputs to predict the "
+    "superconducting transition temperature $T_c$. Since $\\mu^*$ cannot be "
+    "reliably computed from first principles, it is typically assigned an "
+    "empirical value $\\mu^* \\in [0.1, 0.2]$. For materials with $T_c$ in "
+    "the sub-kelvin range, the exponential sensitivity "
+    "$T_c \\propto \\exp(-1/g)$ to $\\mu^*$ causes this uncertainty to span "
+    "several orders of magnitude in the predicted $T_c$, destroying "
+    "predictive power.",
+    title="Phenomenological ME Theory Limitations",
+)
+phenomenological_me_theory.label = "phenomenological_me_theory"
+
+mu_star_phenomenological = claim(
+    "Due to the lack of a reliable microscopic calculation, the Coulomb "
+    "pseudopotential $\\mu^*$ (a dimensionless parameter describing the "
+    "effective Coulomb repulsion strength in the low-energy pairing channel) "
+    "is typically treated as an adjustable parameter with empirical values "
+    "in the range 0.1--0.2.",
+    title="mu* as Phenomenological Parameter",
+)
+mu_star_phenomenological.label = "mu_star_phenomenological"
+
+rpa_predicts_attractive_mu = claim(
+    "When treating the dynamically screened Coulomb interaction within the "
+    "random phase approximation (RPA), the predicted $\\mu^* < 0$ "
+    "(i.e. the Coulomb effect becomes net attractive in the Cooper channel) "
+    "for Wigner-Seitz radius $r_s \\gtrsim 2$ ($r_s$ is proportional to "
+    "the ratio of electron spacing to Bohr radius, measuring the ratio of "
+    "Coulomb interaction to kinetic energy). However, RPA neglects "
+    "beyond-RPA effects such as vertex corrections and self-energy "
+    "renormalization for $r_s \\gtrsim 1$, making its predictions unreliable "
+    "in this density regime and inconsistent with extensive experimental "
+    "evidence.",
+    title="RPA Predicts Attractive mu*",
+)
+rpa_predicts_attractive_mu.label = "rpa_predicts_attractive_mu"
+
+dfpt_computes_lambda = claim(
+    "Density functional perturbation theory (DFPT) computes the "
+    "electron-phonon coupling constant $\\lambda$ (a dimensionless parameter "
+    "quantifying the phonon-mediated attraction strength at the Fermi surface) "
+    "via the linear response of the Kohn-Sham ground-state energy to lattice "
+    "distortions. DFPT has been validated for weakly correlated superconductors "
+    "but its accuracy for strongly correlated systems is unknown.",
+    title="DFPT Computes lambda",
+)
+dfpt_computes_lambda.label = "dfpt_computes_lambda"
+
+# ---------------------------------------------------------------------------
+# Claims — experimental Tc values
+# ---------------------------------------------------------------------------
+
+tc_al_experimental = claim(
+    "The experimental superconducting transition temperature of aluminum (Al) "
+    "is $T_c^{\\mathrm{exp}} = 1.2$ K.",
+    title="Tc(Al) Experimental",
+)
+tc_al_experimental.label = "tc_al_experimental"
+
+tc_li_experimental = claim(
+    "The experimental superconducting transition temperature of lithium (Li) "
+    "is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). "
+    "This measurement corresponds to the 9R crystal structure; the crystal "
+    "structure of lithium at ultra-low temperatures remains controversial.",
+    title="Tc(Li) Experimental",
+)
+tc_li_experimental.label = "tc_li_experimental"
+
+tc_zn_experimental = claim(
+    "The experimental superconducting transition temperature of zinc (Zn) "
+    "is $T_c^{\\mathrm{exp}} = 0.875$ K.",
+    title="Tc(Zn) Experimental",
+)
+tc_zn_experimental.label = "tc_zn_experimental"
+
+# ---------------------------------------------------------------------------
+# Claims — phenomenological Tc predictions
+# ---------------------------------------------------------------------------
+
+tc_al_phenomenological = claim(
+    "Using the McMillan formula (an empirical formula for $T_c$ based on "
+    "the electron-phonon coupling constant $\\lambda$ and Coulomb "
+    "pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, "
+    "the predicted superconducting transition temperature of aluminum is "
+    "$T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a "
+    "deviation of approximately 58%.",
+    title="Tc(Al) Phenomenological Prediction",
+)
+tc_al_phenomenological.label = "tc_al_phenomenological"
+
+tc_li_phenomenological = claim(
+    "Using the McMillan formula with $\\mu^* = 0.1$, the predicted "
+    "superconducting transition temperature of lithium is "
+    "$T_c \\approx 0.35$ K, while the experimental value is approximately "
+    "$4 \\times 10^{-4}$ K; the theory overestimates by about three orders "
+    "of magnitude.",
+    title="Tc(Li) Phenomenological Prediction",
+)
+tc_li_phenomenological.label = "tc_li_phenomenological"
+
+tc_zn_phenomenological = claim(
+    "Using the McMillan formula with the standard value $\\mu^* = 0.1$, "
+    "the predicted superconducting transition temperature of zinc is "
+    "$T_c \\approx 1.37$ K, while the experimental value is 0.875 K, "
+    "a deviation of approximately 57%.",
+    title="Tc(Zn) Phenomenological Prediction",
+)
+tc_zn_phenomenological.label = "tc_zn_phenomenological"
+
+# ---------------------------------------------------------------------------
+# Question
+# ---------------------------------------------------------------------------
+
+main_question = question(
+    "Can the Coulomb pseudopotential $\\mu^*$ (the parameter quantifying "
+    "effective electron-electron repulsion in the Cooper pairing channel) "
+    "be computed from first principles with controlled accuracy, and can "
+    "this yield quantitative predictions of the superconducting transition "
+    "temperature $T_c$ for simple metals (e.g. Al, Li, Na, Mg)?",
+    title="Main Question: First-Principles mu* and Tc",
+)
+main_question.label = "main_question"
