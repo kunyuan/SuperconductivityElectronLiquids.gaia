@@ -24,7 +24,6 @@ ward_identity = claim(
     "on vertex corrections at zero momentum transfer.",
     title="Ward Identity at q->0",
 )
-ward_identity.label = "ward_identity"
 
 gamma3_vdiagmc = claim(
     "vDiagMC computation of the three-point vertex $\\Gamma_3^e(k, q)$ of "
@@ -36,7 +35,6 @@ gamma3_vdiagmc = claim(
     "the large-$q$ asymptotic behavior.",
     title="vDiagMC Computation of Gamma_3",
 )
-gamma3_vdiagmc.label = "gamma3_vdiagmc"
 
 dfpt_eph_ansatz = claim(
     "The DFPT expression for the electron-phonon coupling "
@@ -48,7 +46,6 @@ dfpt_eph_ansatz = claim(
     "on how well DFT captures the relevant vertex corrections.",
     title="DFPT Expression for e-ph Coupling",
 )
-dfpt_eph_ansatz.label = "dfpt_eph_ansatz"
 
 quasiparticle_mass_near_unity = claim(
     "For simple metals at metallic densities ($r_s \\in [2, 4]$), the "
@@ -60,7 +57,6 @@ quasiparticle_mass_near_unity = claim(
     "microscopic and DFPT-level electron-phonon coupling.",
     title="Quasiparticle Mass Near Unity",
 )
-quasiparticle_mass_near_unity.label = "quasiparticle_mass_near_unity"
 
 # ---------------------------------------------------------------------------
 # Derived claims
@@ -77,7 +73,6 @@ eft_eph_vertex = claim(
     "propagator.",
     title="EFT Electron-Phonon Vertex",
 )
-eft_eph_vertex.label = "eft_eph_vertex"
 
 infer(
     premises=[lambda_microscopic_definition],
@@ -109,7 +104,6 @@ gamma3_approximation = claim(
     "momentum range.",
     title="Approximate Gamma_3 within Fermi Sphere",
 )
-gamma3_approximation.label = "gamma3_approximation"
 
 infer(
     premises=[ward_identity, gamma3_vdiagmc],
@@ -138,7 +132,6 @@ dfpt_reliable_for_simple_metals = claim(
     "electron-phonon matrix elements in simple metals.",
     title="DFPT Reliable for Simple Metals",
 )
-dfpt_reliable_for_simple_metals.label = "dfpt_reliable_for_simple_metals"
 
 infer(
     premises=[eft_eph_vertex, gamma3_approximation,

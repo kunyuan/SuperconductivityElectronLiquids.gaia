@@ -32,7 +32,6 @@ aluminum_parameters = setting(
     "$\\omega_{\\mathrm{log}} \\approx 300$ K.",
     title="Aluminum Material Parameters",
 )
-aluminum_parameters.label = "aluminum_parameters"
 
 lithium_parameters = setting(
     "Lithium (Li): BCC (or 9R at low $T$) crystal structure, "
@@ -43,7 +42,6 @@ lithium_parameters = setting(
     "sub-kelvin temperatures remains debated.",
     title="Lithium Material Parameters",
 )
-lithium_parameters.label = "lithium_parameters"
 
 sodium_parameters = setting(
     "Sodium (Na): BCC crystal structure, $r_s = 3.93$, experimental "
@@ -53,7 +51,6 @@ sodium_parameters = setting(
     "observed down to mK temperatures.",
     title="Sodium Material Parameters",
 )
-sodium_parameters.label = "sodium_parameters"
 
 magnesium_parameters = setting(
     "Magnesium (Mg): HCP crystal structure, $r_s = 2.66$, experimental "
@@ -63,7 +60,6 @@ magnesium_parameters = setting(
     "observed down to mK temperatures.",
     title="Magnesium Material Parameters",
 )
-magnesium_parameters.label = "magnesium_parameters"
 
 zinc_parameters = setting(
     "Zinc (Zn): HCP crystal structure, $r_s = 2.31$, experimental "
@@ -72,7 +68,6 @@ zinc_parameters = setting(
     "$\\omega_{\\mathrm{log}} \\approx 200$ K.",
     title="Zinc Material Parameters",
 )
-zinc_parameters.label = "zinc_parameters"
 
 # ---------------------------------------------------------------------------
 # Leaf claims
@@ -88,7 +83,6 @@ simple_metals_weak_lattice = claim(
     "minor crystal-field perturbations.",
     title="Simple Metals Have Weak Lattice Effects",
 )
-simple_metals_weak_lattice.label = "simple_metals_weak_lattice"
 
 ueg_pseudopotential_parameterization = claim(
     "The UEG Coulomb pseudopotential $\\mu_{E_F}(r_s)$ computed by vDiagMC "
@@ -100,7 +94,6 @@ ueg_pseudopotential_parameterization = claim(
     "parameters.",
     title="UEG mu* Parameterization and Mapping",
 )
-ueg_pseudopotential_parameterization.label = "ueg_pseudopotential_parameterization"
 
 # ---------------------------------------------------------------------------
 # Derived claims
@@ -115,7 +108,6 @@ ab_initio_workflow = claim(
     "All inputs are from first principles; no adjustable parameters remain.",
     title="Ab Initio Tc Prediction Workflow",
 )
-ab_initio_workflow.label = "ab_initio_workflow"
 
 infer(
     premises=[downfolded_bse, mu_vdiagmc_values, dfpt_reliable_for_simple_metals,
@@ -154,7 +146,6 @@ tc_al_predicted = claim(
     "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ via BTS renormalization.",
     title="Tc(Al) Ab Initio Prediction",
 )
-tc_al_predicted.label = "tc_al_predicted"
 
 infer(
     premises=[ab_initio_workflow],
@@ -181,7 +172,6 @@ tc_zn_predicted = claim(
     "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.31$.",
     title="Tc(Zn) Ab Initio Prediction",
 )
-tc_zn_predicted.label = "tc_zn_predicted"
 
 infer(
     premises=[ab_initio_workflow],
@@ -208,7 +198,6 @@ tc_li_predicted = claim(
     "pushing $T_c$ to extremely low temperatures.",
     title="Tc(Li) Ab Initio Prediction",
 )
-tc_li_predicted.label = "tc_li_predicted"
 
 infer(
     premises=[ab_initio_workflow],
@@ -238,7 +227,6 @@ al_pressure_transition = claim(
     "pressure studies.",
     title="Al Pressure-Tc Transition",
 )
-al_pressure_transition.label = "al_pressure_transition"
 
 infer(
     premises=[ab_initio_workflow],
@@ -271,7 +259,6 @@ tc_mg_na_near_qpt = claim(
     "$T_c$ varies exponentially with small parameter changes.",
     title="Na and Mg Near Quantum Phase Transition",
 )
-tc_mg_na_near_qpt.label = "tc_mg_na_near_qpt"
 
 infer(
     premises=[ab_initio_workflow],

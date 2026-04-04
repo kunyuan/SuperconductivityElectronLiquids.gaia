@@ -17,7 +17,6 @@ bcs_theory = setting(
     "the fundamental framework for understanding conventional superconductors.",
     title="BCS Theory",
 )
-bcs_theory.label = "bcs_theory"
 
 me_framework = setting(
     "Migdal-Eliashberg (ME) theory: a rigorous treatment of the dynamic "
@@ -27,7 +26,6 @@ me_framework = setting(
     "$O(\\omega_D/E_F)$.",
     title="Migdal-Eliashberg Framework",
 )
-me_framework.label = "me_framework"
 
 # ---------------------------------------------------------------------------
 # Claims — leaf nodes (no strategies)
@@ -43,7 +41,6 @@ adiabatic_approx = setting(
     "permits a controlled effective field theory (EFT) treatment.",
     title="Adiabatic Approximation",
 )
-adiabatic_approx.label = "adiabatic_approx"
 
 bts_renormalization = claim(
     "The Bogoliubov-Tolmachev-Shirkov (BTS) renormalization relation connects "
@@ -56,7 +53,6 @@ bts_renormalization = claim(
     "choice of the arbitrary cutoff scale.",
     title="BTS Renormalization Relation",
 )
-bts_renormalization.label = "bts_renormalization"
 
 me_downfolding_is_phenomenological = claim(
     "The downfolding procedure (integrating out high-energy degrees of freedom "
@@ -67,7 +63,6 @@ me_downfolding_is_phenomenological = claim(
     "coupling, as well as non-local effects of screening.",
     title="ME Downfolding is Phenomenological",
 )
-me_downfolding_is_phenomenological.label = "me_downfolding_is_phenomenological"
 
 phenomenological_me_theory = claim(
     "Traditional electron-phonon superconductivity theory uses the McMillan "
@@ -82,7 +77,6 @@ phenomenological_me_theory = claim(
     "predictive power.",
     title="Phenomenological ME Theory Limitations",
 )
-phenomenological_me_theory.label = "phenomenological_me_theory"
 
 mu_star_phenomenological = claim(
     "Due to the lack of a reliable microscopic calculation, the Coulomb "
@@ -92,7 +86,6 @@ mu_star_phenomenological = claim(
     "in the range 0.1--0.2.",
     title="mu* as Phenomenological Parameter",
 )
-mu_star_phenomenological.label = "mu_star_phenomenological"
 
 rpa_predicts_attractive_mu = claim(
     "When treating the dynamically screened Coulomb interaction within the "
@@ -107,7 +100,6 @@ rpa_predicts_attractive_mu = claim(
     "evidence.",
     title="RPA Predicts Attractive mu*",
 )
-rpa_predicts_attractive_mu.label = "rpa_predicts_attractive_mu"
 
 dfpt_computes_lambda = claim(
     "Density functional perturbation theory (DFPT) computes the "
@@ -118,7 +110,6 @@ dfpt_computes_lambda = claim(
     "but its accuracy for strongly correlated systems is unknown.",
     title="DFPT Computes lambda",
 )
-dfpt_computes_lambda.label = "dfpt_computes_lambda"
 
 # ---------------------------------------------------------------------------
 # Claims — experimental Tc values
@@ -129,7 +120,6 @@ tc_al_experimental = claim(
     "is $T_c^{\\mathrm{exp}} = 1.2$ K.",
     title="Tc(Al) Experimental",
 )
-tc_al_experimental.label = "tc_al_experimental"
 
 tc_li_experimental = claim(
     "The experimental superconducting transition temperature of lithium (Li) "
@@ -138,14 +128,12 @@ tc_li_experimental = claim(
     "structure of lithium at ultra-low temperatures remains controversial.",
     title="Tc(Li) Experimental",
 )
-tc_li_experimental.label = "tc_li_experimental"
 
 tc_zn_experimental = claim(
     "The experimental superconducting transition temperature of zinc (Zn) "
     "is $T_c^{\\mathrm{exp}} = 0.875$ K.",
     title="Tc(Zn) Experimental",
 )
-tc_zn_experimental.label = "tc_zn_experimental"
 
 # ---------------------------------------------------------------------------
 # Claims — phenomenological Tc predictions
@@ -160,7 +148,6 @@ tc_al_phenomenological = claim(
     "deviation of approximately 58%.",
     title="Tc(Al) Phenomenological Prediction",
 )
-tc_al_phenomenological.label = "tc_al_phenomenological"
 
 tc_li_phenomenological = claim(
     "Using the McMillan formula with $\\mu^* = 0.1$, the predicted "
@@ -170,7 +157,6 @@ tc_li_phenomenological = claim(
     "of magnitude.",
     title="Tc(Li) Phenomenological Prediction",
 )
-tc_li_phenomenological.label = "tc_li_phenomenological"
 
 tc_zn_phenomenological = claim(
     "Using the McMillan formula with the standard value $\\mu^* = 0.1$, "
@@ -179,7 +165,6 @@ tc_zn_phenomenological = claim(
     "a deviation of approximately 57%.",
     title="Tc(Zn) Phenomenological Prediction",
 )
-tc_zn_phenomenological.label = "tc_zn_phenomenological"
 
 # ---------------------------------------------------------------------------
 # Question
@@ -193,4 +178,3 @@ main_question = question(
     "temperature $T_c$ for simple metals (e.g. Al, Li, Na, Mg)?",
     title="Main Question: First-Principles mu* and Tc",
 )
-main_question.label = "main_question"

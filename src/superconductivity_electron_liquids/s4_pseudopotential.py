@@ -25,7 +25,6 @@ ueg_vertex_challenge = claim(
     "metallic density range $r_s \\in [1, 6]$.",
     title="UEG Four-Point Vertex Challenge",
 )
-ueg_vertex_challenge.label = "ueg_vertex_challenge"
 
 vdiagmc_method = claim(
     "Variational diagrammatic Monte Carlo (vDiagMC) provides a controlled, "
@@ -39,7 +38,6 @@ vdiagmc_method = claim(
     "in the metallic density range.",
     title="vDiagMC Method",
 )
-vdiagmc_method.label = "vdiagmc_method"
 
 homotopic_expansion = claim(
     "The homotopic transformation provides a physically motivated "
@@ -51,7 +49,6 @@ homotopic_expansion = claim(
     "densities with modest diagram orders ($n \\lesssim 7$).",
     title="Homotopic Expansion",
 )
-homotopic_expansion.label = "homotopic_expansion"
 
 # ---------------------------------------------------------------------------
 # Derived claim
@@ -69,7 +66,6 @@ mu_vdiagmc_values = claim(
     "principles with controlled error bars of a few percent.",
     title="mu from vDiagMC: Numerical Values",
 )
-mu_vdiagmc_values.label = "mu_vdiagmc_values"
 
 infer(
     premises=[vdiagmc_method, homotopic_expansion],
@@ -116,4 +112,3 @@ rpa_vs_vdiagmc = contradiction(
         "uncontrolled approximation."
     ),
 )
-rpa_vs_vdiagmc.label = "rpa_vs_vdiagmc"

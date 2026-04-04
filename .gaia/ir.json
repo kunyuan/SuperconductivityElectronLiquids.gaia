@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:9ae53176a9bdd0ae75f3db9994d99bcd238cc2b353e533881683d5f57fc3581b",
+  "ir_hash": "sha256:45c8fa10db52b9ded40c12b633c7838b40432d3fd335a6980f6898f77f02a7a0",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -362,8 +362,8 @@
       "type": "claim"
     },
     {
-      "content": "same_truth(mu_scale_independence, bts_renormalization)",
-      "content_hash": "31bcb63b1d35b57dc570f761db32d00420bd8bcc5e5e04d9e25a5bb5c48daeff",
+      "content": "same_truth(A, B)",
+      "content_hash": "4081d83356ef89148711fb22676872d7e8303be796b7b16a2fe55993e0032554",
       "declaration_index": 11,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::bts_microscopic_equivalence",
@@ -436,8 +436,8 @@
       "type": "claim"
     },
     {
-      "content": "not_both_true(rpa_predicts_attractive_mu, mu_vdiagmc_values)",
-      "content_hash": "272260f6fe3d5a2dda9bcdf7d911f298dd78a4a024806031ec49b2d9488bb0ba",
+      "content": "not_both_true(A, B)",
+      "content_hash": "468923920550aff97ac2349f7d0a5b32e6560066b45861bf367db7f40e8649a7",
       "declaration_index": 4,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::rpa_vs_vdiagmc",

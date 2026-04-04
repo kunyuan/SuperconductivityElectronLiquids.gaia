@@ -24,7 +24,6 @@ electron_phonon_action = claim(
     "counting.",
     title="Electron-Phonon Action Decomposition",
 )
-electron_phonon_action.label = "electron_phonon_action"
 
 bse_kernel_decomposition = claim(
     "The kernel of the Bethe-Salpeter equation (BSE) can be decomposed into "
@@ -37,7 +36,6 @@ bse_kernel_decomposition = claim(
     "small parameter.",
     title="BSE Kernel Decomposition",
 )
-bse_kernel_decomposition.label = "bse_kernel_decomposition"
 
 precursory_cooper_flow = claim(
     "The low-frequency limit of the anomalous vertex function on the Fermi "
@@ -50,4 +48,3 @@ precursory_cooper_flow = claim(
     "and extrapolating, one can predict $T_c$.",
     title="Precursory Cooper Flow",
 )
-precursory_cooper_flow.label = "precursory_cooper_flow"

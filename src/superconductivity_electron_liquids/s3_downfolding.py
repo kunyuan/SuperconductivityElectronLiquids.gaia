@@ -31,7 +31,6 @@ pair_propagator_decomposition = claim(
     "screening character.",
     title="Pair Propagator Decomposition",
 )
-pair_propagator_decomposition.label = "pair_propagator_decomposition"
 
 cross_term_suppressed = claim(
     "Cross terms mixing Coulomb and phonon channels are suppressed by the "
@@ -42,7 +41,6 @@ cross_term_suppressed = claim(
     "than 1%.",
     title="Cross-Channel Terms Suppressed",
 )
-cross_term_suppressed.label = "cross_term_suppressed"
 
 rpa_dynamic_screening = setting(
     "Random Phase Approximation (RPA) dynamically screened Coulomb interaction: "
@@ -52,7 +50,6 @@ rpa_dynamic_screening = setting(
     "that becomes exact in the weak-coupling limit ($r_s \\lesssim 1$).",
     title="RPA Dynamic Screening",
 )
-rpa_dynamic_screening.label = "rpa_dynamic_screening"
 
 full_bse_toy_model = claim(
     "For a toy model with aluminum-like parameters (Wigner-Seitz radius "
@@ -65,7 +62,6 @@ full_bse_toy_model = claim(
     "temperature.",
     title="Full BSE Toy Model Result",
 )
-full_bse_toy_model.label = "full_bse_toy_model"
 
 infer(
     premises=[bse_kernel_decomposition],
@@ -90,7 +86,6 @@ downfolded_bse_toy_model = claim(
     "10^{-5.667}$, where $T_F$ is the Fermi temperature.",
     title="Downfolded BSE Toy Model Result",
 )
-downfolded_bse_toy_model.label = "downfolded_bse_toy_model"
 
 # Note: downfolded_bse is defined below; Python forward reference via module-level execution
 # We use a lambda trick or define this infer after downfolded_bse. Moving to after downfolded_bse.
@@ -119,7 +114,6 @@ downfolding_validity_limits = claim(
     "strongly correlated materials where the quasiparticle picture fails.",
     title="Downfolding Validity Limits",
 )
-downfolding_validity_limits.label = "downfolding_validity_limits"
 
 # ---------------------------------------------------------------------------
 # Derived claims (with infer strategies)
@@ -137,7 +131,6 @@ downfolded_bse = claim(
     "generates the BCS logarithm that drives the Cooper instability.",
     title="Downfolded BSE",
 )
-downfolded_bse.label = "downfolded_bse"
 
 infer(
     premises=[pair_propagator_decomposition, cross_term_suppressed,
@@ -193,7 +186,6 @@ downfolded_me_equation = claim(
     "electron vertex functions.",
     title="Downfolded ME Gap Equation",
 )
-downfolded_me_equation.label = "downfolded_me_equation"
 
 infer(
     premises=[downfolded_bse],
@@ -223,7 +215,6 @@ lambda_microscopic_definition = claim(
     "self-energy.",
     title="Microscopic Definition of lambda",
 )
-lambda_microscopic_definition.label = "lambda_microscopic_definition"
 
 infer(
     premises=[downfolded_bse],
@@ -256,7 +247,6 @@ mu_microscopic_definition = claim(
     "renormalized by all electronic correlations.",
     title="Microscopic Definition of mu",
 )
-mu_microscopic_definition.label = "mu_microscopic_definition"
 
 infer(
     premises=[downfolded_bse],
@@ -285,7 +275,6 @@ mu_scale_independence = claim(
     "of the originally phenomenological BTS relation.",
     title="BTS Relation as Corollary",
 )
-mu_scale_independence.label = "mu_scale_independence"
 
 infer(
     premises=[mu_microscopic_definition],
@@ -322,7 +311,6 @@ bts_microscopic_equivalence = equivalence(
         "rather than a phenomenological ansatz."
     ),
 )
-bts_microscopic_equivalence.label = "bts_microscopic_equivalence"
 
 ma_pseudopotential_justified = claim(
     "The Morel-Anderson constant-pseudopotential ansatz — treating "
@@ -335,7 +323,6 @@ ma_pseudopotential_justified = claim(
     "treatment used in Eliashberg theory.",
     title="Morel-Anderson Ansatz Justified",
 )
-ma_pseudopotential_justified.label = "ma_pseudopotential_justified"
 
 infer(
     premises=[mu_microscopic_definition],
