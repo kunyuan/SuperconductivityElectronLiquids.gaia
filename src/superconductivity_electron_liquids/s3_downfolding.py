@@ -65,7 +65,7 @@ full_bse_toy_model = claim(
     title="Full BSE Toy Model Result",
 )
 
-noisy_and(
+_strat_full_bse = noisy_and(
     premises=[bse_kernel_decomposition],
     conclusion=full_bse_toy_model,
     background=[rpa_dynamic_screening],
@@ -92,7 +92,7 @@ downfolded_bse_toy_model = claim(
 # Note: downfolded_bse is defined below; Python forward reference via module-level execution
 # We use a lambda trick or define this infer after downfolded_bse. Moving to after downfolded_bse.
 
-abduction(
+_abduction_downfolding = abduction(
     observation=full_bse_toy_model,
     hypothesis=downfolded_bse_toy_model,
     reason=(
@@ -157,7 +157,7 @@ deduction(
 )
 
 # Now that downfolded_bse is defined, attach noisy_and for the toy model result
-noisy_and(
+_strat_downfolded_bse_toy = noisy_and(
     premises=[downfolded_bse],
     conclusion=downfolded_bse_toy_model,
     background=[rpa_dynamic_screening],

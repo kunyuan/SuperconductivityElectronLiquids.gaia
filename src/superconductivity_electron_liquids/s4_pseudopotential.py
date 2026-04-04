@@ -67,7 +67,7 @@ mu_vdiagmc_values = claim(
     title="mu from vDiagMC: Numerical Values",
 )
 
-noisy_and(
+_strat_mu_values = noisy_and(
     premises=[vdiagmc_method, homotopic_expansion],
     conclusion=mu_vdiagmc_values,
     background=[ueg_vertex_challenge, mu_microscopic_definition,

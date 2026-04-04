@@ -149,7 +149,7 @@ _s2 = deduction(
     ),
 )
 
-composite(
+_composite_workflow = composite(
     premises=[downfolded_bse, mu_vdiagmc_values, dfpt_reliable_for_simple_metals,
               ueg_pseudopotential_parameterization],
     conclusion=ab_initio_workflow,
@@ -170,7 +170,7 @@ tc_al_predicted = claim(
     title="Tc(Al) Ab Initio Prediction",
 )
 
-noisy_and(
+_strat_tc_al = noisy_and(
     premises=[ab_initio_workflow],
     conclusion=tc_al_predicted,
     background=[aluminum_parameters],
@@ -196,7 +196,7 @@ tc_zn_predicted = claim(
     title="Tc(Zn) Ab Initio Prediction",
 )
 
-noisy_and(
+_strat_tc_zn = noisy_and(
     premises=[ab_initio_workflow],
     conclusion=tc_zn_predicted,
     background=[zinc_parameters],
@@ -222,7 +222,7 @@ tc_li_predicted = claim(
     title="Tc(Li) Ab Initio Prediction",
 )
 
-noisy_and(
+_strat_tc_li = noisy_and(
     premises=[ab_initio_workflow],
     conclusion=tc_li_predicted,
     background=[lithium_parameters],
@@ -251,7 +251,7 @@ al_pressure_transition = claim(
     title="Al Pressure-Tc Transition",
 )
 
-noisy_and(
+_strat_al_pressure = noisy_and(
     premises=[ab_initio_workflow],
     conclusion=al_pressure_transition,
     background=[aluminum_parameters],
@@ -283,7 +283,7 @@ tc_mg_na_near_qpt = claim(
     title="Na and Mg Near Quantum Phase Transition",
 )
 
-noisy_and(
+_strat_mg_na_qpt = noisy_and(
     premises=[ab_initio_workflow],
     conclusion=tc_mg_na_near_qpt,
     background=[magnesium_parameters, sodium_parameters, precursory_cooper_flow],

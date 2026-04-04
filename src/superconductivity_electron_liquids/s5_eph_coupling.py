@@ -102,7 +102,7 @@ gamma3_approximation = claim(
     title="Approximate Gamma_3 within Fermi Sphere",
 )
 
-infer(
+_infer_gamma3 = infer(
     premises=[ward_identity, gamma3_vdiagmc],
     conclusion=gamma3_approximation,
     reason=(
@@ -178,7 +178,7 @@ _s2 = deduction(
 )
 
 # Composite: preserves coarse view (3 premises → conclusion)
-composite(
+_composite_dfpt = composite(
     premises=[eft_eph_vertex, gamma3_approximation,
               quasiparticle_mass_near_unity],
     conclusion=dfpt_reliable_for_simple_metals,
