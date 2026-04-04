@@ -18,6 +18,7 @@ electron_phonon_action = claim(
     "捕获电子-声子耦合，$S_{CT}$ 是反项，减去已包含在物理声子谱中的"
     "静态屏蔽。引入反项 $S_{CT}$ 确保微扰展开中声子传播子保持物理性质"
     "且不发生重复计数。",
+    title="电子-声子作用量分解",
     provenance=PROVENANCE,
 )
 
@@ -28,6 +29,7 @@ bse_kernel_decomposition = claim(
     "$\\tilde{\\Gamma} = \\tilde{\\Gamma}^e + W^{ph} + O(\\omega_D / E_F)$，"
     "其中误差项由 Migdal 定理控制，在绝热极限下可忽略。此分解是后续将 "
     "Coulomb 和声子通道独立处理的理论基础。",
+    title="BSE 积分核分解",
     provenance=PROVENANCE,
 )
 
@@ -40,6 +42,7 @@ precursory_cooper_flow = claim(
     "可以避免在 $T_c$ 处进行计算困难的自洽求解而精确确定超导转变温度。"
     "该方法优于传统特征值追踪方法，因为后者在强排斥相互作用体系中"
     "缺乏可靠的外推方案。",
+    title="前驱 Cooper 流方法",
     provenance=PROVENANCE,
 )
 

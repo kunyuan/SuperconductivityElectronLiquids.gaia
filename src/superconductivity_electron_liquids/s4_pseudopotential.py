@@ -18,6 +18,7 @@ ueg_vertex_challenge = claim(
     "（变分蒙特卡洛和扩散蒙特卡洛）无法获取 $r_s > 1$ 时所需的四点"
     "顶点函数，而变分图形蒙特卡洛方法可以在弱耦合以外的区间直接计算"
     "所需的顶点函数。",
+    title="电子气顶点计算挑战",
     provenance=PROVENANCE,
 )
 
@@ -31,6 +32,7 @@ homotopic_expansion = claim(
     "+ \\mu_{\\omega_c}^{(2)}\\xi^2 + \\cdots$，其系数不依赖温度。该变换"
     "利用 Cooper 对数的标度性质，产生恰好抵消发散 $\\ln(\\omega_c/T)$ "
     "行为的反项，使级数在所有温度下快速收敛，从而可靠提取 $\\mu_{E_F}$ 的值。",
+    title="同伦展开消除对数发散",
     provenance=PROVENANCE,
 )
 
@@ -41,6 +43,7 @@ vdiagmc_method = claim(
     "物理结果对应 $\\xi = 1$。Feynman 图表示为利用 Dyson-Schwinger 和 "
     "Parquet 方程的计算图，实现了场论重整化方案的高效实现。屏蔽参数 "
     "$\\lambda_R$ 经过优化以改善收敛性。",
+    title="变分图形蒙特卡洛方法",
     provenance=PROVENANCE,
 )
 

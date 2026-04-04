@@ -10,6 +10,7 @@
       "label": "bcs_framework",
       "module": "motivation",
       "parameters": [],
+      "title": "BCS 超导理论框架",
       "type": "setting"
     },
     {
@@ -21,6 +22,7 @@
       "label": "migdal_eliashberg",
       "module": "motivation",
       "parameters": [],
+      "title": "Migdal-Eliashberg 框架",
       "type": "setting"
     },
     {
@@ -38,6 +40,7 @@
           "version": "1958"
         }
       ],
+      "title": "绝热近似与 Migdal 定理",
       "type": "claim"
     },
     {
@@ -49,6 +52,7 @@
       "label": "electron_gas_model",
       "module": "motivation",
       "parameters": [],
+      "title": "均匀电子气模型",
       "type": "claim"
     },
     {
@@ -60,6 +64,7 @@
       "label": "main_question",
       "module": "motivation",
       "parameters": [],
+      "title": "第一性原理计算 Coulomb 赝势",
       "type": "question"
     },
     {
@@ -77,6 +82,7 @@
           "version": "2024"
         }
       ],
+      "title": "电子-声子作用量分解",
       "type": "claim"
     },
     {
@@ -94,6 +100,7 @@
           "version": "2024"
         }
       ],
+      "title": "BSE 积分核分解",
       "type": "claim"
     },
     {
@@ -111,6 +118,7 @@
           "version": "2024"
         }
       ],
+      "title": "前驱 Cooper 流方法",
       "type": "claim"
     },
     {
@@ -128,6 +136,7 @@
           "version": "2024"
         }
       ],
+      "title": "配对传播子分解",
       "type": "claim"
     },
     {
@@ -145,6 +154,7 @@
           "version": "2024"
         }
       ],
+      "title": "交叉项被等离激元压制",
       "type": "claim"
     },
     {
@@ -162,6 +172,7 @@
           "version": "2024"
         }
       ],
+      "title": "降标 Fermi 面 BSE",
       "type": "claim"
     },
     {
@@ -179,6 +190,7 @@
           "version": "2024"
         }
       ],
+      "title": "赝势标度关系",
       "type": "claim"
     },
     {
@@ -196,6 +208,7 @@
           "version": "2024"
         }
       ],
+      "title": "vDiagMC 赝势计算结果",
       "type": "claim"
     },
     {
@@ -207,6 +220,7 @@
       "label": "rpa_predicts_negative_mu",
       "module": "s3_downfolding",
       "parameters": [],
+      "title": "RPA 预测负赝势",
       "type": "claim"
     },
     {
@@ -224,6 +238,7 @@
           "version": "2024"
         }
       ],
+      "title": "Downfolding 数值验证",
       "type": "claim"
     },
     {
@@ -241,6 +256,7 @@
           "version": "2024"
         }
       ],
+      "title": "Downfolding 适用性限制",
       "type": "claim"
     },
     {
@@ -272,6 +288,7 @@
           "version": "2024"
         }
       ],
+      "title": "电子气顶点计算挑战",
       "type": "claim"
     },
     {
@@ -289,6 +306,7 @@
           "version": "2024"
         }
       ],
+      "title": "同伦展开消除对数发散",
       "type": "claim"
     },
     {
@@ -306,6 +324,7 @@
           "version": "2024"
         }
       ],
+      "title": "变分图形蒙特卡洛方法",
       "type": "claim"
     },
     {
@@ -323,6 +342,7 @@
           "version": "2024"
         }
       ],
+      "title": "各项多体修正均很大",
       "type": "claim"
     },
     {
@@ -340,6 +360,7 @@
           "version": "2024"
         }
       ],
+      "title": "多体修正近精确抵消",
       "type": "claim"
     },
     {
@@ -357,6 +378,7 @@
           "version": "2024"
         }
       ],
+      "title": "EFT 与 DFPT 数值一致",
       "type": "claim"
     },
     {
@@ -374,6 +396,7 @@
           "version": "2024"
         }
       ],
+      "title": "DFPT 对简单金属可靠",
       "type": "claim"
     },
     {
@@ -385,6 +408,7 @@
       "label": "ward_identity_hypothesis",
       "module": "s5_eph_coupling",
       "parameters": [],
+      "title": "Ward 恒等式解释抵消",
       "type": "claim"
     },
     {
@@ -396,6 +420,7 @@
       "label": "aluminum_parameters",
       "module": "s6_superconductors",
       "parameters": [],
+      "title": "铝的材料参数",
       "type": "setting"
     },
     {
@@ -407,6 +432,7 @@
       "label": "lithium_parameters",
       "module": "s6_superconductors",
       "parameters": [],
+      "title": "锂的材料参数",
       "type": "setting"
     },
     {
@@ -418,6 +444,7 @@
       "label": "magnesium_parameters",
       "module": "s6_superconductors",
       "parameters": [],
+      "title": "镁的材料参数",
       "type": "setting"
     },
     {
@@ -429,6 +456,7 @@
       "label": "sodium_parameters",
       "module": "s6_superconductors",
       "parameters": [],
+      "title": "钠的材料参数",
       "type": "setting"
     },
     {
@@ -446,6 +474,7 @@
           "version": "2024"
         }
       ],
+      "title": "第一性原理 Tc 预测工作流",
       "type": "claim"
     },
     {
@@ -463,6 +492,7 @@
           "version": "2024"
         }
       ],
+      "title": "铝的 Tc 第一性原理预测",
       "type": "claim"
     },
     {
@@ -480,6 +510,7 @@
           "version": "2024"
         }
       ],
+      "title": "铝的 Tc 唯象预测",
       "type": "claim"
     },
     {
@@ -497,6 +528,7 @@
           "version": "2024"
         }
       ],
+      "title": "锂的 Tc 第一性原理预测",
       "type": "claim"
     },
     {
@@ -514,6 +546,7 @@
           "version": "2024"
         }
       ],
+      "title": "锂的 Tc 唯象预测",
       "type": "claim"
     },
     {
@@ -531,6 +564,7 @@
           "version": "2024"
         }
       ],
+      "title": "镁和钠接近量子临界点",
       "type": "claim"
     },
     {
@@ -548,6 +582,7 @@
           "version": "2024"
         }
       ],
+      "title": "铝的压力诱导量子相变",
       "type": "claim"
     },
     {
@@ -565,6 +600,7 @@
           "version": "2024"
         }
       ],
+      "title": "Tc 预测精度数量级提升",
       "type": "claim"
     },
     {
@@ -674,6 +710,14 @@
     "s5_eph_coupling",
     "s6_superconductors"
   ],
+  "module_titles": {
+    "motivation": "Section I — Introduction: Background, motivation, and research question.",
+    "s2_model": "Section II -- The Model and Basic Relations.",
+    "s3_downfolding": "Section III -- Downfolding the BSE.",
+    "s4_pseudopotential": "Section IV -- Coulomb Pseudopotential from First Principles.",
+    "s5_eph_coupling": "Section V -- Electron-Phonon Coupling from Band Theory.",
+    "s6_superconductors": "Section VI -- Conventional Superconductors."
+  },
   "namespace": "github",
   "operators": [
     {

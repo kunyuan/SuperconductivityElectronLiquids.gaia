@@ -21,6 +21,7 @@ pair_propagator_decomposition = claim(
     "$z^e$ 为电子-电子相互作用的准粒子权重，$z_\\omega^{ph}$ 捕获"
     "电子-声子耦合的频率依赖重整化。此分解是将全 BSE 降到低能有效"
     "理论的数学基础。",
+    title="配对传播子分解",
     provenance=PROVENANCE,
 )
 
@@ -33,6 +34,7 @@ cross_term_suppressed = claim(
     "保证了两个通道可独立处理。"
     "此压制依赖于动态屏蔽 Coulomb 相互作用在高频的渐近行为 "
     "$W^s \\propto (\\omega - \\omega')^2 / [(\\omega - \\omega')^2 + \\omega_p^2]$。",
+    title="交叉项被等离激元压制",
     provenance=PROVENANCE,
 )
 
@@ -46,6 +48,7 @@ downfolded_bse = claim(
     "此结果的关键意义是：尽管微观 Coulomb 相互作用具有奇异的动量依赖性"
     "和复杂的动态屏蔽，投影后的有效电子-电子相互作用退化为频率无关的"
     "赝势 $\\mu_{\\omega_c}$。",
+    title="降标 Fermi 面 BSE",
     provenance=PROVENANCE,
 )
 
@@ -58,6 +61,7 @@ pseudopotential_scale_relation = claim(
     "(1 + \\mu_{\\omega_c'} \\ln(\\omega_c'/\\omega_c))$。"
     "该关系确保物理可观测量不依赖于截断尺度的选择。在 Fermi 能量处"
     "定义的'裸'赝势 $\\mu_{E_F}$ 是物理上有意义且无重整化伪影的量。",
+    title="赝势标度关系",
     provenance=PROVENANCE,
 )
 
@@ -68,6 +72,7 @@ mu_vdiagmc_values = claim(
     "$1.3(2)$，$r_s=6$ 时 $1.8(8)$。这些值显著超出 Morel-Anderson 静态 "
     "RPA 估计值（在 $r_s=5$ 处约为三倍），差异来源于顶点修正和超越 "
     "RPA 的效应。",
+    title="vDiagMC 赝势计算结果",
     provenance=PROVENANCE,
 )
 
@@ -75,7 +80,8 @@ rpa_predicts_negative_mu = claim(
     "动态 RPA 对 $r_s > 2$ 预测 $\\mu^*$ 为负值，意味着 Coulomb 相互作用"
     "在 Cooper 通道中变为净吸引。这一结果在物理上不合理，因为没有电子-声子"
     "耦合的纯电子系统不应出现传统超导。这表明 RPA 在这些密度下对赝势的"
-    "计算已经失效。"
+    "计算已经失效。",
+    title="RPA 预测负赝势",
 )
 
 # ── III.3 Numerical validation ──
@@ -86,6 +92,7 @@ downfolding_validated = claim(
     "两种方法得到的 $T_c$ 仅差 0.2%（$T_c^{full}/T_F = 10^{-5.668}$ vs "
     "$T_c^{approx}/T_F = 10^{-5.667}$），在 Debye 频率以下两者展现相同的"
     "普适对数标度行为。该基准验证了 downfolding 过程的定量精度。",
+    title="Downfolding 数值验证",
     provenance=PROVENANCE,
 )
 
@@ -94,6 +101,7 @@ downfolding_limitations = claim(
     "（$r_s \\lesssim 0.01$，如白矮星内部），等离激元变软；"
     "（2）二维体系，无能隙等离激元模式使尺度分离条件在任何密度下都不成立；"
     "（3）强关联材料，强关联产生的软集体激发破坏了能量尺度层级。",
+    title="Downfolding 适用性限制",
     provenance=PROVENANCE,
 )
 

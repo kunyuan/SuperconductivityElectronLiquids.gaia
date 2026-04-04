@@ -19,26 +19,30 @@ aluminum_parameters = setting(
     "铝（Al）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 2.07$，"
     "对数平均声子频率 $\\omega_{\\mathrm{log}} = 320$ K，"
     "电子-声子耦合 $\\lambda = 0.44$，"
-    "实验超导转变温度 $T_c^{\\mathrm{exp}} = 1.2$ K。"
+    "实验超导转变温度 $T_c^{\\mathrm{exp}} = 1.2$ K。",
+    title="铝的材料参数",
 )
 
 lithium_parameters = setting(
     "锂（Li, 9R 结构）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 3.25$，"
     "对数平均声子频率 $\\omega_{\\mathrm{log}} = 242$ K，"
     "电子-声子耦合 $\\lambda = 0.34$，"
-    "实验超导转变温度 $T_c^{\\mathrm{exp}} = 4 \\times 10^{-4}$ K（0.4 mK）。"
+    "实验超导转变温度 $T_c^{\\mathrm{exp}} = 4 \\times 10^{-4}$ K（0.4 mK）。",
+    title="锂的材料参数",
 )
 
 magnesium_parameters = setting(
     "镁（Mg）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 2.66$，"
     "对数平均声子频率 $\\omega_{\\mathrm{log}} = 269$ K，"
-    "电子-声子耦合 $\\lambda = 0.24$，实验上未观测到超导转变。"
+    "电子-声子耦合 $\\lambda = 0.24$，实验上未观测到超导转变。",
+    title="镁的材料参数",
 )
 
 sodium_parameters = setting(
     "钠（Na）的材料参数（Table II）：Wigner-Seitz 半径 $r_s = 3.96$，"
     "对数平均声子频率 $\\omega_{\\mathrm{log}} = 127$ K，"
-    "电子-声子耦合 $\\lambda = 0.2$，实验上未观测到超导转变。"
+    "电子-声子耦合 $\\lambda = 0.2$，实验上未观测到超导转变。",
+    title="钠的材料参数",
 )
 
 # ── VI.1 Workflow ──
@@ -51,6 +55,7 @@ ab_initio_workflow = claim(
     "其可靠性已通过多体基准测试验证；（3）前驱 Cooper 流方法，通过在 "
     "$T_c$ 以上多个温度求解 downfolded BSE 并利用普适标度律外推确定 "
     "$T_c$。该工作流不含任何可调参数。",
+    title="第一性原理 Tc 预测工作流",
     provenance=PROVENANCE,
 )
 
@@ -59,6 +64,7 @@ ab_initio_workflow = claim(
 tc_al_predicted = claim(
     "第一性原理工作流预测铝的超导转变温度为 $T_c^{\\mathrm{EFT}} = 0.96$ K"
     "（Table II），与实验值 $T_c^{\\mathrm{exp}} = 1.2$ K 偏差约 20%。",
+    title="铝的 Tc 第一性原理预测",
     given=[ab_initio_workflow],
     background=[aluminum_parameters],
     provenance=PROVENANCE,
@@ -69,6 +75,7 @@ tc_al_phenomenological = claim(
     "$T_c^{\\mu\\mathrm{MA}} = 1.9$ K（Table II），相对实验值 1.2 K 偏高约 "
     "58%。与第一性原理预测的 0.96 K（偏差 20%）相比，传统方法对铝的"
     "预测精度较低。",
+    title="铝的 Tc 唯象预测",
     background=[aluminum_parameters],
     provenance=PROVENANCE,
 )
@@ -78,6 +85,7 @@ tc_li_predicted = claim(
     "$T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K（Table II），"
     "比实验值 $T_c^{\\mathrm{exp}} = 4 \\times 10^{-4}$ K 高约一个数量级，"
     "部分原因在于极低温下锂晶体结构的争议。",
+    title="锂的 Tc 第一性原理预测",
     given=[ab_initio_workflow],
     background=[lithium_parameters],
     provenance=PROVENANCE,
@@ -89,6 +97,7 @@ tc_li_phenomenological = claim(
     "相对实验值 $4 \\times 10^{-4}$ K 偏高约三个数量级。"
     "第一性原理预测的 $5 \\times 10^{-3}$ K 虽仍偏高一个数量级，"
     "但较传统方法改善了两个数量级。",
+    title="锂的 Tc 唯象预测",
     background=[lithium_parameters],
     provenance=PROVENANCE,
 )
@@ -99,6 +108,7 @@ tc_mg_na_near_qpt = claim(
     "远低于当前实验探测能力。两者均处于正常态-超导态量子相变的临界点附近，"
     "配对场磁化率在 10 K 以下展现量子临界标度 $\\chi \\sim \\ln(T)$，"
     "无需精细调控参数。",
+    title="镁和钠接近量子临界点",
     given=[ab_initio_workflow],
     background=[magnesium_parameters, sodium_parameters],
     provenance=PROVENANCE,
@@ -107,6 +117,7 @@ tc_mg_na_near_qpt = claim(
 al_pressure_transition = claim(
     "理论预测铝在压力增加到约 60 GPa 以上时会经历从超导态到正常态的"
     "压力诱导量子相变。这是一个可实验验证的预测。",
+    title="铝的压力诱导量子相变",
     given=[ab_initio_workflow],
     background=[aluminum_parameters],
     provenance=PROVENANCE,
@@ -119,6 +130,7 @@ tc_improvement_over_phenomenological = claim(
     "改进的根本原因是用变分图形蒙特卡洛方法精确计算的 $\\mu_{E_F}$ "
     "替代了拟合参数。对于 $\\mu^*$ 微小变化导致 $T_c$ 数量级变化的"
     "低温超导体，精确的 $\\mu^*$ 值尤为关键。",
+    title="Tc 预测精度数量级提升",
     provenance=PROVENANCE,
 )
 
