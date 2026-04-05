@@ -2,45 +2,28 @@
 
 Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
 
-## Introduction: Motivation and Background
+## Overview
 
 ```mermaid
-graph TD
-    bcs_theory["BCS Theory"]:::setting
-    adiabatic_approx["Adiabatic Approximation (0.65)"]:::premise
-    me_framework["Migdal-Eliashberg Framework (0.68)"]:::derived
-    bts_renormalization["BTS Renormalization Relation (0.97)"]:::premise
-    me_downfolding_is_phenomenological["ME Downfolding is Phenomenological (0.95)"]:::orphan
-    phenomenological_me_theory["Phenomenological ME Theory Limitations (0.95)"]:::orphan
-    mu_star_phenomenological["mu* as Phenomenological Parameter (0.95)"]:::background
-    rpa_predicts_attractive_mu["RPA Predicts Attractive mu* (0.48)"]:::premise
-    dfpt_computes_lambda["DFPT Computes lambda (0.92)"]:::background
-    tc_al_experimental["Tc(Al) Experimental (0.99)"]:::premise
-    tc_li_experimental["Tc(Li) Experimental (0.85)"]:::premise
-    tc_zn_experimental["Tc(Zn) Experimental (0.99)"]:::premise
-    tc_al_phenomenological["Tc(Al) Phenomenological Prediction (0.90)"]:::premise
-    tc_li_phenomenological["Tc(Li) Phenomenological Prediction (0.90)"]:::premise
-    tc_zn_phenomenological["Tc(Zn) Phenomenological Prediction (0.90)"]:::premise
-    main_question["Main Question: First-Principles mu* and Tc"]:::question
-    mu_scale_independence["BTS Relation as Corollary (0.97)"]:::external
-    bts_microscopic_equivalence["bts_microscopic_equivalence (1.00)"]:::external
-    mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.04)"]:::external
-    rpa_vs_vdiagmc["rpa_vs_vdiagmc (1.00)"]:::external
-    strat_0(["deduction"])
-    adiabatic_approx --> strat_0
-    bcs_theory -.-> strat_0
-    strat_0 --> me_framework
-    strat_11(["noisy_and"]):::weak
-    bts_renormalization -.-> strat_11
-    strat_11 --> mu_vdiagmc_values
-    oper_0{{"≡"}}
-    mu_scale_independence --- oper_0
-    bts_renormalization --- oper_0
-    oper_0 --- bts_microscopic_equivalence
-    oper_1{{"⊗"}}:::contra
-    rpa_predicts_attractive_mu --- oper_1
-    mu_vdiagmc_values --- oper_1
-    oper_1 --- rpa_vs_vdiagmc
+graph LR
+    downfolded_bse["Downfolded BSE (0.13)"]:::derived
+    mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.04)"]:::derived
+    dfpt_reliable_for_simple_metals["DFPT Reliable for Simple Metals (0.50)"]:::derived
+    ab_initio_workflow["Ab Initio Tc Prediction Workflow (0.50)"]:::derived
+    tc_al_predicted["Tc(Al) Ab Initio Prediction (0.43)"]:::derived
+    tc_zn_predicted["Tc(Zn) Ab Initio Prediction (0.43)"]:::derived
+    tc_li_predicted["Tc(Li) Ab Initio Prediction (0.40)"]:::derived
+    al_pressure_transition["Al Pressure-Tc Transition (0.40)"]:::derived
+    tc_mg_na_near_qpt["Na and Mg Near Quantum Phase Transition (0.40)"]:::derived
+    ab_initio_workflow --> al_pressure_transition
+    ab_initio_workflow --> tc_al_predicted
+    ab_initio_workflow --> tc_li_predicted
+    ab_initio_workflow --> tc_mg_na_near_qpt
+    ab_initio_workflow --> tc_zn_predicted
+    dfpt_reliable_for_simple_metals --> ab_initio_workflow
+    downfolded_bse --> ab_initio_workflow
+    downfolded_bse --> dfpt_reliable_for_simple_metals
+    mu_vdiagmc_values --> ab_initio_workflow
 
     classDef setting fill:#f0f0f0,stroke:#999
     classDef premise fill:#ddeeff,stroke:#4488bb
@@ -52,6 +35,8 @@ graph TD
     classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
     classDef contra fill:#ffebee,stroke:#c62828
 ```
+
+## Introduction: Motivation and Background
 
 <a id="bcs_theory"></a>
 
