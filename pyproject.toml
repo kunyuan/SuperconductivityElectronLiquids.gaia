@@ -1,6 +1,6 @@
 [project]
 name = "superconductivity-electron-liquids-gaia"
-version = "0.1.0"
+version = "1.0.0"
 description = "Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)"
 readme = "README.md"
 authors = [
