@@ -2,35 +2,41 @@
 
 Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
 
-## Introduction: Motivation and Background
+## Overview
 
 ```mermaid
-graph TD
-    bcs_theory["BCS Theory"]:::setting
-    adiabatic_approx["Adiabatic Approximation (0.65)"]:::premise
-    me_framework["Migdal-Eliashberg Framework (0.68)"]:::derived
-    bts_renormalization["BTS Renormalization Relation (0.97)"]:::orphan
-    me_downfolding_is_phenomenological["ME Downfolding is Phenomenological (0.95)"]:::orphan
-    phenomenological_me_theory["Phenomenological ME Theory Limitations (0.95)"]:::orphan
-    mu_star_phenomenological["mu* as Phenomenological Parameter (0.95)"]:::orphan
-    rpa_predicts_attractive_mu["RPA Predicts Attractive mu* (0.48)"]:::orphan
-    dfpt_computes_lambda["DFPT Computes lambda (0.92)"]:::orphan
-    tc_al_experimental["Tc(Al) Experimental (0.99)"]:::premise
-    tc_li_experimental["Tc(Li) Experimental (0.85)"]:::premise
-    tc_zn_experimental["Tc(Zn) Experimental (0.99)"]:::premise
-    tc_al_phenomenological["Tc(Al) Phenomenological Prediction (0.90)"]:::premise
-    tc_li_phenomenological["Tc(Li) Phenomenological Prediction (0.90)"]:::premise
-    tc_zn_phenomenological["Tc(Zn) Phenomenological Prediction (0.90)"]:::premise
-    main_question["Main Question: First-Principles mu* and Tc"]:::question
-    adiabatic_approx -->|deduction| me_framework
+graph LR
+    downfolded_bse["Downfolded BSE (0.13)"]:::derived
+    mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.04)"]:::derived
+    dfpt_reliable_for_simple_metals["DFPT Reliable for Simple Metals (0.50)"]:::derived
+    ab_initio_workflow["Ab Initio Tc Prediction Workflow (0.50)"]:::derived
+    tc_al_predicted["Tc(Al) Ab Initio Prediction (0.43)"]:::derived
+    tc_zn_predicted["Tc(Zn) Ab Initio Prediction (0.43)"]:::derived
+    tc_li_predicted["Tc(Li) Ab Initio Prediction (0.40)"]:::derived
+    al_pressure_transition["Al Pressure-Tc Transition (0.40)"]:::derived
+    tc_mg_na_near_qpt["Na and Mg Near Quantum Phase Transition (0.40)"]:::derived
+    ab_initio_workflow --> al_pressure_transition
+    ab_initio_workflow --> tc_al_predicted
+    ab_initio_workflow --> tc_li_predicted
+    ab_initio_workflow --> tc_mg_na_near_qpt
+    ab_initio_workflow --> tc_zn_predicted
+    dfpt_reliable_for_simple_metals --> ab_initio_workflow
+    downfolded_bse --> ab_initio_workflow
+    downfolded_bse --> dfpt_reliable_for_simple_metals
+    mu_vdiagmc_values --> ab_initio_workflow
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
+
+## Introduction: Motivation and Background
 
 <a id="bcs_theory"></a>
 
@@ -189,17 +195,22 @@ The adiabatic condition $\omega_D/E_F \ll 1$ (@adiabatic_approx) ensures that th
 ```mermaid
 graph TD
     me_framework["Migdal-Eliashberg Framework (0.68)"]:::external
-    electron_phonon_action["Electron-Phonon Action Decomposition (0.95)"]:::orphan
+    electron_phonon_action["Electron-Phonon Action Decomposition (0.95)"]:::background
     bse_kernel_decomposition["BSE Kernel Decomposition (0.71)"]:::derived
-    precursory_cooper_flow["Precursory Cooper Flow (0.90)"]:::orphan
-    me_framework -->|deduction| bse_kernel_decomposition
+    precursory_cooper_flow["Precursory Cooper Flow (0.90)"]:::background
+    strat_1(["deduction"])
+    me_framework --> strat_1
+    strat_1 --> bse_kernel_decomposition
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="electron_phonon_action"></a>
@@ -241,8 +252,12 @@ Migdal's theorem (@me_framework) guarantees that phonon vertex corrections to th
 
 ```mermaid
 graph TD
+    adiabatic_approx["Adiabatic Approximation (0.65)"]:::external
     bts_renormalization["BTS Renormalization Relation (0.97)"]:::external
+    mu_star_phenomenological["mu* as Phenomenological Parameter (0.95)"]:::external
+    electron_phonon_action["Electron-Phonon Action Decomposition (0.95)"]:::external
     bse_kernel_decomposition["BSE Kernel Decomposition (0.71)"]:::external
+    precursory_cooper_flow["Precursory Cooper Flow (0.90)"]:::external
     pair_propagator_decomposition["Pair Propagator Decomposition"]:::setting
     cross_term_suppressed["Cross-Channel Terms Suppressed (0.38)"]:::premise
     rpa_dynamic_screening["RPA Dynamic Screening"]:::setting
@@ -254,27 +269,57 @@ graph TD
     lambda_microscopic_definition["Microscopic Definition of lambda (0.24)"]:::derived
     mu_microscopic_definition["Microscopic Definition of mu (0.41)"]:::derived
     mu_scale_independence["BTS Relation as Corollary (0.97)"]:::derived
-    bts_microscopic_equivalence["bts_microscopic_equivalence (1.00)"]:::orphan
+    bts_microscopic_equivalence["bts_microscopic_equivalence (1.00)"]:::derived
     ma_pseudopotential_justified["Morel-Anderson Ansatz Justified (0.70)"]:::derived
-    bse_kernel_decomposition -->|noisy_and| full_bse_toy_model
-    full_bse_toy_model -->|abduction| downfolded_bse_toy_model
-    cross_term_suppressed -->|deduction| downfolded_bse
-    bse_kernel_decomposition -->|deduction| downfolded_bse
-    downfolded_bse -->|noisy_and| downfolded_bse_toy_model
-    downfolded_bse -->|deduction| downfolded_me_equation
-    downfolded_bse -->|deduction| lambda_microscopic_definition
-    downfolded_bse -->|deduction| mu_microscopic_definition
-    mu_microscopic_definition -->|deduction| mu_scale_independence
-    mu_microscopic_definition -->|deduction| ma_pseudopotential_justified
-    mu_scale_independence -.-|equivalence| bts_microscopic_equivalence
-    bts_renormalization -.-|equivalence| bts_microscopic_equivalence
+    strat_2(["noisy_and"]):::weak
+    bse_kernel_decomposition --> strat_2
+    rpa_dynamic_screening -.-> strat_2
+    strat_2 --> full_bse_toy_model
+    strat_3(["abduction"]):::weak
+    full_bse_toy_model --> strat_3
+    strat_3 --> downfolded_bse_toy_model
+    strat_4(["deduction"])
+    cross_term_suppressed --> strat_4
+    bse_kernel_decomposition --> strat_4
+    pair_propagator_decomposition -.-> strat_4
+    adiabatic_approx -.-> strat_4
+    strat_4 --> downfolded_bse
+    strat_5(["noisy_and"]):::weak
+    downfolded_bse --> strat_5
+    rpa_dynamic_screening -.-> strat_5
+    strat_5 --> downfolded_bse_toy_model
+    strat_6(["deduction"])
+    downfolded_bse --> strat_6
+    precursory_cooper_flow -.-> strat_6
+    strat_6 --> downfolded_me_equation
+    strat_7(["deduction"])
+    downfolded_bse --> strat_7
+    electron_phonon_action -.-> strat_7
+    strat_7 --> lambda_microscopic_definition
+    strat_8(["deduction"])
+    downfolded_bse --> strat_8
+    strat_8 --> mu_microscopic_definition
+    strat_9(["deduction"])
+    mu_microscopic_definition --> strat_9
+    strat_9 --> mu_scale_independence
+    strat_10(["deduction"])
+    mu_microscopic_definition --> strat_10
+    mu_star_phenomenological -.-> strat_10
+    strat_10 --> ma_pseudopotential_justified
+    oper_0{{"≡"}}
+    mu_scale_independence --- oper_0
+    bts_renormalization --- oper_0
+    oper_0 --- bts_microscopic_equivalence
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="pair_propagator_decomposition"></a>
@@ -462,23 +507,37 @@ The microscopic definition of $\mu_{\omega_c}$ (@mu_microscopic_definition) show
 
 ```mermaid
 graph TD
+    bts_renormalization["BTS Renormalization Relation (0.97)"]:::external
     rpa_predicts_attractive_mu["RPA Predicts Attractive mu* (0.48)"]:::external
-    ueg_vertex_challenge["UEG Four-Point Vertex Challenge (0.95)"]:::orphan
+    mu_microscopic_definition["Microscopic Definition of mu (0.41)"]:::external
+    ueg_vertex_challenge["UEG Four-Point Vertex Challenge (0.95)"]:::background
     vdiagmc_method["vDiagMC Method (0.67)"]:::premise
     homotopic_expansion["Homotopic Expansion (0.60)"]:::premise
     mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.04)"]:::derived
-    rpa_vs_vdiagmc["rpa_vs_vdiagmc (1.00)"]:::orphan
-    vdiagmc_method -->|noisy_and| mu_vdiagmc_values
-    homotopic_expansion -->|noisy_and| mu_vdiagmc_values
-    rpa_predicts_attractive_mu -.-|contradiction| rpa_vs_vdiagmc
-    mu_vdiagmc_values -.-|contradiction| rpa_vs_vdiagmc
+    rpa_vs_vdiagmc["rpa_vs_vdiagmc (1.00)"]:::derived
+    strat_11(["noisy_and"]):::weak
+    vdiagmc_method --> strat_11
+    homotopic_expansion --> strat_11
+    ueg_vertex_challenge -.-> strat_11
+    mu_microscopic_definition -.-> strat_11
+    bts_renormalization -.-> strat_11
+    strat_11 --> mu_vdiagmc_values
+    oper_0{{"≡"}}
+    bts_renormalization --- oper_0
+    oper_1{{"⊗"}}:::contra
+    rpa_predicts_attractive_mu --- oper_1
+    mu_vdiagmc_values --- oper_1
+    oper_1 --- rpa_vs_vdiagmc
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="ueg_vertex_challenge"></a>
@@ -538,32 +597,48 @@ The microscopic definition of $\mu_{\omega_c}$ (@mu_microscopic_definition) redu
 
 ```mermaid
 graph TD
+    dfpt_computes_lambda["DFPT Computes lambda (0.92)"]:::external
     lambda_microscopic_definition["Microscopic Definition of lambda (0.24)"]:::external
     ward_identity["Ward Identity at q->0 (0.96)"]:::premise
     gamma3_vdiagmc["vDiagMC Computation of Gamma_3 (0.74)"]:::premise
-    dfpt_eph_ansatz["DFPT Expression for e-ph Coupling (0.90)"]:::orphan
+    dfpt_eph_ansatz["DFPT Expression for e-ph Coupling (0.90)"]:::background
     quasiparticle_mass_near_unity["Quasiparticle Mass Near Unity (0.90)"]:::premise
     eft_eph_vertex["EFT Electron-Phonon Vertex (0.35)"]:::derived
     gamma3_approximation["Approximate Gamma_3 within Fermi Sphere (0.38)"]:::derived
     eft_vertex_matches_dfpt["EFT Vertex Matches DFPT (0.01)"]:::derived
     dfpt_reliable_for_simple_metals["DFPT Reliable for Simple Metals (0.50)"]:::derived
-    lambda_microscopic_definition -->|deduction| eft_eph_vertex
-    ward_identity -->|infer| gamma3_approximation
-    gamma3_vdiagmc -->|infer| gamma3_approximation
-    eft_eph_vertex -->|deduction| eft_vertex_matches_dfpt
-    gamma3_approximation -->|deduction| eft_vertex_matches_dfpt
-    eft_vertex_matches_dfpt -->|deduction| dfpt_reliable_for_simple_metals
-    quasiparticle_mass_near_unity -->|deduction| dfpt_reliable_for_simple_metals
-    eft_eph_vertex -->|infer| dfpt_reliable_for_simple_metals
-    gamma3_approximation -->|infer| dfpt_reliable_for_simple_metals
-    quasiparticle_mass_near_unity -->|infer| dfpt_reliable_for_simple_metals
+    strat_12(["deduction"])
+    lambda_microscopic_definition --> strat_12
+    strat_12 --> eft_eph_vertex
+    strat_13(["infer"]):::weak
+    ward_identity --> strat_13
+    gamma3_vdiagmc --> strat_13
+    strat_13 --> gamma3_approximation
+    strat_14(["deduction"])
+    eft_eph_vertex --> strat_14
+    gamma3_approximation --> strat_14
+    dfpt_eph_ansatz -.-> strat_14
+    strat_14 --> eft_vertex_matches_dfpt
+    strat_15(["deduction"])
+    eft_vertex_matches_dfpt --> strat_15
+    quasiparticle_mass_near_unity --> strat_15
+    dfpt_computes_lambda -.-> strat_15
+    strat_15 --> dfpt_reliable_for_simple_metals
+    strat_16(["infer"]):::weak
+    eft_eph_vertex --> strat_16
+    gamma3_approximation --> strat_16
+    quasiparticle_mass_near_unity --> strat_16
+    strat_16 --> dfpt_reliable_for_simple_metals
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="ward_identity"></a>
@@ -668,12 +743,14 @@ Substituting the approximate $\Gamma_3^e \approx m^*/m$ (@gamma3_approximation) 
 
 ```mermaid
 graph TD
+    bts_renormalization["BTS Renormalization Relation (0.97)"]:::external
     tc_al_experimental["Tc(Al) Experimental (0.99)"]:::external
     tc_li_experimental["Tc(Li) Experimental (0.85)"]:::external
     tc_zn_experimental["Tc(Zn) Experimental (0.99)"]:::external
     tc_al_phenomenological["Tc(Al) Phenomenological Prediction (0.90)"]:::external
     tc_li_phenomenological["Tc(Li) Phenomenological Prediction (0.90)"]:::external
     tc_zn_phenomenological["Tc(Zn) Phenomenological Prediction (0.90)"]:::external
+    precursory_cooper_flow["Precursory Cooper Flow (0.90)"]:::external
     downfolded_bse["Downfolded BSE (0.13)"]:::external
     mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.04)"]:::external
     dfpt_reliable_for_simple_metals["DFPT Reliable for Simple Metals (0.50)"]:::external
@@ -682,7 +759,7 @@ graph TD
     sodium_parameters["Sodium Material Parameters"]:::setting
     magnesium_parameters["Magnesium Material Parameters"]:::setting
     zinc_parameters["Zinc Material Parameters"]:::setting
-    simple_metals_weak_lattice["Simple Metals Have Weak Lattice Effects (0.90)"]:::orphan
+    simple_metals_weak_lattice["Simple Metals Have Weak Lattice Effects (0.90)"]:::background
     ueg_pseudopotential_parameterization["UEG mu* Parameterization and Mapping (0.79)"]:::premise
     ab_initio_workflow["Ab Initio Tc Prediction Workflow (0.50)"]:::derived
     mu_available_for_simple_metals["mu* Available for Simple Metals (0.00)"]:::derived
@@ -691,33 +768,76 @@ graph TD
     tc_li_predicted["Tc(Li) Ab Initio Prediction (0.40)"]:::derived
     al_pressure_transition["Al Pressure-Tc Transition (0.40)"]:::derived
     tc_mg_na_near_qpt["Na and Mg Near Quantum Phase Transition (0.40)"]:::derived
-    ueg_pseudopotential_parameterization -->|noisy_and| mu_available_for_simple_metals
-    mu_vdiagmc_values -->|noisy_and| mu_available_for_simple_metals
-    downfolded_bse -->|deduction| ab_initio_workflow
-    mu_available_for_simple_metals -->|deduction| ab_initio_workflow
-    dfpt_reliable_for_simple_metals -->|deduction| ab_initio_workflow
-    downfolded_bse -->|infer| ab_initio_workflow
-    mu_vdiagmc_values -->|infer| ab_initio_workflow
-    dfpt_reliable_for_simple_metals -->|infer| ab_initio_workflow
-    ueg_pseudopotential_parameterization -->|infer| ab_initio_workflow
-    ab_initio_workflow -->|noisy_and| tc_al_predicted
-    ab_initio_workflow -->|noisy_and| tc_zn_predicted
-    ab_initio_workflow -->|noisy_and| tc_li_predicted
-    ab_initio_workflow -->|noisy_and| al_pressure_transition
-    ab_initio_workflow -->|noisy_and| tc_mg_na_near_qpt
-    tc_al_experimental -->|abduction| tc_al_predicted
-    tc_al_phenomenological -->|abduction| tc_al_predicted
-    tc_zn_experimental -->|abduction| tc_zn_predicted
-    tc_zn_phenomenological -->|abduction| tc_zn_predicted
-    tc_li_experimental -->|abduction| tc_li_predicted
-    tc_li_phenomenological -->|abduction| tc_li_predicted
+    strat_11(["noisy_and"]):::weak
+    bts_renormalization -.-> strat_11
+    strat_11 --> mu_vdiagmc_values
+    strat_17(["noisy_and"]):::weak
+    ueg_pseudopotential_parameterization --> strat_17
+    mu_vdiagmc_values --> strat_17
+    simple_metals_weak_lattice -.-> strat_17
+    bts_renormalization -.-> strat_17
+    strat_17 --> mu_available_for_simple_metals
+    strat_18(["deduction"])
+    downfolded_bse --> strat_18
+    mu_available_for_simple_metals --> strat_18
+    dfpt_reliable_for_simple_metals --> strat_18
+    strat_18 --> ab_initio_workflow
+    strat_19(["infer"]):::weak
+    downfolded_bse --> strat_19
+    mu_vdiagmc_values --> strat_19
+    dfpt_reliable_for_simple_metals --> strat_19
+    ueg_pseudopotential_parameterization --> strat_19
+    simple_metals_weak_lattice -.-> strat_19
+    bts_renormalization -.-> strat_19
+    strat_19 --> ab_initio_workflow
+    strat_20(["noisy_and"]):::weak
+    ab_initio_workflow --> strat_20
+    aluminum_parameters -.-> strat_20
+    strat_20 --> tc_al_predicted
+    strat_21(["noisy_and"]):::weak
+    ab_initio_workflow --> strat_21
+    zinc_parameters -.-> strat_21
+    strat_21 --> tc_zn_predicted
+    strat_22(["noisy_and"]):::weak
+    ab_initio_workflow --> strat_22
+    lithium_parameters -.-> strat_22
+    strat_22 --> tc_li_predicted
+    strat_23(["noisy_and"]):::weak
+    ab_initio_workflow --> strat_23
+    aluminum_parameters -.-> strat_23
+    strat_23 --> al_pressure_transition
+    strat_24(["noisy_and"]):::weak
+    ab_initio_workflow --> strat_24
+    magnesium_parameters -.-> strat_24
+    sodium_parameters -.-> strat_24
+    precursory_cooper_flow -.-> strat_24
+    strat_24 --> tc_mg_na_near_qpt
+    strat_25(["abduction"]):::weak
+    tc_al_experimental --> strat_25
+    tc_al_phenomenological --> strat_25
+    strat_25 --> tc_al_predicted
+    strat_26(["abduction"]):::weak
+    tc_zn_experimental --> strat_26
+    tc_zn_phenomenological --> strat_26
+    strat_26 --> tc_zn_predicted
+    strat_27(["abduction"]):::weak
+    tc_li_experimental --> strat_27
+    tc_li_phenomenological --> strat_27
+    strat_27 --> tc_li_predicted
+    oper_0{{"≡"}}
+    bts_renormalization --- oper_0
+    oper_1{{"⊗"}}:::contra
+    mu_vdiagmc_values --- oper_1
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="aluminum_parameters"></a>
@@ -917,7 +1037,7 @@ Applying the ab initio workflow (@ab_initio_workflow) to sodium (@sodium_paramet
 | [mu_microscopic_definition](#mu_microscopic_definition) | claim | — | 0.4086 | derived |
 | [tc_al_predicted](#tc_al_predicted) | claim | — | 0.4255 | derived |
 | [tc_zn_predicted](#tc_zn_predicted) | claim | — | 0.4255 | derived |
-| [rpa_predicts_attractive_mu](#rpa_predicts_attractive_mu) | claim | 0.50 | 0.4806 | orphaned |
+| [rpa_predicts_attractive_mu](#rpa_predicts_attractive_mu) | claim | 0.50 | 0.4806 | independent |
 | [ab_initio_workflow](#ab_initio_workflow) | claim | — | 0.5000 | derived |
 | [dfpt_reliable_for_simple_metals](#dfpt_reliable_for_simple_metals) | claim | — | 0.5027 | derived |
 | [downfolded_me_equation](#downfolded_me_equation) | claim | — | 0.5640 | derived |
@@ -931,24 +1051,24 @@ Applying the ab initio workflow (@ab_initio_workflow) to sodium (@sodium_paramet
 | [gamma3_vdiagmc](#gamma3_vdiagmc) | claim | 0.88 | 0.7361 | independent |
 | [ueg_pseudopotential_parameterization](#ueg_pseudopotential_parameterization) | claim | 0.85 | 0.7911 | independent |
 | [tc_li_experimental](#tc_li_experimental) | claim | 0.85 | 0.8500 | independent |
-| [dfpt_eph_ansatz](#dfpt_eph_ansatz) | claim | 0.90 | 0.9000 | orphaned |
-| [precursory_cooper_flow](#precursory_cooper_flow) | claim | 0.90 | 0.9000 | orphaned |
-| [simple_metals_weak_lattice](#simple_metals_weak_lattice) | claim | 0.90 | 0.9000 | orphaned |
+| [dfpt_eph_ansatz](#dfpt_eph_ansatz) | claim | 0.90 | 0.9000 | background |
+| [precursory_cooper_flow](#precursory_cooper_flow) | claim | 0.90 | 0.9000 | background |
+| [simple_metals_weak_lattice](#simple_metals_weak_lattice) | claim | 0.90 | 0.9000 | background |
 | [tc_al_phenomenological](#tc_al_phenomenological) | claim | 0.90 | 0.9000 | independent |
 | [tc_li_phenomenological](#tc_li_phenomenological) | claim | 0.90 | 0.9000 | independent |
 | [tc_zn_phenomenological](#tc_zn_phenomenological) | claim | 0.90 | 0.9000 | independent |
 | [quasiparticle_mass_near_unity](#quasiparticle_mass_near_unity) | claim | 0.92 | 0.9032 | independent |
-| [dfpt_computes_lambda](#dfpt_computes_lambda) | claim | 0.92 | 0.9200 | orphaned |
+| [dfpt_computes_lambda](#dfpt_computes_lambda) | claim | 0.92 | 0.9200 | background |
 | [downfolding_validity_limits](#downfolding_validity_limits) | claim | 0.92 | 0.9200 | orphaned |
-| [electron_phonon_action](#electron_phonon_action) | claim | 0.95 | 0.9500 | orphaned |
+| [electron_phonon_action](#electron_phonon_action) | claim | 0.95 | 0.9500 | background |
 | [me_downfolding_is_phenomenological](#me_downfolding_is_phenomenological) | claim | 0.95 | 0.9500 | orphaned |
-| [mu_star_phenomenological](#mu_star_phenomenological) | claim | 0.95 | 0.9500 | orphaned |
+| [mu_star_phenomenological](#mu_star_phenomenological) | claim | 0.95 | 0.9500 | background |
 | [phenomenological_me_theory](#phenomenological_me_theory) | claim | 0.95 | 0.9500 | orphaned |
-| [ueg_vertex_challenge](#ueg_vertex_challenge) | claim | 0.95 | 0.9500 | orphaned |
+| [ueg_vertex_challenge](#ueg_vertex_challenge) | claim | 0.95 | 0.9500 | background |
 | [ward_identity](#ward_identity) | claim | 0.98 | 0.9591 | independent |
 | [mu_scale_independence](#mu_scale_independence) | claim | — | 0.9693 | derived |
-| [bts_renormalization](#bts_renormalization) | claim | 0.95 | 0.9704 | orphaned |
+| [bts_renormalization](#bts_renormalization) | claim | 0.95 | 0.9704 | independent |
 | [tc_al_experimental](#tc_al_experimental) | claim | 0.99 | 0.9900 | independent |
 | [tc_zn_experimental](#tc_zn_experimental) | claim | 0.99 | 0.9900 | independent |
-| [bts_microscopic_equivalence](#bts_microscopic_equivalence) | claim | — | 0.9994 | orphaned |
-| [rpa_vs_vdiagmc](#rpa_vs_vdiagmc) | claim | — | 1.0000 | orphaned |
+| [bts_microscopic_equivalence](#bts_microscopic_equivalence) | claim | — | 0.9994 | structural |
+| [rpa_vs_vdiagmc](#rpa_vs_vdiagmc) | claim | — | 1.0000 | structural |
