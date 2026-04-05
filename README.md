@@ -254,7 +254,7 @@ Migdal's theorem (@me_framework) guarantees that phonon vertex corrections to th
 graph TD
     adiabatic_approx["Adiabatic Approximation (0.65)"]:::external
     bts_renormalization["BTS Renormalization Relation (0.97)"]:::external
-    mu_star_phenomenological["mu* as Phenomenological Parameter (0.95)"]:::external
+    mu_star_phenomenological["mu#ast; as Phenomenological Parameter (0.95)"]:::external
     electron_phonon_action["Electron-Phonon Action Decomposition (0.95)"]:::external
     bse_kernel_decomposition["BSE Kernel Decomposition (0.71)"]:::external
     precursory_cooper_flow["Precursory Cooper Flow (0.90)"]:::external
@@ -508,7 +508,7 @@ The microscopic definition of $\mu_{\omega_c}$ (@mu_microscopic_definition) show
 ```mermaid
 graph TD
     bts_renormalization["BTS Renormalization Relation (0.97)"]:::external
-    rpa_predicts_attractive_mu["RPA Predicts Attractive mu* (0.48)"]:::external
+    rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast; (0.48)"]:::external
     mu_microscopic_definition["Microscopic Definition of mu (0.41)"]:::external
     ueg_vertex_challenge["UEG Four-Point Vertex Challenge (0.95)"]:::background
     vdiagmc_method["vDiagMC Method (0.67)"]:::premise
@@ -760,9 +760,9 @@ graph TD
     magnesium_parameters["Magnesium Material Parameters"]:::setting
     zinc_parameters["Zinc Material Parameters"]:::setting
     simple_metals_weak_lattice["Simple Metals Have Weak Lattice Effects (0.90)"]:::background
-    ueg_pseudopotential_parameterization["UEG mu* Parameterization and Mapping (0.79)"]:::premise
+    ueg_pseudopotential_parameterization["UEG mu#ast; Parameterization and Mapping (0.79)"]:::premise
     ab_initio_workflow["Ab Initio Tc Prediction Workflow (0.50)"]:::derived
-    mu_available_for_simple_metals["mu* Available for Simple Metals (0.00)"]:::derived
+    mu_available_for_simple_metals["mu#ast; Available for Simple Metals (0.00)"]:::derived
     tc_al_predicted["Tc(Al) Ab Initio Prediction (0.43)"]:::derived
     tc_zn_predicted["Tc(Zn) Ab Initio Prediction (0.43)"]:::derived
     tc_li_predicted["Tc(Li) Ab Initio Prediction (0.40)"]:::derived
