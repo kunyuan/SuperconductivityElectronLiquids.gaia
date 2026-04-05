@@ -25,15 +25,17 @@ graph LR
     downfolded_bse --> dfpt_reliable_for_simple_metals
     mu_vdiagmc_values --> ab_initio_workflow
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#222
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#222
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#222
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#222
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#222
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#222
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#222
+    classDef strategy fill:#f7f7f7,stroke:#777,color:#222
+    classDef operator fill:#f7f7f7,stroke:#777,color:#222
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#222
+    classDef contra fill:#ffebee,stroke:#c62828,color:#222
 ```
 
 ## Introduction: Motivation and Background
@@ -198,19 +200,21 @@ graph TD
     electron_phonon_action["Electron-Phonon Action Decomposition (0.95)"]:::background
     bse_kernel_decomposition["BSE Kernel Decomposition (0.73)"]:::derived
     precursory_cooper_flow["Precursory Cooper Flow (0.90)"]:::background
-    strat_1(["deduction"])
+    strat_1(["deduction"]):::strategy
     me_framework --> strat_1
     strat_1 --> bse_kernel_decomposition
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#222
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#222
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#222
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#222
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#222
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#222
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#222
+    classDef strategy fill:#f7f7f7,stroke:#777,color:#222
+    classDef operator fill:#f7f7f7,stroke:#777,color:#222
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#222
+    classDef contra fill:#ffebee,stroke:#c62828,color:#222
 ```
 
 <a id="electron_phonon_action"></a>
@@ -278,7 +282,7 @@ graph TD
     strat_3(["abduction"]):::weak
     full_bse_toy_model --> strat_3
     strat_3 --> downfolded_bse_toy_model
-    strat_4(["deduction"])
+    strat_4(["deduction"]):::strategy
     cross_term_suppressed --> strat_4
     bse_kernel_decomposition --> strat_4
     pair_propagator_decomposition -.-> strat_4
@@ -288,38 +292,40 @@ graph TD
     downfolded_bse --> strat_5
     rpa_dynamic_screening -.-> strat_5
     strat_5 --> downfolded_bse_toy_model
-    strat_6(["deduction"])
+    strat_6(["deduction"]):::strategy
     downfolded_bse --> strat_6
     precursory_cooper_flow -.-> strat_6
     strat_6 --> downfolded_me_equation
-    strat_7(["deduction"])
+    strat_7(["deduction"]):::strategy
     downfolded_bse --> strat_7
     electron_phonon_action -.-> strat_7
     strat_7 --> lambda_microscopic_definition
-    strat_8(["deduction"])
+    strat_8(["deduction"]):::strategy
     downfolded_bse --> strat_8
     strat_8 --> mu_microscopic_definition
-    strat_9(["deduction"])
+    strat_9(["deduction"]):::strategy
     mu_microscopic_definition --> strat_9
     strat_9 --> mu_scale_independence
-    strat_10(["deduction"])
+    strat_10(["deduction"]):::strategy
     mu_microscopic_definition --> strat_10
     mu_star_phenomenological -.-> strat_10
     strat_10 --> ma_pseudopotential_justified
-    oper_0{{"≡"}}
+    oper_0{{"≡"}}:::operator
     mu_scale_independence --- oper_0
     bts_renormalization --- oper_0
     oper_0 --- bts_microscopic_equivalence
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#222
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#222
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#222
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#222
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#222
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#222
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#222
+    classDef strategy fill:#f7f7f7,stroke:#777,color:#222
+    classDef operator fill:#f7f7f7,stroke:#777,color:#222
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#222
+    classDef contra fill:#ffebee,stroke:#c62828,color:#222
 ```
 
 <a id="pair_propagator_decomposition"></a>
@@ -522,22 +528,24 @@ graph TD
     mu_microscopic_definition -.-> strat_11
     bts_renormalization -.-> strat_11
     strat_11 --> mu_vdiagmc_values
-    oper_0{{"≡"}}
+    oper_0{{"≡"}}:::operator
     bts_renormalization --- oper_0
     oper_1{{"⊗"}}:::contra
     rpa_predicts_attractive_mu --- oper_1
     mu_vdiagmc_values --- oper_1
     oper_1 --- rpa_vs_vdiagmc
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#222
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#222
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#222
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#222
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#222
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#222
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#222
+    classDef strategy fill:#f7f7f7,stroke:#777,color:#222
+    classDef operator fill:#f7f7f7,stroke:#777,color:#222
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#222
+    classDef contra fill:#ffebee,stroke:#c62828,color:#222
 ```
 
 <a id="ueg_vertex_challenge"></a>
@@ -607,19 +615,19 @@ graph TD
     gamma3_approximation["Approximate Gamma_3 within Fermi Sphere (0.62)"]:::derived
     eft_vertex_matches_dfpt["EFT Vertex Matches DFPT (0.55)"]:::derived
     dfpt_reliable_for_simple_metals["DFPT Reliable for Simple Metals (0.73)"]:::derived
-    strat_12(["deduction"])
+    strat_12(["deduction"]):::strategy
     lambda_microscopic_definition --> strat_12
     strat_12 --> eft_eph_vertex
     strat_13(["infer"]):::weak
     ward_identity --> strat_13
     gamma3_vdiagmc --> strat_13
     strat_13 --> gamma3_approximation
-    strat_14(["deduction"])
+    strat_14(["deduction"]):::strategy
     eft_eph_vertex --> strat_14
     gamma3_approximation --> strat_14
     dfpt_eph_ansatz -.-> strat_14
     strat_14 --> eft_vertex_matches_dfpt
-    strat_15(["deduction"])
+    strat_15(["deduction"]):::strategy
     eft_vertex_matches_dfpt --> strat_15
     quasiparticle_mass_near_unity --> strat_15
     dfpt_computes_lambda -.-> strat_15
@@ -630,15 +638,17 @@ graph TD
     quasiparticle_mass_near_unity --> strat_16
     strat_16 --> dfpt_reliable_for_simple_metals
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#222
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#222
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#222
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#222
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#222
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#222
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#222
+    classDef strategy fill:#f7f7f7,stroke:#777,color:#222
+    classDef operator fill:#f7f7f7,stroke:#777,color:#222
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#222
+    classDef contra fill:#ffebee,stroke:#c62828,color:#222
 ```
 
 <a id="ward_identity"></a>
@@ -777,7 +787,7 @@ graph TD
     simple_metals_weak_lattice -.-> strat_17
     bts_renormalization -.-> strat_17
     strat_17 --> mu_available_for_simple_metals
-    strat_18(["deduction"])
+    strat_18(["deduction"]):::strategy
     downfolded_bse --> strat_18
     mu_available_for_simple_metals --> strat_18
     dfpt_reliable_for_simple_metals --> strat_18
@@ -824,20 +834,22 @@ graph TD
     tc_li_experimental --> strat_27
     tc_li_phenomenological --> strat_27
     strat_27 --> tc_li_predicted
-    oper_0{{"≡"}}
+    oper_0{{"≡"}}:::operator
     bts_renormalization --- oper_0
     oper_1{{"⊗"}}:::contra
     mu_vdiagmc_values --- oper_1
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#222
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#222
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#222
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#222
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#222
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#222
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#222
+    classDef strategy fill:#f7f7f7,stroke:#777,color:#222
+    classDef operator fill:#f7f7f7,stroke:#777,color:#222
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#222
+    classDef contra fill:#ffebee,stroke:#c62828,color:#222
 ```
 
 <a id="aluminum_parameters"></a>
