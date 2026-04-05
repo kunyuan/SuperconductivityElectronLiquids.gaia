@@ -38,7 +38,7 @@ from ..s4_pseudopotential import (
 )
 from ..s5_eph_coupling import (
     _composite_dfpt,
-    _infer_gamma3,
+    _induction_gamma3,
     dfpt_eph_ansatz,
     gamma3_vdiagmc,
     quasiparticle_mass_near_unity,
@@ -93,10 +93,15 @@ _claim_reviews = [
     review_claim(tc_li_experimental, prior=0.85,
                  justification="Crystal structure controversial at ultra-low T."),
 
-    # Phenomenological Tc
-    review_claim(tc_al_phenomenological, prior=0.90, justification="Correct calc; uncertain mu*."),
-    review_claim(tc_li_phenomenological, prior=0.90, justification="Correct calc; uncertain mu*."),
-    review_claim(tc_zn_phenomenological, prior=0.90, justification="Correct calc; uncertain mu*."),
+    # Phenomenological Tc — priors reflect explanatory power (how well they match
+    # experiment), not calculation correctness. π(Alt) = "can this alternative alone
+    # explain the observed Tc?"
+    review_claim(tc_al_phenomenological, prior=0.35,
+                 justification="Predicts 1.9K vs experiment 1.2K (58% overestimate); poor match."),
+    review_claim(tc_zn_phenomenological, prior=0.35,
+                 justification="Predicts 1.37K vs experiment 0.875K (57% overestimate); poor match."),
+    review_claim(tc_li_phenomenological, prior=0.10,
+                 justification="Predicts 0.35K vs experiment 4e-4K (3 orders too high); very poor match."),
 
     # Background-only / orphaned claims (validator requires prior for all claims)
     review_claim(ueg_vertex_challenge, prior=0.95, justification="Recognized challenge."),
@@ -117,10 +122,9 @@ _claim_reviews = [
 # ---------------------------------------------------------------------------
 
 _strategy_reviews = [
-    # infer: gamma3_approximation (2 premises, CPT=[FF, TF, FT, TT])
-    review_strategy(_infer_gamma3,
-                    conditional_probabilities=[0.05, 0.20, 0.30, 0.85],
-                    justification="FF=0.05, TF=0.20, FT=0.30, TT=0.85."),
+    # induction (CompositeStrategy): gamma3_approximation
+    # No strategy-level parameters needed — sub-abductions are parameterized
+    # via their auto-generated alternative_explanation priors.
 
     # noisy_and strategies
     review_strategy(_strat_full_bse, conditional_probability=0.95,
@@ -170,6 +174,20 @@ _generated_reviews = [
         _abduction_downfolding, "alternative_explanation",
         prior=0.10,
         justification="0.2% agreement leaves little room for alternatives.",
+    ),
+    # Induction sub-abductions for gamma3_approximation auto-generate
+    # alternative_explanation claims for ward_identity and gamma3_vdiagmc.
+    # These need priors reflecting how likely the observation could be
+    # explained WITHOUT the gamma3 approximation being true.
+    review_generated_claim(
+        _induction_gamma3.sub_strategies[0], "alternative_explanation",
+        prior=0.15,
+        justification="Ward identity is exact (QFT); alt explanation unlikely but conceivable if limit is not uniform.",
+    ),
+    review_generated_claim(
+        _induction_gamma3.sub_strategies[1], "alternative_explanation",
+        prior=0.25,
+        justification="vDiagMC finite-q results could have larger systematic errors than claimed.",
     ),
 ]
 

@@ -6,7 +6,7 @@ via vDiagMC and the Ward identity, and shows that quasiparticle mass renormaliza
 is close to unity.
 """
 
-from gaia.lang import claim, composite, deduction, infer, noisy_and
+from gaia.lang import claim, composite, deduction, induction, noisy_and
 
 from .motivation import dfpt_computes_lambda
 from .s3_downfolding import lambda_microscopic_definition
@@ -89,7 +89,6 @@ deduction(
     ),
 )
 
-# TODO: when Gaia IR supports statistical induction, change to induction
 gamma3_approximation = claim(
     "The three-point vertex $\\Gamma_3^e(k, q)$ for states within the "
     "Fermi sphere can be accurately approximated by interpolation between "
@@ -102,9 +101,9 @@ gamma3_approximation = claim(
     title="Approximate Gamma_3 within Fermi Sphere",
 )
 
-_infer_gamma3 = infer(
-    premises=[ward_identity, gamma3_vdiagmc],
-    conclusion=gamma3_approximation,
+_induction_gamma3 = induction(
+    [ward_identity, gamma3_vdiagmc],
+    gamma3_approximation,
     reason=(
         "The Ward identity (@ward_identity) provides the exact value of "
         "$\\Gamma_3^e$ at $q = 0$: $\\Gamma_3^e(k, 0) = m^*/m$. The vDiagMC "

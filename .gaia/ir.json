@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:d354e50ddcdc7a1af024bdc81696af0e96575a55b956dd63b688b360863041b5",
+  "ir_hash": "sha256:50fd0631e45632cd2b30e885402d28f71992260cc06f8003c3e2afb2560f6f14",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -792,6 +792,122 @@
       "type": "claim"
     },
     {
+      "content": "alternative_explanation_for(github:superconductivity_electron_liquids::ward_identity)",
+      "content_hash": "53fdcead7071c6c41145ab3c02aa6a28f9735bf5592e5f1b10b1a4e3f54a3061",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__alternative_explanation_f7187cd2",
+      "label": "__alternative_explanation_f7187cd2",
+      "metadata": {
+        "canonical_name": "alternative_explanation_for(github:superconductivity_electron_liquids::ward_identity)",
+        "generated": true,
+        "generated_kind": "interface_claim",
+        "interface_role": "alternative_explanation",
+        "owning_strategy_id": "lcs_0fe992238b295e72",
+        "owning_strategy_type": "abduction",
+        "visibility": "strategy_interface"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:superconductivity_electron_liquids::ward_identity)",
+      "content_hash": "f3d041a6e14c42889858a182fbb12b66f1b014dd8b0370b7b35b1a1dbd7368e4",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__disjunction_result_da7cd42e",
+      "label": "__disjunction_result_da7cd42e",
+      "metadata": {
+        "canonical_name": "explains(github:superconductivity_electron_liquids::ward_identity)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_0fe992238b295e72",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_da7cd42e,github:superconductivity_electron_liquids::ward_identity)",
+      "content_hash": "152e2b59cd89c0918b525be5bc1134e15d0619be1bb1c67f90e93bd7bd174038",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__equivalence_result_7bae0d28",
+      "label": "__equivalence_result_7bae0d28",
+      "metadata": {
+        "canonical_name": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_da7cd42e,github:superconductivity_electron_liquids::ward_identity)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_0fe992238b295e72",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "alternative_explanation_for(github:superconductivity_electron_liquids::gamma3_vdiagmc)",
+      "content_hash": "2bbda2dee61eb3014e5db003948bc884ae01464bf5c18d667b66cc8d26f9379e",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__alternative_explanation_af393c58",
+      "label": "__alternative_explanation_af393c58",
+      "metadata": {
+        "canonical_name": "alternative_explanation_for(github:superconductivity_electron_liquids::gamma3_vdiagmc)",
+        "generated": true,
+        "generated_kind": "interface_claim",
+        "interface_role": "alternative_explanation",
+        "owning_strategy_id": "lcs_0d5568a3e02db81d",
+        "owning_strategy_type": "abduction",
+        "visibility": "strategy_interface"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "explains(github:superconductivity_electron_liquids::gamma3_vdiagmc)",
+      "content_hash": "b9d108c26b7c377c8f33c7d4a118fa3fd61b57e5ceb91ec74838f88c9faf66da",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__disjunction_result_3011c50c",
+      "label": "__disjunction_result_3011c50c",
+      "metadata": {
+        "canonical_name": "explains(github:superconductivity_electron_liquids::gamma3_vdiagmc)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "disjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "disjunction_result",
+        "owning_strategy_id": "lcs_0d5568a3e02db81d",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_3011c50c,github:superconductivity_electron_liquids::gamma3_vdiagmc)",
+      "content_hash": "8860652b24265fefe9ce2e1201a7b22d5f38c7db182e93b5a198475965ba86dd",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__equivalence_result_674febbf",
+      "label": "__equivalence_result_674febbf",
+      "metadata": {
+        "canonical_name": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_3011c50c,github:superconductivity_electron_liquids::gamma3_vdiagmc)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "equivalence_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "equivalence_result",
+        "owning_strategy_id": "lcs_0d5568a3e02db81d",
+        "owning_strategy_type": "abduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
       "content": "all_true(github:superconductivity_electron_liquids::eft_eph_vertex,github:superconductivity_electron_liquids::gamma3_approximation)",
       "content_hash": "d38d097c0e14ea3528d4ae529365f38b58f128df12d11e2da8c0a77c9e949fca",
       "exported": false,
@@ -1363,6 +1479,90 @@
     },
     {
       "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__disjunction_result_da7cd42e",
+            "operator": "disjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::gamma3_approximation",
+              "github:superconductivity_electron_liquids::__alternative_explanation_f7187cd2"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__equivalence_result_7bae0d28",
+            "operator": "equivalence",
+            "variables": [
+              "github:superconductivity_electron_liquids::__disjunction_result_da7cd42e",
+              "github:superconductivity_electron_liquids::ward_identity"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:superconductivity_electron_liquids::__alternative_explanation_f7187cd2"
+          ],
+          "observation": [
+            "github:superconductivity_electron_liquids::ward_identity"
+          ]
+        }
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::ward_identity",
+        "github:superconductivity_electron_liquids::__alternative_explanation_f7187cd2"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_0fe992238b295e72",
+      "type": "abduction"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__disjunction_result_3011c50c",
+            "operator": "disjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::gamma3_approximation",
+              "github:superconductivity_electron_liquids::__alternative_explanation_af393c58"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__equivalence_result_674febbf",
+            "operator": "equivalence",
+            "variables": [
+              "github:superconductivity_electron_liquids::__disjunction_result_3011c50c",
+              "github:superconductivity_electron_liquids::gamma3_vdiagmc"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "abduction",
+        "generated_formal_expr": true,
+        "interface_roles": {
+          "alternative_explanation": [
+            "github:superconductivity_electron_liquids::__alternative_explanation_af393c58"
+          ],
+          "observation": [
+            "github:superconductivity_electron_liquids::gamma3_vdiagmc"
+          ]
+        }
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::gamma3_vdiagmc",
+        "github:superconductivity_electron_liquids::__alternative_explanation_af393c58"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_0d5568a3e02db81d",
+      "type": "abduction"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
       "metadata": {
         "reason": "The Ward identity (@ward_identity) provides the exact value of $\\Gamma_3^e$ at $q = 0$: $\\Gamma_3^e(k, 0) = m^*/m$. The vDiagMC computation (@gamma3_vdiagmc) shows that at finite $q$ within the Fermi sphere, vertex corrections remain modest (10--20%) and vary smoothly with momentum. By interpolating between the exact $q = 0$ constraint and the numerically determined finite-$q$ behavior, we obtain a reliable approximation $\\Gamma_3^e \\approx m^*/m$ that captures the dominant effect (mass renormalization) while bounding the error from momentum dependence at the 10--15% level."
       },
@@ -1371,8 +1571,12 @@
         "github:superconductivity_electron_liquids::gamma3_vdiagmc"
       ],
       "scope": "local",
-      "strategy_id": "lcs_425c58112bc772ad",
-      "type": "infer"
+      "strategy_id": "lcs_a37da6195874d921",
+      "sub_strategies": [
+        "lcs_0fe992238b295e72",
+        "lcs_0d5568a3e02db81d"
+      ],
+      "type": "induction"
     },
     {
       "background": [
