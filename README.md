@@ -25,15 +25,15 @@ graph LR
     downfolded_bse --> dfpt_reliable_for_simple_metals
     mu_vdiagmc_values --> ab_initio_workflow
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 ## Introduction: Motivation and Background
@@ -202,15 +202,15 @@ graph TD
     me_framework --> strat_1
     strat_1 --> bse_kernel_decomposition
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="electron_phonon_action"></a>
@@ -311,15 +311,15 @@ graph TD
     bts_renormalization --- oper_0
     oper_0 --- bts_microscopic_equivalence
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="pair_propagator_decomposition"></a>
@@ -529,15 +529,15 @@ graph TD
     mu_vdiagmc_values --- oper_1
     oper_1 --- rpa_vs_vdiagmc
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="ueg_vertex_challenge"></a>
@@ -630,15 +630,15 @@ graph TD
     quasiparticle_mass_near_unity --> strat_16
     strat_16 --> dfpt_reliable_for_simple_metals
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="ward_identity"></a>
@@ -829,15 +829,15 @@ graph TD
     oper_1{{"⊗"}}:::contra
     mu_vdiagmc_values --- oper_1
 
-    classDef setting fill:#f0f0f0,stroke:#999
-    classDef premise fill:#ddeeff,stroke:#4488bb
-    classDef derived fill:#ddffdd,stroke:#44bb44
-    classDef question fill:#fff3dd,stroke:#cc9944
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5
-    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5
-    classDef contra fill:#ffebee,stroke:#c62828
+    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
+    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
+    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
+    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
+    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
+    classDef external fill:#fff,stroke:#aaa,stroke-dasharray: 3 3,color:#333
+    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
+    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 <a id="aluminum_parameters"></a>
