@@ -34,6 +34,10 @@ gamma3_vdiagmc = claim(
     "interpolated between the Ward-identity limit ($q \\to 0$) and "
     "the large-$q$ asymptotic behavior.",
     title="vDiagMC Computation of Gamma_3",
+    metadata={
+        "figure": "artifacts/images/12_0.jpg",
+        "caption": "Fig. 8 | Comparison between the angle-resolved e-ph vertex correction in the UEG from vDiagMC (points) and DFPT (lines) for different r_s values.",
+    },
 )
 
 dfpt_eph_ansatz = claim(

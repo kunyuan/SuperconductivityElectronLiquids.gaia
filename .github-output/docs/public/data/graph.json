@@ -34,7 +34,10 @@
       "prior": null,
       "belief": 0.9500614989477801,
       "exported": false,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/4_0.jpg",
+        "caption": "Fig. 1 | Normal component of the electron self-energy approximated by the self-consistent Fock diagram with the phonon-mediated e-e interaction W^ph."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::bts_renormalization",
@@ -56,7 +59,7 @@
       "module": "motivation",
       "content": "The downfolding procedure (integrating out high-energy degrees of freedom to obtain a low-energy effective theory) in traditional Migdal-Eliashberg (ME) theory is phenomenological: the Coulomb effect is replaced by a static pseudopotential $\\mu^*$, ignoring corrections from Coulomb fluctuations to quasiparticle renormalization and electron-phonon coupling, as well as non-local effects of screening.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
       "metadata": {}
     },
@@ -68,7 +71,7 @@
       "module": "motivation",
       "content": "Traditional electron-phonon superconductivity theory uses the McMillan (or Allen-Dynes) formula, with the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$ as inputs to predict the superconducting transition temperature $T_c$. Since $\\mu^*$ cannot be reliably computed from first principles, it is typically assigned an empirical value $\\mu^* \\in [0.1, 0.2]$. For materials with $T_c$ in the sub-kelvin range, the exponential sensitivity $T_c \\propto \\exp(-1/g)$ to $\\mu^*$ causes this uncertainty to span several orders of magnitude in the predicted $T_c$, destroying predictive power.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
       "metadata": {}
     },
@@ -80,7 +83,7 @@
       "module": "motivation",
       "content": "Due to the lack of a reliable microscopic calculation, the Coulomb pseudopotential $\\mu^*$ (a dimensionless parameter describing the effective Coulomb repulsion strength in the low-energy pairing channel) is typically treated as an adjustable parameter with empirical values in the range 0.1--0.2.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
       "metadata": {}
     },
@@ -104,7 +107,7 @@
       "module": "motivation",
       "content": "Density functional perturbation theory (DFPT) computes the electron-phonon coupling constant $\\lambda$ (a dimensionless parameter quantifying the phonon-mediated attraction strength at the Fermi surface) via the linear response of the Kohn-Sham ground-state energy to lattice distortions. DFPT has been validated for weakly correlated superconductors but its accuracy for strongly correlated systems is unknown.",
       "prior": 0.92,
-      "belief": 0.92,
+      "belief": 0.9199999999999999,
       "exported": false,
       "metadata": {}
     },
@@ -152,7 +155,7 @@
       "module": "motivation",
       "content": "Using the McMillan formula (an empirical formula for $T_c$ based on the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of aluminum is $T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a deviation of approximately 58%.",
       "prior": 0.35,
-      "belief": 0.3959435044900741,
+      "belief": 0.39594350449007415,
       "exported": false,
       "metadata": {}
     },
@@ -176,7 +179,7 @@
       "module": "motivation",
       "content": "Using the McMillan formula with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of zinc is $T_c \\approx 1.37$ K, while the experimental value is 0.875 K, a deviation of approximately 57%.",
       "prior": 0.35,
-      "belief": 0.39594350449007415,
+      "belief": 0.3959435044900741,
       "exported": false,
       "metadata": {}
     },
@@ -200,9 +203,12 @@
       "module": "s2_model",
       "content": "The effective action of the electron-phonon coupled system can be decomposed as $S = S_e + S_{\\mathrm{ph}} + S_{e\\text{-ph}} + S_{\\mathrm{CT}} + O(\\sqrt{m/M})$, where $m$ is the electron mass and $M$ is the ion mass. $S_e$ is the complete many-electron action without any approximation, $S_{\\mathrm{ph}}$ describes phonons with physical dispersion, $S_{e\\text{-ph}}$ is the coupling between electron density and ionic displacement, and $S_{\\mathrm{CT}}$ is a counterterm that subtracts the static electron polarization contribution already included in the physical phonon dispersion to prevent double counting.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/4_1.jpg",
+        "caption": "Fig. 2 | Diagrammatic representation of the phonon-mediated e-e interaction W^ph, composed of phonon propagator D, bare coupling g^(0), vertex function Gamma_3^e, and dielectric function."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::bse_kernel_decomposition",
@@ -214,7 +220,10 @@
       "prior": null,
       "belief": 0.9984363730600639,
       "exported": false,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/4_2.jpg",
+        "caption": "Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous vertex in momentum space, with kernel consisting of the electronic four-point vertex Gamma_e and phonon-mediated interaction W^ph."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::precursory_cooper_flow",
@@ -248,7 +257,7 @@
       "module": "s3_downfolding",
       "content": "Cross terms mixing Coulomb and phonon channels are suppressed by the plasma frequency $\\omega_p$, at order $O(\\omega_c^2/\\omega_p^2)$, where $\\omega_c$ is an intermediate energy cutoff satisfying $\\omega_D \\ll \\omega_c \\ll E_F$. For most three-dimensional metals $\\omega_c/\\omega_p \\lesssim 0.1$, so cross terms contribute no more than 1%.",
       "prior": 0.9,
-      "belief": 0.6893574958481036,
+      "belief": 0.6893574958481037,
       "exported": false,
       "metadata": {}
     },
@@ -274,7 +283,10 @@
       "prior": null,
       "belief": 0.9983797188356047,
       "exported": false,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/8_1.jpg",
+        "caption": "Fig. 5 | Comparison between the precursory Cooper flow solutions of the full and downfolded BSE for a toy model, demonstrating 0.2% agreement in Tc."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::downfolded_bse_toy_model",
@@ -284,7 +296,7 @@
       "module": "s3_downfolding",
       "content": "For the same toy model (aluminum-like parameters $r_s = 1.92$, $\\omega_D/E_F = 0.005$), solving the downfolded frequency-only Bethe-Salpeter equation yields $T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$, where $T_F$ is the Fermi temperature.",
       "prior": null,
-      "belief": 0.7581447386380767,
+      "belief": 0.7581447386380769,
       "exported": false,
       "metadata": {}
     },
@@ -296,7 +308,7 @@
       "module": "s3_downfolding",
       "content": "The downfolded EFT-ME framework's applicability conditions and failure modes: (i) the adiabatic parameter $\\omega_D/E_F \\ll 1$ must hold, (ii) the intermediate cutoff $\\omega_c$ must satisfy $\\omega_D \\ll \\omega_c \\ll E_F$ with $\\omega_c/\\omega_p \\ll 1$, and (iii) the framework breaks down for strongly non-adiabatic systems (e.g. high-$T_c$ hydrides where $\\omega_D/E_F \\sim 0.1$) and for strongly correlated materials where the quasiparticle picture fails.",
       "prior": 0.92,
-      "belief": 0.92,
+      "belief": 0.9199999999999999,
       "exported": false,
       "metadata": {}
     },
@@ -308,7 +320,7 @@
       "module": "s3_downfolding",
       "content": "The frequency-only downfolded Bethe-Salpeter equation: the full momentum-frequency BSE kernel reduces to a one-dimensional integral equation in Matsubara frequency, with an effective kernel $K(\\omega, \\omega') = \\lambda(\\omega, \\omega') - \\mu_{\\omega_c}(\\omega, \\omega')$, where the phonon-mediated attraction $\\lambda$ and Coulomb pseudopotential $\\mu_{\\omega_c}$ are microscopically defined. The momentum integration is absorbed into the density of states, and the pair propagator's coherent part generates the BCS logarithm that drives the Cooper instability.",
       "prior": null,
-      "belief": 0.759814602530802,
+      "belief": 0.7598146025308021,
       "exported": true,
       "metadata": {}
     },
@@ -332,7 +344,7 @@
       "module": "s3_downfolding",
       "content": "The electron-phonon coupling $\\lambda(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is the Fermi-surface average of the phonon-mediated interaction $W^{\\mathrm{ph}}$ weighted by quasiparticle renormalization factors $z^e$ and $z_\\omega^{\\mathrm{ph}}$. This definition reduces to the standard Eliashberg $\\lambda$ in the adiabatic limit but retains dynamical corrections from the electron self-energy.",
       "prior": null,
-      "belief": 0.8085433358182529,
+      "belief": 0.808543335818253,
       "exported": false,
       "metadata": {}
     },
@@ -394,7 +406,7 @@
       "module": "s4_pseudopotential",
       "content": "Computing the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ of the uniform electron gas (UEG) is a long-standing challenge: perturbation theory in the bare Coulomb interaction diverges for $r_s \\gtrsim 1$, and partial resummations (RPA, GW) miss crucial vertex corrections. A controlled, systematically improvable method is needed to evaluate $\\tilde\\Gamma^e$ in the metallic density range $r_s \\in [1, 6]$.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
       "metadata": {}
     },
@@ -420,7 +432,10 @@
       "prior": 0.88,
       "belief": 0.7925841268516507,
       "exported": false,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/10_0.jpg",
+        "caption": "Fig. 6 | Diagrammatic contributions to the 4-point vertex at first and second order, with Coulomb interaction re-expanded from Yukawa interaction with screening parameter lambda_R."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
@@ -428,11 +443,14 @@
       "title": "mu from vDiagMC: Numerical Values",
       "type": "claim",
       "module": "s4_pseudopotential",
-      "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range. Representative values include $\\mu_{E_F} \\approx 0.21$ at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} \\approx 0.33$ at $r_s = 3.3$ (lithium-like). These results, combined with the BTS relation, yield $\\mu^* \\approx 0.10$--$0.15$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent.",
+      "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\\mu_{E_F} \\approx 0.27 r_s$. Representative values from TABLE I include $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} = 0.77(5)$ at $r_s = 3$ (lithium-like). These results, combined with the BTS relation, yield $\\mu^* \\approx 0.12$--$0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent.",
       "prior": null,
-      "belief": 0.5024769910744118,
+      "belief": 0.5024769910744119,
       "exported": true,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/8_0.jpg",
+        "caption": "Fig. 4 | Dimensionless bare Coulomb pseudopotential mu_EF as a function of r_s for the 3D UEG from vDiagMC data, compared with static RPA, Morel-Anderson, and dynamic RPA predictions."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::rpa_vs_vdiagmc",
@@ -470,7 +488,10 @@
       "prior": 0.88,
       "belief": 0.9998272734975522,
       "exported": false,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/12_0.jpg",
+        "caption": "Fig. 8 | Comparison between the angle-resolved e-ph vertex correction in the UEG from vDiagMC (points) and DFPT (lines) for different r_s values."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::dfpt_eph_ansatz",
@@ -492,7 +513,7 @@
       "module": "s5_eph_coupling",
       "content": "For simple metals at metallic densities ($r_s \\in [2, 4]$), the quasiparticle effective mass ratio $m^*/m \\approx 1$ (deviations less than 5--10%). This near-unity mass ratio means that the quasiparticle renormalization factor $z^e \\approx 1/(1 + \\lambda_e)$ primarily reflects the frequency-dependent self-energy rather than momentum-dependent mass enhancement, simplifying the mapping between microscopic and DFPT-level electron-phonon coupling.",
       "prior": 0.92,
-      "belief": 0.861457890275044,
+      "belief": 0.8614578902750442,
       "exported": false,
       "metadata": {}
     },
@@ -528,7 +549,7 @@
       "module": "s5_eph_coupling",
       "content": "In the uniform electron gas at densities $r_s \\in [1,5]$, the EFT electron-phonon vertex $g(\\mathbf{k},\\mathbf{q}) = g^{(0)}_{\\mathbf{q}} \\cdot (z^e/\\epsilon_{\\mathbf{q}}) \\cdot \\Gamma_3^e(\\mathbf{k};\\mathbf{q})$ is numerically well approximated by the DFPT Kohn-Sham screened potential $g^{\\mathrm{KS}}(\\mathbf{q}) = g^{(0)}_{\\mathbf{q}} / [1 - (v_{\\mathbf{q}} + f_{xc})\\chi_0^e(\\mathbf{q})]$ for Fermi-surface-relevant momentum transfers $|\\mathbf{q}| \\leq 2k_F$, with weak residual $\\mathbf{k}$-dependence.",
       "prior": null,
-      "belief": 0.8540891525446573,
+      "belief": 0.8540891525446572,
       "exported": false,
       "metadata": {}
     },
@@ -550,7 +571,7 @@
       "title": "Aluminum Material Parameters",
       "type": "setting",
       "module": "s6_superconductors",
-      "content": "Aluminum (Al): FCC crystal structure, $r_s = 2.07$, experimental Debye temperature $\\Theta_D \\approx 428$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.44$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 300$ K.",
+      "content": "Aluminum (Al): FCC crystal structure, $r_s = 2.07$, band mass $m_b = 1.05$, DFPT electron-phonon coupling $\\lambda = 0.44$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 320$ K, Fermi temperature $T_F = 1.3 \\times 10^5$ K.",
       "prior": null,
       "belief": null,
       "exported": false,
@@ -562,7 +583,7 @@
       "title": "Lithium Material Parameters",
       "type": "setting",
       "module": "s6_superconductors",
-      "content": "Lithium (Li): BCC (or 9R at low $T$) crystal structure, $r_s = 3.25$, experimental Debye temperature $\\Theta_D \\approx 344$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.41$ (BCC), logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 250$ K. Crystal structure at sub-kelvin temperatures remains debated.",
+      "content": "Lithium (Li): 9R crystal structure at low $T$ (also studied in HCP). 9R parameters: $r_s = 3.25$, $m_b = 1.75$, $\\lambda = 0.34$, $\\omega_{\\mathrm{log}} = 242$ K, $T_F = 4.0 \\times 10^4$ K. HCP parameters: $r_s = 3.19$, $m_b = 1.4$, $\\lambda = 0.37$, $\\omega_{\\mathrm{log}} = 243$ K, $T_F = 4.1 \\times 10^4$ K. Crystal structure at sub-kelvin temperatures remains debated.",
       "prior": null,
       "belief": null,
       "exported": false,
@@ -574,7 +595,7 @@
       "title": "Sodium Material Parameters",
       "type": "setting",
       "module": "s6_superconductors",
-      "content": "Sodium (Na): BCC crystal structure, $r_s = 3.93$, experimental Debye temperature $\\Theta_D \\approx 158$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.18$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 120$ K. No superconductivity observed down to mK temperatures.",
+      "content": "Sodium (Na): BCC crystal structure, $r_s = 3.96$, band mass $m_b = 1.0$, DFPT electron-phonon coupling $\\lambda = 0.2$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 127$ K, Fermi temperature $T_F = 4.2 \\times 10^4$ K. No superconductivity observed down to mK temperatures.",
       "prior": null,
       "belief": null,
       "exported": false,
@@ -586,7 +607,7 @@
       "title": "Magnesium Material Parameters",
       "type": "setting",
       "module": "s6_superconductors",
-      "content": "Magnesium (Mg): HCP crystal structure, $r_s = 2.66$, experimental Debye temperature $\\Theta_D \\approx 400$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.26$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 290$ K. No superconductivity observed down to mK temperatures.",
+      "content": "Magnesium (Mg): HCP crystal structure, $r_s = 2.66$, band mass $m_b = 1.02$, DFPT electron-phonon coupling $\\lambda = 0.24$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 269$ K, Fermi temperature $T_F = 8.0 \\times 10^4$ K. No superconductivity observed down to mK temperatures.",
       "prior": null,
       "belief": null,
       "exported": false,
@@ -598,7 +619,7 @@
       "title": "Zinc Material Parameters",
       "type": "setting",
       "module": "s6_superconductors",
-      "content": "Zinc (Zn): HCP crystal structure, $r_s = 2.31$, experimental Debye temperature $\\Theta_D \\approx 327$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.43$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 200$ K.",
+      "content": "Zinc (Zn): HCP crystal structure, $r_s = 2.90$, band mass $m_b = 1.0$, DFPT electron-phonon coupling $\\lambda = 0.502$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 111$ K, Fermi temperature $T_F = 1.21 \\times 10^5$ K.",
       "prior": null,
       "belief": null,
       "exported": false,
@@ -638,7 +659,10 @@
       "prior": null,
       "belief": 0.9865666315950239,
       "exported": true,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/13_0.jpg",
+        "caption": "Fig. 9 | Proposed ab initio framework for electron-phonon SC beyond the weak correlation limit, showing computational pathway from fundamental parameters through correlated electrons and lattice vibrations to superconducting properties."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::mu_available_for_simple_metals",
@@ -648,7 +672,7 @@
       "module": "s6_superconductors",
       "content": "For simple metals, the Coulomb pseudopotential $\\mu^*$ can be obtained from first principles without adjustable parameters: the vDiagMC-computed $\\mu_{E_F}(r_s)$ for the uniform electron gas is mapped to real materials via material-specific $r_s$ and band mass, then scaled to the Debye frequency via the BTS renormalization relation.",
       "prior": null,
-      "belief": 0.4022501606984577,
+      "belief": 0.4022501606984578,
       "exported": false,
       "metadata": {}
     },
@@ -658,11 +682,14 @@
       "title": "Tc(Al) Ab Initio Prediction",
       "type": "claim",
       "module": "s6_superconductors",
-      "content": "The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{th}} = 1.1 \\pm 0.3$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) \\approx 0.11$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ via BTS renormalization.",
+      "content": "The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization.",
       "prior": null,
       "belief": 0.929112879694904,
       "exported": true,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/14_0.jpg",
+        "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::tc_zn_predicted",
@@ -670,11 +697,14 @@
       "title": "Tc(Zn) Ab Initio Prediction",
       "type": "claim",
       "module": "s6_superconductors",
-      "content": "The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{th}} = 0.7 \\pm 0.3$ K, consistent with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) \\approx 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.31$.",
+      "content": "The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization.",
       "prior": null,
       "belief": 0.929112879694904,
       "exported": true,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/15_0.jpg",
+        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::tc_li_predicted",
@@ -682,11 +712,14 @@
       "title": "Tc(Li) Ab Initio Prediction",
       "type": "claim",
       "module": "s6_superconductors",
-      "content": "The ab initio predicted superconducting transition temperature of lithium is $T_c^{\\mathrm{th}} \\lesssim 10^{-3}$ K (sub-millikelvin), consistent with the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) \\approx 0.16$ from $r_s = 3.25$ almost completely cancels the phonon-mediated attraction $\\lambda \\approx 0.41$, pushing $T_c$ to extremely low temperatures.",
+      "content": "The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with $\\mu^* = 0.17$ and $\\lambda = 0.37$.",
       "prior": null,
       "belief": 0.9623866207941597,
       "exported": true,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/15_0.jpg",
+        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::al_pressure_transition",
@@ -694,11 +727,14 @@
       "title": "Al Pressure-Tc Transition",
       "type": "claim",
       "module": "s6_superconductors",
-      "content": "Under hydrostatic pressure, the ab initio framework predicts that aluminum's superconducting $T_c$ initially increases as pressure stiffens phonon frequencies (increasing $\\omega_{\\mathrm{log}}$) while $\\lambda$ and $\\mu^*$ change modestly, before eventually decreasing at very high pressures when $\\lambda$ is suppressed. This non-monotonic behavior is consistent with experimental pressure studies.",
+      "content": "Under hydrostatic pressure, the ab initio framework predicts that aluminum's superconducting $T_c$ monotonically decreases, consistent with experimental data up to 6 GPa. The framework predicts that superconductivity in Al vanishes at approximately 60 GPa; at 20 GPa, $T_c$ is already suppressed below 1 mK.",
       "prior": null,
       "belief": 0.7892667386444242,
       "exported": true,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/14_0.jpg",
+        "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al."
+      }
     },
     {
       "id": "github:superconductivity_electron_liquids::tc_mg_na_near_qpt",
@@ -706,11 +742,14 @@
       "title": "Na and Mg Near Quantum Phase Transition",
       "type": "claim",
       "module": "s6_superconductors",
-      "content": "The ab initio framework predicts that sodium and magnesium have extremely low or vanishing $T_c$: for Na ($r_s = 3.93$, $\\lambda \\approx 0.18$), the large $\\mu^*$ exceeds the weak electron-phonon coupling, giving net repulsion in the pairing channel and no superconductivity. For Mg ($r_s = 2.66$, $\\lambda \\approx 0.26$), $T_c$ is in the sub-nanokelvin regime. Both materials are near the quantum phase transition between superconducting and non-superconducting ground states, where $T_c$ varies exponentially with small parameter changes.",
+      "content": "The ab initio framework predicts that sodium and magnesium have extremely low or vanishing $T_c$: for Na ($r_s = 3.96$, $\\lambda = 0.2$, $\\mu^* = 0.15$), the Coulomb repulsion nearly cancels the weak electron-phonon coupling, giving $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no superconductivity). For Mg ($r_s = 2.66$, $\\lambda = 0.24$, $\\mu^* = 0.14$), $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. Both materials are near the quantum phase transition between superconducting and non-superconducting ground states, where $T_c$ varies exponentially with small parameter changes.",
       "prior": null,
       "belief": 0.7892667386444242,
       "exported": true,
-      "metadata": {}
+      "metadata": {
+        "figure": "artifacts/images/15_0.jpg",
+        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. Na and Mg appear near the origin, indicating near-cancellation of pairing interaction."
+      }
     }
   ],
   "edges": [

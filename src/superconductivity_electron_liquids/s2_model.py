@@ -25,6 +25,10 @@ electron_phonon_action = claim(
     "already included in the physical phonon dispersion to prevent double "
     "counting.",
     title="Electron-Phonon Action Decomposition",
+    metadata={
+        "figure": "artifacts/images/4_1.jpg",
+        "caption": "Fig. 2 | Diagrammatic representation of the phonon-mediated e-e interaction W^ph, composed of phonon propagator D, bare coupling g^(0), vertex function Gamma_3^e, and dielectric function.",
+    },
 )
 
 bse_kernel_decomposition = claim(
@@ -37,6 +41,10 @@ bse_kernel_decomposition = claim(
     "higher-order phonon vertex corrections are suppressed by the adiabatic "
     "small parameter.",
     title="BSE Kernel Decomposition",
+    metadata={
+        "figure": "artifacts/images/4_2.jpg",
+        "caption": "Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous vertex in momentum space, with kernel consisting of the electronic four-point vertex Gamma_e and phonon-mediated interaction W^ph.",
+    },
 )
 
 deduction(

@@ -11,3 +11,6 @@ wheels/
 
 # Gaia inference outputs (review-specific, regenerated)
 .gaia/reviews/
+
+# Build artifacts
+.github-output/

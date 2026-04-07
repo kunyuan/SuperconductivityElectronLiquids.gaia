@@ -48,6 +48,10 @@ homotopic_expansion = claim(
     "reach converged results for the four-point vertex at metallic "
     "densities with modest diagram orders ($n \\lesssim 7$).",
     title="Homotopic Expansion",
+    metadata={
+        "figure": "artifacts/images/10_0.jpg",
+        "caption": "Fig. 6 | Diagrammatic contributions to the 4-point vertex at first and second order, with Coulomb interaction re-expanded from Yukawa interaction with screening parameter lambda_R.",
+    },
 )
 
 # ---------------------------------------------------------------------------
@@ -58,13 +62,18 @@ mu_vdiagmc_values = claim(
     "vDiagMC calculations of the UEG four-point vertex yield the Coulomb "
     "pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is "
     "positive and monotonically increasing with $r_s$ in the metallic "
-    "density range. Representative values include $\\mu_{E_F} \\approx 0.21$ "
-    "at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} \\approx 0.33$ at "
-    "$r_s = 3.3$ (lithium-like). These results, combined with the BTS "
-    "relation, yield $\\mu^* \\approx 0.10$--$0.15$ at the Debye scale, "
+    "density range, approximately following $\\mu_{E_F} \\approx 0.27 r_s$. "
+    "Representative values from TABLE I include $\\mu_{E_F} = 0.53(2)$ "
+    "at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} = 0.77(5)$ at "
+    "$r_s = 3$ (lithium-like). These results, combined with the BTS "
+    "relation, yield $\\mu^* \\approx 0.12$--$0.18$ at the Debye scale, "
     "consistent with the empirical range but now derived from first "
     "principles with controlled error bars of a few percent.",
     title="mu from vDiagMC: Numerical Values",
+    metadata={
+        "figure": "artifacts/images/8_0.jpg",
+        "caption": "Fig. 4 | Dimensionless bare Coulomb pseudopotential mu_EF as a function of r_s for the 3D UEG from vDiagMC data, compared with static RPA, Morel-Anderson, and dynamic RPA predictions.",
+    },
 )
 
 _strat_mu_values = noisy_and(
@@ -84,10 +93,11 @@ _strat_mu_values = noisy_and(
         "convergence by reorganizing the series through a continuous deformation "
         "of the bare interaction, enabling convergence at modest diagram orders. "
         "Together, these yield numerically exact values of $\\mu_{E_F}(r_s)$ "
-        "with controlled error bars. The BTS renormalization relation "
-        "(@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at "
-        "the Debye scale, producing values in the range 0.10--0.15 that are "
-        "consistent with the empirical range but now microscopically grounded."
+        "with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). "
+        "The BTS renormalization relation (@bts_renormalization) then maps "
+        "$\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale, producing values "
+        "in the range 0.12--0.18 that are consistent with the empirical range "
+        "but now microscopically grounded."
     ),
 )
 

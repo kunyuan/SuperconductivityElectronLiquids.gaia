@@ -1,6 +1,6 @@
 {
   "package_name": "superconductivity_electron_liquids",
-  "generated_at": "2026-04-07T03:56:34.490835+00:00",
+  "generated_at": "2026-04-07T05:10:47.419389+00:00",
   "wiki_pages": [
     "Home.md",
     "Module-Root.md",
@@ -21,7 +21,23 @@
     "s6_superconductors.md"
   ],
   "assets": [
-    "2512_Superconductivity_in_Electron_Liquids.md"
+    "2512.19382.md",
+    "2512_Superconductivity_in_Electron_Liquids.md",
+    "images/10_0.jpg",
+    "images/11_0.jpg",
+    "images/12_0.jpg",
+    "images/13_0.jpg",
+    "images/14_0.jpg",
+    "images/15_0.jpg",
+    "images/23_0.jpg",
+    "images/23_1.jpg",
+    "images/33_0.jpg",
+    "images/34_0.jpg",
+    "images/4_0.jpg",
+    "images/4_1.jpg",
+    "images/4_2.jpg",
+    "images/8_0.jpg",
+    "images/8_1.jpg"
   ],
   "exported_conclusions": [
     "ab_initio_workflow",

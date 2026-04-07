@@ -18,6 +18,8 @@
 **Content:** vDiagMC computation of the three-point vertex $\Gamma_3^e(k, q)$ of the UEG at finite momentum transfer $q$ shows that vertex corrections are modest (10--20% level) for momenta within the Fermi sphere ($|k|, |k+q| \lesssim k_F$) at metallic densities $r_s \in [2, 4]$. The corrections vary smoothly with $q$ and can be accurately interpolated between the Ward-identity limit ($q \to 0$) and the large-$q$ asymptotic behavior.
 **Prior:** 0.88
 **Belief:** 1.00
+**figure:** artifacts/images/12_0.jpg
+**caption:** Fig. 8 | Comparison between the angle-resolved e-ph vertex correction in the UEG from vDiagMC (points) and DFPT (lines) for different r_s values.
 **Referenced by:** abduction -> `github:superconductivity_electron_liquids::gamma3_approximation`; induction -> `github:superconductivity_electron_liquids::gamma3_approximation`
 
 ### dfpt_eph_ansatz

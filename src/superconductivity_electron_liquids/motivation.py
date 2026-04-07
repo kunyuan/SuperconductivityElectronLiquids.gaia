@@ -42,6 +42,10 @@ me_framework = claim(
     "diagram level. This justifies the ME formalism as a controlled low-energy "
     "theory for electron-phonon superconductors.",
     title="Migdal-Eliashberg Framework",
+    metadata={
+        "figure": "artifacts/images/4_0.jpg",
+        "caption": "Fig. 1 | Normal component of the electron self-energy approximated by the self-consistent Fock diagram with the phonon-mediated e-e interaction W^ph.",
+    },
 )
 
 deduction(

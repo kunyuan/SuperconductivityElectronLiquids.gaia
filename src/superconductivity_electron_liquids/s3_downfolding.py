@@ -63,6 +63,10 @@ full_bse_toy_model = claim(
     "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$, where $T_F$ is the Fermi "
     "temperature.",
     title="Full BSE Toy Model Result",
+    metadata={
+        "figure": "artifacts/images/8_1.jpg",
+        "caption": "Fig. 5 | Comparison between the precursory Cooper flow solutions of the full and downfolded BSE for a toy model, demonstrating 0.2% agreement in Tc.",
+    },
 )
 
 _strat_full_bse = noisy_and(

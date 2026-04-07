@@ -8,6 +8,8 @@
 **Content:** The effective action of the electron-phonon coupled system can be decomposed as $S = S_e + S_{\mathrm{ph}} + S_{e\text{-ph}} + S_{\mathrm{CT}} + O(\sqrt{m/M})$, where $m$ is the electron mass and $M$ is the ion mass. $S_e$ is the complete many-electron action without any approximation, $S_{\mathrm{ph}}$ describes phonons with physical dispersion, $S_{e\text{-ph}}$ is the coupling between electron density and ionic displacement, and $S_{\mathrm{CT}}$ is a counterterm that subtracts the static electron polarization contribution already included in the physical phonon dispersion to prevent double counting.
 **Prior:** 0.95
 **Belief:** 0.95
+**figure:** artifacts/images/4_1.jpg
+**caption:** Fig. 2 | Diagrammatic representation of the phonon-mediated e-e interaction W^ph, composed of phonon propagator D, bare coupling g^(0), vertex function Gamma_3^e, and dielectric function.
 
 ### bse_kernel_decomposition
 
@@ -18,6 +20,8 @@
 **Belief:** 1.00
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::me_framework`
+**figure:** artifacts/images/4_2.jpg
+**caption:** Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous vertex in momentum space, with kernel consisting of the electronic four-point vertex Gamma_e and phonon-mediated interaction W^ph.
 **Referenced by:** noisy_and -> `github:superconductivity_electron_liquids::full_bse_toy_model`; deduction -> `github:superconductivity_electron_liquids::downfolded_bse`
 
 ### precursory_cooper_flow

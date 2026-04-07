@@ -26,6 +26,8 @@
 **Belief:** 0.95
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::adiabatic_approx`
+**figure:** artifacts/images/4_0.jpg
+**caption:** Fig. 1 | Normal component of the electron self-energy approximated by the self-consistent Fock diagram with the phonon-mediated e-e interaction W^ph.
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::bse_kernel_decomposition`
 
 ### bts_renormalization

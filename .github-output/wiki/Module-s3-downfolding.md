@@ -33,6 +33,8 @@
 **Belief:** 1.00
 **Derived from:** noisy_and
 **Premises:** `github:superconductivity_electron_liquids::bse_kernel_decomposition`
+**figure:** artifacts/images/8_1.jpg
+**caption:** Fig. 5 | Comparison between the precursory Cooper flow solutions of the full and downfolded BSE for a toy model, demonstrating 0.2% agreement in Tc.
 **Referenced by:** abduction -> `github:superconductivity_electron_liquids::downfolded_bse_toy_model`
 
 ### downfolded_bse_toy_model

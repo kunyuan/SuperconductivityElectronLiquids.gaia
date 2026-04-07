@@ -26,46 +26,46 @@ from .s5_eph_coupling import dfpt_reliable_for_simple_metals
 # ---------------------------------------------------------------------------
 
 aluminum_parameters = setting(
-    "Aluminum (Al): FCC crystal structure, $r_s = 2.07$, experimental "
-    "Debye temperature $\\Theta_D \\approx 428$ K, DFPT electron-phonon "
-    "coupling $\\lambda \\approx 0.44$, logarithmic phonon frequency "
-    "$\\omega_{\\mathrm{log}} \\approx 300$ K.",
+    "Aluminum (Al): FCC crystal structure, $r_s = 2.07$, band mass "
+    "$m_b = 1.05$, DFPT electron-phonon coupling $\\lambda = 0.44$, "
+    "logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 320$ K, "
+    "Fermi temperature $T_F = 1.3 \\times 10^5$ K.",
     title="Aluminum Material Parameters",
 )
 
 lithium_parameters = setting(
-    "Lithium (Li): BCC (or 9R at low $T$) crystal structure, "
-    "$r_s = 3.25$, experimental Debye temperature "
-    "$\\Theta_D \\approx 344$ K, DFPT electron-phonon coupling "
-    "$\\lambda \\approx 0.41$ (BCC), logarithmic phonon frequency "
-    "$\\omega_{\\mathrm{log}} \\approx 250$ K. Crystal structure at "
-    "sub-kelvin temperatures remains debated.",
+    "Lithium (Li): 9R crystal structure at low $T$ (also studied in "
+    "HCP). 9R parameters: $r_s = 3.25$, $m_b = 1.75$, $\\lambda = 0.34$, "
+    "$\\omega_{\\mathrm{log}} = 242$ K, $T_F = 4.0 \\times 10^4$ K. "
+    "HCP parameters: $r_s = 3.19$, $m_b = 1.4$, $\\lambda = 0.37$, "
+    "$\\omega_{\\mathrm{log}} = 243$ K, $T_F = 4.1 \\times 10^4$ K. "
+    "Crystal structure at sub-kelvin temperatures remains debated.",
     title="Lithium Material Parameters",
 )
 
 sodium_parameters = setting(
-    "Sodium (Na): BCC crystal structure, $r_s = 3.93$, experimental "
-    "Debye temperature $\\Theta_D \\approx 158$ K, DFPT electron-phonon "
-    "coupling $\\lambda \\approx 0.18$, logarithmic phonon frequency "
-    "$\\omega_{\\mathrm{log}} \\approx 120$ K. No superconductivity "
+    "Sodium (Na): BCC crystal structure, $r_s = 3.96$, band mass "
+    "$m_b = 1.0$, DFPT electron-phonon coupling $\\lambda = 0.2$, "
+    "logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 127$ K, "
+    "Fermi temperature $T_F = 4.2 \\times 10^4$ K. No superconductivity "
     "observed down to mK temperatures.",
     title="Sodium Material Parameters",
 )
 
 magnesium_parameters = setting(
-    "Magnesium (Mg): HCP crystal structure, $r_s = 2.66$, experimental "
-    "Debye temperature $\\Theta_D \\approx 400$ K, DFPT electron-phonon "
-    "coupling $\\lambda \\approx 0.26$, logarithmic phonon frequency "
-    "$\\omega_{\\mathrm{log}} \\approx 290$ K. No superconductivity "
+    "Magnesium (Mg): HCP crystal structure, $r_s = 2.66$, band mass "
+    "$m_b = 1.02$, DFPT electron-phonon coupling $\\lambda = 0.24$, "
+    "logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 269$ K, "
+    "Fermi temperature $T_F = 8.0 \\times 10^4$ K. No superconductivity "
     "observed down to mK temperatures.",
     title="Magnesium Material Parameters",
 )
 
 zinc_parameters = setting(
-    "Zinc (Zn): HCP crystal structure, $r_s = 2.31$, experimental "
-    "Debye temperature $\\Theta_D \\approx 327$ K, DFPT electron-phonon "
-    "coupling $\\lambda \\approx 0.43$, logarithmic phonon frequency "
-    "$\\omega_{\\mathrm{log}} \\approx 200$ K.",
+    "Zinc (Zn): HCP crystal structure, $r_s = 2.90$, band mass "
+    "$m_b = 1.0$, DFPT electron-phonon coupling $\\lambda = 0.502$, "
+    "logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 111$ K, "
+    "Fermi temperature $T_F = 1.21 \\times 10^5$ K.",
     title="Zinc Material Parameters",
 )
 
@@ -107,6 +107,10 @@ ab_initio_workflow = claim(
     "Eliashberg equations (or use the PCF extrapolation) to predict $T_c$. "
     "All inputs are from first principles; no adjustable parameters remain.",
     title="Ab Initio Tc Prediction Workflow",
+    metadata={
+        "figure": "artifacts/images/13_0.jpg",
+        "caption": "Fig. 9 | Proposed ab initio framework for electron-phonon SC beyond the weak correlation limit, showing computational pathway from fundamental parameters through correlated electrons and lattice vibrations to superconducting properties.",
+    },
 )
 
 # Intermediate claim: μ* available for simple metals
@@ -163,11 +167,16 @@ _composite_workflow = composite(
 
 tc_al_predicted = claim(
     "The ab initio predicted superconducting transition temperature of "
-    "aluminum is $T_c^{\\mathrm{th}} = 1.1 \\pm 0.3$ K, in good agreement "
+    "aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement "
     "with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. "
-    "The first-principles $\\mu^*(\\mathrm{Al}) \\approx 0.11$ is obtained "
-    "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ via BTS renormalization.",
+    "The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained "
+    "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass "
+    "$m_b = 1.05$) via BTS renormalization.",
     title="Tc(Al) Ab Initio Prediction",
+    metadata={
+        "figure": "artifacts/images/14_0.jpg",
+        "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
+    },
 )
 
 _strat_tc_al = noisy_and(
@@ -177,23 +186,26 @@ _strat_tc_al = noisy_and(
     reason=(
         "Applying the ab initio workflow (@ab_initio_workflow) to aluminum "
         "with its material parameters (@aluminum_parameters): $r_s = 2.07$ "
-        "gives $\\mu_{E_F} \\approx 0.22$ from the vDiagMC parameterization, "
-        "which the BTS relation reduces to $\\mu^* \\approx 0.11$ at the "
-        "Debye scale. Combined with the DFPT $\\lambda \\approx 0.44$ and "
-        "$\\omega_{\\mathrm{log}} \\approx 300$ K, solving the Eliashberg "
-        "equations yields $T_c = 1.1 \\pm 0.3$ K, where the uncertainty "
-        "reflects the vDiagMC error bars on $\\mu_{E_F}$ propagated through "
-        "the exponentially sensitive $T_c$ formula."
+        "with band mass $m_b = 1.05$ gives $\\mu^* = 0.13$ from the vDiagMC "
+        "parameterization via BTS renormalization. Combined with the DFPT "
+        "$\\lambda = 0.44$ and $\\omega_{\\mathrm{log}} = 320$ K, solving "
+        "the Eliashberg equations yields $T_c^{\\mathrm{EFT}} = 0.96$ K, "
+        "in good agreement with the experimental value of 1.2 K."
     ),
 )
 
 tc_zn_predicted = claim(
     "The ab initio predicted superconducting transition temperature of "
-    "zinc is $T_c^{\\mathrm{th}} = 0.7 \\pm 0.3$ K, consistent with "
-    "the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. "
-    "The first-principles $\\mu^*(\\mathrm{Zn}) \\approx 0.12$ is obtained "
-    "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.31$.",
+    "zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement "
+    "with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. "
+    "The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained "
+    "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass "
+    "$m_b = 1.0$) via BTS renormalization.",
     title="Tc(Zn) Ab Initio Prediction",
+    metadata={
+        "figure": "artifacts/images/15_0.jpg",
+        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+    },
 )
 
 _strat_tc_zn = noisy_and(
@@ -202,24 +214,30 @@ _strat_tc_zn = noisy_and(
     background=[zinc_parameters],
     reason=(
         "Applying the ab initio workflow (@ab_initio_workflow) to zinc with "
-        "its material parameters (@zinc_parameters): $r_s = 2.31$ gives "
-        "$\\mu_{E_F} \\approx 0.25$ from the vDiagMC parameterization, "
-        "reduced to $\\mu^* \\approx 0.12$ at the Debye scale via BTS. "
-        "Combined with $\\lambda \\approx 0.43$ and "
-        "$\\omega_{\\mathrm{log}} \\approx 200$ K from DFPT, the predicted "
-        "$T_c = 0.7 \\pm 0.3$ K agrees with experiment within uncertainty."
+        "its material parameters (@zinc_parameters): $r_s = 2.90$ with "
+        "band mass $m_b = 1.0$ gives $\\mu^* = 0.12$ via BTS. "
+        "Combined with $\\lambda = 0.502$ and "
+        "$\\omega_{\\mathrm{log}} = 111$ K from DFPT, the predicted "
+        "$T_c^{\\mathrm{EFT}} = 0.874$ K is in excellent agreement with "
+        "the experimental value of 0.875 K."
     ),
 )
 
 tc_li_predicted = claim(
     "The ab initio predicted superconducting transition temperature of "
-    "lithium is $T_c^{\\mathrm{th}} \\lesssim 10^{-3}$ K (sub-millikelvin), "
-    "consistent with the experimental observation "
+    "lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, "
+    "within an order of magnitude of the experimental observation "
     "$T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large "
-    "$\\mu^*(\\mathrm{Li}) \\approx 0.16$ from $r_s = 3.25$ almost "
-    "completely cancels the phonon-mediated attraction $\\lambda \\approx 0.41$, "
-    "pushing $T_c$ to extremely low temperatures.",
+    "$\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass "
+    "$m_b = 1.75$) almost completely cancels the phonon-mediated attraction "
+    "$\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. "
+    "The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with "
+    "$\\mu^* = 0.17$ and $\\lambda = 0.37$.",
     title="Tc(Li) Ab Initio Prediction",
+    metadata={
+        "figure": "artifacts/images/15_0.jpg",
+        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+    },
 )
 
 _strat_tc_li = noisy_and(
@@ -228,27 +246,28 @@ _strat_tc_li = noisy_and(
     background=[lithium_parameters],
     reason=(
         "Applying the ab initio workflow (@ab_initio_workflow) to lithium "
-        "with its material parameters (@lithium_parameters): $r_s = 3.25$ "
-        "gives $\\mu_{E_F} \\approx 0.32$ from the vDiagMC parameterization, "
-        "reduced to $\\mu^* \\approx 0.16$ at the Debye scale via BTS. "
-        "Despite a moderate $\\lambda \\approx 0.41$ from DFPT, the large "
+        "(9R structure) with its material parameters (@lithium_parameters): "
+        "$r_s = 3.25$ with band mass $m_b = 1.75$ gives $\\mu^* = 0.18$ "
+        "via BTS. Despite a moderate $\\lambda = 0.34$ from DFPT, the large "
         "$\\mu^*$ nearly cancels the effective pairing interaction, making "
-        "the dimensionless coupling $g = \\lambda - \\mu^* \\approx 0.25$ "
+        "the dimensionless coupling $g = \\lambda - \\mu^*(1+0.62\\lambda)$ "
         "very small. The exponential sensitivity $T_c \\propto \\exp(-1/g)$ "
-        "then drives $T_c$ to the sub-millikelvin regime, consistent with "
-        "the experimental value."
+        "drives $T_c$ to $5 \\times 10^{-3}$ K, within an order of "
+        "magnitude of the experimental value $4 \\times 10^{-4}$ K."
     ),
 )
 
 al_pressure_transition = claim(
     "Under hydrostatic pressure, the ab initio framework predicts that "
-    "aluminum's superconducting $T_c$ initially increases as pressure "
-    "stiffens phonon frequencies (increasing $\\omega_{\\mathrm{log}}$) "
-    "while $\\lambda$ and $\\mu^*$ change modestly, before eventually "
-    "decreasing at very high pressures when $\\lambda$ is suppressed. "
-    "This non-monotonic behavior is consistent with experimental "
-    "pressure studies.",
+    "aluminum's superconducting $T_c$ monotonically decreases, consistent "
+    "with experimental data up to 6 GPa. The framework predicts that "
+    "superconductivity in Al vanishes at approximately 60 GPa; at 20 GPa, "
+    "$T_c$ is already suppressed below 1 mK.",
     title="Al Pressure-Tc Transition",
+    metadata={
+        "figure": "artifacts/images/14_0.jpg",
+        "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
+    },
 )
 
 _strat_al_pressure = noisy_and(
@@ -258,29 +277,31 @@ _strat_al_pressure = noisy_and(
     reason=(
         "Applying the ab initio workflow (@ab_initio_workflow) to aluminum "
         "under varying hydrostatic pressure (@aluminum_parameters): as "
-        "pressure increases, the lattice stiffens, raising phonon frequencies "
-        "and $\\omega_{\\mathrm{log}}$. The $r_s$ decreases modestly "
-        "(higher electron density), slightly reducing $\\mu^*$ via the "
-        "vDiagMC parameterization. The electron-phonon coupling $\\lambda$ "
-        "from DFPT varies non-monotonically. The net effect is an initial "
-        "increase in $T_c$ followed by a decrease at high pressures, "
-        "reflecting the competition between the prefactor "
-        "$\\omega_{\\mathrm{log}}$ and the exponential sensitivity to the "
-        "effective coupling $\\lambda - \\mu^*(1 + 0.62\\lambda)$."
+        "pressure increases, $r_s$ decreases (higher electron density), "
+        "modifying both $\\mu^*$ and $\\lambda$. The net effect is a "
+        "monotonic decrease in $T_c$, accurately capturing the "
+        "experimental trend from ambient to 6 GPa. Extrapolating beyond "
+        "experimental data, the framework predicts SC vanishes at ~60 GPa, "
+        "with $T_c < 1$ mK already at 20 GPa."
     ),
 )
 
 tc_mg_na_near_qpt = claim(
     "The ab initio framework predicts that sodium and magnesium have "
-    "extremely low or vanishing $T_c$: for Na ($r_s = 3.93$, "
-    "$\\lambda \\approx 0.18$), the large $\\mu^*$ exceeds the weak "
-    "electron-phonon coupling, giving net repulsion in the pairing "
-    "channel and no superconductivity. For Mg ($r_s = 2.66$, "
-    "$\\lambda \\approx 0.26$), $T_c$ is in the sub-nanokelvin regime. "
+    "extremely low or vanishing $T_c$: for Na ($r_s = 3.96$, "
+    "$\\lambda = 0.2$, $\\mu^* = 0.15$), the Coulomb repulsion nearly "
+    "cancels the weak electron-phonon coupling, giving "
+    "$T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no "
+    "superconductivity). For Mg ($r_s = 2.66$, $\\lambda = 0.24$, "
+    "$\\mu^* = 0.14$), $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. "
     "Both materials are near the quantum phase transition between "
     "superconducting and non-superconducting ground states, where "
     "$T_c$ varies exponentially with small parameter changes.",
     title="Na and Mg Near Quantum Phase Transition",
+    metadata={
+        "figure": "artifacts/images/15_0.jpg",
+        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. Na and Mg appear near the origin, indicating near-cancellation of pairing interaction.",
+    },
 )
 
 _strat_mg_na_qpt = noisy_and(
@@ -290,15 +311,16 @@ _strat_mg_na_qpt = noisy_and(
     reason=(
         "Applying the ab initio workflow (@ab_initio_workflow) to sodium "
         "(@sodium_parameters) and magnesium (@magnesium_parameters): Na has "
-        "$r_s = 3.93$, yielding $\\mu^* \\approx 0.18$ which exceeds its "
-        "weak $\\lambda \\approx 0.18$, placing Na in the net-repulsive "
-        "regime with no Cooper instability. Mg has $r_s = 2.66$, yielding "
-        "$\\mu^* \\approx 0.13$ which nearly cancels $\\lambda \\approx 0.26$, "
-        "pushing $T_c$ to unobservably low temperatures. The precursory "
-        "Cooper flow formalism (@precursory_cooper_flow) shows that near "
-        "the quantum phase transition ($g \\to 0$), $T_c = \\omega_\\Lambda "
-        "e^{1/g}$ is exponentially sensitive to the coupling, explaining why "
-        "small parameter variations can toggle between superconducting and "
+        "$r_s = 3.96$, yielding $\\mu^* = 0.15$ which nearly cancels its "
+        "weak $\\lambda = 0.2$, giving $T_c^{\\mathrm{EFT}} = "
+        "2 \\times 10^{-13}$ K (effectively no superconductivity). "
+        "Mg has $r_s = 2.66$, yielding $\\mu^* = 0.14$ which nearly "
+        "cancels $\\lambda = 0.24$, giving $T_c^{\\mathrm{EFT}} = "
+        "5 \\times 10^{-5}$ K. The precursory Cooper flow formalism "
+        "(@precursory_cooper_flow) shows that near the quantum phase "
+        "transition ($g \\to 0$), $T_c = \\omega_\\Lambda e^{1/g}$ is "
+        "exponentially sensitive to the coupling, explaining why small "
+        "parameter variations can toggle between superconducting and "
         "non-superconducting ground states."
     ),
 )
@@ -314,14 +336,14 @@ abduction(
     reason=(
         "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) "
         "is well reproduced by the ab initio prediction "
-        "$T_c^{\\mathrm{th}} = 1.1 \\pm 0.3$ K (@tc_al_predicted), which "
+        "$T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted), which "
         "uses no adjustable parameters. The phenomenological prediction "
         "(@tc_al_phenomenological) using $\\mu^* = 0.1$ gives 1.9 K, "
         "overestimating by 58%. The ab initio approach provides a better "
         "explanation because it determines $\\mu^*$ from first principles "
-        "rather than using an ad hoc value, and the resulting $\\mu^* \\approx "
-        "0.11$ is close to but slightly above the standard guess, correctly "
-        "reducing $T_c$ to the experimental range."
+        "rather than using an ad hoc value, and the resulting $\\mu^* = "
+        "0.13$ is above the standard guess of 0.1, correctly "
+        "reducing $T_c$ toward the experimental value."
     ),
 )
 
@@ -331,13 +353,13 @@ abduction(
     tc_zn_phenomenological,
     reason=(
         "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) "
-        "is consistent with the ab initio prediction "
-        "$T_c^{\\mathrm{th}} = 0.7 \\pm 0.3$ K (@tc_zn_predicted). "
+        "is in excellent agreement with the ab initio prediction "
+        "$T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted). "
         "The phenomenological prediction (@tc_zn_phenomenological) using "
         "$\\mu^* = 0.1$ gives 1.37 K, overestimating by 57%. The ab initio "
-        "$\\mu^* \\approx 0.12$ from $r_s = 2.31$ correctly captures the "
-        "stronger Coulomb repulsion in Zn compared to the standard guess, "
-        "bringing the prediction into agreement with experiment."
+        "$\\mu^* = 0.12$ from $r_s = 2.90$ correctly captures the "
+        "Coulomb repulsion strength in Zn, "
+        "bringing the prediction into near-exact agreement with experiment."
     ),
 )
 
@@ -347,16 +369,17 @@ abduction(
     tc_li_phenomenological,
     reason=(
         "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K "
-        "(@tc_li_experimental) is consistent with the ab initio prediction "
-        "$T_c^{\\mathrm{th}} \\lesssim 10^{-3}$ K (@tc_li_predicted). "
-        "The phenomenological prediction (@tc_li_phenomenological) using "
-        "$\\mu^* = 0.1$ gives $\\approx 0.35$ K, overestimating by three "
-        "orders of magnitude. The dramatic improvement of the ab initio "
-        "approach is because the first-principles $\\mu^* \\approx 0.16$ for "
-        "lithium ($r_s = 3.25$) is significantly larger than the standard "
-        "guess of 0.1, reflecting the stronger Coulomb repulsion at lower "
-        "electron density. In the regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ "
-        "is small, the exponential sensitivity amplifies this difference "
-        "from $\\sim 0.06$ in $\\mu^*$ to three orders of magnitude in $T_c$."
+        "(@tc_li_experimental) is within an order of magnitude of the ab "
+        "initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K "
+        "(@tc_li_predicted, 9R structure). The phenomenological prediction "
+        "(@tc_li_phenomenological) using $\\mu^* = 0.1$ gives $\\approx 0.35$ K, "
+        "overestimating by three orders of magnitude. The dramatic improvement "
+        "of the ab initio approach is because the first-principles "
+        "$\\mu^* = 0.18$ for lithium ($r_s = 3.25$, $m_b = 1.75$) is "
+        "significantly larger than the standard guess of 0.1, reflecting "
+        "the stronger Coulomb repulsion at lower electron density. In the "
+        "regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ is small, the "
+        "exponential sensitivity amplifies the $\\mu^*$ difference from "
+        "0.08 to nearly three orders of magnitude in $T_c$."
     ),
 )

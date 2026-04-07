@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:50fd0631e45632cd2b30e885402d28f71992260cc06f8003c3e2afb2560f6f14",
+  "ir_hash": "sha256:2b5ca3e244dd143f986472ce78623d483b87322a3dad18e80f87b631ba8b8997",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -32,6 +32,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::me_framework",
       "label": "me_framework",
+      "metadata": {
+        "caption": "Fig. 1 | Normal component of the electron self-energy approximated by the self-consistent Fock diagram with the phonon-mediated e-e interaction W^ph.",
+        "figure": "artifacts/images/4_0.jpg"
+      },
       "module": "motivation",
       "parameters": [],
       "title": "Migdal-Eliashberg Framework",
@@ -200,6 +204,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::electron_phonon_action",
       "label": "electron_phonon_action",
+      "metadata": {
+        "caption": "Fig. 2 | Diagrammatic representation of the phonon-mediated e-e interaction W^ph, composed of phonon propagator D, bare coupling g^(0), vertex function Gamma_3^e, and dielectric function.",
+        "figure": "artifacts/images/4_1.jpg"
+      },
       "module": "s2_model",
       "parameters": [],
       "title": "Electron-Phonon Action Decomposition",
@@ -212,6 +220,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::bse_kernel_decomposition",
       "label": "bse_kernel_decomposition",
+      "metadata": {
+        "caption": "Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous vertex in momentum space, with kernel consisting of the electronic four-point vertex Gamma_e and phonon-mediated interaction W^ph.",
+        "figure": "artifacts/images/4_2.jpg"
+      },
       "module": "s2_model",
       "parameters": [],
       "title": "BSE Kernel Decomposition",
@@ -272,6 +284,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::full_bse_toy_model",
       "label": "full_bse_toy_model",
+      "metadata": {
+        "caption": "Fig. 5 | Comparison between the precursory Cooper flow solutions of the full and downfolded BSE for a toy model, demonstrating 0.2% agreement in Tc.",
+        "figure": "artifacts/images/8_1.jpg"
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Full BSE Toy Model Result",
@@ -418,18 +434,26 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::homotopic_expansion",
       "label": "homotopic_expansion",
+      "metadata": {
+        "caption": "Fig. 6 | Diagrammatic contributions to the 4-point vertex at first and second order, with Coulomb interaction re-expanded from Yukawa interaction with screening parameter lambda_R.",
+        "figure": "artifacts/images/10_0.jpg"
+      },
       "module": "s4_pseudopotential",
       "parameters": [],
       "title": "Homotopic Expansion",
       "type": "claim"
     },
     {
-      "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range. Representative values include $\\mu_{E_F} \\approx 0.21$ at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} \\approx 0.33$ at $r_s = 3.3$ (lithium-like). These results, combined with the BTS relation, yield $\\mu^* \\approx 0.10$--$0.15$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent.",
-      "content_hash": "8e5cbe416e9c26ca48f150dd53b39b89e286973c718dd4a0546644e9f5e983dc",
+      "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\\mu_{E_F} \\approx 0.27 r_s$. Representative values from TABLE I include $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} = 0.77(5)$ at $r_s = 3$ (lithium-like). These results, combined with the BTS relation, yield $\\mu^* \\approx 0.12$--$0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent.",
+      "content_hash": "fade6f6c7620ac46c8c1ff769b98276287e06ff3b6cdf510ae91771879a51c3f",
       "declaration_index": 3,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
       "label": "mu_vdiagmc_values",
+      "metadata": {
+        "caption": "Fig. 4 | Dimensionless bare Coulomb pseudopotential mu_EF as a function of r_s for the 3D UEG from vDiagMC data, compared with static RPA, Morel-Anderson, and dynamic RPA predictions.",
+        "figure": "artifacts/images/8_0.jpg"
+      },
       "module": "s4_pseudopotential",
       "parameters": [],
       "title": "mu from vDiagMC: Numerical Values",
@@ -468,6 +492,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::gamma3_vdiagmc",
       "label": "gamma3_vdiagmc",
+      "metadata": {
+        "caption": "Fig. 8 | Comparison between the angle-resolved e-ph vertex correction in the UEG from vDiagMC (points) and DFPT (lines) for different r_s values.",
+        "figure": "artifacts/images/12_0.jpg"
+      },
       "module": "s5_eph_coupling",
       "parameters": [],
       "title": "vDiagMC Computation of Gamma_3",
@@ -546,8 +574,8 @@
       "type": "claim"
     },
     {
-      "content": "Aluminum (Al): FCC crystal structure, $r_s = 2.07$, experimental Debye temperature $\\Theta_D \\approx 428$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.44$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 300$ K.",
-      "content_hash": "8acab09363dde7b9d58048c944f9b7e20948d91668f2a3b25127e2d2e3d3b4c2",
+      "content": "Aluminum (Al): FCC crystal structure, $r_s = 2.07$, band mass $m_b = 1.05$, DFPT electron-phonon coupling $\\lambda = 0.44$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 320$ K, Fermi temperature $T_F = 1.3 \\times 10^5$ K.",
+      "content_hash": "2257135fb69a03d5c12c6c2e2a6c0e1cde266329b76764fb80640a282b5aa53e",
       "declaration_index": 0,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::aluminum_parameters",
@@ -558,8 +586,8 @@
       "type": "setting"
     },
     {
-      "content": "Lithium (Li): BCC (or 9R at low $T$) crystal structure, $r_s = 3.25$, experimental Debye temperature $\\Theta_D \\approx 344$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.41$ (BCC), logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 250$ K. Crystal structure at sub-kelvin temperatures remains debated.",
-      "content_hash": "11f8d7a09b7cc67e8142f0578991bed24bd152a29dcf9bf27015e2d804329cae",
+      "content": "Lithium (Li): 9R crystal structure at low $T$ (also studied in HCP). 9R parameters: $r_s = 3.25$, $m_b = 1.75$, $\\lambda = 0.34$, $\\omega_{\\mathrm{log}} = 242$ K, $T_F = 4.0 \\times 10^4$ K. HCP parameters: $r_s = 3.19$, $m_b = 1.4$, $\\lambda = 0.37$, $\\omega_{\\mathrm{log}} = 243$ K, $T_F = 4.1 \\times 10^4$ K. Crystal structure at sub-kelvin temperatures remains debated.",
+      "content_hash": "ae472ae4a48342605fe9f8b74003cf79629fa6dd6b91a70f3576a62f67b683a1",
       "declaration_index": 1,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::lithium_parameters",
@@ -570,8 +598,8 @@
       "type": "setting"
     },
     {
-      "content": "Sodium (Na): BCC crystal structure, $r_s = 3.93$, experimental Debye temperature $\\Theta_D \\approx 158$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.18$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 120$ K. No superconductivity observed down to mK temperatures.",
-      "content_hash": "bc12329184adecd94a141cb8dd443e47d0274aa7745c18464c4812808d7454e3",
+      "content": "Sodium (Na): BCC crystal structure, $r_s = 3.96$, band mass $m_b = 1.0$, DFPT electron-phonon coupling $\\lambda = 0.2$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 127$ K, Fermi temperature $T_F = 4.2 \\times 10^4$ K. No superconductivity observed down to mK temperatures.",
+      "content_hash": "b7750046c47d00623a67f0e09514c271ff049f9f01ef8fe6eb53bee835ee9445",
       "declaration_index": 2,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::sodium_parameters",
@@ -582,8 +610,8 @@
       "type": "setting"
     },
     {
-      "content": "Magnesium (Mg): HCP crystal structure, $r_s = 2.66$, experimental Debye temperature $\\Theta_D \\approx 400$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.26$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 290$ K. No superconductivity observed down to mK temperatures.",
-      "content_hash": "32862c26d0ba72bc4d44180e419ac3b0d0451c0a2be336ee10a8edf9c47fa8b1",
+      "content": "Magnesium (Mg): HCP crystal structure, $r_s = 2.66$, band mass $m_b = 1.02$, DFPT electron-phonon coupling $\\lambda = 0.24$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 269$ K, Fermi temperature $T_F = 8.0 \\times 10^4$ K. No superconductivity observed down to mK temperatures.",
+      "content_hash": "767d357c72259f8942de95df7bb0baf4f5bba3b645e9509e175a4c11b5575afb",
       "declaration_index": 3,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::magnesium_parameters",
@@ -594,8 +622,8 @@
       "type": "setting"
     },
     {
-      "content": "Zinc (Zn): HCP crystal structure, $r_s = 2.31$, experimental Debye temperature $\\Theta_D \\approx 327$ K, DFPT electron-phonon coupling $\\lambda \\approx 0.43$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} \\approx 200$ K.",
-      "content_hash": "86ff3a00cb7aab306feee792d578c0b6079a764167a5890cec06af599ee4737d",
+      "content": "Zinc (Zn): HCP crystal structure, $r_s = 2.90$, band mass $m_b = 1.0$, DFPT electron-phonon coupling $\\lambda = 0.502$, logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 111$ K, Fermi temperature $T_F = 1.21 \\times 10^5$ K.",
+      "content_hash": "3efc455b10e02365e0d2c68e547715fe5c64db0d073320dda2911edc9bcfc9b5",
       "declaration_index": 4,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::zinc_parameters",
@@ -636,6 +664,10 @@
       "exported": true,
       "id": "github:superconductivity_electron_liquids::ab_initio_workflow",
       "label": "ab_initio_workflow",
+      "metadata": {
+        "caption": "Fig. 9 | Proposed ab initio framework for electron-phonon SC beyond the weak correlation limit, showing computational pathway from fundamental parameters through correlated electrons and lattice vibrations to superconducting properties.",
+        "figure": "artifacts/images/13_0.jpg"
+      },
       "module": "s6_superconductors",
       "parameters": [],
       "title": "Ab Initio Tc Prediction Workflow",
@@ -654,60 +686,80 @@
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{th}} = 1.1 \\pm 0.3$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) \\approx 0.11$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ via BTS renormalization.",
-      "content_hash": "0a90f8a97d3d74173910e843693c5b2d1c9c245daed734e6d489d5d1ab75d91a",
+      "content": "The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization.",
+      "content_hash": "6a8ebb89878068183f610716027606b9fe5ee6076fe9231089445abcc691824e",
       "declaration_index": 9,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_al_predicted",
       "label": "tc_al_predicted",
+      "metadata": {
+        "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
+        "figure": "artifacts/images/14_0.jpg"
+      },
       "module": "s6_superconductors",
       "parameters": [],
       "title": "Tc(Al) Ab Initio Prediction",
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{th}} = 0.7 \\pm 0.3$ K, consistent with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) \\approx 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.31$.",
-      "content_hash": "5c07867bb550f931bd93a0cf2bac2f77f697f9b261f04956b587e13280fa2050",
+      "content": "The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization.",
+      "content_hash": "8e12c1382dcd1c0a5383f1aedcbddd075a8c66aadf05846bb16e5c676c7bd22b",
       "declaration_index": 10,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_zn_predicted",
       "label": "tc_zn_predicted",
+      "metadata": {
+        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+        "figure": "artifacts/images/15_0.jpg"
+      },
       "module": "s6_superconductors",
       "parameters": [],
       "title": "Tc(Zn) Ab Initio Prediction",
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of lithium is $T_c^{\\mathrm{th}} \\lesssim 10^{-3}$ K (sub-millikelvin), consistent with the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) \\approx 0.16$ from $r_s = 3.25$ almost completely cancels the phonon-mediated attraction $\\lambda \\approx 0.41$, pushing $T_c$ to extremely low temperatures.",
-      "content_hash": "75ef0405383007ab963e43e8ad967978f1e48858e890741d710ac1646ba6939c",
+      "content": "The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with $\\mu^* = 0.17$ and $\\lambda = 0.37$.",
+      "content_hash": "03465d1d36613dd01d05702ced651adfaf383169397a9b5e7b35b562ff81b78f",
       "declaration_index": 11,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_li_predicted",
       "label": "tc_li_predicted",
+      "metadata": {
+        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+        "figure": "artifacts/images/15_0.jpg"
+      },
       "module": "s6_superconductors",
       "parameters": [],
       "title": "Tc(Li) Ab Initio Prediction",
       "type": "claim"
     },
     {
-      "content": "Under hydrostatic pressure, the ab initio framework predicts that aluminum's superconducting $T_c$ initially increases as pressure stiffens phonon frequencies (increasing $\\omega_{\\mathrm{log}}$) while $\\lambda$ and $\\mu^*$ change modestly, before eventually decreasing at very high pressures when $\\lambda$ is suppressed. This non-monotonic behavior is consistent with experimental pressure studies.",
-      "content_hash": "3c2e72edd1b827935a6d5b0ca9764a47851a80df866c107da5b48d1255568c36",
+      "content": "Under hydrostatic pressure, the ab initio framework predicts that aluminum's superconducting $T_c$ monotonically decreases, consistent with experimental data up to 6 GPa. The framework predicts that superconductivity in Al vanishes at approximately 60 GPa; at 20 GPa, $T_c$ is already suppressed below 1 mK.",
+      "content_hash": "ff027ba68ecc601325db0449216e1a6464462a10eabfe71f87119e45d274c64f",
       "declaration_index": 12,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::al_pressure_transition",
       "label": "al_pressure_transition",
+      "metadata": {
+        "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
+        "figure": "artifacts/images/14_0.jpg"
+      },
       "module": "s6_superconductors",
       "parameters": [],
       "title": "Al Pressure-Tc Transition",
       "type": "claim"
     },
     {
-      "content": "The ab initio framework predicts that sodium and magnesium have extremely low or vanishing $T_c$: for Na ($r_s = 3.93$, $\\lambda \\approx 0.18$), the large $\\mu^*$ exceeds the weak electron-phonon coupling, giving net repulsion in the pairing channel and no superconductivity. For Mg ($r_s = 2.66$, $\\lambda \\approx 0.26$), $T_c$ is in the sub-nanokelvin regime. Both materials are near the quantum phase transition between superconducting and non-superconducting ground states, where $T_c$ varies exponentially with small parameter changes.",
-      "content_hash": "5d9707a25c98d578389e072b5dfd81d39fc81341612b64dbe962c63a601cb990",
+      "content": "The ab initio framework predicts that sodium and magnesium have extremely low or vanishing $T_c$: for Na ($r_s = 3.96$, $\\lambda = 0.2$, $\\mu^* = 0.15$), the Coulomb repulsion nearly cancels the weak electron-phonon coupling, giving $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no superconductivity). For Mg ($r_s = 2.66$, $\\lambda = 0.24$, $\\mu^* = 0.14$), $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. Both materials are near the quantum phase transition between superconducting and non-superconducting ground states, where $T_c$ varies exponentially with small parameter changes.",
+      "content_hash": "8ec48cc0ddea01e332422e280326079875912f62b7a092142332789679c74b54",
       "declaration_index": 13,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_mg_na_near_qpt",
       "label": "tc_mg_na_near_qpt",
+      "metadata": {
+        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. Na and Mg appear near the origin, indicating near-cancellation of pairing interaction.",
+        "figure": "artifacts/images/15_0.jpg"
+      },
       "module": "s6_superconductors",
       "parameters": [],
       "title": "Na and Mg Near Quantum Phase Transition",
@@ -1442,7 +1494,7 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
       "metadata": {
-        "reason": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) provides a controlled, systematically improvable approach by stochastically sampling Feynman diagrams with bold-line propagators. The homotopic expansion (@homotopic_expansion) dramatically improves convergence by reorganizing the series through a continuous deformation of the bare interaction, enabling convergence at modest diagram orders. Together, these yield numerically exact values of $\\mu_{E_F}(r_s)$ with controlled error bars. The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale, producing values in the range 0.10--0.15 that are consistent with the empirical range but now microscopically grounded."
+        "reason": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) provides a controlled, systematically improvable approach by stochastically sampling Feynman diagrams with bold-line propagators. The homotopic expansion (@homotopic_expansion) dramatically improves convergence by reorganizing the series through a continuous deformation of the bare interaction, enabling convergence at modest diagram orders. Together, these yield numerically exact values of $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale, producing values in the range 0.12--0.18 that are consistent with the empirical range but now microscopically grounded."
       },
       "premises": [
         "github:superconductivity_electron_liquids::vdiagmc_method",
@@ -1746,7 +1798,7 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_al_predicted",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum with its material parameters (@aluminum_parameters): $r_s = 2.07$ gives $\\mu_{E_F} \\approx 0.22$ from the vDiagMC parameterization, which the BTS relation reduces to $\\mu^* \\approx 0.11$ at the Debye scale. Combined with the DFPT $\\lambda \\approx 0.44$ and $\\omega_{\\mathrm{log}} \\approx 300$ K, solving the Eliashberg equations yields $T_c = 1.1 \\pm 0.3$ K, where the uncertainty reflects the vDiagMC error bars on $\\mu_{E_F}$ propagated through the exponentially sensitive $T_c$ formula."
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum with its material parameters (@aluminum_parameters): $r_s = 2.07$ with band mass $m_b = 1.05$ gives $\\mu^* = 0.13$ from the vDiagMC parameterization via BTS renormalization. Combined with the DFPT $\\lambda = 0.44$ and $\\omega_{\\mathrm{log}} = 320$ K, solving the Eliashberg equations yields $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value of 1.2 K."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
@@ -1761,7 +1813,7 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_zn_predicted",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to zinc with its material parameters (@zinc_parameters): $r_s = 2.31$ gives $\\mu_{E_F} \\approx 0.25$ from the vDiagMC parameterization, reduced to $\\mu^* \\approx 0.12$ at the Debye scale via BTS. Combined with $\\lambda \\approx 0.43$ and $\\omega_{\\mathrm{log}} \\approx 200$ K from DFPT, the predicted $T_c = 0.7 \\pm 0.3$ K agrees with experiment within uncertainty."
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to zinc with its material parameters (@zinc_parameters): $r_s = 2.90$ with band mass $m_b = 1.0$ gives $\\mu^* = 0.12$ via BTS. Combined with $\\lambda = 0.502$ and $\\omega_{\\mathrm{log}} = 111$ K from DFPT, the predicted $T_c^{\\mathrm{EFT}} = 0.874$ K is in excellent agreement with the experimental value of 0.875 K."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
@@ -1776,7 +1828,7 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_li_predicted",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to lithium with its material parameters (@lithium_parameters): $r_s = 3.25$ gives $\\mu_{E_F} \\approx 0.32$ from the vDiagMC parameterization, reduced to $\\mu^* \\approx 0.16$ at the Debye scale via BTS. Despite a moderate $\\lambda \\approx 0.41$ from DFPT, the large $\\mu^*$ nearly cancels the effective pairing interaction, making the dimensionless coupling $g = \\lambda - \\mu^* \\approx 0.25$ very small. The exponential sensitivity $T_c \\propto \\exp(-1/g)$ then drives $T_c$ to the sub-millikelvin regime, consistent with the experimental value."
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to lithium (9R structure) with its material parameters (@lithium_parameters): $r_s = 3.25$ with band mass $m_b = 1.75$ gives $\\mu^* = 0.18$ via BTS. Despite a moderate $\\lambda = 0.34$ from DFPT, the large $\\mu^*$ nearly cancels the effective pairing interaction, making the dimensionless coupling $g = \\lambda - \\mu^*(1+0.62\\lambda)$ very small. The exponential sensitivity $T_c \\propto \\exp(-1/g)$ drives $T_c$ to $5 \\times 10^{-3}$ K, within an order of magnitude of the experimental value $4 \\times 10^{-4}$ K."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
@@ -1791,7 +1843,7 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::al_pressure_transition",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum under varying hydrostatic pressure (@aluminum_parameters): as pressure increases, the lattice stiffens, raising phonon frequencies and $\\omega_{\\mathrm{log}}$. The $r_s$ decreases modestly (higher electron density), slightly reducing $\\mu^*$ via the vDiagMC parameterization. The electron-phonon coupling $\\lambda$ from DFPT varies non-monotonically. The net effect is an initial increase in $T_c$ followed by a decrease at high pressures, reflecting the competition between the prefactor $\\omega_{\\mathrm{log}}$ and the exponential sensitivity to the effective coupling $\\lambda - \\mu^*(1 + 0.62\\lambda)$."
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum under varying hydrostatic pressure (@aluminum_parameters): as pressure increases, $r_s$ decreases (higher electron density), modifying both $\\mu^*$ and $\\lambda$. The net effect is a monotonic decrease in $T_c$, accurately capturing the experimental trend from ambient to 6 GPa. Extrapolating beyond experimental data, the framework predicts SC vanishes at ~60 GPa, with $T_c < 1$ mK already at 20 GPa."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
@@ -1808,7 +1860,7 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_mg_na_near_qpt",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to sodium (@sodium_parameters) and magnesium (@magnesium_parameters): Na has $r_s = 3.93$, yielding $\\mu^* \\approx 0.18$ which exceeds its weak $\\lambda \\approx 0.18$, placing Na in the net-repulsive regime with no Cooper instability. Mg has $r_s = 2.66$, yielding $\\mu^* \\approx 0.13$ which nearly cancels $\\lambda \\approx 0.26$, pushing $T_c$ to unobservably low temperatures. The precursory Cooper flow formalism (@precursory_cooper_flow) shows that near the quantum phase transition ($g \\to 0$), $T_c = \\omega_\\Lambda e^{1/g}$ is exponentially sensitive to the coupling, explaining why small parameter variations can toggle between superconducting and non-superconducting ground states."
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to sodium (@sodium_parameters) and magnesium (@magnesium_parameters): Na has $r_s = 3.96$, yielding $\\mu^* = 0.15$ which nearly cancels its weak $\\lambda = 0.2$, giving $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no superconductivity). Mg has $r_s = 2.66$, yielding $\\mu^* = 0.14$ which nearly cancels $\\lambda = 0.24$, giving $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. The precursory Cooper flow formalism (@precursory_cooper_flow) shows that near the quantum phase transition ($g \\to 0$), $T_c = \\omega_\\Lambda e^{1/g}$ is exponentially sensitive to the coupling, explaining why small parameter variations can toggle between superconducting and non-superconducting ground states."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
@@ -1850,7 +1902,7 @@
             "github:superconductivity_electron_liquids::tc_al_experimental"
           ]
         },
-        "reason": "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) is well reproduced by the ab initio prediction $T_c^{\\mathrm{th}} = 1.1 \\pm 0.3$ K (@tc_al_predicted), which uses no adjustable parameters. The phenomenological prediction (@tc_al_phenomenological) using $\\mu^* = 0.1$ gives 1.9 K, overestimating by 58%. The ab initio approach provides a better explanation because it determines $\\mu^*$ from first principles rather than using an ad hoc value, and the resulting $\\mu^* \\approx 0.11$ is close to but slightly above the standard guess, correctly reducing $T_c$ to the experimental range."
+        "reason": "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) is well reproduced by the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted), which uses no adjustable parameters. The phenomenological prediction (@tc_al_phenomenological) using $\\mu^* = 0.1$ gives 1.9 K, overestimating by 58%. The ab initio approach provides a better explanation because it determines $\\mu^*$ from first principles rather than using an ad hoc value, and the resulting $\\mu^* = 0.13$ is above the standard guess of 0.1, correctly reducing $T_c$ toward the experimental value."
       },
       "premises": [
         "github:superconductivity_electron_liquids::tc_al_experimental",
@@ -1893,7 +1945,7 @@
             "github:superconductivity_electron_liquids::tc_zn_experimental"
           ]
         },
-        "reason": "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) is consistent with the ab initio prediction $T_c^{\\mathrm{th}} = 0.7 \\pm 0.3$ K (@tc_zn_predicted). The phenomenological prediction (@tc_zn_phenomenological) using $\\mu^* = 0.1$ gives 1.37 K, overestimating by 57%. The ab initio $\\mu^* \\approx 0.12$ from $r_s = 2.31$ correctly captures the stronger Coulomb repulsion in Zn compared to the standard guess, bringing the prediction into agreement with experiment."
+        "reason": "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) is in excellent agreement with the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted). The phenomenological prediction (@tc_zn_phenomenological) using $\\mu^* = 0.1$ gives 1.37 K, overestimating by 57%. The ab initio $\\mu^* = 0.12$ from $r_s = 2.90$ correctly captures the Coulomb repulsion strength in Zn, bringing the prediction into near-exact agreement with experiment."
       },
       "premises": [
         "github:superconductivity_electron_liquids::tc_zn_experimental",
@@ -1936,7 +1988,7 @@
             "github:superconductivity_electron_liquids::tc_li_experimental"
           ]
         },
-        "reason": "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K (@tc_li_experimental) is consistent with the ab initio prediction $T_c^{\\mathrm{th}} \\lesssim 10^{-3}$ K (@tc_li_predicted). The phenomenological prediction (@tc_li_phenomenological) using $\\mu^* = 0.1$ gives $\\approx 0.35$ K, overestimating by three orders of magnitude. The dramatic improvement of the ab initio approach is because the first-principles $\\mu^* \\approx 0.16$ for lithium ($r_s = 3.25$) is significantly larger than the standard guess of 0.1, reflecting the stronger Coulomb repulsion at lower electron density. In the regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ is small, the exponential sensitivity amplifies this difference from $\\sim 0.06$ in $\\mu^*$ to three orders of magnitude in $T_c$."
+        "reason": "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K (@tc_li_experimental) is within an order of magnitude of the ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K (@tc_li_predicted, 9R structure). The phenomenological prediction (@tc_li_phenomenological) using $\\mu^* = 0.1$ gives $\\approx 0.35$ K, overestimating by three orders of magnitude. The dramatic improvement of the ab initio approach is because the first-principles $\\mu^* = 0.18$ for lithium ($r_s = 3.25$, $m_b = 1.75$) is significantly larger than the standard guess of 0.1, reflecting the stronger Coulomb repulsion at lower electron density. In the regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ is small, the exponential sensitivity amplifies the $\\mu^*$ difference from 0.08 to nearly three orders of magnitude in $T_c$."
       },
       "premises": [
         "github:superconductivity_electron_liquids::tc_li_experimental",

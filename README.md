@@ -1,15 +1,14 @@
-# superconductivity-electron-liquids-gaia
+# Superconductivity in Electron Liquids
 
-Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
+> **Original work:** Cai, X., Wang, T., Zhang, S., Zhang, T., Millis, A., Svistunov, B. V., Prokof'ev, N. V., & Chen, K. "Superconductivity in Electron Liquids: Precision Many-Body Treatment of Coulomb Interaction." [arXiv:2512.19382v2](https://arxiv.org/abs/2512.19382) (2025).
 
-[![Interactive Paper](https://img.shields.io/badge/📖_Interactive_Paper-GitHub_Pages-blue)](https://kunyuan.github.io/SuperconductivityElectronLiquids.gaia/)
-[![Knowledge Reference](https://img.shields.io/badge/📚_Reference-Wiki-green)](https://github.com/kunyuan/SuperconductivityElectronLiquids.gaia/wiki)
+[![Gaia Package](https://img.shields.io/badge/Gaia-knowledge--package-blue)](https://github.com/SiliconEinstein/gaia-registry)
 
 ## Summary
 
-This package formalizes the reasoning structure of Cai, Wang, Zhang, Zhang, Millis, Svistunov, Prokof'ev & Chen (2025), which develops a first-principles framework for predicting the superconducting transition temperature $T_c$ of simple metals without adjustable parameters. The central advance is the controlled computation of the Coulomb pseudopotential $\mu^*$ via variational diagrammatic Monte Carlo (vDiagMC) applied to the uniform electron gas, combined with a rigorous downfolding of the Bethe-Salpeter equation that gives microscopic definitions to the quantities traditionally treated as phenomenological inputs. The knowledge graph traces how these theoretical ingredients flow together into an ab initio workflow that reproduces experimental $T_c$ values for aluminum, zinc, and lithium, while predicting that sodium and magnesium sit near a quantum phase transition between superconducting and non-superconducting ground states.
+This paper develops a controlled first-principles framework for predicting superconducting transition temperatures ($T_c$) of simple metals by computing the Coulomb pseudopotential $\mu^*$ from many-body theory — replacing the long-standing phenomenological guess of $\mu^* \in [0.1, 0.2]$. The core innovation is using variational diagrammatic Monte Carlo (vDiagMC) to evaluate the four-point electron vertex of the uniform electron gas, yielding $\mu_{E_F}$ with controlled error bars. Combined with DFPT electron-phonon coupling and BTS renormalization, this produces a parameter-free **ab initio workflow** (belief 0.99) that predicts $T_c$ for Al (0.96 vs 1.2 K exp), Zn (0.874 vs 0.875 K exp), and Li ($5 \times 10^{-3}$ vs $4 \times 10^{-4}$ K exp) — dramatically outperforming the McMillan formula which overestimates Li by three orders of magnitude. The framework also predicts Na and Mg sit near the quantum phase transition to non-superconducting ground states, and that Al superconductivity vanishes under pressure around 60 GPa.
 
-## Overview
+## Reasoning Graph
 
 > **Reasoning graph information gain: `4.0 bits`**
 >
@@ -39,15 +38,15 @@ graph TB
     gamma3_vdiagmc["vDiagMC Computation of Gamma_3\n(0.88 → 1.00)"]:::premise
     quasiparticle_mass_near_unity["Quasiparticle Mass Near Unity\n(0.92 → 0.86)"]:::premise
     dfpt_reliable_for_simple_metals["★ DFPT Reliable for Simple Metals\n(0.50 → 0.86)"]:::exported
-    ueg_pseudopotential_parameterization["UEG mu#ast; Parameterization and Mapping\n(0.85 → 0.83)"]:::premise
+    ueg_pseudopotential_parameterization["UEG mu* Parameterization and Mapping\n(0.85 → 0.83)"]:::premise
     ab_initio_workflow["★ Ab Initio Tc Prediction Workflow\n(0.50 → 0.99)"]:::exported
     tc_al_predicted["★ Tc(Al) Ab Initio Prediction\n(0.50 → 0.93)"]:::exported
     tc_zn_predicted["★ Tc(Zn) Ab Initio Prediction\n(0.50 → 0.93)"]:::exported
     tc_li_predicted["★ Tc(Li) Ab Initio Prediction\n(0.50 → 0.96)"]:::exported
     al_pressure_transition["★ Al Pressure-Tc Transition\n(0.50 → 0.79)"]:::exported
     tc_mg_na_near_qpt["★ Na and Mg Near Quantum Phase Transition\n(0.50 → 0.79)"]:::exported
-    rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast;\n(0.50 → 0.25)"]:::premise
     rpa_vs_vdiagmc["rpa_vs_vdiagmc\n(0.50 → 1.00)"]:::premise
+    rpa_predicts_attractive_mu["RPA Predicts Attractive mu*\n(0.50 → 0.25)"]:::premise
     strat_0(["infer\n0.60 bits"]):::weak
     ab_initio_workflow --> strat_0
     strat_0 --> al_pressure_transition
@@ -102,72 +101,70 @@ graph TB
 
 ## Reasoning Structure
 
-### Motivation and Phenomenological Baselines
+### Theoretical Foundation: BSE Downfolding
 
-Traditional superconductivity theory relies on the McMillan or Allen-Dynes formula, which takes two inputs: the electron-phonon coupling constant $\lambda$ from DFPT and the Coulomb pseudopotential $\mu^*$ treated as a free parameter in the range 0.1--0.2. For metals where $T_c$ is in the kelvin or sub-kelvin range, the exponential sensitivity $T_c \propto \exp(-1/g)$ amplifies small uncertainties in $\mu^*$ into order-of-magnitude errors in $T_c$. The phenomenological prediction for lithium using $\mu^* = 0.1$ gives $T_c \approx 0.35$ K, three orders of magnitude above the experimental $4 \times 10^{-4}$ K --- the belief in this prediction settles at just 0.13 (prior 0.10), essentially rejected. For aluminum the phenomenological $T_c \approx 1.9$ K overestimates the measured 1.2 K by 58%, and for zinc the predicted 1.37 K exceeds the observed 0.875 K by 57%; both land at belief 0.40 (prior 0.35). Meanwhile the experimental $T_c$ values themselves are firmly established: belief 1.00 for all three metals. The RPA treatment of the dynamically screened Coulomb interaction predicts an attractive $\mu^* < 0$ for $r_s \gtrsim 2$, but this claim is driven down to belief 0.25 (prior 0.50) once confronted with the vDiagMC evidence, confirming that RPA's neglect of vertex corrections produces qualitatively wrong results in the metallic density regime.
+The paper's theoretical core is the **downfolded Bethe-Salpeter equation** (0.50 → 0.76), derived from two premises: the adiabatic approximation $\omega_D/E_F \ll 1$ (0.95 → 0.90) and the suppression of cross-channel terms at $O(\omega_c^2/\omega_p^2) \leq 1\%$ (0.90 → 0.69). The cross-term claim experiences the largest belief drop among premises (−0.21), pulled down by the long derivation chain flowing through it. The downfolding reduces the full momentum-frequency BSE to a one-dimensional frequency-only equation with microscopically defined $\lambda$ and $\mu_{\omega_c}$, validated against a full BSE toy model (0.2% agreement in $T_c$).
 
-### Downfolding the Bethe-Salpeter Equation
+![Fig. 5 | Comparison between the precursory Cooper flow solutions of the full and downfolded BSE for a toy model, demonstrating 0.2% agreement in Tc.](artifacts/images/8_1.jpg)
+*Adapted from Cai et al., arXiv:2512.19382v2.*
 
-The paper's first major theoretical result is a controlled reduction of the full momentum-frequency Bethe-Salpeter equation to a one-dimensional integral equation in Matsubara frequency. This downfolding rests on two pillars: the adiabatic approximation (belief 0.90, prior 0.95) and the suppression of cross-channel terms mixing Coulomb and phonon contributions at order $O(\omega_c^2/\omega_p^2)$ (belief 0.69, prior 0.90). The cross-term suppression experiences the largest belief drop among premises, falling from 0.90 to 0.69, because its quantitative validity depends on maintaining the hierarchy $\omega_c / \omega_p \lesssim 0.1$ which is material-dependent. Despite this softening, the combined inference still lifts the downfolded BSE conclusion from its uninformative prior of 0.50 to belief 0.76, though the edge carries only 0.01 bits of mutual information --- most of the conclusion's credibility comes from the strong theoretical derivation rather than from the premises' raw probability mass. A toy-model validation at aluminum-like parameters ($r_s = 1.92$, $\omega_D / E_F = 0.005$) shows the full BSE gives $T_c/T_F = 10^{-5.668}$ while the downfolded version gives $10^{-5.667}$, a 0.2% discrepancy that confirms quantitative accuracy. The downfolding also yields microscopic definitions for both $\lambda$ and $\mu_{\omega_c}$, and recovers the Bogoliubov-Tolmachev-Shirkov renormalization relation as an exact corollary (belief 0.99) rather than a phenomenological ansatz.
+### Computing the Coulomb Pseudopotential
 
-### Computing the Coulomb Pseudopotential via vDiagMC
+The central computational result — **vDiagMC values of $\mu_{E_F}$** (0.50 → 0.50) — is derived from two premises: the vDiagMC method (0.90 → 0.83) and the homotopic expansion (0.88 → 0.79). This strategy provides the highest single-edge information gain (0.74 bits). Despite strong premise support, the belief remains at 0.50 because the **contradiction** with RPA (which predicts $\mu^* < 0$ for $r_s > 2$) drains probability from both sides. BP resolves this by suppressing RPA to belief 0.25 while keeping vDiagMC at 0.50 — the contradiction is "won" by vDiagMC but at the cost of being unable to rise above the uninformative prior.
 
-The central computational challenge is evaluating the particle-particle irreducible four-point vertex $\tilde{\Gamma}^e$ of the uniform electron gas in the metallic density range $r_s \in [1, 6]$, where standard perturbation theory diverges and partial resummations like RPA miss crucial vertex corrections. Variational diagrammatic Monte Carlo (belief 0.83, prior 0.90) addresses this by stochastically sampling Feynman diagrams with bold-line propagators, and the homotopic expansion (belief 0.79, prior 0.88) dramatically accelerates convergence by continuously deforming the bare Coulomb interaction to incorporate partial screening at each order. Together these techniques produce the highest-MI edge in the graph at 0.74 bits, feeding into the numerical values of $\mu_{E_F}(r_s)$. However, the conclusion $\mu_{\text{vDiagMC}}$ itself remains at belief 0.50 (prior 0.50) --- the graph's most conspicuous stall point --- because the two premise beliefs (0.83 and 0.79) are not strong enough under the noisy-AND model to lift a conclusion that demands both to hold simultaneously. The computed values ($\mu_{E_F} \approx 0.21$ at $r_s = 2$, $\approx 0.33$ at $r_s = 3.3$) directly contradict the RPA prediction of attractive $\mu^*$, driving the contradiction node to belief 1.00 and the RPA claim down to 0.25.
+![Fig. 4 | Dimensionless bare Coulomb pseudopotential mu_EF as a function of r_s for the 3D UEG from vDiagMC data, compared with static RPA, Morel-Anderson, and dynamic RPA predictions.](artifacts/images/8_0.jpg)
+*Adapted from Cai et al., arXiv:2512.19382v2.*
 
-### Validating DFPT for the Electron-Phonon Coupling
+### Validating the Electron-Phonon Coupling
 
-The second ingredient for ab initio $T_c$ prediction is the electron-phonon coupling $\lambda$, standardly computed via DFPT. The paper justifies this by showing that the EFT vertex $g(k,q) = z^e \cdot \Gamma_3^e \cdot g_0$ reduces to the DFPT expression when vertex corrections and mass renormalization approximately cancel. Three premises support this: the exact Ward identity at $q \to 0$ (belief 1.00, prior 0.98), the vDiagMC computation of $\Gamma_3^e$ showing modest 10-20% corrections at finite $q$ (belief 1.00, prior 0.88), and the near-unity quasiparticle mass at metallic densities (belief 0.86, prior 0.92). Together with the downfolded BSE, these drive the DFPT reliability conclusion from prior 0.50 to belief 0.86, though the edge carries essentially 0.00 bits of MI because the premises are already so strong that the conclusion's uncertainty reduction is dominated by its own prior-to-posterior shift rather than by marginal premise information.
+**DFPT reliability for simple metals** (0.50 → 0.86) is established through a composite strategy linking the EFT vertex expression, the $\Gamma_3^e \approx m^*/m$ approximation (from induction over the Ward identity and vDiagMC finite-$q$ results), and the near-unity quasiparticle mass. The Ward identity (0.98 → 1.00) provides an exact anchor, while vDiagMC Gamma_3 (0.88 → 1.00) is strongly pulled up by BP — together they confirm that DFPT captures the relevant vertex corrections for simple metals.
 
-### The Ab Initio Workflow and Material Predictions
+![Fig. 8 | Comparison between the angle-resolved e-ph vertex correction in the UEG from vDiagMC (points) and DFPT (lines) for different r_s values.](artifacts/images/12_0.jpg)
+*Adapted from Cai et al., arXiv:2512.19382v2.*
 
-All theoretical threads converge into the parameter-free ab initio workflow: (1) compute $\mu_{E_F}$ from vDiagMC, (2) map to material $r_s$ and scale down via BTS, (3) obtain $\lambda$ from DFPT, (4) solve the downfolded Eliashberg equations. This composite conclusion reaches belief 0.99 (prior 0.50) with 0.10 bits MI, drawing on four premises: the downfolded BSE (0.76), the vDiagMC $\mu$ values (0.50), DFPT reliability (0.86), and the UEG parameterization mapping (0.83). The workflow's near-certainty despite the weak $\mu_{\text{vDiagMC}}$ premise reflects the redundancy in the reasoning graph --- experimental validation via abduction provides additional support. For aluminum, the ab initio $T_c = 1.1 \pm 0.3$ K matches the experimental 1.2 K, lifting the prediction to belief 0.93 (0.67 bits MI). Zinc follows the same pattern: $T_c^{\text{th}} = 0.7 \pm 0.3$ K versus $T_c^{\text{exp}} = 0.875$ K, belief 0.93. The most dramatic success is lithium, where the first-principles $\mu^* \approx 0.16$ nearly cancels $\lambda \approx 0.41$, correctly predicting the sub-millikelvin $T_c$ that phenomenological approaches miss by three orders of magnitude, reaching belief 0.96 (0.60 bits MI).
+### The Ab Initio Workflow
 
-### Predictions Near the Quantum Phase Transition
+The **parameter-free ab initio workflow** (0.50 → 0.99) assembles all components: the downfolded BSE provides the equation, vDiagMC + BTS provides $\mu^*$, and validated DFPT provides $\lambda$. Despite individual components having moderate beliefs, the workflow achieves near-certainty (0.99) because it is pulled up by strong downstream abductions against experimental data. This strategy contributes only 0.10 bits directly, but serves as the hub through which all evidence flows to the material predictions.
 
-The framework makes testable predictions beyond the calibrated metals. Under hydrostatic pressure, aluminum's $T_c$ is predicted to first increase as phonon stiffening raises $\omega_{\text{log}}$ while $\mu^*$ changes modestly, then decrease at high pressures when $\lambda$ is suppressed --- a non-monotonic behavior consistent with experimental pressure studies (belief 0.79, prior 0.50, 0.60 bits MI). Sodium ($r_s = 3.93$, $\lambda \approx 0.18$) is predicted to have its large $\mu^*$ exceed the weak electron-phonon coupling, placing it in the net-repulsive regime with no Cooper instability. Magnesium ($r_s = 2.66$, $\lambda \approx 0.26$) sits in the sub-nanokelvin $T_c$ regime. Both materials are near the quantum phase transition between superconducting and non-superconducting ground states, where $T_c = \omega_\Lambda e^{1/g}$ is exponentially sensitive to the coupling $g \to 0$ (belief 0.79, prior 0.50). These predictions highlight both the power of the ab initio approach --- it can distinguish superconductors from non-superconductors without fitting --- and its fragility near the phase boundary, where small errors in $\mu^*$ or $\lambda$ can toggle the qualitative outcome.
+![Fig. 9 | Proposed ab initio framework for electron-phonon SC beyond the weak correlation limit, showing computational pathway from fundamental parameters through correlated electrons and lattice vibrations to superconducting properties.](artifacts/images/13_0.jpg)
+*Adapted from Cai et al., arXiv:2512.19382v2.*
+
+### Material Predictions vs Experiment
+
+The three material-specific $T_c$ predictions each achieve high beliefs through **abduction**: the ab initio prediction is tested as a hypothesis against the experimental observation, with the McMillan formula serving as the alternative explanation. For **Al** (0.50 → 0.93), the EFT predicts 0.96 K vs experiment 1.2 K, while McMillan gives 1.9 K (58% overestimate). For **Zn** (0.50 → 0.93), the agreement is near-exact: 0.874 vs 0.875 K. For **Li** (0.50 → 0.96), the EFT predicts $5 \times 10^{-3}$ K, within an order of magnitude of the experimental $4 \times 10^{-4}$ K — while McMillan overestimates by three orders of magnitude. Each abduction contributes ~0.6-0.7 bits of information gain.
+
+![Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.](artifacts/images/14_0.jpg)
+*Adapted from Cai et al., arXiv:2512.19382v2.*
+
+![Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.](artifacts/images/15_0.jpg)
+*Adapted from Cai et al., arXiv:2512.19382v2.*
 
 ## Conclusions
 
 | Label | Content | Prior | Belief |
 |-------|---------|-------|--------|
-| ab_initio_workflow | The complete ab initio workflow for predicting $T_c$ of simple metals: (1) co... | 0.50 | 0.99 |
-| al_pressure_transition | Under hydrostatic pressure, the ab initio framework predicts that aluminum's ... | 0.50 | 0.79 |
-| dfpt_reliable_for_simple_metals | For simple metals, the DFPT calculation of the electron-phonon coupling const... | 0.50 | 0.86 |
-| downfolded_bse | The frequency-only downfolded Bethe-Salpeter equation: the full momentum-freq... | 0.50 | 0.76 |
-| mu_vdiagmc_values | vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopot... | 0.50 | 0.50 |
-| tc_al_predicted | The ab initio predicted superconducting transition temperature of aluminum is... | 0.50 | 0.93 |
-| tc_li_predicted | The ab initio predicted superconducting transition temperature of lithium is ... | 0.50 | 0.96 |
-| tc_mg_na_near_qpt | The ab initio framework predicts that sodium and magnesium have extremely low... | 0.50 | 0.79 |
-| tc_zn_predicted | The ab initio predicted superconducting transition temperature of zinc is $T_... | 0.50 | 0.93 |
+| ab_initio_workflow | The complete ab initio workflow for predicting $T_c$ of simple metals: (1) compute $\mu_{E_F}$ via vDiagMC, (2) map via BTS, (3) obtain $\lambda$ from DFPT, (4) solve Eliashberg equations. | 0.50 | 0.99 |
+| tc_li_predicted | $T_c^{\mathrm{EFT}}(\mathrm{Li}) = 5 \times 10^{-3}$ K (9R), consistent with $T_c^{\mathrm{exp}} \approx 4 \times 10^{-4}$ K. | 0.50 | 0.96 |
+| tc_al_predicted | $T_c^{\mathrm{EFT}}(\mathrm{Al}) = 0.96$ K, in good agreement with $T_c^{\mathrm{exp}} = 1.2$ K. | 0.50 | 0.93 |
+| tc_zn_predicted | $T_c^{\mathrm{EFT}}(\mathrm{Zn}) = 0.874$ K, near-exact match to $T_c^{\mathrm{exp}} = 0.875$ K. | 0.50 | 0.93 |
+| dfpt_reliable_for_simple_metals | DFPT $\lambda$ is reliable for simple metals: EFT vertex matches DFPT and $m^*/m \approx 1$. | 0.50 | 0.86 |
+| al_pressure_transition | Al $T_c$ monotonically decreases under pressure, vanishing at ~60 GPa. | 0.50 | 0.79 |
+| tc_mg_na_near_qpt | Na and Mg are near the quantum phase transition: $T_c$ effectively zero. | 0.50 | 0.79 |
+| downfolded_bse | Frequency-only downfolded BSE with microscopically defined $\lambda$ and $\mu_{\omega_c}$. | 0.50 | 0.76 |
+| mu_vdiagmc_values | vDiagMC yields $\mu_{E_F} = 0.53(2)$ at $r_s = 2$, $\mu_{E_F} = 0.77(5)$ at $r_s = 3$. | 0.50 | 0.50 |
 
 ## Weak Points
 
-### Cross-Channel Term Suppression (belief 0.69, prior 0.90)
+1. **$\mu_{E_F}$ from vDiagMC** (belief 0.50): The contradiction with RPA's prediction of attractive $\mu^*$ creates a NAND constraint that drains probability from both claims. BP suppresses RPA to 0.25 but cannot push vDiagMC above 0.50 because the contradiction factor allocates probability between the two. This is the structural bottleneck — downstream predictions succeed despite this because abductions against experiment provide independent support.
 
-The largest belief drop in the entire graph occurs at this premise. The suppression relies on the hierarchy $\omega_c / \omega_p \lesssim 0.1$, which is well satisfied for high-density metals like aluminum but becomes increasingly marginal as $r_s$ grows. For materials with lower plasma frequencies or more complex electronic structures, the $O(\omega_c^2 / \omega_p^2)$ estimate may undercount contributions from intermediate-energy excitations that do not cleanly separate into Coulomb and phonon channels. The downfolded BSE inherits this uncertainty directly, which is why its belief plateaus at 0.76 rather than climbing higher.
+2. **Cross-channel terms suppressed** (0.90 → 0.69): This leaf claim experiences the largest belief drop (−0.21) among premises. As a foundation of the downfolded BSE, it is pulled down by the multiplicative effect of the long derivation chain flowing through it to the material predictions. Additional validation (e.g., direct numerical verification of cross-term magnitude for specific metals) would strengthen this.
 
-### vDiagMC Numerical Values of $\mu$ (belief 0.50, prior 0.50)
-
-The most striking stall point in the graph: despite being the central computational result of the paper, $\mu_{\text{vDiagMC}}$ fails to rise above its uninformative prior. Under the noisy-AND inference model, the conclusion requires both the vDiagMC method (0.83) and the homotopic expansion (0.79) to hold simultaneously, and the product of these probabilities minus noise penalties cannot overcome the prior. This reflects a genuine epistemic gap --- the convergence of the homotopic series at metallic densities, while dramatically better than bare perturbation theory, has not been independently validated by an alternative controlled method.
-
-### Homotopic Expansion Convergence (belief 0.79, prior 0.88)
-
-The homotopic transformation reorganizes the diagrammatic series by continuously deforming the bare Coulomb interaction, and the paper reports convergence at modest diagram orders ($n \lesssim 7$). The belief drops from 0.88 to 0.79 because the convergence guarantee is empirical rather than proven: the series is asymptotic, and convergence at order 7 does not preclude significant contributions from higher orders that happen to cancel at the computed densities but might not at others. The 0.74 bits of MI on the edge to $\mu_{\text{vDiagMC}}$ reflects how much the graph's uncertainty about the final $T_c$ predictions depends on this single methodological claim.
-
-### Quasiparticle Mass Near Unity (belief 0.86, prior 0.92)
-
-The DFPT validation chain assumes $m^*/m \approx 1$ for simple metals, so that the quasiparticle density of states $N_F^*$ matches the band density of states $N_F^{(0)}$. At $r_s \approx 4$ (near sodium), mass enhancements of 10-15% start to matter, and the cancellation between $z^e$ and $\Gamma_3^e$ that makes the EFT vertex equal the DFPT expression becomes less precise. For metals at the boundary of the "simple" classification, this assumption is the weakest link in the $\lambda$ validation.
+3. **Al pressure transition** (belief 0.79): Supported by a single noisy_and from the ab initio workflow with conditional probability 0.80, reflecting extrapolation uncertainty beyond the 6 GPa experimental limit. The prediction extends to 60 GPa where no experimental data exists.
 
 ## Evidence Gaps
 
-### No Independent Validation of vDiagMC Four-Point Vertex
+1. **No experimental $T_c$ for Na or Mg**: The quantum phase transition prediction (`tc_mg_na_near_qpt`, belief 0.79) relies entirely on theory. Sub-nanokelvin experiments — technically extremely challenging — would provide direct validation.
 
-The $\mu_{E_F}(r_s)$ values are computed entirely within the vDiagMC framework using the homotopic expansion. No independent method --- such as auxiliary-field quantum Monte Carlo, coupled-cluster theory, or a fundamentally different diagrammatic resummation --- has verified these values at metallic densities. The belief stall at 0.50 for $\mu_{\text{vDiagMC}}$ directly reflects this single-method dependence. An independent calculation confirming $\mu_{E_F} \approx 0.21$ at $r_s = 2$ would substantially raise the belief throughout the downstream graph.
+2. **Li crystal structure controversy**: The 9R and HCP structures yield different $T_c$ predictions ($5 \times 10^{-3}$ vs 0.03 K), and the experimental structure at ultra-low temperatures is debated. Definitive structural determination would sharpen the Li prediction.
 
-### Missing Experimental Tests for Na and Mg Predictions
-
-The predictions that sodium has no Cooper instability and magnesium has sub-nanokelvin $T_c$ are untested at the required temperature scales. Both materials are predicted to sit near a quantum phase transition where $T_c$ varies exponentially with small parameter changes, making them ideal discriminators of the theory's accuracy --- but the experiments to reach nanokelvin temperatures in these materials with sufficient purity have not been performed. The belief for both predictions (0.79) would be strongly constrained by such measurements.
-
-### Lattice Effects Beyond the Uniform Electron Gas
-
-The entire $\mu^*$ pipeline assumes that the UEG four-point vertex, parameterized as a function of $r_s$, can be mapped to real crystalline metals with only minor corrections from lattice effects. For nearly-free-electron metals this is well motivated, but the claim (belief 0.90 for simple_metals_weak_lattice) has not been tested for metals with partially filled $d$-bands or complex Fermi surfaces. Extending the framework beyond simple $sp$-metals would require either direct crystalline vDiagMC calculations or a controlled estimate of lattice corrections to the UEG vertex, neither of which exists.
+3. **Single-density-point validation for toy model**: The downfolding approximation (belief 0.76) is validated at one density ($r_s = 1.92$). Testing at additional $r_s$ values, particularly near $r_s \sim 4$ where the adiabatic ratio may be less favorable, would strengthen confidence.
