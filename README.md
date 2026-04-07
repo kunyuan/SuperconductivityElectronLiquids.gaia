@@ -37,46 +37,46 @@ graph TB
     tc_li_predicted["★ Tc(Li) Ab Initio Prediction\n(0.50 → 0.96)"]:::exported
     al_pressure_transition["★ Al Pressure-Tc Transition\n(0.50 → 0.79)"]:::exported
     tc_mg_na_near_qpt["★ Na and Mg Near Quantum Phase Transition\n(0.50 → 0.79)"]:::exported
-    rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast;\n(0.50 → 0.25)"]:::premise
     rpa_vs_vdiagmc["rpa_vs_vdiagmc\n(0.50 → 1.00)"]:::premise
-    strat_0(["infer"]):::weak
+    rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast;\n(0.50 → 0.25)"]:::premise
+    strat_0(["infer\n0.00→0.80 (444×)"]):::weak
     ab_initio_workflow --> strat_0
     strat_0 --> al_pressure_transition
-    strat_1(["infer"]):::weak
+    strat_1(["infer\n0.00→0.85 (459×)"]):::weak
     ab_initio_workflow --> strat_1
     tc_al_experimental --> strat_1
     tc_al_phenomenological --> strat_1
     strat_1 --> tc_al_predicted
-    strat_2(["infer"]):::weak
+    strat_2(["infer\n0.00→0.80 (444×)"]):::weak
     ab_initio_workflow --> strat_2
     tc_li_experimental --> strat_2
     tc_li_phenomenological --> strat_2
     strat_2 --> tc_li_predicted
-    strat_3(["infer"]):::weak
+    strat_3(["infer\n0.00→0.80 (444×)"]):::weak
     ab_initio_workflow --> strat_3
     strat_3 --> tc_mg_na_near_qpt
-    strat_4(["infer"]):::weak
+    strat_4(["infer\n0.00→0.85 (459×)"]):::weak
     ab_initio_workflow --> strat_4
     tc_zn_experimental --> strat_4
     tc_zn_phenomenological --> strat_4
     strat_4 --> tc_zn_predicted
-    strat_5(["infer"]):::weak
+    strat_5(["infer\n0.00→0.03 (162×)"]):::weak
     adiabatic_approx --> strat_5
     cross_term_suppressed --> strat_5
     strat_5 --> downfolded_bse
-    strat_6(["infer"]):::weak
+    strat_6(["infer\n0.50→1.00 (2×)"]):::weak
     dfpt_reliable_for_simple_metals --> strat_6
     downfolded_bse --> strat_6
     mu_vdiagmc_values --> strat_6
     ueg_pseudopotential_parameterization --> strat_6
     strat_6 --> ab_initio_workflow
-    strat_7(["infer"]):::weak
+    strat_7(["infer\n0.50→0.50 (1×)"]):::weak
     downfolded_bse --> strat_7
     gamma3_vdiagmc --> strat_7
     quasiparticle_mass_near_unity --> strat_7
     ward_identity --> strat_7
     strat_7 --> dfpt_reliable_for_simple_metals
-    strat_8(["infer"]):::weak
+    strat_8(["infer\n0.00→1.00"]):::weak
     homotopic_expansion --> strat_8
     vdiagmc_method --> strat_8
     strat_8 --> mu_vdiagmc_values
