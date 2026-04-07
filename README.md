@@ -7,6 +7,12 @@ Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
 ## Overview
 
 ```mermaid
+---
+config:
+  flowchart:
+    rankSpacing: 80
+    nodeSpacing: 30
+---
 graph TB
     adiabatic_approx["Adiabatic Approximation\n(0.95 → 0.90)"]:::premise
     tc_al_experimental["Tc(Al) Experimental\n(0.99 → 1.00)"]:::premise
