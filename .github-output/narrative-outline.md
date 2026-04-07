@@ -97,11 +97,11 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 22. **Al Pressure-Tc Transition ★** (prior: 0.50 → belief: 0.79)
    - ← infer(ab_initio_workflow) [0.60 bits]
 
-23. **Tc(Zn) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.93)
-   - ← infer(ab_initio_workflow, tc_zn_experimental, tc_zn_phenomenological) [0.67 bits]
-
-24. **Tc(Al) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.93)
+23. **Tc(Al) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.93)
    - ← infer(ab_initio_workflow, tc_al_experimental, tc_al_phenomenological) [0.67 bits]
+
+24. **Tc(Zn) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.93)
+   - ← infer(ab_initio_workflow, tc_zn_experimental, tc_zn_phenomenological) [0.67 bits]
 
 25. **Tc(Li) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.96)
    - ← infer(ab_initio_workflow, tc_li_experimental, tc_li_phenomenological) [0.60 bits]

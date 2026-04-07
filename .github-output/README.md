@@ -7,9 +7,10 @@ Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
 
 ## Overview
 
+> [!TIP]
 > **Reasoning graph information gain: `4.0 bits`**
 >
-> <sub>Total mutual information between leaf premises and exported conclusions — measures how much the reasoning structure reduces uncertainty about the results.</sub>
+> Total mutual information between leaf premises and exported conclusions — measures how much the reasoning structure reduces uncertainty about the results.
 
 ```mermaid
 ---
@@ -42,8 +43,8 @@ graph TB
     tc_li_predicted["★ Tc(Li) Ab Initio Prediction\n(0.50 → 0.96)"]:::exported
     al_pressure_transition["★ Al Pressure-Tc Transition\n(0.50 → 0.79)"]:::exported
     tc_mg_na_near_qpt["★ Na and Mg Near Quantum Phase Transition\n(0.50 → 0.79)"]:::exported
-    rpa_vs_vdiagmc["rpa_vs_vdiagmc\n(0.50 → 1.00)"]:::premise
     rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast;\n(0.50 → 0.25)"]:::premise
+    rpa_vs_vdiagmc["rpa_vs_vdiagmc\n(0.50 → 1.00)"]:::premise
     strat_0(["infer\n0.60 bits"]):::weak
     ab_initio_workflow --> strat_0
     strat_0 --> al_pressure_transition

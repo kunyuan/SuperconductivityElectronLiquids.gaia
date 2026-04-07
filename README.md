@@ -103,12 +103,10 @@ graph TB
     classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
-<details>
-<summary><b>Per-module reasoning graphs with full claim details</b></summary>
-
-See [docs/detailed-reasoning.md](docs/detailed-reasoning.md) for the complete per-section reasoning graphs (6 Mermaid diagrams) with every claim, strategy, and belief value.
-
-</details>
+> [!NOTE]
+> **[Per-module reasoning graphs with full claim details →](docs/detailed-reasoning.md)**
+>
+> 6 Mermaid diagrams (one per section) with every claim, strategy, and belief value.
 
 ## Reasoning Structure
 
