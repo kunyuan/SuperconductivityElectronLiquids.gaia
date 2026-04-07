@@ -22,21 +22,21 @@ graph TB
     tc_li_phenomenological["Tc(Li) Phenomenological Prediction\n(0.10 → 0.13)"]:::premise
     tc_zn_phenomenological["Tc(Zn) Phenomenological Prediction\n(0.35 → 0.40)"]:::premise
     cross_term_suppressed["Cross-Channel Terms Suppressed\n(0.90 → 0.69)"]:::premise
-    downfolded_bse["★ Downfolded BSE\n(→ 0.76)"]:::exported
+    downfolded_bse["★ Downfolded BSE\n(0.50 → 0.76)"]:::exported
     vdiagmc_method["vDiagMC Method\n(0.90 → 0.83)"]:::premise
     homotopic_expansion["Homotopic Expansion\n(0.88 → 0.79)"]:::premise
-    mu_vdiagmc_values["★ mu from vDiagMC: Numerical Values\n(→ 0.50)"]:::exported
+    mu_vdiagmc_values["★ mu from vDiagMC: Numerical Values\n(0.50 → 0.50)"]:::exported
     ward_identity["Ward Identity at q->0\n(0.98 → 1.00)"]:::premise
     gamma3_vdiagmc["vDiagMC Computation of Gamma_3\n(0.88 → 1.00)"]:::premise
     quasiparticle_mass_near_unity["Quasiparticle Mass Near Unity\n(0.92 → 0.86)"]:::premise
-    dfpt_reliable_for_simple_metals["★ DFPT Reliable for Simple Metals\n(→ 0.86)"]:::exported
+    dfpt_reliable_for_simple_metals["★ DFPT Reliable for Simple Metals\n(0.50 → 0.86)"]:::exported
     ueg_pseudopotential_parameterization["UEG mu#ast; Parameterization and Mapping\n(0.85 → 0.83)"]:::premise
-    ab_initio_workflow["★ Ab Initio Tc Prediction Workflow\n(→ 0.99)"]:::exported
-    tc_al_predicted["★ Tc(Al) Ab Initio Prediction\n(→ 0.93)"]:::exported
-    tc_zn_predicted["★ Tc(Zn) Ab Initio Prediction\n(→ 0.93)"]:::exported
-    tc_li_predicted["★ Tc(Li) Ab Initio Prediction\n(→ 0.96)"]:::exported
-    al_pressure_transition["★ Al Pressure-Tc Transition\n(→ 0.79)"]:::exported
-    tc_mg_na_near_qpt["★ Na and Mg Near Quantum Phase Transition\n(→ 0.79)"]:::exported
+    ab_initio_workflow["★ Ab Initio Tc Prediction Workflow\n(0.50 → 0.99)"]:::exported
+    tc_al_predicted["★ Tc(Al) Ab Initio Prediction\n(0.50 → 0.93)"]:::exported
+    tc_zn_predicted["★ Tc(Zn) Ab Initio Prediction\n(0.50 → 0.93)"]:::exported
+    tc_li_predicted["★ Tc(Li) Ab Initio Prediction\n(0.50 → 0.96)"]:::exported
+    al_pressure_transition["★ Al Pressure-Tc Transition\n(0.50 → 0.79)"]:::exported
+    tc_mg_na_near_qpt["★ Na and Mg Near Quantum Phase Transition\n(0.50 → 0.79)"]:::exported
     ab_initio_workflow --> al_pressure_transition
     ab_initio_workflow --> tc_al_predicted
     tc_al_experimental --> tc_al_predicted
@@ -69,15 +69,15 @@ graph TB
 
 | Label | Content | Prior | Belief |
 |-------|---------|-------|--------|
-| ab_initio_workflow | The complete ab initio workflow for predicting $T_c$ of simple metals: (1) co... | — | 0.99 |
-| al_pressure_transition | Under hydrostatic pressure, the ab initio framework predicts that aluminum's ... | — | 0.79 |
-| dfpt_reliable_for_simple_metals | For simple metals, the DFPT calculation of the electron-phonon coupling const... | — | 0.86 |
-| downfolded_bse | The frequency-only downfolded Bethe-Salpeter equation: the full momentum-freq... | — | 0.76 |
-| mu_vdiagmc_values | vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopot... | — | 0.50 |
-| tc_al_predicted | The ab initio predicted superconducting transition temperature of aluminum is... | — | 0.93 |
-| tc_li_predicted | The ab initio predicted superconducting transition temperature of lithium is ... | — | 0.96 |
-| tc_mg_na_near_qpt | The ab initio framework predicts that sodium and magnesium have extremely low... | — | 0.79 |
-| tc_zn_predicted | The ab initio predicted superconducting transition temperature of zinc is $T_... | — | 0.93 |
+| ab_initio_workflow | The complete ab initio workflow for predicting $T_c$ of simple metals: (1) co... | 0.50 | 0.99 |
+| al_pressure_transition | Under hydrostatic pressure, the ab initio framework predicts that aluminum's ... | 0.50 | 0.79 |
+| dfpt_reliable_for_simple_metals | For simple metals, the DFPT calculation of the electron-phonon coupling const... | 0.50 | 0.86 |
+| downfolded_bse | The frequency-only downfolded Bethe-Salpeter equation: the full momentum-freq... | 0.50 | 0.76 |
+| mu_vdiagmc_values | vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopot... | 0.50 | 0.50 |
+| tc_al_predicted | The ab initio predicted superconducting transition temperature of aluminum is... | 0.50 | 0.93 |
+| tc_li_predicted | The ab initio predicted superconducting transition temperature of lithium is ... | 0.50 | 0.96 |
+| tc_mg_na_near_qpt | The ab initio framework predicts that sodium and magnesium have extremely low... | 0.50 | 0.79 |
+| tc_zn_predicted | The ab initio predicted superconducting transition temperature of zinc is $T_... | 0.50 | 0.93 |
 
 <!-- content:start -->
 <!-- content:end -->
