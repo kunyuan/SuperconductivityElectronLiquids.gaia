@@ -2,8 +2,7 @@ name: Deploy Pages
 on:
   push:
     branches: [main]
-    paths: ["docs/**"]
-  workflow_dispatch:
+    paths: ['docs/**']
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,8 +10,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
-      - run: cd docs && npm install && npm run build
+          node-version: '20'
+      - run: cd docs && npm ci && npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs/dist

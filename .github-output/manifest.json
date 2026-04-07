@@ -1,0 +1,40 @@
+{
+  "package_name": "superconductivity_electron_liquids",
+  "generated_at": "2026-04-07T01:04:11.869260+00:00",
+  "wiki_pages": [
+    "Home.md",
+    "Module-Root.md",
+    "Module-motivation.md",
+    "Module-s2-model.md",
+    "Module-s3-downfolding.md",
+    "Module-s4-pseudopotential.md",
+    "Module-s5-eph-coupling.md",
+    "Module-s6-superconductors.md",
+    "Inference-Results.md"
+  ],
+  "pages_sections": [
+    "motivation.md",
+    "s2_model.md",
+    "s3_downfolding.md",
+    "s4_pseudopotential.md",
+    "s5_eph_coupling.md",
+    "s6_superconductors.md"
+  ],
+  "assets": [
+    "2512_Superconductivity_in_Electron_Liquids.md"
+  ],
+  "exported_conclusions": [
+    "ab_initio_workflow",
+    "al_pressure_transition",
+    "dfpt_reliable_for_simple_metals",
+    "downfolded_bse",
+    "mu_vdiagmc_values",
+    "tc_al_predicted",
+    "tc_li_predicted",
+    "tc_mg_na_near_qpt",
+    "tc_zn_predicted"
+  ],
+  "total_claims": 50,
+  "total_beliefs": 59,
+  "readme_placeholders": []
+}
