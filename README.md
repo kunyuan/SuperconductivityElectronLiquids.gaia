@@ -13,9 +13,10 @@ Predicting the superconducting transition temperature $T_c$ from first principle
 
 ## Reasoning Graph
 
+> [!TIP]
 > **Reasoning graph information gain: `4.0 bits`**
 >
-> <sub>Total mutual information between leaf premises and exported conclusions — measures how much the reasoning structure reduces uncertainty about the results.</sub>
+> Total mutual information between leaf premises and exported conclusions — measures how much the reasoning structure reduces uncertainty about the results.
 
 ```mermaid
 ---
