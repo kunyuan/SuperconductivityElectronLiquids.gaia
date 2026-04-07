@@ -8,53 +8,56 @@ Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
 
 ```mermaid
 graph TD
-    downfolded_bse["Downfolded BSE ★ (0.50 → 0.76)"]:::exported
-    mu_vdiagmc_values["mu from vDiagMC: Numerical Values ★ (0.50 → 0.50)"]:::exported
-    dfpt_reliable_for_simple_metals["DFPT Reliable for Simple Metals ★ (0.50 → 0.86)"]:::exported
-    ab_initio_workflow["Ab Initio Tc Prediction Workflow ★ (0.50 → 0.99)"]:::exported
-    tc_al_predicted["Tc(Al) Ab Initio Prediction ★ (0.50 → 0.93)"]:::exported
-    tc_zn_predicted["Tc(Zn) Ab Initio Prediction ★ (0.50 → 0.93)"]:::exported
-    tc_li_predicted["Tc(Li) Ab Initio Prediction ★ (0.50 → 0.96)"]:::exported
-    al_pressure_transition["Al Pressure-Tc Transition ★ (0.50 → 0.79)"]:::exported
-    tc_mg_na_near_qpt["Na and Mg Near Quantum Phase Transition ★ (0.50 → 0.79)"]:::exported
-    strat_20(["deduction"])
-    downfolded_bse --> strat_20
-    dfpt_reliable_for_simple_metals --> strat_20
-    strat_20 --> ab_initio_workflow
-    strat_21(["infer"]):::weak
-    downfolded_bse --> strat_21
-    mu_vdiagmc_values --> strat_21
-    dfpt_reliable_for_simple_metals --> strat_21
-    strat_21 --> ab_initio_workflow
-    strat_22(["noisy_and"]):::weak
-    ab_initio_workflow --> strat_22
-    strat_22 --> tc_al_predicted
-    strat_23(["noisy_and"]):::weak
-    ab_initio_workflow --> strat_23
-    strat_23 --> tc_zn_predicted
-    strat_24(["noisy_and"]):::weak
-    ab_initio_workflow --> strat_24
-    strat_24 --> tc_li_predicted
-    strat_25(["noisy_and"]):::weak
-    ab_initio_workflow --> strat_25
-    strat_25 --> al_pressure_transition
-    strat_26(["noisy_and"]):::weak
-    ab_initio_workflow --> strat_26
-    strat_26 --> tc_mg_na_near_qpt
-    oper_1{{"⊗"}}:::contra
-    rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast; (0.50 → 0.25)"]:::premise
-    rpa_predicts_attractive_mu --- oper_1
-    mu_vdiagmc_values --- oper_1
+    adiabatic_approx["Adiabatic Approximation (0.95 → 0.90)"]:::premise
+    cross_term_suppressed["Cross-Channel Terms Suppressed (0.90 → 0.69)"]:::premise
+    downfolded_bse["Downfolded BSE ★ (→ 0.76)"]:::exported
+    vdiagmc_method["vDiagMC Method (0.90 → 0.83)"]:::premise
+    homotopic_expansion["Homotopic Expansion (0.88 → 0.79)"]:::premise
+    mu_vdiagmc_values["μ* from vDiagMC ★ (→ 0.50)"]:::exported
+    ward_identity["Ward Identity (0.98 → 1.00)"]:::premise
+    gamma3_vdiagmc["vDiagMC Γ₃ (0.88 → 1.00)"]:::premise
+    quasiparticle_mass_near_unity["m*/m ≈ 1 (0.92 → 0.86)"]:::premise
+    dfpt_reliable_for_simple_metals["DFPT Reliable ★ (→ 0.86)"]:::exported
+    ueg_pseudopotential_parameterization["UEG μ* Mapping (0.85 → 0.83)"]:::premise
+    ab_initio_workflow["Ab Initio Workflow ★ (→ 0.99)"]:::exported
+    tc_al_experimental["Tc(Al) Expt (0.99 → 1.00)"]:::premise
+    tc_al_phenomenological["Tc(Al) Phenom (0.35 → 0.40)"]:::premise
+    tc_al_predicted["Tc(Al) Predicted ★ (→ 0.93)"]:::exported
+    tc_zn_experimental["Tc(Zn) Expt (0.99 → 1.00)"]:::premise
+    tc_zn_phenomenological["Tc(Zn) Phenom (0.35 → 0.40)"]:::premise
+    tc_zn_predicted["Tc(Zn) Predicted ★ (→ 0.93)"]:::exported
+    tc_li_experimental["Tc(Li) Expt (0.85 → 1.00)"]:::premise
+    tc_li_phenomenological["Tc(Li) Phenom (0.10 → 0.13)"]:::premise
+    tc_li_predicted["Tc(Li) Predicted ★ (→ 0.96)"]:::exported
+    al_pressure_transition["Al Pressure-Tc ★ (→ 0.79)"]:::exported
+    tc_mg_na_near_qpt["Na/Mg Near QPT ★ (→ 0.79)"]:::exported
 
-    classDef setting fill:#f0f0f0,stroke:#999,color:#333
+    adiabatic_approx --> downfolded_bse
+    cross_term_suppressed --> downfolded_bse
+    vdiagmc_method --> mu_vdiagmc_values
+    homotopic_expansion --> mu_vdiagmc_values
+    ward_identity --> dfpt_reliable_for_simple_metals
+    gamma3_vdiagmc --> dfpt_reliable_for_simple_metals
+    quasiparticle_mass_near_unity --> dfpt_reliable_for_simple_metals
+    downfolded_bse --> dfpt_reliable_for_simple_metals
+    downfolded_bse --> ab_initio_workflow
+    mu_vdiagmc_values --> ab_initio_workflow
+    dfpt_reliable_for_simple_metals --> ab_initio_workflow
+    ueg_pseudopotential_parameterization --> ab_initio_workflow
+    ab_initio_workflow --> tc_al_predicted
+    tc_al_experimental --> tc_al_predicted
+    tc_al_phenomenological --> tc_al_predicted
+    ab_initio_workflow --> tc_zn_predicted
+    tc_zn_experimental --> tc_zn_predicted
+    tc_zn_phenomenological --> tc_zn_predicted
+    ab_initio_workflow --> tc_li_predicted
+    tc_li_experimental --> tc_li_predicted
+    tc_li_phenomenological --> tc_li_predicted
+    ab_initio_workflow --> al_pressure_transition
+    ab_initio_workflow --> tc_mg_na_near_qpt
+
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
-    classDef derived fill:#ddffdd,stroke:#44bb44,color:#333
-    classDef question fill:#fff3dd,stroke:#cc9944,color:#333
-    classDef background fill:#f5f5f5,stroke:#bbb,stroke-dasharray: 5 5,color:#333
-    classDef orphan fill:#fff,stroke:#ccc,stroke-dasharray: 5 5,color:#333
     classDef exported fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#333
-    classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
-    classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
 ## Conclusions
