@@ -2,8 +2,8 @@
 
 Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
 
-<!-- badges:start -->
-<!-- badges:end -->
+[![Interactive Paper](https://img.shields.io/badge/📖_Interactive_Paper-GitHub_Pages-blue)](https://kunyuan.github.io/SuperconductivityElectronLiquids.gaia/)
+[![Knowledge Reference](https://img.shields.io/badge/📚_Reference-Wiki-green)](https://github.com/kunyuan/SuperconductivityElectronLiquids.gaia/wiki)
 
 ## Overview
 
