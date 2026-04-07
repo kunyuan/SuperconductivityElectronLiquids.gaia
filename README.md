@@ -4,6 +4,9 @@
 
 [![Gaia Package](https://img.shields.io/badge/Gaia-knowledge--package-blue)](https://github.com/SiliconEinstein/gaia-registry)
 
+> [!NOTE]
+> This README is an AI-generated analysis based on a [Gaia](https://github.com/SiliconEinstein/Gaia) reasoning graph formalization of the original work. Belief values reflect the graph's probabilistic assessment of each claim's support, not the original authors' confidence. See [ANALYSIS.md](ANALYSIS.md) for detailed verification results.
+
 ## Summary
 
 Predicting the superconducting transition temperature $T_c$ from first principles has been an open problem for decades: conventional theory requires the Coulomb pseudopotential $\mu^*$ as input, but this parameter has never been reliably computed and is instead guessed as $\mu^* \in [0.1, 0.2]$. For sub-kelvin superconductors, the exponential sensitivity $T_c \propto \exp(-1/g)$ amplifies this uncertainty into order-of-magnitude errors. This paper eliminates the guesswork by computing $\mu^*$ from the four-point electron vertex of the uniform electron gas via variational diagrammatic Monte Carlo, then combining it with DFPT phonon calculations to predict $T_c$ with no adjustable parameters. The results are striking: $T_c = 0.96$ K for aluminum (experiment: 1.2 K), $T_c = 0.874$ K for zinc (experiment: 0.875 K), and $T_c = 5 \times 10^{-3}$ K for lithium (experiment: $4 \times 10^{-4}$ K) — compared to the McMillan formula which overestimates lithium by three orders of magnitude.
@@ -182,3 +185,7 @@ Beyond ambient-pressure predictions, the framework predicts that aluminum's $T_c
 2. **The downfolding is validated at only one density.** The 0.2% agreement between full and downfolded BSE is demonstrated for $r_s = 1.92$. Testing at higher $r_s$ (e.g. $r_s \sim 4$, relevant for sodium) where the adiabatic ratio is less favorable would strengthen confidence in the framework's applicability across the periodic table.
 
 3. **No independent verification of $\mu_{E_F}$ values.** The vDiagMC calculation is the only controlled method that has produced these numbers. An independent calculation using a different many-body technique (e.g., auxiliary-field QMC or coupled-cluster theory adapted to the metallic regime) would provide crucial cross-validation.
+
+## Detailed Analysis
+
+For structural integrity verification (Pass 5), standalone readability checks (Pass 6), and complete package statistics, see [ANALYSIS.md](ANALYSIS.md).
