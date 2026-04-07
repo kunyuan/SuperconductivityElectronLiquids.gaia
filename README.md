@@ -7,54 +7,68 @@ Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
 ## Overview
 
 ```mermaid
-graph TD
-    adiabatic_approx["Adiabatic Approximation (0.95 → 0.90)"]:::premise
-    cross_term_suppressed["Cross-Channel Terms Suppressed (0.90 → 0.69)"]:::premise
-    downfolded_bse["Downfolded BSE ★ (→ 0.76)"]:::exported
-    vdiagmc_method["vDiagMC Method (0.90 → 0.83)"]:::premise
-    homotopic_expansion["Homotopic Expansion (0.88 → 0.79)"]:::premise
-    mu_vdiagmc_values["μ* from vDiagMC ★ (→ 0.50)"]:::exported
-    ward_identity["Ward Identity (0.98 → 1.00)"]:::premise
-    gamma3_vdiagmc["vDiagMC Γ₃ (0.88 → 1.00)"]:::premise
-    quasiparticle_mass_near_unity["m*/m ≈ 1 (0.92 → 0.86)"]:::premise
-    dfpt_reliable_for_simple_metals["DFPT Reliable ★ (→ 0.86)"]:::exported
-    ueg_pseudopotential_parameterization["UEG μ* Mapping (0.85 → 0.83)"]:::premise
-    ab_initio_workflow["Ab Initio Workflow ★ (→ 0.99)"]:::exported
-    tc_al_experimental["Tc(Al) Expt (0.99 → 1.00)"]:::premise
-    tc_al_phenomenological["Tc(Al) Phenom (0.35 → 0.40)"]:::premise
-    tc_al_predicted["Tc(Al) Predicted ★ (→ 0.93)"]:::exported
-    tc_zn_experimental["Tc(Zn) Expt (0.99 → 1.00)"]:::premise
-    tc_zn_phenomenological["Tc(Zn) Phenom (0.35 → 0.40)"]:::premise
-    tc_zn_predicted["Tc(Zn) Predicted ★ (→ 0.93)"]:::exported
-    tc_li_experimental["Tc(Li) Expt (0.85 → 1.00)"]:::premise
-    tc_li_phenomenological["Tc(Li) Phenom (0.10 → 0.13)"]:::premise
-    tc_li_predicted["Tc(Li) Predicted ★ (→ 0.96)"]:::exported
-    al_pressure_transition["Al Pressure-Tc ★ (→ 0.79)"]:::exported
-    tc_mg_na_near_qpt["Na/Mg Near QPT ★ (→ 0.79)"]:::exported
+graph TB
+    subgraph Theory["Theory Foundations"]
+        adiabatic["Adiabatic Approx\n(0.95 → 0.90)"]:::premise
+        cross["Cross-Term Suppressed\n(0.90 → 0.69)"]:::premise
+    end
 
-    adiabatic_approx --> downfolded_bse
-    cross_term_suppressed --> downfolded_bse
-    vdiagmc_method --> mu_vdiagmc_values
-    homotopic_expansion --> mu_vdiagmc_values
-    ward_identity --> dfpt_reliable_for_simple_metals
-    gamma3_vdiagmc --> dfpt_reliable_for_simple_metals
-    quasiparticle_mass_near_unity --> dfpt_reliable_for_simple_metals
-    downfolded_bse --> dfpt_reliable_for_simple_metals
-    downfolded_bse --> ab_initio_workflow
-    mu_vdiagmc_values --> ab_initio_workflow
-    dfpt_reliable_for_simple_metals --> ab_initio_workflow
-    ueg_pseudopotential_parameterization --> ab_initio_workflow
-    ab_initio_workflow --> tc_al_predicted
-    tc_al_experimental --> tc_al_predicted
-    tc_al_phenomenological --> tc_al_predicted
-    ab_initio_workflow --> tc_zn_predicted
-    tc_zn_experimental --> tc_zn_predicted
-    tc_zn_phenomenological --> tc_zn_predicted
-    ab_initio_workflow --> tc_li_predicted
-    tc_li_experimental --> tc_li_predicted
-    tc_li_phenomenological --> tc_li_predicted
-    ab_initio_workflow --> al_pressure_transition
-    ab_initio_workflow --> tc_mg_na_near_qpt
+    subgraph Computation["Computational Methods"]
+        vdiagmc["vDiagMC Method\n(0.90 → 0.83)"]:::premise
+        homotopic["Homotopic Expansion\n(0.88 → 0.79)"]:::premise
+        ward["Ward Identity\n(0.98 → 1.00)"]:::premise
+        gamma3["vDiagMC Γ₃\n(0.88 → 1.00)"]:::premise
+        mass["m*/m ≈ 1\n(0.92 → 0.86)"]:::premise
+        ueg["UEG μ* Mapping\n(0.85 → 0.83)"]:::premise
+    end
+
+    subgraph Core["★ Core Results"]
+        bse["★ Downfolded BSE\n→ 0.76"]:::exported
+        mu["★ μ* from vDiagMC\n→ 0.50"]:::exported
+        dfpt["★ DFPT Reliable\n→ 0.86"]:::exported
+        workflow["★ Ab Initio Workflow\n→ 0.99"]:::exported
+    end
+
+    subgraph Predictions["★ Predictions vs Experiment"]
+        tc_al["★ Tc(Al) = 1.1K\n→ 0.93"]:::exported
+        tc_zn["★ Tc(Zn) = 0.7K\n→ 0.93"]:::exported
+        tc_li["★ Tc(Li) ≤ 0.001K\n→ 0.96"]:::exported
+        pressure["★ Al Pressure-Tc\n→ 0.79"]:::exported
+        qpt["★ Na/Mg Near QPT\n→ 0.79"]:::exported
+    end
+
+    subgraph Experiment["Experimental & Phenomenological"]
+        al_exp["Tc(Al) Expt 1.2K\n(0.99 → 1.00)"]:::premise
+        al_phen["Tc(Al) Phenom 1.9K\n(0.35 → 0.40)"]:::premise
+        zn_exp["Tc(Zn) Expt 0.9K\n(0.99 → 1.00)"]:::premise
+        zn_phen["Tc(Zn) Phenom 1.4K\n(0.35 → 0.40)"]:::premise
+        li_exp["Tc(Li) Expt 0.0004K\n(0.85 → 1.00)"]:::premise
+        li_phen["Tc(Li) Phenom 0.35K\n(0.10 → 0.13)"]:::premise
+    end
+
+    adiabatic --> bse
+    cross --> bse
+    vdiagmc --> mu
+    homotopic --> mu
+    ward --> dfpt
+    gamma3 --> dfpt
+    mass --> dfpt
+    bse --> dfpt
+    bse --> workflow
+    mu --> workflow
+    dfpt --> workflow
+    ueg --> workflow
+    workflow --> tc_al
+    workflow --> tc_zn
+    workflow --> tc_li
+    workflow --> pressure
+    workflow --> qpt
+    al_exp --> tc_al
+    al_phen --> tc_al
+    zn_exp --> tc_zn
+    zn_phen --> tc_zn
+    li_exp --> tc_li
+    li_phen --> tc_li
 
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
     classDef exported fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#333
