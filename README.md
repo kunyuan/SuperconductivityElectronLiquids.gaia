@@ -103,6 +103,13 @@ graph TB
     classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
 
+<details>
+<summary><b>Per-module reasoning graphs with full claim details</b></summary>
+
+See [docs/detailed-reasoning.md](docs/detailed-reasoning.md) for the complete per-section reasoning graphs (6 Mermaid diagrams) with every claim, strategy, and belief value.
+
+</details>
+
 ## Reasoning Structure
 
 ### The Problem: Why $\mu^*$ Defeats Conventional Theory
