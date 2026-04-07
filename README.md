@@ -6,6 +6,8 @@ Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
 
 ## Overview
 
+This knowledge graph provides **4.0 bits** of information gain — the total mutual information between leaf premises and exported conclusions, measuring how much the reasoning structure reduces uncertainty about the results.
+
 ```mermaid
 ---
 config:
@@ -90,8 +92,6 @@ graph TB
     classDef weak fill:#fff9c4,stroke:#f9a825,stroke-dasharray: 5 5,color:#333
     classDef contra fill:#ffebee,stroke:#c62828,color:#333
 ```
-
-> Total information gain: **3.98 bits**
 
 ## Conclusions
 
