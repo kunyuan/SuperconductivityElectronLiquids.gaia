@@ -55,8 +55,8 @@
 | cross_term_suppressed | claim | 0.90 | 0.69 | independent |
 | mu_vdiagmc_values | claim | — | 0.50 | derived |
 | mu_available_for_simple_metals | claim | — | 0.40 | derived |
-| tc_al_phenomenological | claim | 0.35 | 0.40 | independent |
 | tc_zn_phenomenological | claim | 0.35 | 0.40 | independent |
+| tc_al_phenomenological | claim | 0.35 | 0.40 | independent |
 | rpa_predicts_attractive_mu | claim | 0.50 | 0.25 | independent |
 | tc_li_phenomenological | claim | 0.10 | 0.13 | independent |
 | bcs_theory | setting | — | — | setting |
