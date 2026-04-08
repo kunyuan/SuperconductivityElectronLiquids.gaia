@@ -62,13 +62,22 @@ mu_vdiagmc_values = claim(
     "vDiagMC calculations of the UEG four-point vertex yield the Coulomb "
     "pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is "
     "positive and monotonically increasing with $r_s$ in the metallic "
-    "density range, approximately following $\\mu_{E_F} \\approx 0.27 r_s$. "
-    "Representative values from TABLE I include $\\mu_{E_F} = 0.53(2)$ "
-    "at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} = 0.77(5)$ at "
-    "$r_s = 3$ (lithium-like). These results, combined with the BTS "
-    "relation, yield $\\mu^* \\approx 0.12$--$0.18$ at the Debye scale, "
-    "consistent with the empirical range but now derived from first "
-    "principles with controlled error bars of a few percent.",
+    "density range, approximately following $\\mu_{E_F} \\approx 0.27\\, r_s$. "
+    "The complete set of values (Cai et al., TABLE I), computed at "
+    "$\\omega_c = 0.1\\, E_F$ and rescaled to $E_F$ via the BTS relation:\n\n"
+    "| $r_s$              | 1       | 2       | 3       | 4        | 5        | 6      |\n"
+    "|--------------------|---------|---------|---------|----------|----------|--------|\n"
+    "| $\\mu_{0.1\\,E_F}$ | 0.172(4)| 0.238(4)| 0.278(6)| 0.306(15)| 0.328(12)| 0.35(3)|\n"
+    "| $\\mu_{E_F}$       | 0.28(1) | 0.53(2) | 0.77(5) | 1.0(2)   | 1.3(2)   | 1.8(8) |\n\n"
+    "Numbers in parentheses indicate the systematic uncertainty in the last "
+    "digit. These results, combined with the BTS relation, yield "
+    "$\\mu^\\ast \\approx 0.12\\text{--}0.18$ at the Debye scale, consistent "
+    "with the empirical range but now derived from first principles with "
+    "controlled error bars of a few percent. The values are dramatically "
+    "larger than the static RPA, Morel-Anderson, and dynamic RPA predictions "
+    "for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — and resolve the "
+    "long-standing contradiction between phenomenological and RPA-based "
+    "treatments of the Coulomb pseudopotential.",
     title="mu from vDiagMC: Numerical Values",
     metadata={
         "figure": "artifacts/images/8_0.jpg",

@@ -15,21 +15,21 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 3. **RPA Predicts Attractive mu*** (prior: 0.50 → belief: 0.25)
    - → supports: rpa_vs_vdiagmc
 
-## Tc(Zn) Experimental
-
-4. **Tc(Zn) Phenomenological Prediction** (prior: 0.35 → belief: 0.40)
-   - → supports: tc_zn_predicted
-
-5. **Tc(Zn) Experimental** (prior: 0.99 → belief: 1.00)
-   - → supports: tc_zn_predicted
-
 ## Tc(Al) Experimental
 
-6. **Tc(Al) Phenomenological Prediction** (prior: 0.35 → belief: 0.40)
+4. **Tc(Al) Phenomenological Prediction** (prior: 0.35 → belief: 0.40)
    - → supports: tc_al_predicted
 
-7. **Tc(Al) Experimental** (prior: 0.99 → belief: 1.00)
+5. **Tc(Al) Experimental** (prior: 0.99 → belief: 1.00)
    - → supports: tc_al_predicted
+
+## Tc(Zn) Experimental
+
+6. **Tc(Zn) Phenomenological Prediction** (prior: 0.35 → belief: 0.40)
+   - → supports: tc_zn_predicted
+
+7. **Tc(Zn) Experimental** (prior: 0.99 → belief: 1.00)
+   - → supports: tc_zn_predicted
 
 ## Adiabatic Approximation
 
@@ -91,10 +91,10 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 
 ## Tc(Li) Ab Initio Prediction
 
-21. **Na and Mg Near Quantum Phase Transition ★** (prior: 0.50 → belief: 0.79)
+21. **Al Pressure-Tc Transition ★** (prior: 0.50 → belief: 0.79)
    - ← infer(ab_initio_workflow) [0.60 bits]
 
-22. **Al Pressure-Tc Transition ★** (prior: 0.50 → belief: 0.79)
+22. **Na and Mg Near Quantum Phase Transition ★** (prior: 0.50 → belief: 0.79)
    - ← infer(ab_initio_workflow) [0.60 bits]
 
 23. **Tc(Al) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.93)

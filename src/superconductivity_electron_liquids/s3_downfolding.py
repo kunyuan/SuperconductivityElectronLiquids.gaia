@@ -128,13 +128,23 @@ downfolding_validity_limits = claim(
 downfolded_bse = claim(
     "The frequency-only downfolded Bethe-Salpeter equation: the full "
     "momentum-frequency BSE kernel reduces to a one-dimensional integral "
-    "equation in Matsubara frequency, with an effective kernel "
-    "$K(\\omega, \\omega') = \\lambda(\\omega, \\omega') - "
-    "\\mu_{\\omega_c}(\\omega, \\omega')$, where the phonon-mediated "
-    "attraction $\\lambda$ and Coulomb pseudopotential $\\mu_{\\omega_c}$ "
-    "are microscopically defined. The momentum integration is absorbed into "
-    "the density of states, and the pair propagator's coherent part "
-    "generates the BCS logarithm that drives the Cooper instability.",
+    "equation in Matsubara frequency for the Fermi-surface-averaged "
+    "anomalous vertex $\\Lambda_\\omega$ "
+    "(Cai et al., Eq. 20):\n\n"
+    "$$\\Lambda_\\omega = \\eta_\\omega + \\pi T \\sum_{|\\omega'|<\\omega_c} "
+    "\\bigl(\\lambda_{\\omega\\omega'} - \\mu_{\\omega_c}\\bigr) "
+    "\\frac{z_{\\omega'}^{\\mathrm{ph}}}{|\\omega'|}\\, \\Lambda_{\\omega'}.$$\n\n"
+    "Here $\\eta_\\omega$ is the symmetry-breaking pair source (set to unity "
+    "for numerical convenience without affecting $T_c$), $z_\\omega^{\\mathrm{ph}}$ "
+    "is the e-ph quasiparticle weight (Cai et al., Eq. 21), and the kernel "
+    "decomposes into the phonon-mediated attraction "
+    "$\\lambda_{\\omega\\omega'}$ and the Coulomb pseudopotential "
+    "$\\mu_{\\omega_c}$, both with microscopic definitions in terms of "
+    "electron vertex functions. Corrections are bounded by three small "
+    "parameters: $\\omega_D/E_F$, $\\omega_c^2/\\omega_p^2$, and "
+    "$T/\\omega_c$. The momentum integration is absorbed into the density "
+    "of states, and the pair propagator's coherent part generates the BCS "
+    "logarithm that drives the Cooper instability.",
     title="Downfolded BSE",
 )
 
@@ -213,10 +223,20 @@ lambda_microscopic_definition = claim(
     "The electron-phonon coupling $\\lambda(\\omega, \\omega')$ in the "
     "downfolded BSE has a microscopic definition: it is the Fermi-surface "
     "average of the phonon-mediated interaction $W^{\\mathrm{ph}}$ weighted "
-    "by quasiparticle renormalization factors $z^e$ and $z_\\omega^{\\mathrm{ph}}$. "
-    "This definition reduces to the standard Eliashberg $\\lambda$ in the "
-    "adiabatic limit but retains dynamical corrections from the electron "
-    "self-energy.",
+    "by quasiparticle renormalization factors $z^e$ and "
+    "$z_\\omega^{\\mathrm{ph}}$.\n\n"
+    "In the standard ME normalization, the static dimensionless coupling "
+    "follows the Fermi-surface average of $g^2/\\omega^2$ over phonon "
+    "branches $\\kappa$ (Cai et al., Eq. 31):\n\n"
+    "$$\\lambda = N_F \\sum_\\kappa "
+    "\\left\\langle \\frac{g_\\kappa^2(\\mathbf{k}, \\mathbf{q})}"
+    "{\\omega_{\\kappa, \\mathbf{q}}^2}\\right\\rangle_{\\mathrm{FS}},$$\n\n"
+    "with $|\\mathbf{k}| = |\\mathbf{k} + \\mathbf{q}| = k_F$, $N_F$ the "
+    "density of states at the Fermi level, and $g_\\kappa(\\mathbf{k}, "
+    "\\mathbf{q})$ the physical screened-and-renormalized e-ph vertex (see "
+    "@eft_eph_vertex). This definition reduces to the standard Eliashberg "
+    "$\\lambda$ in the adiabatic limit but retains dynamical corrections "
+    "from the electron self-energy.",
     title="Microscopic Definition of lambda",
 )
 
@@ -246,9 +266,26 @@ mu_microscopic_definition = claim(
     "purely electronic particle-particle irreducible four-point vertex "
     "$\\tilde\\Gamma^e$ projected onto the Fermi surface, with the high-energy "
     "electronic degrees of freedom integrated out above the cutoff "
-    "$\\omega_c$. This gives $\\mu_{\\omega_c}$ a precise meaning as the "
-    "effective Coulomb repulsion in the low-energy pairing channel, "
-    "renormalized by all electronic correlations.",
+    "$\\omega_c$.\n\n"
+    "Operationally, in a purely electronic theory ($\\lambda = 0$, "
+    "$z^{\\mathrm{ph}} = 1$), solving the downfolded equation gives the "
+    "temperature-dependent effective Cooper-channel repulsion (Cai et al., "
+    "Eq. 23):\n\n"
+    "$$\\gamma_T = \\frac{\\mu_{\\omega_c}}"
+    "{1 + \\mu_{\\omega_c} \\ln(\\omega_c/T)} \\quad (T \\ll \\omega_c),$$\n\n"
+    "where $\\gamma_T$ is computed directly from the four-point vertex "
+    "(Cai et al., Eq. 24):\n\n"
+    "$$\\gamma_T \\equiv z_e^2\\, N_F^{\\ast}\\, "
+    "\\bigl\\langle \\Gamma_4^e(\\mathbf{k}_F, \\omega_0;\\, "
+    "\\mathbf{k}_F', \\omega_0)\\bigr\\rangle_{\\mathbf{k}_F, \\mathbf{k}_F'},"
+    "\\qquad \\omega_0 = \\pi T.$$\n\n"
+    "Here $z_e$ is the electronic quasiparticle weight, $N_F^\\ast$ is the "
+    "quasiparticle density of states, and $\\Gamma_4^e$ is the full electronic "
+    "four-point vertex on the Fermi surface evaluated at the lowest Matsubara "
+    "frequency $\\omega_0 = \\pi T$. Inverting Eq. 23 yields $\\mu_{\\omega_c}$ "
+    "from the measured $\\gamma_T$, providing a precise meaning to the Coulomb "
+    "pseudopotential as the effective repulsion in the low-energy pairing "
+    "channel, renormalized by all electronic correlations.",
     title="Microscopic Definition of mu",
 )
 

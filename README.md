@@ -116,21 +116,50 @@ The McMillan formula predicts $T_c$ from two inputs: the electron-phonon couplin
 
 ### Downfolding: From Full BSE to a Solvable Equation
 
-The paper's theoretical foundation is a controlled reduction of the full momentum-frequency Bethe-Salpeter equation to a one-dimensional frequency-only equation. The key physical insight is that under the adiabatic condition $\omega_D/E_F \ll 1$ (satisfied in conventional metals), the BSE kernel separates cleanly into a purely electronic four-point vertex $\tilde{\Gamma}^e$ and a phonon-mediated interaction $W^{\mathrm{ph}}$. Cross-channel mixing between these two contributions is suppressed at $O(\omega_c^2/\omega_p^2) \leq 1\%$. The resulting downfolded equation gives microscopic definitions to both $\lambda$ and $\mu^\ast$ — quantities that in traditional Migdal-Eliashberg theory were either computed approximately or guessed. Crucially, this downfolding is validated numerically: for an aluminum-like toy model, the full and downfolded BSE give $T_c$ values differing by only 0.2% (belief 0.76).
+The paper's theoretical foundation is a controlled reduction of the full momentum-frequency Bethe-Salpeter equation to a one-dimensional frequency-only equation for the Fermi-surface-averaged anomalous vertex $\Lambda_\omega$. The key physical insight is that under the adiabatic condition $\omega_D/E_F \ll 1$ (satisfied in conventional metals), the BSE kernel separates cleanly into a purely electronic four-point vertex $\tilde{\Gamma}^e$ and a phonon-mediated interaction $W^{\mathrm{ph}}$, and cross-channel mixing between them is suppressed at $O(\omega_c^2/\omega_p^2) \leq 1\%$. After projecting onto the Fermi surface and absorbing the momentum integration into the density of states, the result is the **downfolded BSE** (Eq. 20):
+
+$$\Lambda_\omega = \eta_\omega + \pi T \sum_{|\omega'|<\omega_c} \bigl(\lambda_{\omega\omega'} - \mu_{\omega_c}\bigr)\, \frac{z_{\omega'}^{\mathrm{ph}}}{|\omega'|}\, \Lambda_{\omega'}$$
+
+where $\eta_\omega$ is an infinitesimal pair source (numerically set to unity without affecting $T_c$), $z_\omega^{\mathrm{ph}}$ is the e-ph quasiparticle weight, and the kernel $\lambda_{\omega\omega'} - \mu_{\omega_c}$ now has microscopic definitions in terms of electron vertex functions — no phenomenological inputs. Corrections are bounded by three small parameters: $\omega_D/E_F$, $\omega_c^2/\omega_p^2$, and $T/\omega_c$. In the $T \to T_c$ limit the diverging anomalous vertex absorbs the source and Eq. 20 reduces to the linearized Migdal-Eliashberg gap equation, recovering the standard ME framework as a special case but now with $\mu^\ast \equiv \mu_{\omega_c}$ and $\lambda$ both microscopically defined. Crucially, this downfolding is validated numerically: for an aluminum-like toy model, the full and downfolded BSE give $T_c$ values differing by only 0.2% (belief 0.76).
 
 ![Fig. 5 | Comparison between the precursory Cooper flow solutions of the full and downfolded BSE for a toy model, demonstrating 0.2% agreement in Tc.](artifacts/images/8_1.jpg)
 *Adapted from Cai et al., arXiv:2512.19382v2.*
 
 ### Computing $\mu^\ast$ from First Principles
 
-With $\mu^\ast$ now microscopically defined as a functional of the electronic four-point vertex $\tilde{\Gamma}^e$, the problem becomes: how to evaluate $\tilde{\Gamma}^e$ for the uniform electron gas? Perturbation theory in the bare Coulomb interaction diverges for $r_s \gtrsim 1$, and RPA misses crucial vertex corrections. The paper uses variational diagrammatic Monte Carlo (vDiagMC), which stochastically samples Feynman diagrams with bold-line propagators, combined with a homotopic expansion that reorganizes the series for improved convergence. The results are numerically exact values of $\mu_{E_F}(r_s)$ with controlled error bars: $\mu_{E_F} = 0.53(2)$ at $r_s = 2$ (aluminum-like), $\mu_{E_F} = 0.77(5)$ at $r_s = 3$ (lithium-like), following approximately $\mu_{E_F} \approx 0.27 r_s$. These are positive and monotonically increasing — directly contradicting the RPA prediction of attractive $\mu^\ast$ (belief for RPA: 0.25). After BTS renormalization to the Debye scale, the resulting $\mu^\ast \approx 0.12\text{–}0.18$ falls within the empirically guessed range but is now derived from first principles.
+With $\mu^\ast$ now microscopically defined as a functional of the electronic four-point vertex $\tilde{\Gamma}^e$, the operational link between the abstract definition and a computable quantity is the temperature-dependent effective Cooper-channel repulsion $\gamma_T$ (Eq. 23),
+
+$$\gamma_T = \frac{\mu_{\omega_c}}{1 + \mu_{\omega_c}\, \ln(\omega_c/T)} \quad (T \ll \omega_c),$$
+
+where $\gamma_T$ is computed directly from the four-point vertex on the Fermi surface (Eq. 24),
+
+$$\gamma_T \equiv z_e^2\, N_F^\ast\, \bigl\langle \Gamma_4^e(\mathbf{k}_F, \omega_0;\, \mathbf{k}_F', \omega_0)\bigr\rangle_{\mathbf{k}_F, \mathbf{k}_F'}, \qquad \omega_0 = \pi T.$$
+
+Inverting Eq. 23 yields $\mu_{\omega_c}$ from the measured $\gamma_T$. The remaining problem is to evaluate $\Gamma_4^e$ for the uniform electron gas: perturbation theory in the bare Coulomb interaction diverges for $r_s \gtrsim 1$, and RPA misses crucial vertex corrections. The paper uses variational diagrammatic Monte Carlo (vDiagMC), which stochastically samples Feynman diagrams with bold-line propagators, combined with a homotopic expansion that reorganizes the series for improved convergence. The results are numerically exact values of $\mu_{E_F}(r_s)$ following approximately $\mu_{E_F} \approx 0.27\, r_s$ in the metallic density range — positive and monotonically increasing, directly contradicting the RPA prediction of attractive $\mu^\ast$ (belief for RPA: 0.25). After BTS renormalization to the Debye scale, the resulting $\mu^\ast \approx 0.12\text{–}0.18$ falls within the empirically guessed range but is now derived from first principles.
 
 ![Fig. 4 | Dimensionless bare Coulomb pseudopotential $\mu_{E_F}$ as a function of $r_s$ for the 3D UEG from vDiagMC data, compared with static RPA, Morel-Anderson, and dynamic RPA predictions.](artifacts/images/8_0.jpg)
 *Adapted from Cai et al., arXiv:2512.19382v2.*
 
+The complete vDiagMC pseudopotential values (TABLE I), computed at $\omega_c = 0.1\, E_F$ and rescaled to $E_F$ via the BTS relation:
+
+| $r_s$              | 1       | 2       | 3       | 4        | 5        | 6      |
+|--------------------|---------|---------|---------|----------|----------|--------|
+| $\mu_{0.1\,E_F}$ | 0.172(4)| 0.238(4)| 0.278(6)| 0.306(15)| 0.328(12)| 0.35(3)|
+| $\mu_{E_F}$       | 0.28(1) | 0.53(2) | 0.77(5) | 1.0(2)   | 1.3(2)   | 1.8(8) |
+
+Numbers in parentheses indicate the systematic uncertainty in the last digit. The $\mu_{E_F}$ values are dramatically larger than the static RPA, Morel-Anderson, and dynamic RPA predictions for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — resolving the long-standing contradiction between phenomenological and RPA-based treatments.
+
 ### Why DFPT Gets the Phonon Coupling Right
 
-The other ingredient, the electron-phonon coupling $\lambda$, is computed by DFPT — but is DFPT trustworthy? The paper shows that the EFT vertex factorizes as $g = z^e \cdot \Gamma_3^e \cdot g_0$, where $\Gamma_3^e$ is the three-point vertex correction. An exact Ward identity fixes $\Gamma_3^e = m^\ast/m$ at zero momentum transfer, and vDiagMC computations at finite momentum show smooth, modest corrections (10–20%). For simple metals where $m^\ast/m \approx 1$ (deviations $<5$–10%), the product $z^e \cdot \Gamma_3^e \approx 1$, meaning the EFT vertex reduces to the DFPT Kohn-Sham expression. This establishes DFPT as reliable for these materials (belief 0.86) — not as a universal truth, but specifically because the vertex corrections and mass renormalization nearly cancel.
+The other ingredient, the electron-phonon coupling $\lambda$, is computed by DFPT — but is DFPT trustworthy? The paper writes the physical e-ph vertex as a factorization of the bare coupling, screening, and quasiparticle/vertex renormalizations (Eq. 32):
+
+$$g_\kappa(\mathbf{k}, \mathbf{q}) = g_{\kappa\mathbf{q}}^{(0)}\, \frac{z^e}{\epsilon_\mathbf{q}}\, \Gamma_3^e(\mathbf{k}, \mathbf{q}),$$
+
+where $\Gamma_3^e$ is the three-point vertex correction, $z^e$ is the electronic quasiparticle weight, and $\epsilon_\mathbf{q}$ is the dielectric function. The corresponding $\lambda$ in the downfolded BSE is the Fermi-surface average over phonon branches (Eq. 31):
+
+$$\lambda = N_F \sum_\kappa \left\langle \frac{g_\kappa^2(\mathbf{k}, \mathbf{q})}{\omega_{\kappa,\mathbf{q}}^2}\right\rangle_{\mathrm{FS}}.$$
+
+An exact Ward identity fixes $\Gamma_3^e = m^\ast/m$ at zero momentum transfer, and vDiagMC computations at finite momentum show smooth, modest corrections (10–20%). For simple metals where $m^\ast/m \approx 1$ (deviations $<5$–10%), the combination $z^e \Gamma_3^e / \epsilon_\mathbf{q}$ reproduces precisely the DFPT Kohn-Sham screening across the entire $|\mathbf{q}| \in (0, 2k_F)$ range — interaction corrections to $z^e$, $\epsilon_\mathbf{q}$, and $\Gamma_3^e$ separately are large, but their combination cancels remarkably (Eq. 34). This establishes DFPT as reliable for these materials (belief 0.86) — not as a universal truth, but specifically because the vertex corrections and mass renormalization nearly cancel.
 
 ![Fig. 8 | Comparison between the angle-resolved e-ph vertex correction in the UEG from vDiagMC (points) and DFPT (lines) for different $r_s$ values.](artifacts/images/12_0.jpg)
 *Adapted from Cai et al., arXiv:2512.19382v2.*
