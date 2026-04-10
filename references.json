@@ -1,0 +1,208 @@
+{
+  "Cai2025": {
+    "type": "article",
+    "title": "Superconductivity in Electron Liquids: Precision Many-Body Treatment of Coulomb Interaction",
+    "author": [
+      {
+        "family": "Cai",
+        "given": "X."
+      },
+      {
+        "family": "Wang",
+        "given": "T."
+      },
+      {
+        "family": "Zhang",
+        "given": "S."
+      },
+      {
+        "family": "Zhang",
+        "given": "T."
+      },
+      {
+        "family": "Millis",
+        "given": "A."
+      },
+      {
+        "family": "Svistunov",
+        "given": "B. V."
+      },
+      {
+        "family": "Prokof'ev",
+        "given": "N. V."
+      },
+      {
+        "family": "Chen",
+        "given": "K."
+      }
+    ],
+    "issued": {
+      "date-parts": [
+        [
+          2025
+        ]
+      ]
+    },
+    "URL": "https://arxiv.org/abs/2512.19382",
+    "DOI": "10.48550/arXiv.2512.19382"
+  },
+  "BCS1957": {
+    "type": "article-journal",
+    "title": "Theory of Superconductivity",
+    "author": [
+      {
+        "family": "Bardeen",
+        "given": "J."
+      },
+      {
+        "family": "Cooper",
+        "given": "L. N."
+      },
+      {
+        "family": "Schrieffer",
+        "given": "J. R."
+      }
+    ],
+    "container-title": "Physical Review",
+    "volume": "108",
+    "issue": "5",
+    "page": "1175-1204",
+    "issued": {
+      "date-parts": [
+        [
+          1957,
+          12,
+          1
+        ]
+      ]
+    },
+    "DOI": "10.1103/PhysRev.108.1175"
+  },
+  "Migdal1958": {
+    "type": "article-journal",
+    "title": "Interaction between electrons and lattice vibrations in a normal metal",
+    "author": [
+      {
+        "family": "Migdal",
+        "given": "A. B."
+      }
+    ],
+    "container-title": "Soviet Physics JETP",
+    "volume": "7",
+    "page": "996-1001",
+    "issued": {
+      "date-parts": [
+        [
+          1958
+        ]
+      ]
+    }
+  },
+  "Eliashberg1960": {
+    "type": "article-journal",
+    "title": "Interactions between electrons and lattice vibrations in a superconductor",
+    "author": [
+      {
+        "family": "Eliashberg",
+        "given": "G. M."
+      }
+    ],
+    "container-title": "Soviet Physics JETP",
+    "volume": "11",
+    "page": "696-702",
+    "issued": {
+      "date-parts": [
+        [
+          1960
+        ]
+      ]
+    }
+  },
+  "McMillan1968": {
+    "type": "article-journal",
+    "title": "Transition Temperature of Strong-Coupled Superconductors",
+    "author": [
+      {
+        "family": "McMillan",
+        "given": "W. L."
+      }
+    ],
+    "container-title": "Physical Review",
+    "volume": "167",
+    "issue": "2",
+    "page": "331-344",
+    "issued": {
+      "date-parts": [
+        [
+          1968,
+          3,
+          10
+        ]
+      ]
+    },
+    "DOI": "10.1103/PhysRev.167.331"
+  },
+  "AllenDynes1975": {
+    "type": "article-journal",
+    "title": "Transition temperature of strong-coupled superconductors reanalyzed",
+    "author": [
+      {
+        "family": "Allen",
+        "given": "P. B."
+      },
+      {
+        "family": "Dynes",
+        "given": "R. C."
+      }
+    ],
+    "container-title": "Physical Review B",
+    "volume": "12",
+    "issue": "3",
+    "page": "905-922",
+    "issued": {
+      "date-parts": [
+        [
+          1975,
+          8,
+          1
+        ]
+      ]
+    },
+    "DOI": "10.1103/PhysRevB.12.905"
+  },
+  "Baroni2001": {
+    "type": "article-journal",
+    "title": "Phonons and related crystal properties from density-functional perturbation theory",
+    "author": [
+      {
+        "family": "Baroni",
+        "given": "S."
+      },
+      {
+        "family": "de Gironcoli",
+        "given": "S."
+      },
+      {
+        "family": "Dal Corso",
+        "given": "A."
+      },
+      {
+        "family": "Giannozzi",
+        "given": "P."
+      }
+    ],
+    "container-title": "Reviews of Modern Physics",
+    "volume": "73",
+    "issue": "2",
+    "page": "515-562",
+    "issued": {
+      "date-parts": [
+        [
+          2001,
+          7
+        ]
+      ]
+    },
+    "DOI": "10.1103/RevModPhys.73.515"
+  }
+}

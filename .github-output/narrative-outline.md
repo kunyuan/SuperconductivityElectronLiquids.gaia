@@ -7,17 +7,17 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 1. **Tc(Li) Phenomenological Prediction** (prior: 0.10 → belief: 0.13)
    - → supports: tc_li_predicted
 
-2. **Tc(Li) Experimental** (prior: 0.85 → belief: 1.00)
+2. **Tc(Li) Experimental** (prior: 0.85 → belief: 0.94)
    - → supports: tc_li_predicted
 
 ## RPA Predicts Attractive mu*
 
-3. **RPA Predicts Attractive mu*** (prior: 0.50 → belief: 0.25)
+3. **RPA Predicts Attractive mu*** (prior: 0.50 → belief: 0.23)
    - → supports: rpa_vs_vdiagmc
 
 ## Tc(Al) Experimental
 
-4. **Tc(Al) Phenomenological Prediction** (prior: 0.35 → belief: 0.40)
+4. **Tc(Al) Phenomenological Prediction** (prior: 0.35 → belief: 0.41)
    - → supports: tc_al_predicted
 
 5. **Tc(Al) Experimental** (prior: 0.99 → belief: 1.00)
@@ -25,7 +25,7 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 
 ## Tc(Zn) Experimental
 
-6. **Tc(Zn) Phenomenological Prediction** (prior: 0.35 → belief: 0.40)
+6. **Tc(Zn) Phenomenological Prediction** (prior: 0.35 → belief: 0.41)
    - → supports: tc_zn_predicted
 
 7. **Tc(Zn) Experimental** (prior: 0.99 → belief: 1.00)
@@ -33,50 +33,50 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 
 ## Adiabatic Approximation
 
-8. **Cross-Channel Terms Suppressed** (prior: 0.90 → belief: 0.69)
+8. **Cross-Channel Terms Suppressed** (prior: 0.90 → belief: 0.50)
    - → supports: downfolded_bse
 
-9. **Adiabatic Approximation** (prior: 0.95 → belief: 0.90)
+9. **Adiabatic Approximation** (prior: 0.95 → belief: 0.71)
    - → supports: downfolded_bse
 
 ## vDiagMC Method
 
-10. **Homotopic Expansion** (prior: 0.88 → belief: 0.79)
+10. **Homotopic Expansion** (prior: 0.88 → belief: 0.81)
    - → supports: mu_vdiagmc_values
 
-11. **vDiagMC Method** (prior: 0.90 → belief: 0.83)
+11. **vDiagMC Method** (prior: 0.90 → belief: 0.84)
    - → supports: mu_vdiagmc_values
 
 ## UEG mu* Parameterization and Mapping
 
-12. **UEG mu* Parameterization and Mapping** (prior: 0.85 → belief: 0.83)
+12. **UEG mu* Parameterization and Mapping** (prior: 0.85 → belief: 0.85)
    - → supports: ab_initio_workflow
 
 ## Ward Identity at q->0
 
-13. **Quasiparticle Mass Near Unity** (prior: 0.92 → belief: 0.86)
+13. **Quasiparticle Mass Near Unity** (prior: 0.92 → belief: 0.88)
    - → supports: dfpt_reliable_for_simple_metals
 
-14. **vDiagMC Computation of Gamma_3** (prior: 0.88 → belief: 1.00)
+14. **vDiagMC Computation of Gamma_3** (prior: 0.88 → belief: 0.95)
    - → supports: dfpt_reliable_for_simple_metals
 
-15. **Ward Identity at q->0** (prior: 0.98 → belief: 1.00)
+15. **Ward Identity at q->0** (prior: 0.98 → belief: 0.99)
    - → supports: dfpt_reliable_for_simple_metals
 
-## Downfolded BSE
+## mu from vDiagMC: Numerical Values
 
-16. **mu from vDiagMC: Numerical Values ★** (prior: 0.50 → belief: 0.50)
-   - ← infer(homotopic_expansion, vdiagmc_method) [0.74 bits]
-   - → supports: ab_initio_workflow, rpa_vs_vdiagmc
-
-17. **Downfolded BSE ★** (prior: 0.50 → belief: 0.76)
-   - ← infer(adiabatic_approx, cross_term_suppressed) [0.01 bits]
+16. **Downfolded BSE ★** (prior: 0.50 → belief: 0.33)
+   - ← infer(adiabatic_approx, cross_term_suppressed) [0.07 bits]
    - → supports: ab_initio_workflow, dfpt_reliable_for_simple_metals
+
+17. **mu from vDiagMC: Numerical Values ★** (prior: 0.50 → belief: 0.55)
+   - ← infer(homotopic_expansion, vdiagmc_method) [0.55 bits]
+   - → supports: ab_initio_workflow, rpa_vs_vdiagmc
 
 ## DFPT Reliable for Simple Metals
 
-18. **DFPT Reliable for Simple Metals ★** (prior: 0.50 → belief: 0.86)
-   - ← infer(downfolded_bse, gamma3_vdiagmc, quasiparticle_mass_near_unity, ward_identity) [0.00 bits]
+18. **DFPT Reliable for Simple Metals ★** (prior: 0.50 → belief: 0.75)
+   - ← infer(downfolded_bse, gamma3_vdiagmc, quasiparticle_mass_near_unity, ward_identity) [0.08 bits]
    - → supports: ab_initio_workflow
 
 ## rpa_vs_vdiagmc
@@ -85,23 +85,23 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 
 ## Ab Initio Tc Prediction Workflow
 
-20. **Ab Initio Tc Prediction Workflow ★** (prior: 0.50 → belief: 0.99)
-   - ← infer(dfpt_reliable_for_simple_metals, downfolded_bse, mu_vdiagmc_values, ueg_pseudopotential_parameterization) [0.10 bits]
+20. **Ab Initio Tc Prediction Workflow ★** (prior: 0.50 → belief: 0.96)
+   - ← infer(dfpt_reliable_for_simple_metals, downfolded_bse, mu_vdiagmc_values, ueg_pseudopotential_parameterization) [0.00 bits]
    - → supports: al_pressure_transition, tc_al_predicted, tc_li_predicted, tc_mg_na_near_qpt, tc_zn_predicted
 
-## Tc(Li) Ab Initio Prediction
+## Tc(Zn) Ab Initio Prediction
 
-21. **Al Pressure-Tc Transition ★** (prior: 0.50 → belief: 0.79)
+21. **Na and Mg Near Quantum Phase Transition ★** (prior: 0.50 → belief: 0.77)
    - ← infer(ab_initio_workflow) [0.60 bits]
 
-22. **Na and Mg Near Quantum Phase Transition ★** (prior: 0.50 → belief: 0.79)
+22. **Al Pressure-Tc Transition ★** (prior: 0.50 → belief: 0.77)
    - ← infer(ab_initio_workflow) [0.60 bits]
 
-23. **Tc(Al) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.93)
-   - ← infer(ab_initio_workflow, tc_al_experimental, tc_al_phenomenological) [0.67 bits]
+23. **Tc(Li) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.90)
+   - ← infer(ab_initio_workflow, tc_li_experimental, tc_li_phenomenological) [0.64 bits]
 
-24. **Tc(Zn) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.93)
-   - ← infer(ab_initio_workflow, tc_zn_experimental, tc_zn_phenomenological) [0.67 bits]
+24. **Tc(Al) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.90)
+   - ← infer(ab_initio_workflow, tc_al_experimental, tc_al_phenomenological) [0.62 bits]
 
-25. **Tc(Li) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.96)
-   - ← infer(ab_initio_workflow, tc_li_experimental, tc_li_phenomenological) [0.60 bits]
+25. **Tc(Zn) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.90)
+   - ← infer(ab_initio_workflow, tc_zn_experimental, tc_zn_phenomenological) [0.62 bits]

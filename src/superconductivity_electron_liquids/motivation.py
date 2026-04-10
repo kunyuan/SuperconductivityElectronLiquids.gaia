@@ -12,9 +12,10 @@ from gaia.lang import claim, deduction, question, setting
 # ---------------------------------------------------------------------------
 
 bcs_theory = setting(
-    "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron "
-    "attraction leads to Cooper pairing instability at the Fermi surface, providing "
-    "the fundamental framework for understanding conventional superconductors.",
+    "Bardeen-Cooper-Schrieffer (BCS) theory [@BCS1957]: phonon-mediated "
+    "electron-electron attraction leads to Cooper pairing instability at the "
+    "Fermi surface, providing the fundamental framework for understanding "
+    "conventional superconductors.",
     title="BCS Theory",
 )
 
@@ -34,13 +35,13 @@ adiabatic_approx = claim(
 )
 
 me_framework = claim(
-    "Migdal-Eliashberg (ME) theory provides a rigorous treatment of the dynamic "
-    "electron-phonon interaction. Under the adiabatic condition "
-    "$\\omega_D / E_F \\ll 1$, Migdal's theorem guarantees that phonon vertex "
-    "corrections are suppressed at $O(\\omega_D/E_F)$, allowing the "
-    "electron-phonon self-energy to be truncated at the self-consistent Fock "
-    "diagram level. This justifies the ME formalism as a controlled low-energy "
-    "theory for electron-phonon superconductors.",
+    "Migdal-Eliashberg (ME) theory [@Migdal1958; @Eliashberg1960] provides a "
+    "rigorous treatment of the dynamic electron-phonon interaction. Under the "
+    "adiabatic condition $\\omega_D / E_F \\ll 1$, Migdal's theorem guarantees "
+    "that phonon vertex corrections are suppressed at $O(\\omega_D/E_F)$, "
+    "allowing the electron-phonon self-energy to be truncated at the "
+    "self-consistent Fock diagram level. This justifies the ME formalism as a "
+    "controlled low-energy theory for electron-phonon superconductors.",
     title="Migdal-Eliashberg Framework",
     metadata={
         "figure": "artifacts/images/4_0.jpg",
@@ -86,7 +87,8 @@ me_downfolding_is_phenomenological = claim(
 
 phenomenological_me_theory = claim(
     "Traditional electron-phonon superconductivity theory uses the McMillan "
-    "(or Allen-Dynes) formula, with the electron-phonon coupling constant "
+    "(or Allen-Dynes) formula [@McMillan1968; @AllenDynes1975], with the "
+    "electron-phonon coupling constant "
     "$\\lambda$ and Coulomb pseudopotential $\\mu^*$ as inputs to predict the "
     "superconducting transition temperature $T_c$. Since $\\mu^*$ cannot be "
     "reliably computed from first principles, it is typically assigned an "
@@ -122,7 +124,7 @@ rpa_predicts_attractive_mu = claim(
 )
 
 dfpt_computes_lambda = claim(
-    "Density functional perturbation theory (DFPT) computes the "
+    "Density functional perturbation theory (DFPT) [@Baroni2001] computes the "
     "electron-phonon coupling constant $\\lambda$ (a dimensionless parameter "
     "quantifying the phonon-mediated attraction strength at the Fermi surface) "
     "via the linear response of the Kohn-Sham ground-state energy to lattice "

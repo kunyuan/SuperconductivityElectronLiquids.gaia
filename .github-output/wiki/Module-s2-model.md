@@ -17,11 +17,12 @@
 **Type:** claim
 **Role:** derived
 **Content:** The kernel of the Bethe-Salpeter equation (BSE) can be decomposed into the purely electronic particle-particle irreducible four-point vertex $\tilde\Gamma^e$ (encoding all non-perturbative Coulomb effects) and the phonon-mediated effective electron-electron interaction $W^{\mathrm{ph}}$: $\tilde\Gamma = \tilde\Gamma^e + W^{\mathrm{ph}} + O(\omega_D/E_F)$. Migdal's theorem ensures that higher-order phonon vertex corrections are suppressed by the adiabatic small parameter.
-**Belief:** 1.00
+**Belief:** 0.78
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::me_framework`
 **figure:** artifacts/images/4_2.jpg
 **caption:** Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous vertex in momentum space, with kernel consisting of the electronic four-point vertex Gamma_e and phonon-mediated interaction W^ph.
+**gaia:** {'provenance': {'referenced_claims': ['me_framework']}}
 **Referenced by:** noisy_and -> `github:superconductivity_electron_liquids::full_bse_toy_model`; deduction -> `github:superconductivity_electron_liquids::downfolded_bse`
 
 ### precursory_cooper_flow
