@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:69458e15398d35d581c9e4c480ba8aca792802653c2389d13deac174868613d3",
+  "ir_hash": "sha256:a0e59a76997d506e737b2960dd3449c19261487c3dff1d38d014eff7652e7ac3",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -34,7 +34,15 @@
       "label": "me_framework",
       "metadata": {
         "caption": "Fig. 1 | Normal component of the electron self-energy approximated by the self-consistent Fock diagram with the phonon-mediated e-e interaction W^ph.",
-        "figure": "artifacts/images/4_0.jpg"
+        "figure": "artifacts/images/4_0.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "adiabatic_approx",
+              "bcs_theory"
+            ]
+          }
+        }
       },
       "module": "motivation",
       "parameters": [],
@@ -222,7 +230,14 @@
       "label": "bse_kernel_decomposition",
       "metadata": {
         "caption": "Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous vertex in momentum space, with kernel consisting of the electronic four-point vertex Gamma_e and phonon-mediated interaction W^ph.",
-        "figure": "artifacts/images/4_2.jpg"
+        "figure": "artifacts/images/4_2.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "me_framework"
+            ]
+          }
+        }
       },
       "module": "s2_model",
       "parameters": [],
@@ -286,7 +301,15 @@
       "label": "full_bse_toy_model",
       "metadata": {
         "caption": "Fig. 5 | Comparison between the precursory Cooper flow solutions of the full and downfolded BSE for a toy model, demonstrating 0.2% agreement in Tc.",
-        "figure": "artifacts/images/8_1.jpg"
+        "figure": "artifacts/images/8_1.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "bse_kernel_decomposition",
+              "rpa_dynamic_screening"
+            ]
+          }
+        }
       },
       "module": "s3_downfolding",
       "parameters": [],
@@ -300,6 +323,18 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::downfolded_bse_toy_model",
       "label": "downfolded_bse_toy_model",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "downfolded_bse",
+              "downfolded_bse_toy_model",
+              "full_bse_toy_model",
+              "rpa_dynamic_screening"
+            ]
+          }
+        }
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Downfolded BSE Toy Model Result",
@@ -318,12 +353,24 @@
       "type": "claim"
     },
     {
-      "content": "The frequency-only downfolded Bethe-Salpeter equation: the full momentum-frequency BSE kernel reduces to a one-dimensional integral equation in Matsubara frequency for the Fermi-surface-averaged anomalous vertex $\\Lambda_\\omega$ (Cai et al., Eq. 20):\n\n$$\\Lambda_\\omega = \\eta_\\omega + \\pi T \\sum_{|\\omega'|<\\omega_c} \\bigl(\\lambda_{\\omega\\omega'} - \\mu_{\\omega_c}\\bigr) \\frac{z_{\\omega'}^{\\mathrm{ph}}}{|\\omega'|}\\, \\Lambda_{\\omega'}.$$\n\nHere $\\eta_\\omega$ is the symmetry-breaking pair source (set to unity for numerical convenience without affecting $T_c$), $z_\\omega^{\\mathrm{ph}}$ is the e-ph quasiparticle weight (Cai et al., Eq. 21), and the kernel decomposes into the phonon-mediated attraction $\\lambda_{\\omega\\omega'}$ and the Coulomb pseudopotential $\\mu_{\\omega_c}$, both with microscopic definitions in terms of electron vertex functions. Corrections are bounded by three small parameters: $\\omega_D/E_F$, $\\omega_c^2/\\omega_p^2$, and $T/\\omega_c$. The momentum integration is absorbed into the density of states, and the pair propagator's coherent part generates the BCS logarithm that drives the Cooper instability.",
-      "content_hash": "ccc663172d7f51332474b2ebc7fc479b275ec4534fc4f18c2fca949fce9d3861",
+      "content": "The frequency-only downfolded Bethe-Salpeter equation: the full momentum-frequency BSE kernel reduces to a one-dimensional integral equation in Matsubara frequency, with an effective kernel $K(\\omega, \\omega') = \\lambda(\\omega, \\omega') - \\mu_{\\omega_c}(\\omega, \\omega')$, where the phonon-mediated attraction $\\lambda$ and Coulomb pseudopotential $\\mu_{\\omega_c}$ are microscopically defined. The momentum integration is absorbed into the density of states, and the pair propagator's coherent part generates the BCS logarithm that drives the Cooper instability.",
+      "content_hash": "0dd5e371f3c95a4d6e15c1f41e663edad74b16f9841c7027913226e57d3bafce",
       "declaration_index": 6,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::downfolded_bse",
       "label": "downfolded_bse",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "adiabatic_approx",
+              "bse_kernel_decomposition",
+              "cross_term_suppressed",
+              "pair_propagator_decomposition"
+            ]
+          }
+        }
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Downfolded BSE",
@@ -336,30 +383,59 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::downfolded_me_equation",
       "label": "downfolded_me_equation",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "downfolded_bse",
+              "precursory_cooper_flow"
+            ]
+          }
+        }
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Downfolded ME Gap Equation",
       "type": "claim"
     },
     {
-      "content": "The electron-phonon coupling $\\lambda(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is the Fermi-surface average of the phonon-mediated interaction $W^{\\mathrm{ph}}$ weighted by quasiparticle renormalization factors $z^e$ and $z_\\omega^{\\mathrm{ph}}$.\n\nIn the standard ME normalization, the static dimensionless coupling follows the Fermi-surface average of $g^2/\\omega^2$ over phonon branches $\\kappa$ (Cai et al., Eq. 31):\n\n$$\\lambda = N_F \\sum_\\kappa \\left\\langle \\frac{g_\\kappa^2(\\mathbf{k}, \\mathbf{q})}{\\omega_{\\kappa, \\mathbf{q}}^2}\\right\\rangle_{\\mathrm{FS}},$$\n\nwith $|\\mathbf{k}| = |\\mathbf{k} + \\mathbf{q}| = k_F$, $N_F$ the density of states at the Fermi level, and $g_\\kappa(\\mathbf{k}, \\mathbf{q})$ the physical screened-and-renormalized e-ph vertex (see @eft_eph_vertex). This definition reduces to the standard Eliashberg $\\lambda$ in the adiabatic limit but retains dynamical corrections from the electron self-energy.",
-      "content_hash": "f711b023d2887ddc62fdbe0b527ddd89db6712191186845d81f34181b781ccea",
+      "content": "The electron-phonon coupling $\\lambda(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is the Fermi-surface average of the phonon-mediated interaction $W^{\\mathrm{ph}}$ weighted by quasiparticle renormalization factors $z^e$ and $z_\\omega^{\\mathrm{ph}}$. This definition reduces to the standard Eliashberg $\\lambda$ in the adiabatic limit but retains dynamical corrections from the electron self-energy.",
+      "content_hash": "f3fec11e500be646c272ca61f0c68ecefa0ebbbc260675a0fec093a128c85d5c",
       "declaration_index": 8,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::lambda_microscopic_definition",
       "label": "lambda_microscopic_definition",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "downfolded_bse",
+              "electron_phonon_action"
+            ]
+          }
+        }
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Microscopic Definition of lambda",
       "type": "claim"
     },
     {
-      "content": "The Coulomb pseudopotential $\\mu_{\\omega_c}(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is determined by the purely electronic particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ projected onto the Fermi surface, with the high-energy electronic degrees of freedom integrated out above the cutoff $\\omega_c$.\n\nOperationally, in a purely electronic theory ($\\lambda = 0$, $z^{\\mathrm{ph}} = 1$), solving the downfolded equation gives the temperature-dependent effective Cooper-channel repulsion (Cai et al., Eq. 23):\n\n$$\\gamma_T = \\frac{\\mu_{\\omega_c}}{1 + \\mu_{\\omega_c} \\ln(\\omega_c/T)} \\quad (T \\ll \\omega_c),$$\n\nwhere $\\gamma_T$ is computed directly from the four-point vertex (Cai et al., Eq. 24):\n\n$$\\gamma_T \\equiv z_e^2\\, N_F^{\\ast}\\, \\bigl\\langle \\Gamma_4^e(\\mathbf{k}_F, \\omega_0;\\, \\mathbf{k}_F', \\omega_0)\\bigr\\rangle_{\\mathbf{k}_F, \\mathbf{k}_F'},\\qquad \\omega_0 = \\pi T.$$\n\nHere $z_e$ is the electronic quasiparticle weight, $N_F^\\ast$ is the quasiparticle density of states, and $\\Gamma_4^e$ is the full electronic four-point vertex on the Fermi surface evaluated at the lowest Matsubara frequency $\\omega_0 = \\pi T$. Inverting Eq. 23 yields $\\mu_{\\omega_c}$ from the measured $\\gamma_T$, providing a precise meaning to the Coulomb pseudopotential as the effective repulsion in the low-energy pairing channel, renormalized by all electronic correlations.",
-      "content_hash": "ae4ac7c5b611a143d75d5891b8d7744c411f7e02095ac08d1cbdff1a403f0029",
+      "content": "The Coulomb pseudopotential $\\mu_{\\omega_c}(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is determined by the purely electronic particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ projected onto the Fermi surface, with the high-energy electronic degrees of freedom integrated out above the cutoff $\\omega_c$. This gives $\\mu_{\\omega_c}$ a precise meaning as the effective Coulomb repulsion in the low-energy pairing channel, renormalized by all electronic correlations.",
+      "content_hash": "500a12cfa054ed6e3ce4eb207fcbad5216aae597d8d263a705afe400ab4fc525",
       "declaration_index": 9,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::mu_microscopic_definition",
       "label": "mu_microscopic_definition",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "downfolded_bse"
+            ]
+          }
+        }
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Microscopic Definition of mu",
@@ -372,6 +448,15 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::mu_scale_independence",
       "label": "mu_scale_independence",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "mu_microscopic_definition"
+            ]
+          }
+        }
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "BTS Relation as Corollary",
@@ -398,6 +483,16 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::ma_pseudopotential_justified",
       "label": "ma_pseudopotential_justified",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "mu_microscopic_definition",
+              "mu_star_phenomenological"
+            ]
+          }
+        }
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Morel-Anderson Ansatz Justified",
@@ -444,15 +539,26 @@
       "type": "claim"
     },
     {
-      "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\\mu_{E_F} \\approx 0.27\\, r_s$. The complete set of values (Cai et al., TABLE I), computed at $\\omega_c = 0.1\\, E_F$ and rescaled to $E_F$ via the BTS relation:\n\n| $r_s$              | 1       | 2       | 3       | 4        | 5        | 6      |\n|--------------------|---------|---------|---------|----------|----------|--------|\n| $\\mu_{0.1\\,E_F}$ | 0.172(4)| 0.238(4)| 0.278(6)| 0.306(15)| 0.328(12)| 0.35(3)|\n| $\\mu_{E_F}$       | 0.28(1) | 0.53(2) | 0.77(5) | 1.0(2)   | 1.3(2)   | 1.8(8) |\n\nNumbers in parentheses indicate the systematic uncertainty in the last digit. These results, combined with the BTS relation, yield $\\mu^\\ast \\approx 0.12\\text{--}0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent. The values are dramatically larger than the static RPA, Morel-Anderson, and dynamic RPA predictions for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — and resolve the long-standing contradiction between phenomenological and RPA-based treatments of the Coulomb pseudopotential.",
-      "content_hash": "2b518049b82b365f0437c9b6dedd13863efa599558e460654055491e4b1fdd01",
+      "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\\mu_{E_F} \\approx 0.27 r_s$. Representative values from TABLE I include $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} = 0.77(5)$ at $r_s = 3$ (lithium-like). These results, combined with the BTS relation, yield $\\mu^* \\approx 0.12$--$0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent.",
+      "content_hash": "fade6f6c7620ac46c8c1ff769b98276287e06ff3b6cdf510ae91771879a51c3f",
       "declaration_index": 3,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
       "label": "mu_vdiagmc_values",
       "metadata": {
         "caption": "Fig. 4 | Dimensionless bare Coulomb pseudopotential mu_EF as a function of r_s for the 3D UEG from vDiagMC data, compared with static RPA, Morel-Anderson, and dynamic RPA predictions.",
-        "figure": "artifacts/images/8_0.jpg"
+        "figure": "artifacts/images/8_0.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "bts_renormalization",
+              "homotopic_expansion",
+              "mu_microscopic_definition",
+              "ueg_vertex_challenge",
+              "vdiagmc_method"
+            ]
+          }
+        }
       },
       "module": "s4_pseudopotential",
       "parameters": [],
@@ -526,12 +632,21 @@
       "type": "claim"
     },
     {
-      "content": "The EFT expression for the physical electron-phonon coupling vertex factorizes the bare coupling into a screening factor and vertex/quasiparticle renormalizations (Cai et al., Eq. 32):\n\n$$g_\\kappa(\\mathbf{k}, \\mathbf{q}) = g_{\\kappa\\mathbf{q}}^{(0)}\\, \\frac{z^e}{\\epsilon_\\mathbf{q}}\\, \\Gamma_3^e(\\mathbf{k}, \\mathbf{q}),$$\n\nwhere $g_{\\kappa\\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\\epsilon_\\mathbf{q}$ is the electronic dielectric function, $z^e$ is the electronic quasiparticle weight, and $\\Gamma_3^e(\\mathbf{k}, \\mathbf{q})$ is the electronic three-point vertex correction. The combination $z^e \\Gamma_3^e(\\mathbf{k}, \\mathbf{q})$ can be interpreted as the quasiparticle vertex correction to the screened interaction. The corresponding $\\lambda$ in the downfolded BSE is the Fermi-surface average of $|g_\\kappa(\\mathbf{k}, \\mathbf{q})|^2 / \\omega_{\\kappa,\\mathbf{q}}^2$ over phonon branches (see @lambda_microscopic_definition).",
-      "content_hash": "4eb7fc2896a0b2f83a689b8795a8b2a0e03fd0575271fd6acde278dfe0a1083d",
+      "content": "The EFT expression for the electron-phonon coupling vertex $g(k, q) = z^e \\cdot \\Gamma_3^e(k, q) \\cdot g_0(k, q)$ factorizes the full vertex into a quasiparticle renormalization factor $z^e$, the electronic three-point vertex correction $\\Gamma_3^e$, and the bare electron-phonon matrix element $g_0$. The corresponding $\\lambda$ in the downfolded BSE is the Fermi-surface average of $|g(k, q)|^2$ weighted by the phonon propagator.",
+      "content_hash": "ba68220cdf79dda30df0638210fd9ba04a34516d42595e982f551e0fb49e9252",
       "declaration_index": 4,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::eft_eph_vertex",
       "label": "eft_eph_vertex",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "lambda_microscopic_definition"
+            ]
+          }
+        }
+      },
       "module": "s5_eph_coupling",
       "parameters": [],
       "title": "EFT Electron-Phonon Vertex",
@@ -544,6 +659,16 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::gamma3_approximation",
       "label": "gamma3_approximation",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "gamma3_vdiagmc",
+              "ward_identity"
+            ]
+          }
+        }
+      },
       "module": "s5_eph_coupling",
       "parameters": [],
       "title": "Approximate Gamma_3 within Fermi Sphere",
@@ -556,6 +681,17 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::eft_vertex_matches_dfpt",
       "label": "eft_vertex_matches_dfpt",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "dfpt_eph_ansatz",
+              "eft_eph_vertex",
+              "gamma3_approximation"
+            ]
+          }
+        }
+      },
       "module": "s5_eph_coupling",
       "parameters": [],
       "title": "EFT Vertex Matches DFPT",
@@ -568,6 +704,17 @@
       "exported": true,
       "id": "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals",
       "label": "dfpt_reliable_for_simple_metals",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "dfpt_computes_lambda",
+              "eft_vertex_matches_dfpt",
+              "quasiparticle_mass_near_unity"
+            ]
+          }
+        }
+      },
       "module": "s5_eph_coupling",
       "parameters": [],
       "title": "DFPT Reliable for Simple Metals",
@@ -666,7 +813,16 @@
       "label": "ab_initio_workflow",
       "metadata": {
         "caption": "Fig. 9 | Proposed ab initio framework for electron-phonon SC beyond the weak correlation limit, showing computational pathway from fundamental parameters through correlated electrons and lattice vibrations to superconducting properties.",
-        "figure": "artifacts/images/13_0.jpg"
+        "figure": "artifacts/images/13_0.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "dfpt_reliable_for_simple_metals",
+              "downfolded_bse",
+              "mu_available_for_simple_metals"
+            ]
+          }
+        }
       },
       "module": "s6_superconductors",
       "parameters": [],
@@ -680,6 +836,18 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::mu_available_for_simple_metals",
       "label": "mu_available_for_simple_metals",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "bts_renormalization",
+              "mu_vdiagmc_values",
+              "simple_metals_weak_lattice",
+              "ueg_pseudopotential_parameterization"
+            ]
+          }
+        }
+      },
       "module": "s6_superconductors",
       "parameters": [],
       "title": "mu* Available for Simple Metals",
@@ -694,7 +862,18 @@
       "label": "tc_al_predicted",
       "metadata": {
         "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
-        "figure": "artifacts/images/14_0.jpg"
+        "figure": "artifacts/images/14_0.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "ab_initio_workflow",
+              "aluminum_parameters",
+              "tc_al_experimental",
+              "tc_al_phenomenological",
+              "tc_al_predicted"
+            ]
+          }
+        }
       },
       "module": "s6_superconductors",
       "parameters": [],
@@ -710,7 +889,18 @@
       "label": "tc_zn_predicted",
       "metadata": {
         "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
-        "figure": "artifacts/images/15_0.jpg"
+        "figure": "artifacts/images/15_0.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "ab_initio_workflow",
+              "tc_zn_experimental",
+              "tc_zn_phenomenological",
+              "tc_zn_predicted",
+              "zinc_parameters"
+            ]
+          }
+        }
       },
       "module": "s6_superconductors",
       "parameters": [],
@@ -726,7 +916,18 @@
       "label": "tc_li_predicted",
       "metadata": {
         "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
-        "figure": "artifacts/images/15_0.jpg"
+        "figure": "artifacts/images/15_0.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "ab_initio_workflow",
+              "lithium_parameters",
+              "tc_li_experimental",
+              "tc_li_phenomenological",
+              "tc_li_predicted"
+            ]
+          }
+        }
       },
       "module": "s6_superconductors",
       "parameters": [],
@@ -742,7 +943,15 @@
       "label": "al_pressure_transition",
       "metadata": {
         "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
-        "figure": "artifacts/images/14_0.jpg"
+        "figure": "artifacts/images/14_0.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "ab_initio_workflow",
+              "aluminum_parameters"
+            ]
+          }
+        }
       },
       "module": "s6_superconductors",
       "parameters": [],
@@ -758,7 +967,17 @@
       "label": "tc_mg_na_near_qpt",
       "metadata": {
         "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. Na and Mg appear near the origin, indicating near-cancellation of pairing interaction.",
-        "figure": "artifacts/images/15_0.jpg"
+        "figure": "artifacts/images/15_0.jpg",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "ab_initio_workflow",
+              "magnesium_parameters",
+              "precursory_cooper_flow",
+              "sodium_parameters"
+            ]
+          }
+        }
       },
       "module": "s6_superconductors",
       "parameters": [],

@@ -1,0 +1,228 @@
+{
+  "main": {
+    "id": "3a6b51c48a1f4643",
+    "type": "split",
+    "children": [
+      {
+        "id": "4480675f4921f729",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9673b33669758b7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "sections/07 - Weak Points.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "07 - Weak Points"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "01c51c0611063c88",
+    "type": "split",
+    "children": [
+      {
+        "id": "a9473f438b229464",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc41e196a7dcca18",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "a99ce84fa3a276a5",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "feeb7f302d4b362c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3393eb0686861019",
+    "type": "split",
+    "children": [
+      {
+        "id": "a892cd9c792f7498",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c7d50a1236d023a1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "sections/07 - Weak Points.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "07 - Weak Points 的反向链接列表"
+            }
+          },
+          {
+            "id": "d62cddc7981b06dd",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "sections/07 - Weak Points.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "07 - Weak Points 的出链列表"
+            }
+          },
+          {
+            "id": "1b293fc0a4be7a49",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "32c353628a42b1c7",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "b8b03078959048fc",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "sections/07 - Weak Points.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "07 - Weak Points 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "9673b33669758b7b",
+  "lastOpenFiles": [
+    "sections/02 - The Model and Basic Relations.md",
+    "sections/01 - Introduction Motivation and Background.md",
+    "sections/08 - Open Questions.md",
+    "sections/07 - Weak Points.md",
+    "sections/03 - Downfolding the Bethe-Salpeter Equation.md",
+    "claims/conclusions/43 - Downfolded BSE.md",
+    "claims/conclusions/55 - Tc(Al) Ab Initio Prediction.md",
+    "claims/conclusions/54 - Ab Initio Tc Prediction Workflow.md",
+    "claims/conclusions/37 - mu from vDiagMC Numerical Values.md",
+    "claims/conclusions/15 - Main Question First-Principles mu and Tc.md",
+    "sections/06 - Conventional Superconductors.md",
+    "sections/05 - Electron-Phonon Coupling.md",
+    "sections/04 - Coulomb Pseudopotential.md",
+    "claims/context/30 - Lithium Material Parameters.md",
+    "images/8_1.jpg",
+    "images/8_0.jpg",
+    "images/4_2.jpg",
+    "images/4_1.jpg",
+    "images/4_0.jpg",
+    "images/34_0.jpg",
+    "images/33_0.jpg",
+    "images/23_1.jpg",
+    "images/23_0.jpg",
+    "images/15_0.jpg",
+    "images",
+    "claims/context/20 - RPA Dynamic Screening.md",
+    "claims/context/21 - Downfolding Validity Limits.md",
+    "claims/context/06 - mu as Phenomenological Parameter.md",
+    "claims/context/04 - ME Downfolding is Phenomenological.md",
+    "claims/context/01 - BCS Theory.md",
+    "meta/holes.md",
+    "claims/context/51 - bts microscopic equivalence.md",
+    "claims/context/40 - rpa vs vdiagmc.md",
+    "claims/context/34 - Simple Metals Have Weak Lattice Effects.md",
+    "claims/context/33 - Zinc Material Parameters.md",
+    "claims/context/32 - Magnesium Material Parameters.md",
+    "claims/context/31 - Sodium Material Parameters.md",
+    "claims/context",
+    "claims/holes"
+  ]
+}
