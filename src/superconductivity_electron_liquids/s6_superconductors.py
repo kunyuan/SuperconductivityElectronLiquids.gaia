@@ -10,6 +10,8 @@ from gaia.lang.dsl.strategies import abduction
 
 from .motivation import (
     bts_renormalization,
+    dfpt_computes_lambda,
+    mu_star_phenomenological,
     tc_al_experimental,
     tc_al_phenomenological,
     tc_li_experimental,
@@ -339,11 +341,12 @@ _strat_mg_na_qpt = support(
 
 # --- Aluminum ---
 _support_al_phenom = support(
-    premises=[tc_al_phenomenological],
+    premises=[dfpt_computes_lambda, mu_star_phenomenological],
     conclusion=tc_al_phenomenological,
     reason=(
-        "The phenomenological McMillan prediction for aluminum uses the "
-        "standard empirical value $\\mu^* = 0.1$ to predict "
+        "The phenomenological McMillan prediction for aluminum uses DFPT-computed "
+        "$\\lambda$ (@dfpt_computes_lambda) and the standard empirical value "
+        "$\\mu^* = 0.1$ (@mu_star_phenomenological) to predict "
         "$T_c \\approx 1.9$ K."
     ),
     prior=0.35,
@@ -383,11 +386,12 @@ _abduction_al = abduction(
 
 # --- Zinc ---
 _support_zn_phenom = support(
-    premises=[tc_zn_phenomenological],
+    premises=[dfpt_computes_lambda, mu_star_phenomenological],
     conclusion=tc_zn_phenomenological,
     reason=(
-        "The phenomenological McMillan prediction for zinc uses the "
-        "standard empirical value $\\mu^* = 0.1$ to predict "
+        "The phenomenological McMillan prediction for zinc uses DFPT-computed "
+        "$\\lambda$ (@dfpt_computes_lambda) and the standard empirical value "
+        "$\\mu^* = 0.1$ (@mu_star_phenomenological) to predict "
         "$T_c \\approx 1.37$ K."
     ),
     prior=0.35,
@@ -424,11 +428,12 @@ _abduction_zn = abduction(
 
 # --- Lithium ---
 _support_li_phenom = support(
-    premises=[tc_li_phenomenological],
+    premises=[dfpt_computes_lambda, mu_star_phenomenological],
     conclusion=tc_li_phenomenological,
     reason=(
-        "The phenomenological McMillan prediction for lithium uses the "
-        "standard empirical value $\\mu^* = 0.1$ to predict "
+        "The phenomenological McMillan prediction for lithium uses DFPT-computed "
+        "$\\lambda$ (@dfpt_computes_lambda) and the standard empirical value "
+        "$\\mu^* = 0.1$ (@mu_star_phenomenological) to predict "
         "$T_c \\approx 0.35$ K."
     ),
     prior=0.10,
