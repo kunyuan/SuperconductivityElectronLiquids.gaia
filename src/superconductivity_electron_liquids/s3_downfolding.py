@@ -6,8 +6,7 @@ and obtaining microscopic definitions for lambda and mu. Validates the
 downfolding against a full BSE toy-model calculation.
 """
 
-from gaia.lang import claim, compare, deduction, equivalence, setting, support
-from gaia.lang.dsl.strategies import abduction
+from gaia.lang import claim, deduction, equivalence, setting, support
 
 from .motivation import (
     adiabatic_approx,
@@ -159,8 +158,8 @@ deduction(
     prior=0.96,
 )
 
-# Now that downfolded_bse is defined, attach support for the toy model result
-_strat_downfolded_bse_toy = support(
+# Theory prediction: apply downfolded BSE to the toy model
+deduction(
     premises=[downfolded_bse],
     conclusion=downfolded_bse_toy_model,
     background=[rpa_dynamic_screening],
@@ -174,34 +173,20 @@ _strat_downfolded_bse_toy = support(
     prior=0.95,
 )
 
-# Abduction: compare downfolded vs full BSE predictions
-_comp_downfolding = compare(
+# Numerical validation: downfolded and full BSE give the same answer
+# This is the core evidence that the downfolding approximation works.
+# The two results are independent computations that should agree.
+equivalence(
     downfolded_bse_toy_model,
-    full_bse_toy_model,
     full_bse_toy_model,
     reason=(
         "The downfolded BSE prediction "
         "$T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$ (@downfolded_bse_toy_model) "
-        "and the full BSE result "
+        "and the full BSE numerical result "
         "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$ (@full_bse_toy_model) "
         "differ by only 0.2%, demonstrating quantitative agreement."
     ),
     prior=0.98,
-)
-
-_abduction_downfolding = abduction(
-    _strat_downfolded_bse_toy,
-    _strat_full_bse,
-    _comp_downfolding,
-    reason=(
-        "The full BSE numerical solution gives "
-        "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$ (@full_bse_toy_model), "
-        "while the downfolded BSE gives "
-        "$T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$ "
-        "(@downfolded_bse_toy_model). The two differ by only 0.2%, "
-        "demonstrating that the downfolding approximation is quantitatively "
-        "accurate for conventional metal parameters."
-    ),
 )
 
 downfolded_me_equation = claim(

@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:a0e59a76997d506e737b2960dd3449c19261487c3dff1d38d014eff7652e7ac3",
+  "ir_hash": "sha256:344eafa861e109edb2ee60d1249a1abef6b38e6dcf4c0438a852d0d7c4faaadb",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -20,6 +20,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::adiabatic_approx",
       "label": "adiabatic_approx",
+      "metadata": {
+        "prior": 0.95,
+        "prior_justification": "omega_D/E_F ~ 0.005 for simple metals; Migdal theorem validated."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "Adiabatic Approximation",
@@ -56,6 +60,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::bts_renormalization",
       "label": "bts_renormalization",
+      "metadata": {
+        "prior": 0.95,
+        "prior_justification": "Standard RG result (1958), widely verified."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "BTS Renormalization Relation",
@@ -68,6 +76,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::me_downfolding_is_phenomenological",
       "label": "me_downfolding_is_phenomenological",
+      "metadata": {
+        "prior": 0.95,
+        "prior_justification": "Well-known limitation."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "ME Downfolding is Phenomenological",
@@ -80,6 +92,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::phenomenological_me_theory",
       "label": "phenomenological_me_theory",
+      "metadata": {
+        "prior": 0.95,
+        "prior_justification": "Accurate description."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "Phenomenological ME Theory Limitations",
@@ -92,6 +108,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::mu_star_phenomenological",
       "label": "mu_star_phenomenological",
+      "metadata": {
+        "prior": 0.95,
+        "prior_justification": "Established practice."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "mu* as Phenomenological Parameter",
@@ -104,6 +124,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::rpa_predicts_attractive_mu",
       "label": "rpa_predicts_attractive_mu",
+      "metadata": {
+        "prior": 0.5,
+        "prior_justification": "RPA calc correct; physical content uncertain at r_s > 1."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "RPA Predicts Attractive mu*",
@@ -116,6 +140,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::dfpt_computes_lambda",
       "label": "dfpt_computes_lambda",
+      "metadata": {
+        "prior": 0.92,
+        "prior_justification": "Established methodology."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "DFPT Computes lambda",
@@ -128,6 +156,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_al_experimental",
       "label": "tc_al_experimental",
+      "metadata": {
+        "prior": 0.99,
+        "prior_justification": "Well-established measurement."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "Tc(Al) Experimental",
@@ -140,6 +172,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_li_experimental",
       "label": "tc_li_experimental",
+      "metadata": {
+        "prior": 0.85,
+        "prior_justification": "Crystal structure controversial at ultra-low T."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "Tc(Li) Experimental",
@@ -152,6 +188,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_zn_experimental",
       "label": "tc_zn_experimental",
+      "metadata": {
+        "prior": 0.99,
+        "prior_justification": "Well-established measurement."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "Tc(Zn) Experimental",
@@ -164,6 +204,18 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_al_phenomenological",
       "label": "tc_al_phenomenological",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "dfpt_computes_lambda",
+              "mu_star_phenomenological"
+            ]
+          }
+        },
+        "prior": 0.35,
+        "prior_justification": "Predicts 1.9K vs experiment 1.2K (58% overestimate); poor match."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "Tc(Al) Phenomenological Prediction",
@@ -176,6 +228,18 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_li_phenomenological",
       "label": "tc_li_phenomenological",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "dfpt_computes_lambda",
+              "mu_star_phenomenological"
+            ]
+          }
+        },
+        "prior": 0.1,
+        "prior_justification": "Predicts 0.35K vs experiment 4e-4K (3 orders too high); very poor match."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "Tc(Li) Phenomenological Prediction",
@@ -188,6 +252,18 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_zn_phenomenological",
       "label": "tc_zn_phenomenological",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "dfpt_computes_lambda",
+              "mu_star_phenomenological"
+            ]
+          }
+        },
+        "prior": 0.35,
+        "prior_justification": "Predicts 1.37K vs experiment 0.875K (57% overestimate); poor match."
+      },
       "module": "motivation",
       "parameters": [],
       "title": "Tc(Zn) Phenomenological Prediction",
@@ -214,7 +290,9 @@
       "label": "electron_phonon_action",
       "metadata": {
         "caption": "Fig. 2 | Diagrammatic representation of the phonon-mediated e-e interaction W^ph, composed of phonon propagator D, bare coupling g^(0), vertex function Gamma_3^e, and dielectric function.",
-        "figure": "artifacts/images/4_1.jpg"
+        "figure": "artifacts/images/4_1.jpg",
+        "prior": 0.95,
+        "prior_justification": "Standard EFT decomposition."
       },
       "module": "s2_model",
       "parameters": [],
@@ -251,6 +329,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::precursory_cooper_flow",
       "label": "precursory_cooper_flow",
+      "metadata": {
+        "prior": 0.9,
+        "prior_justification": "Verified in prior work."
+      },
       "module": "s2_model",
       "parameters": [],
       "title": "Precursory Cooper Flow",
@@ -275,6 +357,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::cross_term_suppressed",
       "label": "cross_term_suppressed",
+      "metadata": {
+        "prior": 0.9,
+        "prior_justification": "omega_c^2/omega_p^2 <= 0.01; conservative plasmon-pole estimate."
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Cross-Channel Terms Suppressed",
@@ -328,8 +414,6 @@
           "provenance": {
             "referenced_claims": [
               "downfolded_bse",
-              "downfolded_bse_toy_model",
-              "full_bse_toy_model",
               "rpa_dynamic_screening"
             ]
           }
@@ -347,14 +431,18 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::downfolding_validity_limits",
       "label": "downfolding_validity_limits",
+      "metadata": {
+        "prior": 0.92,
+        "prior_justification": "Well-characterized."
+      },
       "module": "s3_downfolding",
       "parameters": [],
       "title": "Downfolding Validity Limits",
       "type": "claim"
     },
     {
-      "content": "The frequency-only downfolded Bethe-Salpeter equation: the full momentum-frequency BSE kernel reduces to a one-dimensional integral equation in Matsubara frequency, with an effective kernel $K(\\omega, \\omega') = \\lambda(\\omega, \\omega') - \\mu_{\\omega_c}(\\omega, \\omega')$, where the phonon-mediated attraction $\\lambda$ and Coulomb pseudopotential $\\mu_{\\omega_c}$ are microscopically defined. The momentum integration is absorbed into the density of states, and the pair propagator's coherent part generates the BCS logarithm that drives the Cooper instability.",
-      "content_hash": "0dd5e371f3c95a4d6e15c1f41e663edad74b16f9841c7027913226e57d3bafce",
+      "content": "The frequency-only downfolded Bethe-Salpeter equation: the full momentum-frequency BSE kernel reduces to a one-dimensional integral equation in Matsubara frequency for the Fermi-surface-averaged anomalous vertex $\\Lambda_\\omega$ (Cai et al., Eq. 20):\n\n$$\\Lambda_\\omega = \\eta_\\omega + \\pi T \\sum_{|\\omega'|<\\omega_c} \\bigl(\\lambda_{\\omega\\omega'} - \\mu_{\\omega_c}\\bigr) \\frac{z_{\\omega'}^{\\mathrm{ph}}}{|\\omega'|}\\, \\Lambda_{\\omega'}.$$\n\nHere $\\eta_\\omega$ is the symmetry-breaking pair source (set to unity for numerical convenience without affecting $T_c$), $z_\\omega^{\\mathrm{ph}}$ is the e-ph quasiparticle weight (Cai et al., Eq. 21), and the kernel decomposes into the phonon-mediated attraction $\\lambda_{\\omega\\omega'}$ and the Coulomb pseudopotential $\\mu_{\\omega_c}$, both with microscopic definitions in terms of electron vertex functions. Corrections are bounded by three small parameters: $\\omega_D/E_F$, $\\omega_c^2/\\omega_p^2$, and $T/\\omega_c$. The momentum integration is absorbed into the density of states, and the pair propagator's coherent part generates the BCS logarithm that drives the Cooper instability.",
+      "content_hash": "ccc663172d7f51332474b2ebc7fc479b275ec4534fc4f18c2fca949fce9d3861",
       "declaration_index": 6,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::downfolded_bse",
@@ -377,9 +465,23 @@
       "type": "claim"
     },
     {
+      "content": "same_truth(A, B)",
+      "content_hash": "4081d83356ef89148711fb22676872d7e8303be796b7b16a2fe55993e0032554",
+      "declaration_index": 7,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_000",
+      "metadata": {
+        "helper_kind": "equivalence_result",
+        "prior": 0.98
+      },
+      "module": "s3_downfolding",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
       "content": "At the superconducting critical temperature $T_c$, the downfolded Bethe-Salpeter equation reduces to the traditional linearized Migdal-Eliashberg (ME) gap equation: $\\Delta_\\omega = \\pi T_c \\sum_{|\\omega'|<\\omega_c} (\\lambda_{\\omega\\omega'} - \\mu^*) \\frac{z_{\\omega'}^{\\mathrm{ph}}}{|\\omega'|} \\Delta_{\\omega'}$. As $T \\to T_c$, the anomalous vertex diverges as $\\Lambda_{k\\omega} \\sim \\Delta_{k\\omega}/(T - T_c)$, causing the source term $\\eta$ to become irrelevant. The diverging prefactor $(T - T_c)^{-1}$ cancels between the two sides of the equation, yielding the gap equation with $\\mu^* \\equiv \\mu_{\\omega_c}$. This establishes the microscopic foundation for the ME equation with precise definitions of $\\mu^*$ and $\\lambda$ in terms of electron vertex functions.",
       "content_hash": "1fa7e76298fd5a12bf811274183bce2f2f6a3315b54f9f142b5cf906411fd23f",
-      "declaration_index": 7,
+      "declaration_index": 8,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::downfolded_me_equation",
       "label": "downfolded_me_equation",
@@ -399,9 +501,9 @@
       "type": "claim"
     },
     {
-      "content": "The electron-phonon coupling $\\lambda(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is the Fermi-surface average of the phonon-mediated interaction $W^{\\mathrm{ph}}$ weighted by quasiparticle renormalization factors $z^e$ and $z_\\omega^{\\mathrm{ph}}$. This definition reduces to the standard Eliashberg $\\lambda$ in the adiabatic limit but retains dynamical corrections from the electron self-energy.",
-      "content_hash": "f3fec11e500be646c272ca61f0c68ecefa0ebbbc260675a0fec093a128c85d5c",
-      "declaration_index": 8,
+      "content": "The electron-phonon coupling $\\lambda(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is the Fermi-surface average of the phonon-mediated interaction $W^{\\mathrm{ph}}$ weighted by quasiparticle renormalization factors $z^e$ and $z_\\omega^{\\mathrm{ph}}$.\n\nIn the standard ME normalization, the static dimensionless coupling follows the Fermi-surface average of $g^2/\\omega^2$ over phonon branches $\\kappa$ (Cai et al., Eq. 31):\n\n$$\\lambda = N_F \\sum_\\kappa \\left\\langle \\frac{g_\\kappa^2(\\mathbf{k}, \\mathbf{q})}{\\omega_{\\kappa, \\mathbf{q}}^2}\\right\\rangle_{\\mathrm{FS}},$$\n\nwith $|\\mathbf{k}| = |\\mathbf{k} + \\mathbf{q}| = k_F$, $N_F$ the density of states at the Fermi level, and $g_\\kappa(\\mathbf{k}, \\mathbf{q})$ the physical screened-and-renormalized e-ph vertex (see @eft_eph_vertex). This definition reduces to the standard Eliashberg $\\lambda$ in the adiabatic limit but retains dynamical corrections from the electron self-energy.",
+      "content_hash": "f711b023d2887ddc62fdbe0b527ddd89db6712191186845d81f34181b781ccea",
+      "declaration_index": 9,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::lambda_microscopic_definition",
       "label": "lambda_microscopic_definition",
@@ -410,6 +512,7 @@
           "provenance": {
             "referenced_claims": [
               "downfolded_bse",
+              "eft_eph_vertex",
               "electron_phonon_action"
             ]
           }
@@ -421,9 +524,9 @@
       "type": "claim"
     },
     {
-      "content": "The Coulomb pseudopotential $\\mu_{\\omega_c}(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is determined by the purely electronic particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ projected onto the Fermi surface, with the high-energy electronic degrees of freedom integrated out above the cutoff $\\omega_c$. This gives $\\mu_{\\omega_c}$ a precise meaning as the effective Coulomb repulsion in the low-energy pairing channel, renormalized by all electronic correlations.",
-      "content_hash": "500a12cfa054ed6e3ce4eb207fcbad5216aae597d8d263a705afe400ab4fc525",
-      "declaration_index": 9,
+      "content": "The Coulomb pseudopotential $\\mu_{\\omega_c}(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is determined by the purely electronic particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ projected onto the Fermi surface, with the high-energy electronic degrees of freedom integrated out above the cutoff $\\omega_c$.\n\nOperationally, in a purely electronic theory ($\\lambda = 0$, $z^{\\mathrm{ph}} = 1$), solving the downfolded equation gives the temperature-dependent effective Cooper-channel repulsion (Cai et al., Eq. 23):\n\n$$\\gamma_T = \\frac{\\mu_{\\omega_c}}{1 + \\mu_{\\omega_c} \\ln(\\omega_c/T)} \\quad (T \\ll \\omega_c),$$\n\nwhere $\\gamma_T$ is computed directly from the four-point vertex (Cai et al., Eq. 24):\n\n$$\\gamma_T \\equiv z_e^2\\, N_F^{\\ast}\\, \\bigl\\langle \\Gamma_4^e(\\mathbf{k}_F, \\omega_0;\\, \\mathbf{k}_F', \\omega_0)\\bigr\\rangle_{\\mathbf{k}_F, \\mathbf{k}_F'},\\qquad \\omega_0 = \\pi T.$$\n\nHere $z_e$ is the electronic quasiparticle weight, $N_F^\\ast$ is the quasiparticle density of states, and $\\Gamma_4^e$ is the full electronic four-point vertex on the Fermi surface evaluated at the lowest Matsubara frequency $\\omega_0 = \\pi T$. Inverting Eq. 23 yields $\\mu_{\\omega_c}$ from the measured $\\gamma_T$, providing a precise meaning to the Coulomb pseudopotential as the effective repulsion in the low-energy pairing channel, renormalized by all electronic correlations.",
+      "content_hash": "ae4ac7c5b611a143d75d5891b8d7744c411f7e02095ac08d1cbdff1a403f0029",
+      "declaration_index": 10,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::mu_microscopic_definition",
       "label": "mu_microscopic_definition",
@@ -444,7 +547,7 @@
     {
       "content": "The BTS renormalization relation $\\mu_{\\omega_c} = \\mu_{\\omega_c'} / (1 + \\mu_{\\omega_c'} \\ln(\\omega_c'/\\omega_c))$ emerges as a corollary of the microscopic definition of $\\mu_{\\omega_c}$: changing the cutoff $\\omega_c$ reshuffles contributions between the explicit Coulomb kernel and the Cooper logarithm in the BCS propagator, leaving the physical $T_c$ invariant. This provides a microscopic derivation of the originally phenomenological BTS relation.",
       "content_hash": "d678d0422d3524813b364d62587d1665567786596996f2616103e75ffc5fed13",
-      "declaration_index": 10,
+      "declaration_index": 11,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::mu_scale_independence",
       "label": "mu_scale_independence",
@@ -465,12 +568,13 @@
     {
       "content": "same_truth(A, B)",
       "content_hash": "4081d83356ef89148711fb22676872d7e8303be796b7b16a2fe55993e0032554",
-      "declaration_index": 11,
+      "declaration_index": 12,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::bts_microscopic_equivalence",
       "label": "bts_microscopic_equivalence",
       "metadata": {
-        "helper_kind": "equivalence_result"
+        "helper_kind": "equivalence_result",
+        "prior": 0.98
       },
       "module": "s3_downfolding",
       "parameters": [],
@@ -479,7 +583,7 @@
     {
       "content": "The Morel-Anderson constant-pseudopotential ansatz — treating $\\mu_{\\omega_c}$ as approximately frequency-independent — is microscopically justified: the four-point vertex $\\tilde\\Gamma^e$ varies on electronic energy scales ($E_F$), which are much larger than the phonon scale ($\\omega_D$). Within the low-energy window $|\\omega|, |\\omega'| < \\omega_c \\ll E_F$, the Coulomb kernel is effectively constant, validating the traditional constant-$\\mu^*$ treatment used in Eliashberg theory.",
       "content_hash": "1297733db7ff91834749544aab0e150e82ecf01df70bc174473e61cb57108f80",
-      "declaration_index": 12,
+      "declaration_index": 13,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::ma_pseudopotential_justified",
       "label": "ma_pseudopotential_justified",
@@ -505,6 +609,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::ueg_vertex_challenge",
       "label": "ueg_vertex_challenge",
+      "metadata": {
+        "prior": 0.95,
+        "prior_justification": "Recognized challenge."
+      },
       "module": "s4_pseudopotential",
       "parameters": [],
       "title": "UEG Four-Point Vertex Challenge",
@@ -517,6 +625,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::vdiagmc_method",
       "label": "vdiagmc_method",
+      "metadata": {
+        "prior": 0.9,
+        "prior_justification": "Rigorous Feynman diagram expansion; validated at r_s <= 5."
+      },
       "module": "s4_pseudopotential",
       "parameters": [],
       "title": "vDiagMC Method",
@@ -531,7 +643,9 @@
       "label": "homotopic_expansion",
       "metadata": {
         "caption": "Fig. 6 | Diagrammatic contributions to the 4-point vertex at first and second order, with Coulomb interaction re-expanded from Yukawa interaction with screening parameter lambda_R.",
-        "figure": "artifacts/images/10_0.jpg"
+        "figure": "artifacts/images/10_0.jpg",
+        "prior": 0.88,
+        "prior_justification": "Log-divergence cure rigorous; conformal-map relies on analyticity."
       },
       "module": "s4_pseudopotential",
       "parameters": [],
@@ -539,8 +653,8 @@
       "type": "claim"
     },
     {
-      "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\\mu_{E_F} \\approx 0.27 r_s$. Representative values from TABLE I include $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} = 0.77(5)$ at $r_s = 3$ (lithium-like). These results, combined with the BTS relation, yield $\\mu^* \\approx 0.12$--$0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent.",
-      "content_hash": "fade6f6c7620ac46c8c1ff769b98276287e06ff3b6cdf510ae91771879a51c3f",
+      "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\\mu_{E_F} \\approx 0.27\\, r_s$. The complete set of values (Cai et al., TABLE I), computed at $\\omega_c = 0.1\\, E_F$ and rescaled to $E_F$ via the BTS relation:\n\n| $r_s$              | 1       | 2       | 3       | 4        | 5        | 6      |\n|--------------------|---------|---------|---------|----------|----------|--------|\n| $\\mu_{0.1\\,E_F}$ | 0.172(4)| 0.238(4)| 0.278(6)| 0.306(15)| 0.328(12)| 0.35(3)|\n| $\\mu_{E_F}$       | 0.28(1) | 0.53(2) | 0.77(5) | 1.0(2)   | 1.3(2)   | 1.8(8) |\n\nNumbers in parentheses indicate the systematic uncertainty in the last digit. These results, combined with the BTS relation, yield $\\mu^\\ast \\approx 0.12\\text{--}0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent. The values are dramatically larger than the static RPA, Morel-Anderson, and dynamic RPA predictions for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — and resolve the long-standing contradiction between phenomenological and RPA-based treatments of the Coulomb pseudopotential.",
+      "content_hash": "2b518049b82b365f0437c9b6dedd13863efa599558e460654055491e4b1fdd01",
       "declaration_index": 3,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
@@ -573,7 +687,8 @@
       "id": "github:superconductivity_electron_liquids::rpa_vs_vdiagmc",
       "label": "rpa_vs_vdiagmc",
       "metadata": {
-        "helper_kind": "contradiction_result"
+        "helper_kind": "contradiction_result",
+        "prior": 0.95
       },
       "module": "s4_pseudopotential",
       "parameters": [],
@@ -586,6 +701,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::ward_identity",
       "label": "ward_identity",
+      "metadata": {
+        "prior": 0.98,
+        "prior_justification": "Exact QFT identity from charge conservation."
+      },
       "module": "s5_eph_coupling",
       "parameters": [],
       "title": "Ward Identity at q->0",
@@ -600,7 +719,9 @@
       "label": "gamma3_vdiagmc",
       "metadata": {
         "caption": "Fig. 8 | Comparison between the angle-resolved e-ph vertex correction in the UEG from vDiagMC (points) and DFPT (lines) for different r_s values.",
-        "figure": "artifacts/images/12_0.jpg"
+        "figure": "artifacts/images/12_0.jpg",
+        "prior": 0.88,
+        "prior_justification": "Systematic uncertainty from truncation; method validated elsewhere."
       },
       "module": "s5_eph_coupling",
       "parameters": [],
@@ -614,6 +735,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::dfpt_eph_ansatz",
       "label": "dfpt_eph_ansatz",
+      "metadata": {
+        "prior": 0.9,
+        "prior_justification": "Standard DFPT expression."
+      },
       "module": "s5_eph_coupling",
       "parameters": [],
       "title": "DFPT Expression for e-ph Coupling",
@@ -626,14 +751,18 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::quasiparticle_mass_near_unity",
       "label": "quasiparticle_mass_near_unity",
+      "metadata": {
+        "prior": 0.92,
+        "prior_justification": "High-precision QMC/DiagMC: m*/m < 1% deviation for r_s <= 5."
+      },
       "module": "s5_eph_coupling",
       "parameters": [],
       "title": "Quasiparticle Mass Near Unity",
       "type": "claim"
     },
     {
-      "content": "The EFT expression for the electron-phonon coupling vertex $g(k, q) = z^e \\cdot \\Gamma_3^e(k, q) \\cdot g_0(k, q)$ factorizes the full vertex into a quasiparticle renormalization factor $z^e$, the electronic three-point vertex correction $\\Gamma_3^e$, and the bare electron-phonon matrix element $g_0$. The corresponding $\\lambda$ in the downfolded BSE is the Fermi-surface average of $|g(k, q)|^2$ weighted by the phonon propagator.",
-      "content_hash": "ba68220cdf79dda30df0638210fd9ba04a34516d42595e982f551e0fb49e9252",
+      "content": "The EFT expression for the physical electron-phonon coupling vertex factorizes the bare coupling into a screening factor and vertex/quasiparticle renormalizations (Cai et al., Eq. 32):\n\n$$g_\\kappa(\\mathbf{k}, \\mathbf{q}) = g_{\\kappa\\mathbf{q}}^{(0)}\\, \\frac{z^e}{\\epsilon_\\mathbf{q}}\\, \\Gamma_3^e(\\mathbf{k}, \\mathbf{q}),$$\n\nwhere $g_{\\kappa\\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\\epsilon_\\mathbf{q}$ is the electronic dielectric function, $z^e$ is the electronic quasiparticle weight, and $\\Gamma_3^e(\\mathbf{k}, \\mathbf{q})$ is the electronic three-point vertex correction. The combination $z^e \\Gamma_3^e(\\mathbf{k}, \\mathbf{q})$ can be interpreted as the quasiparticle vertex correction to the screened interaction. The corresponding $\\lambda$ in the downfolded BSE is the Fermi-surface average of $|g_\\kappa(\\mathbf{k}, \\mathbf{q})|^2 / \\omega_{\\kappa,\\mathbf{q}}^2$ over phonon branches (see @lambda_microscopic_definition).",
+      "content_hash": "4eb7fc2896a0b2f83a689b8795a8b2a0e03fd0575271fd6acde278dfe0a1083d",
       "declaration_index": 4,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::eft_eph_vertex",
@@ -675,9 +804,24 @@
       "type": "claim"
     },
     {
+      "content": "Are observations independent? Do they support the same law?",
+      "content_hash": "36cff940124e21b8b39010b74e17da94c7ab9bd0761afb017b63be334a3f7876",
+      "declaration_index": 6,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_001",
+      "metadata": {
+        "generated": true,
+        "helper_kind": "composition_validity",
+        "warrant": "The Ward identity provides the exact value at $q = 0$ and the vDiagMC computation confirms smooth, modest variations at finite $q$. By interpolating between these two controlled limits, we obtain a reliable approximation $\\Gamma_3^e \\approx m^*/m$ that captures the dominant effect (mass renormalization) while bounding the error from momentum dependence at the 10--15% level."
+      },
+      "module": "s5_eph_coupling",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
       "content": "In the uniform electron gas at densities $r_s \\in [1,5]$, the EFT electron-phonon vertex $g(\\mathbf{k},\\mathbf{q}) = g^{(0)}_{\\mathbf{q}} \\cdot (z^e/\\epsilon_{\\mathbf{q}}) \\cdot \\Gamma_3^e(\\mathbf{k};\\mathbf{q})$ is numerically well approximated by the DFPT Kohn-Sham screened potential $g^{\\mathrm{KS}}(\\mathbf{q}) = g^{(0)}_{\\mathbf{q}} / [1 - (v_{\\mathbf{q}} + f_{xc})\\chi_0^e(\\mathbf{q})]$ for Fermi-surface-relevant momentum transfers $|\\mathbf{q}| \\leq 2k_F$, with weak residual $\\mathbf{k}$-dependence.",
       "content_hash": "74b6e88b6744282ef8b646fc3b75bfb14cf83f8384e5b065c9703c4817b6a6b6",
-      "declaration_index": 6,
+      "declaration_index": 7,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::eft_vertex_matches_dfpt",
       "label": "eft_vertex_matches_dfpt",
@@ -700,7 +844,7 @@
     {
       "content": "For simple metals, the DFPT calculation of the electron-phonon coupling constant $\\lambda$ is reliable: the EFT vertex matches the DFPT expression at the vertex level, and the quasiparticle density of states $N_F^*$ nearly equals the band density of states $N_F^{(0)}$, so $\\lambda_{\\mathrm{EFT}} \\approx \\lambda_{\\mathrm{DFPT}}$ with corrections at the few-percent level.",
       "content_hash": "b84fc23af7f3cbf72c941faef66934e8990174db81a2528b15698c322d38a001",
-      "declaration_index": 7,
+      "declaration_index": 8,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals",
       "label": "dfpt_reliable_for_simple_metals",
@@ -787,6 +931,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::simple_metals_weak_lattice",
       "label": "simple_metals_weak_lattice",
+      "metadata": {
+        "prior": 0.9,
+        "prior_justification": "Well-supported."
+      },
       "module": "s6_superconductors",
       "parameters": [],
       "title": "Simple Metals Have Weak Lattice Effects",
@@ -799,6 +947,10 @@
       "exported": false,
       "id": "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
       "label": "ueg_pseudopotential_parameterization",
+      "metadata": {
+        "prior": 0.85,
+        "prior_justification": "Mapping procedure reasonable; band-mass correction adds uncertainty."
+      },
       "module": "s6_superconductors",
       "parameters": [],
       "title": "UEG mu* Parameterization and Mapping",
@@ -867,10 +1019,7 @@
           "provenance": {
             "referenced_claims": [
               "ab_initio_workflow",
-              "aluminum_parameters",
-              "tc_al_experimental",
-              "tc_al_phenomenological",
-              "tc_al_predicted"
+              "aluminum_parameters"
             ]
           }
         }
@@ -894,9 +1043,6 @@
           "provenance": {
             "referenced_claims": [
               "ab_initio_workflow",
-              "tc_zn_experimental",
-              "tc_zn_phenomenological",
-              "tc_zn_predicted",
               "zinc_parameters"
             ]
           }
@@ -921,10 +1067,7 @@
           "provenance": {
             "referenced_claims": [
               "ab_initio_workflow",
-              "lithium_parameters",
-              "tc_li_experimental",
-              "tc_li_phenomenological",
-              "tc_li_predicted"
+              "lithium_parameters"
             ]
           }
         }
@@ -985,58 +1128,156 @@
       "type": "claim"
     },
     {
-      "content": "alternative_explanation_for(github:superconductivity_electron_liquids::full_bse_toy_model)",
-      "content_hash": "bea7c699e61640f7a20695c1fb7b3b3617c91f3b3bdfc5d3c43d8c9ffb7d9585",
+      "content": "compare(The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization., Using the McMillan formula (an empirical formula for $T_c$ based on the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of aluminum is $T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a deviation of approximately 58%., The experimental superconducting transition temperature of aluminum (Al) is $T_c^{\\mathrm{exp}} = 1.2$ K.)",
+      "content_hash": "fda05416776be06bb87933c4089ef8bc1858c5c7235ec2be8d8a95caacb66068",
+      "declaration_index": 14,
       "exported": false,
-      "id": "github:superconductivity_electron_liquids::__alternative_explanation_ddfe26b1",
-      "label": "__alternative_explanation_ddfe26b1",
+      "id": "github:superconductivity_electron_liquids::_anon_002",
       "metadata": {
-        "canonical_name": "alternative_explanation_for(github:superconductivity_electron_liquids::full_bse_toy_model)",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "tc_al_experimental",
+              "tc_al_phenomenological",
+              "tc_al_predicted"
+            ]
+          }
+        },
         "generated": true,
-        "generated_kind": "interface_claim",
-        "interface_role": "alternative_explanation",
-        "owning_strategy_id": "lcs_207261089dcd8340",
-        "owning_strategy_type": "abduction",
-        "visibility": "strategy_interface"
+        "helper_kind": "comparison_claim"
       },
+      "module": "s6_superconductors",
       "parameters": [],
       "type": "claim"
     },
     {
-      "content": "explains(github:superconductivity_electron_liquids::full_bse_toy_model)",
-      "content_hash": "f082568e845a33251bd3baf6eade196096ca2f74b1c60c90f90e96abcb007584",
+      "content": "abduction_validity(support, support, compare)",
+      "content_hash": "4ccad61dc008bbcf2f30f65bc920cc26f35586acf9ec7ee57972c8bcd78f9d5c",
+      "declaration_index": 15,
       "exported": false,
-      "id": "github:superconductivity_electron_liquids::__disjunction_result_86910926",
-      "label": "__disjunction_result_86910926",
+      "id": "github:superconductivity_electron_liquids::_anon_003",
       "metadata": {
-        "canonical_name": "explains(github:superconductivity_electron_liquids::full_bse_toy_model)",
+        "generated": true,
+        "helper_kind": "composition_validity",
+        "warrant": "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) is well reproduced by the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted), which uses no adjustable parameters. The phenomenological prediction (@tc_al_phenomenological) using $\\mu^* = 0.1$ gives 1.9 K, overestimating by 58%. The ab initio approach provides a better explanation because it determines $\\mu^*$ from first principles rather than using an ad hoc value, and the resulting $\\mu^* = 0.13$ is above the standard guess of 0.1, correctly reducing $T_c$ toward the experimental value."
+      },
+      "module": "s6_superconductors",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "compare(The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization., Using the McMillan formula with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of zinc is $T_c \\approx 1.37$ K, while the experimental value is 0.875 K, a deviation of approximately 57%., The experimental superconducting transition temperature of zinc (Zn) is $T_c^{\\mathrm{exp}} = 0.875$ K.)",
+      "content_hash": "5e32e32f737e976796bb3b4a1af46fd6ba942efbcddf25376ecd4cce29b461ae",
+      "declaration_index": 16,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_004",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "tc_zn_experimental",
+              "tc_zn_phenomenological",
+              "tc_zn_predicted"
+            ]
+          }
+        },
+        "generated": true,
+        "helper_kind": "comparison_claim"
+      },
+      "module": "s6_superconductors",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "abduction_validity(support, support, compare)",
+      "content_hash": "4ccad61dc008bbcf2f30f65bc920cc26f35586acf9ec7ee57972c8bcd78f9d5c",
+      "declaration_index": 17,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_005",
+      "metadata": {
+        "generated": true,
+        "helper_kind": "composition_validity",
+        "warrant": "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) is in excellent agreement with the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted). The phenomenological prediction (@tc_zn_phenomenological) using $\\mu^* = 0.1$ gives 1.37 K, overestimating by 57%. The ab initio $\\mu^* = 0.12$ from $r_s = 2.90$ correctly captures the Coulomb repulsion strength in Zn, bringing the prediction into near-exact agreement with experiment."
+      },
+      "module": "s6_superconductors",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "compare(The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with $\\mu^* = 0.17$ and $\\lambda = 0.37$., Using the McMillan formula with $\\mu^* = 0.1$, the predicted superconducting transition temperature of lithium is $T_c \\approx 0.35$ K, while the experimental value is approximately $4 \\times 10^{-4}$ K; the theory overestimates by about three orders of magnitude., The experimental superconducting transition temperature of lithium (Li) is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). This measurement corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.)",
+      "content_hash": "a9e16bf9aec1852947bf4dae93da22b528d7e2f59b9b664180da5afed8db737c",
+      "declaration_index": 18,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_006",
+      "metadata": {
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "tc_li_experimental",
+              "tc_li_phenomenological",
+              "tc_li_predicted"
+            ]
+          }
+        },
+        "generated": true,
+        "helper_kind": "comparison_claim"
+      },
+      "module": "s6_superconductors",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "abduction_validity(support, support, compare)",
+      "content_hash": "4ccad61dc008bbcf2f30f65bc920cc26f35586acf9ec7ee57972c8bcd78f9d5c",
+      "declaration_index": 19,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_007",
+      "metadata": {
+        "generated": true,
+        "helper_kind": "composition_validity",
+        "warrant": "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K (@tc_li_experimental) is within an order of magnitude of the ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K (@tc_li_predicted, 9R structure). The phenomenological prediction (@tc_li_phenomenological) using $\\mu^* = 0.1$ gives $\\approx 0.35$ K, overestimating by three orders of magnitude. The dramatic improvement of the ab initio approach is because the first-principles $\\mu^* = 0.18$ for lithium ($r_s = 3.25$, $m_b = 1.75$) is significantly larger than the standard guess of 0.1, reflecting the stronger Coulomb repulsion at lower electron density. In the regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ is small, the exponential sensitivity amplifies the $\\mu^*$ difference from 0.08 to nearly three orders of magnitude in $T_c$."
+      },
+      "module": "s6_superconductors",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::adiabatic_approx,github:superconductivity_electron_liquids::me_framework)",
+      "content_hash": "85aa86d7ff221b8cfd6f232b8ce73220063b62086965e7a6e529c6eb13d5d368",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_1f14277b",
+      "label": "__implication_result_1f14277b",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::adiabatic_approx,github:superconductivity_electron_liquids::me_framework)",
         "generated": true,
         "generated_kind": "helper_claim",
-        "helper_kind": "disjunction_result",
+        "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
-        "intermediate_role": "disjunction_result",
-        "owning_strategy_id": "lcs_207261089dcd8340",
-        "owning_strategy_type": "abduction",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_9479177dc7606a37",
+        "owning_strategy_type": "deduction",
+        "prior": 0.97,
         "visibility": "formal_internal"
       },
       "parameters": [],
       "type": "claim"
     },
     {
-      "content": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_86910926,github:superconductivity_electron_liquids::full_bse_toy_model)",
-      "content_hash": "a78378067ff4f680cddcdfd875c96b6f2430332ebb835c2fd1256a7f2be1ba3d",
+      "content": "implies(github:superconductivity_electron_liquids::me_framework,github:superconductivity_electron_liquids::bse_kernel_decomposition)",
+      "content_hash": "9c41ecb2cbcd271bffef80c2ad0f61b06e2b2410dae142f5260dac9ac48853b4",
       "exported": false,
-      "id": "github:superconductivity_electron_liquids::__equivalence_result_27a5500e",
-      "label": "__equivalence_result_27a5500e",
+      "id": "github:superconductivity_electron_liquids::__implication_result_73c21cba",
+      "label": "__implication_result_73c21cba",
       "metadata": {
-        "canonical_name": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_86910926,github:superconductivity_electron_liquids::full_bse_toy_model)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::me_framework,github:superconductivity_electron_liquids::bse_kernel_decomposition)",
         "generated": true,
         "generated_kind": "helper_claim",
-        "helper_kind": "equivalence_result",
+        "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
-        "intermediate_role": "equivalence_result",
-        "owning_strategy_id": "lcs_207261089dcd8340",
-        "owning_strategy_type": "abduction",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_7ade2157c52ec90d",
+        "owning_strategy_type": "deduction",
+        "prior": 0.97,
         "visibility": "formal_internal"
       },
       "parameters": [],
@@ -1055,7 +1296,7 @@
         "helper_kind": "conjunction_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "conjunction_result",
-        "owning_strategy_id": "lcs_214dced6a4b6b2c2",
+        "owning_strategy_id": "lcs_094786e530645475",
         "owning_strategy_type": "deduction",
         "visibility": "formal_internal"
       },
@@ -1063,116 +1304,168 @@
       "type": "claim"
     },
     {
-      "content": "alternative_explanation_for(github:superconductivity_electron_liquids::ward_identity)",
-      "content_hash": "53fdcead7071c6c41145ab3c02aa6a28f9735bf5592e5f1b10b1a4e3f54a3061",
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_a95f2951,github:superconductivity_electron_liquids::downfolded_bse)",
+      "content_hash": "6d1440a670d8152a7675e0aede123920a13933c0ef0a2aa3e4a930b90bca2c25",
       "exported": false,
-      "id": "github:superconductivity_electron_liquids::__alternative_explanation_f7187cd2",
-      "label": "__alternative_explanation_f7187cd2",
+      "id": "github:superconductivity_electron_liquids::__implication_result_8e8cdd90",
+      "label": "__implication_result_8e8cdd90",
       "metadata": {
-        "canonical_name": "alternative_explanation_for(github:superconductivity_electron_liquids::ward_identity)",
-        "generated": true,
-        "generated_kind": "interface_claim",
-        "interface_role": "alternative_explanation",
-        "owning_strategy_id": "lcs_0fe992238b295e72",
-        "owning_strategy_type": "abduction",
-        "visibility": "strategy_interface"
-      },
-      "parameters": [],
-      "type": "claim"
-    },
-    {
-      "content": "explains(github:superconductivity_electron_liquids::ward_identity)",
-      "content_hash": "f3d041a6e14c42889858a182fbb12b66f1b014dd8b0370b7b35b1a1dbd7368e4",
-      "exported": false,
-      "id": "github:superconductivity_electron_liquids::__disjunction_result_da7cd42e",
-      "label": "__disjunction_result_da7cd42e",
-      "metadata": {
-        "canonical_name": "explains(github:superconductivity_electron_liquids::ward_identity)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_a95f2951,github:superconductivity_electron_liquids::downfolded_bse)",
         "generated": true,
         "generated_kind": "helper_claim",
-        "helper_kind": "disjunction_result",
+        "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
-        "intermediate_role": "disjunction_result",
-        "owning_strategy_id": "lcs_0fe992238b295e72",
-        "owning_strategy_type": "abduction",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_094786e530645475",
+        "owning_strategy_type": "deduction",
+        "prior": 0.96,
         "visibility": "formal_internal"
       },
       "parameters": [],
       "type": "claim"
     },
     {
-      "content": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_da7cd42e,github:superconductivity_electron_liquids::ward_identity)",
-      "content_hash": "152e2b59cd89c0918b525be5bc1134e15d0619be1bb1c67f90e93bd7bd174038",
+      "content": "implies(github:superconductivity_electron_liquids::downfolded_bse,github:superconductivity_electron_liquids::downfolded_bse_toy_model)",
+      "content_hash": "4722136a3c62042a8ec5a2cf0baf136c25a35ebf1c6f19d93dec89b4afab942d",
       "exported": false,
-      "id": "github:superconductivity_electron_liquids::__equivalence_result_7bae0d28",
-      "label": "__equivalence_result_7bae0d28",
+      "id": "github:superconductivity_electron_liquids::__implication_result_c9db0e28",
+      "label": "__implication_result_c9db0e28",
       "metadata": {
-        "canonical_name": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_da7cd42e,github:superconductivity_electron_liquids::ward_identity)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::downfolded_bse,github:superconductivity_electron_liquids::downfolded_bse_toy_model)",
         "generated": true,
         "generated_kind": "helper_claim",
-        "helper_kind": "equivalence_result",
+        "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
-        "intermediate_role": "equivalence_result",
-        "owning_strategy_id": "lcs_0fe992238b295e72",
-        "owning_strategy_type": "abduction",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_ec0e1b6cb630ea9d",
+        "owning_strategy_type": "deduction",
+        "prior": 0.95,
         "visibility": "formal_internal"
       },
       "parameters": [],
       "type": "claim"
     },
     {
-      "content": "alternative_explanation_for(github:superconductivity_electron_liquids::gamma3_vdiagmc)",
-      "content_hash": "2bbda2dee61eb3014e5db003948bc884ae01464bf5c18d667b66cc8d26f9379e",
+      "content": "implies(github:superconductivity_electron_liquids::downfolded_bse,github:superconductivity_electron_liquids::downfolded_me_equation)",
+      "content_hash": "10486edd4797749f29928f756574ca322082d1e41b044a18adee2983857fcdf0",
       "exported": false,
-      "id": "github:superconductivity_electron_liquids::__alternative_explanation_af393c58",
-      "label": "__alternative_explanation_af393c58",
+      "id": "github:superconductivity_electron_liquids::__implication_result_40898892",
+      "label": "__implication_result_40898892",
       "metadata": {
-        "canonical_name": "alternative_explanation_for(github:superconductivity_electron_liquids::gamma3_vdiagmc)",
-        "generated": true,
-        "generated_kind": "interface_claim",
-        "interface_role": "alternative_explanation",
-        "owning_strategy_id": "lcs_0d5568a3e02db81d",
-        "owning_strategy_type": "abduction",
-        "visibility": "strategy_interface"
-      },
-      "parameters": [],
-      "type": "claim"
-    },
-    {
-      "content": "explains(github:superconductivity_electron_liquids::gamma3_vdiagmc)",
-      "content_hash": "b9d108c26b7c377c8f33c7d4a118fa3fd61b57e5ceb91ec74838f88c9faf66da",
-      "exported": false,
-      "id": "github:superconductivity_electron_liquids::__disjunction_result_3011c50c",
-      "label": "__disjunction_result_3011c50c",
-      "metadata": {
-        "canonical_name": "explains(github:superconductivity_electron_liquids::gamma3_vdiagmc)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::downfolded_bse,github:superconductivity_electron_liquids::downfolded_me_equation)",
         "generated": true,
         "generated_kind": "helper_claim",
-        "helper_kind": "disjunction_result",
+        "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
-        "intermediate_role": "disjunction_result",
-        "owning_strategy_id": "lcs_0d5568a3e02db81d",
-        "owning_strategy_type": "abduction",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_f58bad79727d704d",
+        "owning_strategy_type": "deduction",
+        "prior": 0.97,
         "visibility": "formal_internal"
       },
       "parameters": [],
       "type": "claim"
     },
     {
-      "content": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_3011c50c,github:superconductivity_electron_liquids::gamma3_vdiagmc)",
-      "content_hash": "8860652b24265fefe9ce2e1201a7b22d5f38c7db182e93b5a198475965ba86dd",
+      "content": "implies(github:superconductivity_electron_liquids::downfolded_bse,github:superconductivity_electron_liquids::lambda_microscopic_definition)",
+      "content_hash": "d1867ad5bfa86caa8e0a5d34e86cd1968ffdb3eac79e00615fe2486fd7a8fa44",
       "exported": false,
-      "id": "github:superconductivity_electron_liquids::__equivalence_result_674febbf",
-      "label": "__equivalence_result_674febbf",
+      "id": "github:superconductivity_electron_liquids::__implication_result_25e93df7",
+      "label": "__implication_result_25e93df7",
       "metadata": {
-        "canonical_name": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_3011c50c,github:superconductivity_electron_liquids::gamma3_vdiagmc)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::downfolded_bse,github:superconductivity_electron_liquids::lambda_microscopic_definition)",
         "generated": true,
         "generated_kind": "helper_claim",
-        "helper_kind": "equivalence_result",
+        "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
-        "intermediate_role": "equivalence_result",
-        "owning_strategy_id": "lcs_0d5568a3e02db81d",
-        "owning_strategy_type": "abduction",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_631bf73afd7b3c2b",
+        "owning_strategy_type": "deduction",
+        "prior": 0.96,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::downfolded_bse,github:superconductivity_electron_liquids::mu_microscopic_definition)",
+      "content_hash": "f9a16e346fb770df52d526903e0f0643408c6e9fcdc8e60144ddba714ed041c2",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_ddae658b",
+      "label": "__implication_result_ddae658b",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::downfolded_bse,github:superconductivity_electron_liquids::mu_microscopic_definition)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_fcada5c467641a1f",
+        "owning_strategy_type": "deduction",
+        "prior": 0.96,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::mu_microscopic_definition,github:superconductivity_electron_liquids::mu_scale_independence)",
+      "content_hash": "16fc22a62b4cc5e5da80bb7705ed7d914ed764baca0de6cfa211770c52cd559e",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_eba7d2f7",
+      "label": "__implication_result_eba7d2f7",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::mu_microscopic_definition,github:superconductivity_electron_liquids::mu_scale_independence)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_74cc36aae0bf8f3a",
+        "owning_strategy_type": "deduction",
+        "prior": 0.98,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::mu_microscopic_definition,github:superconductivity_electron_liquids::ma_pseudopotential_justified)",
+      "content_hash": "e822492168abf850723d3c8f01ef1f0cc439353391af506689978355d419123c",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_6c02f798",
+      "label": "__implication_result_6c02f798",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::mu_microscopic_definition,github:superconductivity_electron_liquids::ma_pseudopotential_justified)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_62b405fbc585027b",
+        "owning_strategy_type": "deduction",
+        "prior": 0.95,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::lambda_microscopic_definition,github:superconductivity_electron_liquids::eft_eph_vertex)",
+      "content_hash": "63e888498e3f606775dc9d03ca5989676d9273edea7c89e504e0c03b2286e6ad",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_4d692877",
+      "label": "__implication_result_4d692877",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::lambda_microscopic_definition,github:superconductivity_electron_liquids::eft_eph_vertex)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_82ae945b294b1aea",
+        "owning_strategy_type": "deduction",
+        "prior": 0.97,
         "visibility": "formal_internal"
       },
       "parameters": [],
@@ -1191,8 +1484,29 @@
         "helper_kind": "conjunction_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "conjunction_result",
-        "owning_strategy_id": "lcs_b6ee4a137c86a11c",
+        "owning_strategy_id": "lcs_0ded7afd2f382159",
         "owning_strategy_type": "deduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_7ecef2e5,github:superconductivity_electron_liquids::eft_vertex_matches_dfpt)",
+      "content_hash": "db93e8048e09c299cfd0668fcb7466099333d8181c2e4e41aa51f0226fb1b43e",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_ff4a13fc",
+      "label": "__implication_result_ff4a13fc",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_7ecef2e5,github:superconductivity_electron_liquids::eft_vertex_matches_dfpt)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_0ded7afd2f382159",
+        "owning_strategy_type": "deduction",
+        "prior": 0.93,
         "visibility": "formal_internal"
       },
       "parameters": [],
@@ -1211,8 +1525,29 @@
         "helper_kind": "conjunction_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "conjunction_result",
-        "owning_strategy_id": "lcs_f85d37835e231cee",
+        "owning_strategy_id": "lcs_57276c562c9dee52",
         "owning_strategy_type": "deduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_29fd33aa,github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals)",
+      "content_hash": "a0fc4d28c5afff5c1ee01b07e60291151bd3667d8050c317c9111dd9cd0094d0",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_264cbd9c",
+      "label": "__implication_result_264cbd9c",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_29fd33aa,github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_57276c562c9dee52",
+        "owning_strategy_type": "deduction",
+        "prior": 0.92,
         "visibility": "formal_internal"
       },
       "parameters": [],
@@ -1231,7 +1566,7 @@
         "helper_kind": "conjunction_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "conjunction_result",
-        "owning_strategy_id": "lcs_1507388897bf6b2d",
+        "owning_strategy_id": "lcs_4bab615451eae5de",
         "owning_strategy_type": "deduction",
         "visibility": "formal_internal"
       },
@@ -1239,120 +1574,21 @@
       "type": "claim"
     },
     {
-      "content": "explains(github:superconductivity_electron_liquids::tc_al_experimental)",
-      "content_hash": "d4f0054ec245ad4a18f407cd7368f6e6326889b91af9174ddfc0c78774f3a552",
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_bd1fffb9,github:superconductivity_electron_liquids::ab_initio_workflow)",
+      "content_hash": "e750b25bba2326491386a48f41ff0dcb8d4b5385766969d7eddcfd2aa8b45bd5",
       "exported": false,
-      "id": "github:superconductivity_electron_liquids::__disjunction_result_7506b4f6",
-      "label": "__disjunction_result_7506b4f6",
+      "id": "github:superconductivity_electron_liquids::__implication_result_0ae5063e",
+      "label": "__implication_result_0ae5063e",
       "metadata": {
-        "canonical_name": "explains(github:superconductivity_electron_liquids::tc_al_experimental)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_bd1fffb9,github:superconductivity_electron_liquids::ab_initio_workflow)",
         "generated": true,
         "generated_kind": "helper_claim",
-        "helper_kind": "disjunction_result",
+        "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
-        "intermediate_role": "disjunction_result",
-        "owning_strategy_id": "lcs_15c915bd4b41e74b",
-        "owning_strategy_type": "abduction",
-        "visibility": "formal_internal"
-      },
-      "parameters": [],
-      "type": "claim"
-    },
-    {
-      "content": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_7506b4f6,github:superconductivity_electron_liquids::tc_al_experimental)",
-      "content_hash": "58e13b54bcefd1e88190ed264aa345312eaf481a06310a07a455e8aa5fe7a37b",
-      "exported": false,
-      "id": "github:superconductivity_electron_liquids::__equivalence_result_ac73ad46",
-      "label": "__equivalence_result_ac73ad46",
-      "metadata": {
-        "canonical_name": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_7506b4f6,github:superconductivity_electron_liquids::tc_al_experimental)",
-        "generated": true,
-        "generated_kind": "helper_claim",
-        "helper_kind": "equivalence_result",
-        "helper_visibility": "formal_internal",
-        "intermediate_role": "equivalence_result",
-        "owning_strategy_id": "lcs_15c915bd4b41e74b",
-        "owning_strategy_type": "abduction",
-        "visibility": "formal_internal"
-      },
-      "parameters": [],
-      "type": "claim"
-    },
-    {
-      "content": "explains(github:superconductivity_electron_liquids::tc_zn_experimental)",
-      "content_hash": "6f545f9ec7bd40909b849610dc73d3f4ec7e8118ec3bcc74b6a55f98fd44e3e2",
-      "exported": false,
-      "id": "github:superconductivity_electron_liquids::__disjunction_result_c73c19b4",
-      "label": "__disjunction_result_c73c19b4",
-      "metadata": {
-        "canonical_name": "explains(github:superconductivity_electron_liquids::tc_zn_experimental)",
-        "generated": true,
-        "generated_kind": "helper_claim",
-        "helper_kind": "disjunction_result",
-        "helper_visibility": "formal_internal",
-        "intermediate_role": "disjunction_result",
-        "owning_strategy_id": "lcs_6402146b796724b3",
-        "owning_strategy_type": "abduction",
-        "visibility": "formal_internal"
-      },
-      "parameters": [],
-      "type": "claim"
-    },
-    {
-      "content": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_c73c19b4,github:superconductivity_electron_liquids::tc_zn_experimental)",
-      "content_hash": "d02fe1ea4f32d8b550e695c288aa5a914410887bf4970194ebb08cc957082901",
-      "exported": false,
-      "id": "github:superconductivity_electron_liquids::__equivalence_result_a1be5ef3",
-      "label": "__equivalence_result_a1be5ef3",
-      "metadata": {
-        "canonical_name": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_c73c19b4,github:superconductivity_electron_liquids::tc_zn_experimental)",
-        "generated": true,
-        "generated_kind": "helper_claim",
-        "helper_kind": "equivalence_result",
-        "helper_visibility": "formal_internal",
-        "intermediate_role": "equivalence_result",
-        "owning_strategy_id": "lcs_6402146b796724b3",
-        "owning_strategy_type": "abduction",
-        "visibility": "formal_internal"
-      },
-      "parameters": [],
-      "type": "claim"
-    },
-    {
-      "content": "explains(github:superconductivity_electron_liquids::tc_li_experimental)",
-      "content_hash": "ae6e6d5c45ec12a3813543e2a6641dd9082e96247136947e48c00ba8c9d46ca5",
-      "exported": false,
-      "id": "github:superconductivity_electron_liquids::__disjunction_result_633c49e0",
-      "label": "__disjunction_result_633c49e0",
-      "metadata": {
-        "canonical_name": "explains(github:superconductivity_electron_liquids::tc_li_experimental)",
-        "generated": true,
-        "generated_kind": "helper_claim",
-        "helper_kind": "disjunction_result",
-        "helper_visibility": "formal_internal",
-        "intermediate_role": "disjunction_result",
-        "owning_strategy_id": "lcs_2121c4527acf1a9f",
-        "owning_strategy_type": "abduction",
-        "visibility": "formal_internal"
-      },
-      "parameters": [],
-      "type": "claim"
-    },
-    {
-      "content": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_633c49e0,github:superconductivity_electron_liquids::tc_li_experimental)",
-      "content_hash": "d17a15bd38cb787a0f682ad1b9620080ce9b24e87f3b40d77c4b1a76d310aa39",
-      "exported": false,
-      "id": "github:superconductivity_electron_liquids::__equivalence_result_565ef35b",
-      "label": "__equivalence_result_565ef35b",
-      "metadata": {
-        "canonical_name": "same_truth(github:superconductivity_electron_liquids::__disjunction_result_633c49e0,github:superconductivity_electron_liquids::tc_li_experimental)",
-        "generated": true,
-        "generated_kind": "helper_claim",
-        "helper_kind": "equivalence_result",
-        "helper_visibility": "formal_internal",
-        "intermediate_role": "equivalence_result",
-        "owning_strategy_id": "lcs_2121c4527acf1a9f",
-        "owning_strategy_type": "abduction",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_4bab615451eae5de",
+        "owning_strategy_type": "deduction",
+        "prior": 0.92,
         "visibility": "formal_internal"
       },
       "parameters": [],
@@ -1377,6 +1613,19 @@
   },
   "namespace": "github",
   "operators": [
+    {
+      "conclusion": "github:superconductivity_electron_liquids::_anon_000",
+      "metadata": {
+        "reason": "The downfolded BSE prediction $T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$ (@downfolded_bse_toy_model) and the full BSE numerical result $T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$ (@full_bse_toy_model) differ by only 0.2%, demonstrating quantitative agreement."
+      },
+      "operator": "equivalence",
+      "operator_id": "lco_a605e671ec20f5d4",
+      "scope": "local",
+      "variables": [
+        "github:superconductivity_electron_liquids::downfolded_bse_toy_model",
+        "github:superconductivity_electron_liquids::full_bse_toy_model"
+      ]
+    },
     {
       "conclusion": "github:superconductivity_electron_liquids::bts_microscopic_equivalence",
       "metadata": {
@@ -1415,34 +1664,10 @@
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::me_framework",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_1f14277b",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::adiabatic_approx"
-            ]
-          }
-        ]
-      },
-      "metadata": {
-        "formalization_template": "deduction",
-        "generated_formal_expr": true,
-        "reason": "The adiabatic condition $\\omega_D/E_F \\ll 1$ (@adiabatic_approx) ensures that the ratio of ionic to electronic energy scales is small. Migdal's theorem then proves that phonon vertex corrections beyond the self-consistent Fock level are suppressed by $O(\\omega_D/E_F)$, establishing the Migdal-Eliashberg formalism as a controlled approximation built on the BCS pairing mechanism (@bcs_theory)."
-      },
-      "premises": [
-        "github:superconductivity_electron_liquids::adiabatic_approx"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_3e206d54f58628fd",
-      "type": "deduction"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::bse_kernel_decomposition",
-      "formal_expr": {
-        "operators": [
-          {
-            "conclusion": "github:superconductivity_electron_liquids::bse_kernel_decomposition",
-            "operator": "implication",
-            "variables": [
+              "github:superconductivity_electron_liquids::adiabatic_approx",
               "github:superconductivity_electron_liquids::me_framework"
             ]
           }
@@ -1451,13 +1676,41 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.97,
+        "reason": "The adiabatic condition $\\omega_D/E_F \\ll 1$ (@adiabatic_approx) ensures that the ratio of ionic to electronic energy scales is small. Migdal's theorem then proves that phonon vertex corrections beyond the self-consistent Fock level are suppressed by $O(\\omega_D/E_F)$, establishing the Migdal-Eliashberg formalism as a controlled approximation built on the BCS pairing mechanism (@bcs_theory)."
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::adiabatic_approx"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_9479177dc7606a37",
+      "type": "deduction"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::bse_kernel_decomposition",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_73c21cba",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::me_framework",
+              "github:superconductivity_electron_liquids::bse_kernel_decomposition"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "deduction",
+        "generated_formal_expr": true,
+        "prior": 0.97,
         "reason": "Migdal's theorem (@me_framework) guarantees that phonon vertex corrections to the BSE kernel are suppressed at $O(\\omega_D/E_F)$. This allows the full particle-particle irreducible kernel to be separated into a purely electronic four-point vertex $\\tilde\\Gamma^e$ (which encodes all non-perturbative Coulomb correlations and is independent of phonon details) and the phonon-mediated interaction $W^{\\mathrm{ph}}$ (which includes the dressed phonon propagator, bare coupling, electronic screening, and vertex corrections). Cross terms between these two contributions are higher order in $\\omega_D/E_F$ and can be neglected."
       },
       "premises": [
         "github:superconductivity_electron_liquids::me_framework"
       ],
       "scope": "local",
-      "strategy_id": "lcs_93bdfd4105be6933",
+      "strategy_id": "lcs_7ade2157c52ec90d",
       "type": "deduction"
     },
     {
@@ -1466,57 +1719,16 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::full_bse_toy_model",
       "metadata": {
-        "reason": "Using the Bethe-Salpeter equation with the kernel decomposition (@bse_kernel_decomposition) into the electronic four-point vertex (approximated by RPA dynamically screened Coulomb interaction, @rpa_dynamic_screening) and a model phonon-mediated interaction, numerically solve the full frequency-momentum BSE for a toy model at $r_s = 1.92$, $\\omega_D/E_F = 0.005$. The precursory Cooper flow analysis of the solution yields $T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$."
+        "prior": 0.95,
+        "reason": "Using the Bethe-Salpeter equation with the kernel decomposition (@bse_kernel_decomposition) into the electronic four-point vertex (approximated by RPA dynamically screened Coulomb interaction, @rpa_dynamic_screening) and a model phonon-mediated interaction, numerically solve the full frequency-momentum BSE for a toy model at $r_s = 1.92$, $\\omega_D/E_F = 0.005$. The precursory Cooper flow analysis of the solution yields $T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$.",
+        "reverse_reason": ""
       },
       "premises": [
         "github:superconductivity_electron_liquids::bse_kernel_decomposition"
       ],
       "scope": "local",
-      "strategy_id": "lcs_2162955b029b10c4",
-      "type": "noisy_and"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::downfolded_bse_toy_model",
-      "formal_expr": {
-        "operators": [
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__disjunction_result_86910926",
-            "operator": "disjunction",
-            "variables": [
-              "github:superconductivity_electron_liquids::downfolded_bse_toy_model",
-              "github:superconductivity_electron_liquids::__alternative_explanation_ddfe26b1"
-            ]
-          },
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__equivalence_result_27a5500e",
-            "operator": "equivalence",
-            "variables": [
-              "github:superconductivity_electron_liquids::__disjunction_result_86910926",
-              "github:superconductivity_electron_liquids::full_bse_toy_model"
-            ]
-          }
-        ]
-      },
-      "metadata": {
-        "formalization_template": "abduction",
-        "generated_formal_expr": true,
-        "interface_roles": {
-          "alternative_explanation": [
-            "github:superconductivity_electron_liquids::__alternative_explanation_ddfe26b1"
-          ],
-          "observation": [
-            "github:superconductivity_electron_liquids::full_bse_toy_model"
-          ]
-        },
-        "reason": "The full BSE numerical solution gives $T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$ (@full_bse_toy_model), while the downfolded BSE gives $T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$ (@downfolded_bse_toy_model). The two differ by only 0.2%, demonstrating that the downfolding approximation is quantitatively accurate for conventional metal parameters."
-      },
-      "premises": [
-        "github:superconductivity_electron_liquids::full_bse_toy_model",
-        "github:superconductivity_electron_liquids::__alternative_explanation_ddfe26b1"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_207261089dcd8340",
-      "type": "abduction"
+      "strategy_id": "lcs_1e93e934173cc202",
+      "type": "support"
     },
     {
       "background": [
@@ -1535,10 +1747,11 @@
             ]
           },
           {
-            "conclusion": "github:superconductivity_electron_liquids::downfolded_bse",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_8e8cdd90",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::__conjunction_result_a95f2951"
+              "github:superconductivity_electron_liquids::__conjunction_result_a95f2951",
+              "github:superconductivity_electron_liquids::downfolded_bse"
             ]
           }
         ]
@@ -1546,6 +1759,7 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.96,
         "reason": "Starting from the full BSE with kernel decomposed into $\\tilde\\Gamma^e + W^{\\mathrm{ph}}$ (@bse_kernel_decomposition), we substitute the exact pair propagator decomposition (@pair_propagator_decomposition) which splits $GG$ into a BCS-like coherent piece $\\Pi_{\\mathrm{BCS}}$ and an incoherent remainder $\\phi$. The coherent piece carries the Cooper logarithm and defines the low-energy pairing channel. Momentum summation over the coherent part yields a frequency-only kernel. The cross terms mixing Coulomb and phonon channels are suppressed at $O(\\omega_c^2/\\omega_p^2)$ (@cross_term_suppressed), justifying their neglect. Under the adiabatic condition (@adiabatic_approx), residual phonon vertex corrections are negligible. The result is a one-dimensional integral equation in Matsubara frequency with microscopically defined $\\lambda$ and $\\mu_{\\omega_c}$ kernels."
       },
       "premises": [
@@ -1553,7 +1767,7 @@
         "github:superconductivity_electron_liquids::bse_kernel_decomposition"
       ],
       "scope": "local",
-      "strategy_id": "lcs_214dced6a4b6b2c2",
+      "strategy_id": "lcs_094786e530645475",
       "type": "deduction"
     },
     {
@@ -1561,15 +1775,30 @@
         "github:superconductivity_electron_liquids::rpa_dynamic_screening"
       ],
       "conclusion": "github:superconductivity_electron_liquids::downfolded_bse_toy_model",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_c9db0e28",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::downfolded_bse",
+              "github:superconductivity_electron_liquids::downfolded_bse_toy_model"
+            ]
+          }
+        ]
+      },
       "metadata": {
+        "formalization_template": "deduction",
+        "generated_formal_expr": true,
+        "prior": 0.95,
         "reason": "Apply the downfolded frequency-only BSE (@downfolded_bse) to the same toy model (RPA dynamically screened Coulomb interaction @rpa_dynamic_screening, $r_s = 1.92$, $\\omega_D/E_F = 0.005$). Solving the frequency-only equation yields $T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$."
       },
       "premises": [
         "github:superconductivity_electron_liquids::downfolded_bse"
       ],
       "scope": "local",
-      "strategy_id": "lcs_b320609fe2d1e32f",
-      "type": "noisy_and"
+      "strategy_id": "lcs_ec0e1b6cb630ea9d",
+      "type": "deduction"
     },
     {
       "background": [
@@ -1579,10 +1808,11 @@
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::downfolded_me_equation",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_40898892",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::downfolded_bse"
+              "github:superconductivity_electron_liquids::downfolded_bse",
+              "github:superconductivity_electron_liquids::downfolded_me_equation"
             ]
           }
         ]
@@ -1590,13 +1820,14 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.97,
         "reason": "Starting from the downfolded BSE (@downfolded_bse), consider the behavior near the Cooper instability. The precursory Cooper flow (@precursory_cooper_flow) shows that the anomalous vertex diverges as $\\Lambda \\sim \\Delta/(T - T_c)$ when $T \\to T_c$. Substituting this scaling into the downfolded BSE, the source term $\\eta$ becomes negligible compared to the diverging vertex, and the $(T - T_c)^{-1}$ prefactor cancels on both sides. The result is the linearized gap equation — identical in form to the traditional ME equation, but now with $\\mu^*$ and $\\lambda$ having precise microscopic definitions from the downfolding."
       },
       "premises": [
         "github:superconductivity_electron_liquids::downfolded_bse"
       ],
       "scope": "local",
-      "strategy_id": "lcs_221af0b8b744e07f",
+      "strategy_id": "lcs_f58bad79727d704d",
       "type": "deduction"
     },
     {
@@ -1607,10 +1838,11 @@
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::lambda_microscopic_definition",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_25e93df7",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::downfolded_bse"
+              "github:superconductivity_electron_liquids::downfolded_bse",
+              "github:superconductivity_electron_liquids::lambda_microscopic_definition"
             ]
           }
         ]
@@ -1618,13 +1850,14 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.96,
         "reason": "The downfolded BSE (@downfolded_bse) expresses the pairing kernel as $K = \\lambda - \\mu_{\\omega_c}$. The phonon-mediated part $\\lambda(\\omega, \\omega')$ arises from projecting $W^{\\mathrm{ph}}$ (the phonon-mediated interaction from the electron-phonon action decomposition, @electron_phonon_action) onto the Fermi surface using the coherent part of the pair propagator. The counterterm $S_{\\mathrm{CT}}$ in the action ensures no double-counting of the static screening already included in the physical phonon dispersion. The resulting expression for $\\lambda$ involves the Fermi-surface average of $W^{\\mathrm{ph}}$ weighted by quasiparticle factors, providing a controlled microscopic definition that generalizes the standard Eliashberg coupling constant."
       },
       "premises": [
         "github:superconductivity_electron_liquids::downfolded_bse"
       ],
       "scope": "local",
-      "strategy_id": "lcs_978be796ca522156",
+      "strategy_id": "lcs_631bf73afd7b3c2b",
       "type": "deduction"
     },
     {
@@ -1632,34 +1865,10 @@
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::mu_microscopic_definition",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_ddae658b",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::downfolded_bse"
-            ]
-          }
-        ]
-      },
-      "metadata": {
-        "formalization_template": "deduction",
-        "generated_formal_expr": true,
-        "reason": "The downfolded BSE (@downfolded_bse) separates the pairing kernel into phonon ($\\lambda$) and Coulomb ($\\mu_{\\omega_c}$) contributions. The Coulomb part is obtained by projecting the purely electronic irreducible four-point vertex $\\tilde\\Gamma^e$ from the BSE kernel onto the Fermi surface, with frequency integration restricted to the range above $\\omega_c$ handled by the incoherent part of the pair propagator. This construction defines $\\mu_{\\omega_c}$ as a functional of $\\tilde\\Gamma^e$ — the quantity that encodes all non-perturbative Coulomb correlations — evaluated at a specific energy scale, without any phenomenological input."
-      },
-      "premises": [
-        "github:superconductivity_electron_liquids::downfolded_bse"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_eeb50a6b6b827e42",
-      "type": "deduction"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::mu_scale_independence",
-      "formal_expr": {
-        "operators": [
-          {
-            "conclusion": "github:superconductivity_electron_liquids::mu_scale_independence",
-            "operator": "implication",
-            "variables": [
+              "github:superconductivity_electron_liquids::downfolded_bse",
               "github:superconductivity_electron_liquids::mu_microscopic_definition"
             ]
           }
@@ -1668,13 +1877,41 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.96,
+        "reason": "The downfolded BSE (@downfolded_bse) separates the pairing kernel into phonon ($\\lambda$) and Coulomb ($\\mu_{\\omega_c}$) contributions. The Coulomb part is obtained by projecting the purely electronic irreducible four-point vertex $\\tilde\\Gamma^e$ from the BSE kernel onto the Fermi surface, with frequency integration restricted to the range above $\\omega_c$ handled by the incoherent part of the pair propagator. This construction defines $\\mu_{\\omega_c}$ as a functional of $\\tilde\\Gamma^e$ — the quantity that encodes all non-perturbative Coulomb correlations — evaluated at a specific energy scale, without any phenomenological input."
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::downfolded_bse"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_fcada5c467641a1f",
+      "type": "deduction"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::mu_scale_independence",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_eba7d2f7",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::mu_microscopic_definition",
+              "github:superconductivity_electron_liquids::mu_scale_independence"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "deduction",
+        "generated_formal_expr": true,
+        "prior": 0.98,
         "reason": "Given the microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) as a Fermi-surface projection of $\\tilde\\Gamma^e$ with a cutoff at $\\omega_c$, we can examine how $\\mu$ transforms when $\\omega_c$ is varied. Shifting the cutoff from $\\omega_c'$ to $\\omega_c$ transfers spectral weight between the explicit Coulomb kernel and the BCS Cooper logarithm $\\ln(\\omega_c'/T)$ in the coherent pair propagator. Requiring that the physical observable ($T_c$) remain invariant under this reshuffling yields the BTS relation $\\mu_{\\omega_c} = \\mu_{\\omega_c'} / (1 + \\mu_{\\omega_c'} \\ln(\\omega_c'/\\omega_c))$ as an exact consequence of the downfolded theory's structure, rather than an ad hoc ansatz."
       },
       "premises": [
         "github:superconductivity_electron_liquids::mu_microscopic_definition"
       ],
       "scope": "local",
-      "strategy_id": "lcs_34b96c55bbdd1dc4",
+      "strategy_id": "lcs_74cc36aae0bf8f3a",
       "type": "deduction"
     },
     {
@@ -1685,10 +1922,11 @@
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::ma_pseudopotential_justified",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_6c02f798",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::mu_microscopic_definition"
+              "github:superconductivity_electron_liquids::mu_microscopic_definition",
+              "github:superconductivity_electron_liquids::ma_pseudopotential_justified"
             ]
           }
         ]
@@ -1696,13 +1934,14 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.95,
         "reason": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) shows it is determined by the electronic four-point vertex $\\tilde\\Gamma^e$, which varies on the scale of $E_F$. Within the low-energy window $|\\omega|, |\\omega'| < \\omega_c$ where $\\omega_c \\ll E_F$, the frequency dependence of $\\tilde\\Gamma^e$ is negligible, so $\\mu_{\\omega_c}(\\omega, \\omega') \\approx \\mu_{\\omega_c}$ becomes effectively a constant. This provides a first-principles justification for the phenomenological Morel-Anderson ansatz (@mu_star_phenomenological) that treats $\\mu^*$ as a single number rather than a frequency-dependent kernel. The justification holds precisely because the energy-scale hierarchy $\\omega_c \\ll E_F$ is maintained."
       },
       "premises": [
         "github:superconductivity_electron_liquids::mu_microscopic_definition"
       ],
       "scope": "local",
-      "strategy_id": "lcs_dcdf48529ab6ab45",
+      "strategy_id": "lcs_62b405fbc585027b",
       "type": "deduction"
     },
     {
@@ -1713,25 +1952,28 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
       "metadata": {
-        "reason": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) provides a controlled, systematically improvable approach by stochastically sampling Feynman diagrams with bold-line propagators. The homotopic expansion (@homotopic_expansion) dramatically improves convergence by reorganizing the series through a continuous deformation of the bare interaction, enabling convergence at modest diagram orders. Together, these yield numerically exact values of $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale, producing values in the range 0.12--0.18 that are consistent with the empirical range but now microscopically grounded."
+        "prior": 0.9,
+        "reason": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) provides a controlled, systematically improvable approach by stochastically sampling Feynman diagrams with bold-line propagators. The homotopic expansion (@homotopic_expansion) dramatically improves convergence by reorganizing the series through a continuous deformation of the bare interaction, enabling convergence at modest diagram orders. Together, these yield numerically exact values of $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale, producing values in the range 0.12--0.18 that are consistent with the empirical range but now microscopically grounded.",
+        "reverse_reason": ""
       },
       "premises": [
         "github:superconductivity_electron_liquids::vdiagmc_method",
         "github:superconductivity_electron_liquids::homotopic_expansion"
       ],
       "scope": "local",
-      "strategy_id": "lcs_2910f673ed89f025",
-      "type": "noisy_and"
+      "strategy_id": "lcs_5c8141afcb9ad653",
+      "type": "support"
     },
     {
       "conclusion": "github:superconductivity_electron_liquids::eft_eph_vertex",
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::eft_eph_vertex",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_4d692877",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::lambda_microscopic_definition"
+              "github:superconductivity_electron_liquids::lambda_microscopic_definition",
+              "github:superconductivity_electron_liquids::eft_eph_vertex"
             ]
           }
         ]
@@ -1739,113 +1981,58 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.97,
         "reason": "The microscopic definition of $\\lambda$ (@lambda_microscopic_definition) involves the Fermi-surface average of $W^{\\mathrm{ph}}$ weighted by quasiparticle factors. Expanding $W^{\\mathrm{ph}}$ in terms of the phonon propagator and electron-phonon vertices, and factoring out the quasiparticle weight $z^e$ from the pair propagator coherent part, yields the EFT vertex $g(k,q) = z^e \\cdot \\Gamma_3^e(k,q) \\cdot g_0(k,q)$."
       },
       "premises": [
         "github:superconductivity_electron_liquids::lambda_microscopic_definition"
       ],
       "scope": "local",
-      "strategy_id": "lcs_a3cfbd271b976f2b",
+      "strategy_id": "lcs_82ae945b294b1aea",
       "type": "deduction"
     },
     {
       "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
-      "formal_expr": {
-        "operators": [
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__disjunction_result_da7cd42e",
-            "operator": "disjunction",
-            "variables": [
-              "github:superconductivity_electron_liquids::gamma3_approximation",
-              "github:superconductivity_electron_liquids::__alternative_explanation_f7187cd2"
-            ]
-          },
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__equivalence_result_7bae0d28",
-            "operator": "equivalence",
-            "variables": [
-              "github:superconductivity_electron_liquids::__disjunction_result_da7cd42e",
-              "github:superconductivity_electron_liquids::ward_identity"
-            ]
-          }
-        ]
-      },
       "metadata": {
-        "formalization_template": "abduction",
-        "generated_formal_expr": true,
-        "interface_roles": {
-          "alternative_explanation": [
-            "github:superconductivity_electron_liquids::__alternative_explanation_f7187cd2"
-          ],
-          "observation": [
-            "github:superconductivity_electron_liquids::ward_identity"
-          ]
-        }
+        "prior": 0.95,
+        "reason": "The Ward identity (@ward_identity) provides the exact value of $\\Gamma_3^e$ at $q = 0$: $\\Gamma_3^e(k, 0) = m^*/m$. This exact constraint anchors the approximation at zero momentum transfer.",
+        "reverse_reason": ""
       },
       "premises": [
-        "github:superconductivity_electron_liquids::ward_identity",
-        "github:superconductivity_electron_liquids::__alternative_explanation_f7187cd2"
+        "github:superconductivity_electron_liquids::ward_identity"
       ],
       "scope": "local",
-      "strategy_id": "lcs_0fe992238b295e72",
-      "type": "abduction"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
-      "formal_expr": {
-        "operators": [
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__disjunction_result_3011c50c",
-            "operator": "disjunction",
-            "variables": [
-              "github:superconductivity_electron_liquids::gamma3_approximation",
-              "github:superconductivity_electron_liquids::__alternative_explanation_af393c58"
-            ]
-          },
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__equivalence_result_674febbf",
-            "operator": "equivalence",
-            "variables": [
-              "github:superconductivity_electron_liquids::__disjunction_result_3011c50c",
-              "github:superconductivity_electron_liquids::gamma3_vdiagmc"
-            ]
-          }
-        ]
-      },
-      "metadata": {
-        "formalization_template": "abduction",
-        "generated_formal_expr": true,
-        "interface_roles": {
-          "alternative_explanation": [
-            "github:superconductivity_electron_liquids::__alternative_explanation_af393c58"
-          ],
-          "observation": [
-            "github:superconductivity_electron_liquids::gamma3_vdiagmc"
-          ]
-        }
-      },
-      "premises": [
-        "github:superconductivity_electron_liquids::gamma3_vdiagmc",
-        "github:superconductivity_electron_liquids::__alternative_explanation_af393c58"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_0d5568a3e02db81d",
-      "type": "abduction"
+      "strategy_id": "lcs_680c694c96b5f2f7",
+      "type": "support"
     },
     {
       "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
       "metadata": {
-        "reason": "The Ward identity (@ward_identity) provides the exact value of $\\Gamma_3^e$ at $q = 0$: $\\Gamma_3^e(k, 0) = m^*/m$. The vDiagMC computation (@gamma3_vdiagmc) shows that at finite $q$ within the Fermi sphere, vertex corrections remain modest (10--20%) and vary smoothly with momentum. By interpolating between the exact $q = 0$ constraint and the numerically determined finite-$q$ behavior, we obtain a reliable approximation $\\Gamma_3^e \\approx m^*/m$ that captures the dominant effect (mass renormalization) while bounding the error from momentum dependence at the 10--15% level."
+        "prior": 0.88,
+        "reason": "The vDiagMC computation (@gamma3_vdiagmc) shows that at finite $q$ within the Fermi sphere, vertex corrections remain modest (10--20%) and vary smoothly with momentum, supporting the approximation $\\Gamma_3^e \\approx m^*/m$ across the relevant momentum range.",
+        "reverse_reason": ""
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::gamma3_vdiagmc"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_99d232145f02cab6",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
+      "metadata": {
+        "reason": "The Ward identity provides the exact value at $q = 0$ and the vDiagMC computation confirms smooth, modest variations at finite $q$. By interpolating between these two controlled limits, we obtain a reliable approximation $\\Gamma_3^e \\approx m^*/m$ that captures the dominant effect (mass renormalization) while bounding the error from momentum dependence at the 10--15% level."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ward_identity",
         "github:superconductivity_electron_liquids::gamma3_vdiagmc"
       ],
       "scope": "local",
-      "strategy_id": "lcs_a37da6195874d921",
+      "strategy_id": "lcs_b62ac3dec059f530",
       "sub_strategies": [
-        "lcs_0fe992238b295e72",
-        "lcs_0d5568a3e02db81d"
+        "lcs_680c694c96b5f2f7",
+        "lcs_99d232145f02cab6"
       ],
       "type": "induction"
     },
@@ -1865,10 +2052,11 @@
             ]
           },
           {
-            "conclusion": "github:superconductivity_electron_liquids::eft_vertex_matches_dfpt",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_ff4a13fc",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::__conjunction_result_7ecef2e5"
+              "github:superconductivity_electron_liquids::__conjunction_result_7ecef2e5",
+              "github:superconductivity_electron_liquids::eft_vertex_matches_dfpt"
             ]
           }
         ]
@@ -1876,6 +2064,7 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.93,
         "reason": "Substituting the approximate $\\Gamma_3^e \\approx m^*/m$ (@gamma3_approximation) into the EFT vertex expression (@eft_eph_vertex) $g = z^e \\cdot \\Gamma_3^e \\cdot g_0$, and using the Migdal relation $z^e \\approx m/m^*$, the product $z^e \\cdot \\Gamma_3^e \\approx (m/m^*)(m^*/m) = 1$. This means $g(k,q) \\approx g_0(k,q)$, which after screening gives exactly the DFPT Kohn-Sham expression (@dfpt_eph_ansatz) $g^{\\mathrm{KS}}(q)$. The vertex-level agreement holds for $|q| \\leq 2k_F$ with weak residual $k$-dependence."
       },
       "premises": [
@@ -1883,7 +2072,7 @@
         "github:superconductivity_electron_liquids::gamma3_approximation"
       ],
       "scope": "local",
-      "strategy_id": "lcs_b6ee4a137c86a11c",
+      "strategy_id": "lcs_0ded7afd2f382159",
       "type": "deduction"
     },
     {
@@ -1902,10 +2091,11 @@
             ]
           },
           {
-            "conclusion": "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_264cbd9c",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::__conjunction_result_29fd33aa"
+              "github:superconductivity_electron_liquids::__conjunction_result_29fd33aa",
+              "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals"
             ]
           }
         ]
@@ -1913,6 +2103,7 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.92,
         "reason": "The vertex-level agreement $g \\approx g^{\\mathrm{KS}}$ (@eft_vertex_matches_dfpt) ensures the electron-phonon matrix elements match. To obtain $\\lambda$, these must be combined with the density of states: EFT uses the quasiparticle $N_F^*$ while DFPT (@dfpt_computes_lambda) uses the band $N_F^{(0)}$. Since $m^*/m \\approx 1$ (@quasiparticle_mass_near_unity), we have $N_F^* \\approx N_F^{(0)}$, and therefore $\\lambda_{\\mathrm{EFT}} \\approx \\lambda_{\\mathrm{DFPT}}$."
       },
       "premises": [
@@ -1920,7 +2111,7 @@
         "github:superconductivity_electron_liquids::quasiparticle_mass_near_unity"
       ],
       "scope": "local",
-      "strategy_id": "lcs_f85d37835e231cee",
+      "strategy_id": "lcs_57276c562c9dee52",
       "type": "deduction"
     },
     {
@@ -1931,10 +2122,10 @@
         "github:superconductivity_electron_liquids::quasiparticle_mass_near_unity"
       ],
       "scope": "local",
-      "strategy_id": "lcs_6299853d3f9421d5",
+      "strategy_id": "lcs_2ebc44fdadc34f75",
       "sub_strategies": [
-        "lcs_b6ee4a137c86a11c",
-        "lcs_f85d37835e231cee"
+        "lcs_0ded7afd2f382159",
+        "lcs_57276c562c9dee52"
       ],
       "type": "infer"
     },
@@ -1945,15 +2136,17 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::mu_available_for_simple_metals",
       "metadata": {
-        "reason": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency."
+        "prior": 0.88,
+        "reason": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency.",
+        "reverse_reason": ""
       },
       "premises": [
         "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
         "github:superconductivity_electron_liquids::mu_vdiagmc_values"
       ],
       "scope": "local",
-      "strategy_id": "lcs_32278691afdddfcb",
-      "type": "noisy_and"
+      "strategy_id": "lcs_679508a7ed27fd9e",
+      "type": "support"
     },
     {
       "conclusion": "github:superconductivity_electron_liquids::ab_initio_workflow",
@@ -1969,10 +2162,11 @@
             ]
           },
           {
-            "conclusion": "github:superconductivity_electron_liquids::ab_initio_workflow",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_0ae5063e",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::__conjunction_result_bd1fffb9"
+              "github:superconductivity_electron_liquids::__conjunction_result_bd1fffb9",
+              "github:superconductivity_electron_liquids::ab_initio_workflow"
             ]
           }
         ]
@@ -1980,6 +2174,7 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
+        "prior": 0.92,
         "reason": "The downfolded BSE (@downfolded_bse) provides the theoretical equation requiring two microscopic inputs: $\\mu^*$ and $\\lambda$. Both are now available from first principles — $\\mu^*$ from the UEG parameterization (@mu_available_for_simple_metals) and $\\lambda$ from validated DFPT (@dfpt_reliable_for_simple_metals). With all components determined from first principles, the workflow is complete and parameter-free."
       },
       "premises": [
@@ -1988,7 +2183,7 @@
         "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals"
       ],
       "scope": "local",
-      "strategy_id": "lcs_1507388897bf6b2d",
+      "strategy_id": "lcs_4bab615451eae5de",
       "type": "deduction"
     },
     {
@@ -2004,10 +2199,10 @@
         "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization"
       ],
       "scope": "local",
-      "strategy_id": "lcs_0c9c6d546aa52336",
+      "strategy_id": "lcs_881f23b0f933a928",
       "sub_strategies": [
-        "lcs_32278691afdddfcb",
-        "lcs_1507388897bf6b2d"
+        "lcs_679508a7ed27fd9e",
+        "lcs_4bab615451eae5de"
       ],
       "type": "infer"
     },
@@ -2017,14 +2212,16 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_al_predicted",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum with its material parameters (@aluminum_parameters): $r_s = 2.07$ with band mass $m_b = 1.05$ gives $\\mu^* = 0.13$ from the vDiagMC parameterization via BTS renormalization. Combined with the DFPT $\\lambda = 0.44$ and $\\omega_{\\mathrm{log}} = 320$ K, solving the Eliashberg equations yields $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value of 1.2 K."
+        "prior": 0.85,
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum with its material parameters (@aluminum_parameters): $r_s = 2.07$ with band mass $m_b = 1.05$ gives $\\mu^* = 0.13$ from the vDiagMC parameterization via BTS renormalization. Combined with the DFPT $\\lambda = 0.44$ and $\\omega_{\\mathrm{log}} = 320$ K, solving the Eliashberg equations yields $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value of 1.2 K.",
+        "reverse_reason": ""
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_60db1a5c2094b4c0",
-      "type": "noisy_and"
+      "strategy_id": "lcs_cc663e34cccd988f",
+      "type": "support"
     },
     {
       "background": [
@@ -2032,14 +2229,16 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_zn_predicted",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to zinc with its material parameters (@zinc_parameters): $r_s = 2.90$ with band mass $m_b = 1.0$ gives $\\mu^* = 0.12$ via BTS. Combined with $\\lambda = 0.502$ and $\\omega_{\\mathrm{log}} = 111$ K from DFPT, the predicted $T_c^{\\mathrm{EFT}} = 0.874$ K is in excellent agreement with the experimental value of 0.875 K."
+        "prior": 0.85,
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to zinc with its material parameters (@zinc_parameters): $r_s = 2.90$ with band mass $m_b = 1.0$ gives $\\mu^* = 0.12$ via BTS. Combined with $\\lambda = 0.502$ and $\\omega_{\\mathrm{log}} = 111$ K from DFPT, the predicted $T_c^{\\mathrm{EFT}} = 0.874$ K is in excellent agreement with the experimental value of 0.875 K.",
+        "reverse_reason": ""
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_486d348e815bab4c",
-      "type": "noisy_and"
+      "strategy_id": "lcs_c771a7cb80470927",
+      "type": "support"
     },
     {
       "background": [
@@ -2047,14 +2246,16 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_li_predicted",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to lithium (9R structure) with its material parameters (@lithium_parameters): $r_s = 3.25$ with band mass $m_b = 1.75$ gives $\\mu^* = 0.18$ via BTS. Despite a moderate $\\lambda = 0.34$ from DFPT, the large $\\mu^*$ nearly cancels the effective pairing interaction, making the dimensionless coupling $g = \\lambda - \\mu^*(1+0.62\\lambda)$ very small. The exponential sensitivity $T_c \\propto \\exp(-1/g)$ drives $T_c$ to $5 \\times 10^{-3}$ K, within an order of magnitude of the experimental value $4 \\times 10^{-4}$ K."
+        "prior": 0.8,
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to lithium (9R structure) with its material parameters (@lithium_parameters): $r_s = 3.25$ with band mass $m_b = 1.75$ gives $\\mu^* = 0.18$ via BTS. Despite a moderate $\\lambda = 0.34$ from DFPT, the large $\\mu^*$ nearly cancels the effective pairing interaction, making the dimensionless coupling $g = \\lambda - \\mu^*(1+0.62\\lambda)$ very small. The exponential sensitivity $T_c \\propto \\exp(-1/g)$ drives $T_c$ to $5 \\times 10^{-3}$ K, within an order of magnitude of the experimental value $4 \\times 10^{-4}$ K.",
+        "reverse_reason": ""
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_a0804d50857edd40",
-      "type": "noisy_and"
+      "strategy_id": "lcs_4ba0980a078d3d4b",
+      "type": "support"
     },
     {
       "background": [
@@ -2062,14 +2263,16 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::al_pressure_transition",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum under varying hydrostatic pressure (@aluminum_parameters): as pressure increases, $r_s$ decreases (higher electron density), modifying both $\\mu^*$ and $\\lambda$. The net effect is a monotonic decrease in $T_c$, accurately capturing the experimental trend from ambient to 6 GPa. Extrapolating beyond experimental data, the framework predicts SC vanishes at ~60 GPa, with $T_c < 1$ mK already at 20 GPa."
+        "prior": 0.8,
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum under varying hydrostatic pressure (@aluminum_parameters): as pressure increases, $r_s$ decreases (higher electron density), modifying both $\\mu^*$ and $\\lambda$. The net effect is a monotonic decrease in $T_c$, accurately capturing the experimental trend from ambient to 6 GPa. Extrapolating beyond experimental data, the framework predicts SC vanishes at ~60 GPa, with $T_c < 1$ mK already at 20 GPa.",
+        "reverse_reason": ""
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_98d40fb69c156644",
-      "type": "noisy_and"
+      "strategy_id": "lcs_405646f714cad946",
+      "type": "support"
     },
     {
       "background": [
@@ -2079,142 +2282,171 @@
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_mg_na_near_qpt",
       "metadata": {
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to sodium (@sodium_parameters) and magnesium (@magnesium_parameters): Na has $r_s = 3.96$, yielding $\\mu^* = 0.15$ which nearly cancels its weak $\\lambda = 0.2$, giving $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no superconductivity). Mg has $r_s = 2.66$, yielding $\\mu^* = 0.14$ which nearly cancels $\\lambda = 0.24$, giving $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. The precursory Cooper flow formalism (@precursory_cooper_flow) shows that near the quantum phase transition ($g \\to 0$), $T_c = \\omega_\\Lambda e^{1/g}$ is exponentially sensitive to the coupling, explaining why small parameter variations can toggle between superconducting and non-superconducting ground states."
+        "prior": 0.8,
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to sodium (@sodium_parameters) and magnesium (@magnesium_parameters): Na has $r_s = 3.96$, yielding $\\mu^* = 0.15$ which nearly cancels its weak $\\lambda = 0.2$, giving $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no superconductivity). Mg has $r_s = 2.66$, yielding $\\mu^* = 0.14$ which nearly cancels $\\lambda = 0.24$, giving $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. The precursory Cooper flow formalism (@precursory_cooper_flow) shows that near the quantum phase transition ($g \\to 0$), $T_c = \\omega_\\Lambda e^{1/g}$ is exponentially sensitive to the coupling, explaining why small parameter variations can toggle between superconducting and non-superconducting ground states.",
+        "reverse_reason": ""
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_6bdd4733cd8b2dd4",
-      "type": "noisy_and"
+      "strategy_id": "lcs_735c84fb06c02975",
+      "type": "support"
     },
     {
-      "conclusion": "github:superconductivity_electron_liquids::tc_al_predicted",
-      "formal_expr": {
-        "operators": [
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__disjunction_result_7506b4f6",
-            "operator": "disjunction",
-            "variables": [
-              "github:superconductivity_electron_liquids::tc_al_predicted",
-              "github:superconductivity_electron_liquids::tc_al_phenomenological"
-            ]
-          },
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__equivalence_result_ac73ad46",
-            "operator": "equivalence",
-            "variables": [
-              "github:superconductivity_electron_liquids::__disjunction_result_7506b4f6",
-              "github:superconductivity_electron_liquids::tc_al_experimental"
-            ]
-          }
-        ]
-      },
+      "conclusion": "github:superconductivity_electron_liquids::tc_al_phenomenological",
       "metadata": {
-        "formalization_template": "abduction",
-        "generated_formal_expr": true,
-        "interface_roles": {
-          "alternative_explanation": [
-            "github:superconductivity_electron_liquids::tc_al_phenomenological"
-          ],
-          "observation": [
-            "github:superconductivity_electron_liquids::tc_al_experimental"
-          ]
-        },
+        "prior": 0.35,
+        "reason": "The phenomenological McMillan prediction for aluminum uses DFPT-computed $\\lambda$ (@dfpt_computes_lambda) and the standard empirical value $\\mu^* = 0.1$ (@mu_star_phenomenological) to predict $T_c \\approx 1.9$ K.",
+        "reverse_reason": ""
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+        "github:superconductivity_electron_liquids::mu_star_phenomenological"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_11232342e575a122",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::_anon_002",
+      "metadata": {
+        "prior": 0.9,
+        "reason": "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted) is closer to the experimental $T_c = 1.2$ K (@tc_al_experimental) than the phenomenological prediction of 1.9 K (@tc_al_phenomenological), which overestimates by 58%. The ab initio $\\mu^* = 0.13$ correctly reduces $T_c$."
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::tc_al_predicted",
+        "github:superconductivity_electron_liquids::tc_al_phenomenological",
+        "github:superconductivity_electron_liquids::tc_al_experimental"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_5c04275549e290c6",
+      "type": "compare"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::_anon_002",
+      "metadata": {
         "reason": "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) is well reproduced by the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted), which uses no adjustable parameters. The phenomenological prediction (@tc_al_phenomenological) using $\\mu^* = 0.1$ gives 1.9 K, overestimating by 58%. The ab initio approach provides a better explanation because it determines $\\mu^*$ from first principles rather than using an ad hoc value, and the resulting $\\mu^* = 0.13$ is above the standard guess of 0.1, correctly reducing $T_c$ toward the experimental value."
       },
       "premises": [
-        "github:superconductivity_electron_liquids::tc_al_experimental",
-        "github:superconductivity_electron_liquids::tc_al_phenomenological"
+        "github:superconductivity_electron_liquids::ab_initio_workflow",
+        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+        "github:superconductivity_electron_liquids::mu_star_phenomenological",
+        "github:superconductivity_electron_liquids::tc_al_predicted",
+        "github:superconductivity_electron_liquids::tc_al_phenomenological",
+        "github:superconductivity_electron_liquids::tc_al_experimental"
       ],
       "scope": "local",
-      "strategy_id": "lcs_15c915bd4b41e74b",
+      "strategy_id": "lcs_d575c2f6ca42c784",
+      "sub_strategies": [
+        "lcs_cc663e34cccd988f",
+        "lcs_11232342e575a122",
+        "lcs_5c04275549e290c6"
+      ],
       "type": "abduction"
     },
     {
-      "conclusion": "github:superconductivity_electron_liquids::tc_zn_predicted",
-      "formal_expr": {
-        "operators": [
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__disjunction_result_c73c19b4",
-            "operator": "disjunction",
-            "variables": [
-              "github:superconductivity_electron_liquids::tc_zn_predicted",
-              "github:superconductivity_electron_liquids::tc_zn_phenomenological"
-            ]
-          },
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__equivalence_result_a1be5ef3",
-            "operator": "equivalence",
-            "variables": [
-              "github:superconductivity_electron_liquids::__disjunction_result_c73c19b4",
-              "github:superconductivity_electron_liquids::tc_zn_experimental"
-            ]
-          }
-        ]
-      },
+      "conclusion": "github:superconductivity_electron_liquids::tc_zn_phenomenological",
       "metadata": {
-        "formalization_template": "abduction",
-        "generated_formal_expr": true,
-        "interface_roles": {
-          "alternative_explanation": [
-            "github:superconductivity_electron_liquids::tc_zn_phenomenological"
-          ],
-          "observation": [
-            "github:superconductivity_electron_liquids::tc_zn_experimental"
-          ]
-        },
+        "prior": 0.35,
+        "reason": "The phenomenological McMillan prediction for zinc uses DFPT-computed $\\lambda$ (@dfpt_computes_lambda) and the standard empirical value $\\mu^* = 0.1$ (@mu_star_phenomenological) to predict $T_c \\approx 1.37$ K.",
+        "reverse_reason": ""
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+        "github:superconductivity_electron_liquids::mu_star_phenomenological"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_d845485230078c49",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::_anon_004",
+      "metadata": {
+        "prior": 0.95,
+        "reason": "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted) is in near-exact agreement with the experimental $T_c = 0.875$ K (@tc_zn_experimental), while the phenomenological prediction of 1.37 K overestimates by 57%."
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::tc_zn_predicted",
+        "github:superconductivity_electron_liquids::tc_zn_phenomenological",
+        "github:superconductivity_electron_liquids::tc_zn_experimental"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_5206ce8aacc1a3a3",
+      "type": "compare"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::_anon_004",
+      "metadata": {
         "reason": "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) is in excellent agreement with the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted). The phenomenological prediction (@tc_zn_phenomenological) using $\\mu^* = 0.1$ gives 1.37 K, overestimating by 57%. The ab initio $\\mu^* = 0.12$ from $r_s = 2.90$ correctly captures the Coulomb repulsion strength in Zn, bringing the prediction into near-exact agreement with experiment."
       },
       "premises": [
-        "github:superconductivity_electron_liquids::tc_zn_experimental",
-        "github:superconductivity_electron_liquids::tc_zn_phenomenological"
+        "github:superconductivity_electron_liquids::ab_initio_workflow",
+        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+        "github:superconductivity_electron_liquids::mu_star_phenomenological",
+        "github:superconductivity_electron_liquids::tc_zn_predicted",
+        "github:superconductivity_electron_liquids::tc_zn_phenomenological",
+        "github:superconductivity_electron_liquids::tc_zn_experimental"
       ],
       "scope": "local",
-      "strategy_id": "lcs_6402146b796724b3",
+      "strategy_id": "lcs_1c88a20862032bfe",
+      "sub_strategies": [
+        "lcs_c771a7cb80470927",
+        "lcs_d845485230078c49",
+        "lcs_5206ce8aacc1a3a3"
+      ],
       "type": "abduction"
     },
     {
-      "conclusion": "github:superconductivity_electron_liquids::tc_li_predicted",
-      "formal_expr": {
-        "operators": [
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__disjunction_result_633c49e0",
-            "operator": "disjunction",
-            "variables": [
-              "github:superconductivity_electron_liquids::tc_li_predicted",
-              "github:superconductivity_electron_liquids::tc_li_phenomenological"
-            ]
-          },
-          {
-            "conclusion": "github:superconductivity_electron_liquids::__equivalence_result_565ef35b",
-            "operator": "equivalence",
-            "variables": [
-              "github:superconductivity_electron_liquids::__disjunction_result_633c49e0",
-              "github:superconductivity_electron_liquids::tc_li_experimental"
-            ]
-          }
-        ]
-      },
+      "conclusion": "github:superconductivity_electron_liquids::tc_li_phenomenological",
       "metadata": {
-        "formalization_template": "abduction",
-        "generated_formal_expr": true,
-        "interface_roles": {
-          "alternative_explanation": [
-            "github:superconductivity_electron_liquids::tc_li_phenomenological"
-          ],
-          "observation": [
-            "github:superconductivity_electron_liquids::tc_li_experimental"
-          ]
-        },
+        "prior": 0.1,
+        "reason": "The phenomenological McMillan prediction for lithium uses DFPT-computed $\\lambda$ (@dfpt_computes_lambda) and the standard empirical value $\\mu^* = 0.1$ (@mu_star_phenomenological) to predict $T_c \\approx 0.35$ K.",
+        "reverse_reason": ""
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+        "github:superconductivity_electron_liquids::mu_star_phenomenological"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_c135ea064a8e666a",
+      "type": "support"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::_anon_006",
+      "metadata": {
+        "prior": 0.85,
+        "reason": "The ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K (@tc_li_predicted) is within an order of magnitude of the experimental $T_c \\approx 4 \\times 10^{-4}$ K (@tc_li_experimental), while the phenomenological prediction of 0.35 K overestimates by three orders of magnitude. The exponential sensitivity of $T_c$ amplifies the $\\mu^*$ difference."
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::tc_li_predicted",
+        "github:superconductivity_electron_liquids::tc_li_phenomenological",
+        "github:superconductivity_electron_liquids::tc_li_experimental"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_79412c9ed6879fb6",
+      "type": "compare"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::_anon_006",
+      "metadata": {
         "reason": "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K (@tc_li_experimental) is within an order of magnitude of the ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K (@tc_li_predicted, 9R structure). The phenomenological prediction (@tc_li_phenomenological) using $\\mu^* = 0.1$ gives $\\approx 0.35$ K, overestimating by three orders of magnitude. The dramatic improvement of the ab initio approach is because the first-principles $\\mu^* = 0.18$ for lithium ($r_s = 3.25$, $m_b = 1.75$) is significantly larger than the standard guess of 0.1, reflecting the stronger Coulomb repulsion at lower electron density. In the regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ is small, the exponential sensitivity amplifies the $\\mu^*$ difference from 0.08 to nearly three orders of magnitude in $T_c$."
       },
       "premises": [
-        "github:superconductivity_electron_liquids::tc_li_experimental",
-        "github:superconductivity_electron_liquids::tc_li_phenomenological"
+        "github:superconductivity_electron_liquids::ab_initio_workflow",
+        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+        "github:superconductivity_electron_liquids::mu_star_phenomenological",
+        "github:superconductivity_electron_liquids::tc_li_predicted",
+        "github:superconductivity_electron_liquids::tc_li_phenomenological",
+        "github:superconductivity_electron_liquids::tc_li_experimental"
       ],
       "scope": "local",
-      "strategy_id": "lcs_2121c4527acf1a9f",
+      "strategy_id": "lcs_3e67662367aa073d",
+      "sub_strategies": [
+        "lcs_4ba0980a078d3d4b",
+        "lcs_c135ea064a8e666a",
+        "lcs_79412c9ed6879fb6"
+      ],
       "type": "abduction"
     }
   ]
