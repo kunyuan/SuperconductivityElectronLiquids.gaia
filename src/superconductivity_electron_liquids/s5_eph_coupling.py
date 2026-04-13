@@ -6,7 +6,7 @@ via vDiagMC and the Ward identity, and shows that quasiparticle mass renormaliza
 is close to unity.
 """
 
-from gaia.lang import claim, composite, deduction, induction, noisy_and
+from gaia.lang import claim, composite, deduction, induction, support
 
 from .motivation import dfpt_computes_lambda
 from .s3_downfolding import lambda_microscopic_definition
@@ -86,7 +86,7 @@ eft_eph_vertex = claim(
     title="EFT Electron-Phonon Vertex",
 )
 
-# deduction: λ microscopic definition → EFT vertex expression
+# deduction: lambda microscopic definition -> EFT vertex expression
 deduction(
     premises=[lambda_microscopic_definition],
     conclusion=eft_eph_vertex,
@@ -99,6 +99,7 @@ deduction(
         "yields the EFT vertex $g(k,q) = z^e \\cdot \\Gamma_3^e(k,q) \\cdot "
         "g_0(k,q)$."
     ),
+    prior=0.97,
 )
 
 gamma3_approximation = claim(
@@ -113,19 +114,40 @@ gamma3_approximation = claim(
     title="Approximate Gamma_3 within Fermi Sphere",
 )
 
-_induction_gamma3 = induction(
-    [ward_identity, gamma3_vdiagmc],
-    gamma3_approximation,
+_support_ward = support(
+    premises=[ward_identity],
+    conclusion=gamma3_approximation,
     reason=(
         "The Ward identity (@ward_identity) provides the exact value of "
-        "$\\Gamma_3^e$ at $q = 0$: $\\Gamma_3^e(k, 0) = m^*/m$. The vDiagMC "
-        "computation (@gamma3_vdiagmc) shows that at finite $q$ within the "
-        "Fermi sphere, vertex corrections remain modest (10--20%) and vary "
-        "smoothly with momentum. By interpolating between the exact $q = 0$ "
-        "constraint and the numerically determined finite-$q$ behavior, we "
-        "obtain a reliable approximation $\\Gamma_3^e \\approx m^*/m$ that "
-        "captures the dominant effect (mass renormalization) while bounding "
-        "the error from momentum dependence at the 10--15% level."
+        "$\\Gamma_3^e$ at $q = 0$: $\\Gamma_3^e(k, 0) = m^*/m$. This exact "
+        "constraint anchors the approximation at zero momentum transfer."
+    ),
+    prior=0.95,
+)
+
+_support_gamma3_vdiagmc = support(
+    premises=[gamma3_vdiagmc],
+    conclusion=gamma3_approximation,
+    reason=(
+        "The vDiagMC computation (@gamma3_vdiagmc) shows that at finite $q$ "
+        "within the Fermi sphere, vertex corrections remain modest (10--20%) "
+        "and vary smoothly with momentum, supporting the approximation "
+        "$\\Gamma_3^e \\approx m^*/m$ across the relevant momentum range."
+    ),
+    prior=0.88,
+)
+
+_induction_gamma3 = induction(
+    _support_ward,
+    _support_gamma3_vdiagmc,
+    gamma3_approximation,
+    reason=(
+        "The Ward identity provides the exact value at $q = 0$ and the vDiagMC "
+        "computation confirms smooth, modest variations at finite $q$. By "
+        "interpolating between these two controlled limits, we obtain a reliable "
+        "approximation $\\Gamma_3^e \\approx m^*/m$ that captures the dominant "
+        "effect (mass renormalization) while bounding the error from momentum "
+        "dependence at the 10--15% level."
     ),
 )
 
@@ -153,7 +175,7 @@ dfpt_reliable_for_simple_metals = claim(
     title="DFPT Reliable for Simple Metals",
 )
 
-# Sub-step 1: EFT vertex + Γ₃ approximation → vertex-level match
+# Sub-step 1: EFT vertex + Gamma_3 approximation -> vertex-level match
 _s1 = deduction(
     premises=[eft_eph_vertex, gamma3_approximation],
     conclusion=eft_vertex_matches_dfpt,
@@ -169,9 +191,10 @@ _s1 = deduction(
         "$g^{\\mathrm{KS}}(q)$. The vertex-level agreement holds for "
         "$|q| \\leq 2k_F$ with weak residual $k$-dependence."
     ),
+    prior=0.93,
 )
 
-# Sub-step 2: vertex match + mass near unity → λ match
+# Sub-step 2: vertex match + mass near unity -> lambda match
 _s2 = deduction(
     premises=[eft_vertex_matches_dfpt, quasiparticle_mass_near_unity],
     conclusion=dfpt_reliable_for_simple_metals,
@@ -186,6 +209,7 @@ _s2 = deduction(
         "$N_F^* \\approx N_F^{(0)}$, and therefore "
         "$\\lambda_{\\mathrm{EFT}} \\approx \\lambda_{\\mathrm{DFPT}}$."
     ),
+    prior=0.92,
 )
 
 # Composite: preserves coarse view (3 premises → conclusion)

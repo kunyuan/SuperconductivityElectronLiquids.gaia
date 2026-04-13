@@ -60,6 +60,7 @@ deduction(
         "establishing the Migdal-Eliashberg formalism as a controlled "
         "approximation built on the BCS pairing mechanism (@bcs_theory)."
     ),
+    prior=0.97,
 )
 
 bts_renormalization = claim(

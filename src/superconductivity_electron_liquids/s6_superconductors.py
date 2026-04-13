@@ -5,7 +5,8 @@ the first-principles predictions for Al, Zn, Li, Na, and Mg, and confronts
 them with experiment via abduction.
 """
 
-from gaia.lang import abduction, claim, composite, deduction, noisy_and, setting
+from gaia.lang import claim, compare, composite, deduction, setting, support
+from gaia.lang.dsl.strategies import abduction
 
 from .motivation import (
     bts_renormalization,
@@ -123,7 +124,7 @@ mu_available_for_simple_metals = claim(
     title="mu* Available for Simple Metals",
 )
 
-_s1 = noisy_and(
+_s1 = support(
     premises=[ueg_pseudopotential_parameterization, mu_vdiagmc_values],
     conclusion=mu_available_for_simple_metals,
     background=[simple_metals_weak_lattice, bts_renormalization],
@@ -136,6 +137,7 @@ _s1 = noisy_and(
         "The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down "
         "to $\\mu^*$ at the Debye frequency."
     ),
+    prior=0.88,
 )
 
 _s2 = deduction(
@@ -151,6 +153,7 @@ _s2 = deduction(
         "components determined from first principles, the workflow is "
         "complete and parameter-free."
     ),
+    prior=0.92,
 )
 
 _composite_workflow = composite(
@@ -179,7 +182,7 @@ tc_al_predicted = claim(
     },
 )
 
-_strat_tc_al = noisy_and(
+_strat_tc_al = support(
     premises=[ab_initio_workflow],
     conclusion=tc_al_predicted,
     background=[aluminum_parameters],
@@ -192,6 +195,7 @@ _strat_tc_al = noisy_and(
         "the Eliashberg equations yields $T_c^{\\mathrm{EFT}} = 0.96$ K, "
         "in good agreement with the experimental value of 1.2 K."
     ),
+    prior=0.85,
 )
 
 tc_zn_predicted = claim(
@@ -208,7 +212,7 @@ tc_zn_predicted = claim(
     },
 )
 
-_strat_tc_zn = noisy_and(
+_strat_tc_zn = support(
     premises=[ab_initio_workflow],
     conclusion=tc_zn_predicted,
     background=[zinc_parameters],
@@ -221,6 +225,7 @@ _strat_tc_zn = noisy_and(
         "$T_c^{\\mathrm{EFT}} = 0.874$ K is in excellent agreement with "
         "the experimental value of 0.875 K."
     ),
+    prior=0.85,
 )
 
 tc_li_predicted = claim(
@@ -240,7 +245,7 @@ tc_li_predicted = claim(
     },
 )
 
-_strat_tc_li = noisy_and(
+_strat_tc_li = support(
     premises=[ab_initio_workflow],
     conclusion=tc_li_predicted,
     background=[lithium_parameters],
@@ -255,6 +260,7 @@ _strat_tc_li = noisy_and(
         "drives $T_c$ to $5 \\times 10^{-3}$ K, within an order of "
         "magnitude of the experimental value $4 \\times 10^{-4}$ K."
     ),
+    prior=0.80,
 )
 
 al_pressure_transition = claim(
@@ -270,7 +276,7 @@ al_pressure_transition = claim(
     },
 )
 
-_strat_al_pressure = noisy_and(
+_strat_al_pressure = support(
     premises=[ab_initio_workflow],
     conclusion=al_pressure_transition,
     background=[aluminum_parameters],
@@ -284,6 +290,7 @@ _strat_al_pressure = noisy_and(
         "experimental data, the framework predicts SC vanishes at ~60 GPa, "
         "with $T_c < 1$ mK already at 20 GPa."
     ),
+    prior=0.80,
 )
 
 tc_mg_na_near_qpt = claim(
@@ -304,7 +311,7 @@ tc_mg_na_near_qpt = claim(
     },
 )
 
-_strat_mg_na_qpt = noisy_and(
+_strat_mg_na_qpt = support(
     premises=[ab_initio_workflow],
     conclusion=tc_mg_na_near_qpt,
     background=[magnesium_parameters, sodium_parameters, precursory_cooper_flow],
@@ -323,16 +330,43 @@ _strat_mg_na_qpt = noisy_and(
         "parameter variations can toggle between superconducting and "
         "non-superconducting ground states."
     ),
+    prior=0.80,
 )
 
 # ---------------------------------------------------------------------------
 # Abductions: comparing ab initio predictions with experiment
 # ---------------------------------------------------------------------------
 
-abduction(
-    tc_al_experimental,
+# --- Aluminum ---
+_support_al_phenom = support(
+    premises=[tc_al_phenomenological],
+    conclusion=tc_al_phenomenological,
+    reason=(
+        "The phenomenological McMillan prediction for aluminum uses the "
+        "standard empirical value $\\mu^* = 0.1$ to predict "
+        "$T_c \\approx 1.9$ K."
+    ),
+    prior=0.35,
+)
+
+_comp_al = compare(
     tc_al_predicted,
     tc_al_phenomenological,
+    tc_al_experimental,
+    reason=(
+        "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K "
+        "(@tc_al_predicted) is closer to the experimental "
+        "$T_c = 1.2$ K (@tc_al_experimental) than the phenomenological "
+        "prediction of 1.9 K (@tc_al_phenomenological), which overestimates "
+        "by 58%. The ab initio $\\mu^* = 0.13$ correctly reduces $T_c$."
+    ),
+    prior=0.90,
+)
+
+_abduction_al = abduction(
+    _strat_tc_al,
+    _support_al_phenom,
+    _comp_al,
     reason=(
         "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) "
         "is well reproduced by the ab initio prediction "
@@ -347,10 +381,35 @@ abduction(
     ),
 )
 
-abduction(
-    tc_zn_experimental,
+# --- Zinc ---
+_support_zn_phenom = support(
+    premises=[tc_zn_phenomenological],
+    conclusion=tc_zn_phenomenological,
+    reason=(
+        "The phenomenological McMillan prediction for zinc uses the "
+        "standard empirical value $\\mu^* = 0.1$ to predict "
+        "$T_c \\approx 1.37$ K."
+    ),
+    prior=0.35,
+)
+
+_comp_zn = compare(
     tc_zn_predicted,
     tc_zn_phenomenological,
+    tc_zn_experimental,
+    reason=(
+        "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K "
+        "(@tc_zn_predicted) is in near-exact agreement with the "
+        "experimental $T_c = 0.875$ K (@tc_zn_experimental), while the "
+        "phenomenological prediction of 1.37 K overestimates by 57%."
+    ),
+    prior=0.95,
+)
+
+_abduction_zn = abduction(
+    _strat_tc_zn,
+    _support_zn_phenom,
+    _comp_zn,
     reason=(
         "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) "
         "is in excellent agreement with the ab initio prediction "
@@ -363,10 +422,37 @@ abduction(
     ),
 )
 
-abduction(
-    tc_li_experimental,
+# --- Lithium ---
+_support_li_phenom = support(
+    premises=[tc_li_phenomenological],
+    conclusion=tc_li_phenomenological,
+    reason=(
+        "The phenomenological McMillan prediction for lithium uses the "
+        "standard empirical value $\\mu^* = 0.1$ to predict "
+        "$T_c \\approx 0.35$ K."
+    ),
+    prior=0.10,
+)
+
+_comp_li = compare(
     tc_li_predicted,
     tc_li_phenomenological,
+    tc_li_experimental,
+    reason=(
+        "The ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K "
+        "(@tc_li_predicted) is within an order of magnitude of the "
+        "experimental $T_c \\approx 4 \\times 10^{-4}$ K "
+        "(@tc_li_experimental), while the phenomenological prediction of "
+        "0.35 K overestimates by three orders of magnitude. The exponential "
+        "sensitivity of $T_c$ amplifies the $\\mu^*$ difference."
+    ),
+    prior=0.85,
+)
+
+_abduction_li = abduction(
+    _strat_tc_li,
+    _support_li_phenom,
+    _comp_li,
     reason=(
         "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K "
         "(@tc_li_experimental) is within an order of magnitude of the ab "

@@ -25,6 +25,7 @@ from ..motivation import (
 from ..s2_model import electron_phonon_action, precursory_cooper_flow
 from ..s3_downfolding import (
     _abduction_downfolding,
+    _comp_downfolding,
     _strat_downfolded_bse_toy,
     _strat_full_bse,
     cross_term_suppressed,
@@ -39,12 +40,20 @@ from ..s4_pseudopotential import (
 from ..s5_eph_coupling import (
     _composite_dfpt,
     _induction_gamma3,
+    _support_gamma3_vdiagmc,
+    _support_ward,
     dfpt_eph_ansatz,
     gamma3_vdiagmc,
     quasiparticle_mass_near_unity,
     ward_identity,
 )
 from ..s6_superconductors import (
+    _abduction_al,
+    _abduction_li,
+    _abduction_zn,
+    _comp_al,
+    _comp_li,
+    _comp_zn,
     _composite_workflow,
     _s1 as _strat_mu_available,
     _strat_al_pressure,
@@ -123,10 +132,9 @@ _claim_reviews = [
 
 _strategy_reviews = [
     # induction (CompositeStrategy): gamma3_approximation
-    # No strategy-level parameters needed — sub-abductions are parameterized
-    # via their auto-generated alternative_explanation priors.
+    # Sub-support strategies carry their own priors via reason+prior pairing.
 
-    # noisy_and strategies
+    # support strategies (formerly noisy_and)
     review_strategy(_strat_full_bse, conditional_probability=0.95,
                     justification="Well-controlled numerical computation."),
     review_strategy(_strat_downfolded_bse_toy, conditional_probability=0.95,
@@ -170,24 +178,54 @@ _strategy_reviews = [
 # ---------------------------------------------------------------------------
 
 _generated_reviews = [
+    # Abduction: downfolding validation (composition warrant)
     review_generated_claim(
-        _abduction_downfolding, "alternative_explanation",
-        prior=0.10,
-        justification="0.2% agreement leaves little room for alternatives.",
+        _abduction_downfolding, "composition_validity",
+        prior=0.95,
+        justification="0.2% agreement strongly validates the composition of downfolded vs full BSE.",
     ),
-    # Induction sub-abductions for gamma3_approximation auto-generate
-    # alternative_explanation claims for ward_identity and gamma3_vdiagmc.
-    # These need priors reflecting how likely the observation could be
-    # explained WITHOUT the gamma3 approximation being true.
+    # Compare: downfolded vs full BSE (comparison claim)
     review_generated_claim(
-        _induction_gamma3.sub_strategies[0], "alternative_explanation",
-        prior=0.15,
-        justification="Ward identity is exact (QFT); alt explanation unlikely but conceivable if limit is not uniform.",
+        _comp_downfolding, "comparison_claim",
+        prior=0.98,
+        justification="0.2% agreement leaves little room for the alternative being better.",
+    ),
+    # Induction: composition warrant for gamma3 approximation
+    review_generated_claim(
+        _induction_gamma3, "composition_validity",
+        prior=0.90,
+        justification="Ward identity and vDiagMC are independent observations supporting the same law.",
+    ),
+    # Abductions: material Tc comparisons (composition warrants)
+    review_generated_claim(
+        _abduction_al, "composition_validity",
+        prior=0.90,
+        justification="Ab initio vs phenomenological comparison for Al is well-structured.",
     ),
     review_generated_claim(
-        _induction_gamma3.sub_strategies[1], "alternative_explanation",
-        prior=0.25,
-        justification="vDiagMC finite-q results could have larger systematic errors than claimed.",
+        _comp_al, "comparison_claim",
+        prior=0.90,
+        justification="0.96K vs 1.9K: ab initio clearly closer to 1.2K experiment.",
+    ),
+    review_generated_claim(
+        _abduction_zn, "composition_validity",
+        prior=0.95,
+        justification="Ab initio vs phenomenological comparison for Zn is well-structured.",
+    ),
+    review_generated_claim(
+        _comp_zn, "comparison_claim",
+        prior=0.95,
+        justification="0.874K vs 1.37K: ab initio near-exact match to 0.875K experiment.",
+    ),
+    review_generated_claim(
+        _abduction_li, "composition_validity",
+        prior=0.85,
+        justification="Li structural uncertainty adds noise but ab initio is dramatically better.",
+    ),
+    review_generated_claim(
+        _comp_li, "comparison_claim",
+        prior=0.85,
+        justification="5e-3K vs 0.35K: ab initio orders of magnitude closer to 4e-4K experiment.",
     ),
 ]
 

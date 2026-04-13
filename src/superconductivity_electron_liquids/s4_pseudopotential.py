@@ -6,7 +6,7 @@ Monte Carlo (vDiagMC), obtaining numerically exact values of mu at the Fermi
 energy scale, and confronting the RPA prediction of attractive mu*.
 """
 
-from gaia.lang import claim, contradiction, noisy_and
+from gaia.lang import claim, contradiction, support
 
 from .motivation import bts_renormalization, rpa_predicts_attractive_mu
 from .s3_downfolding import mu_microscopic_definition
@@ -85,7 +85,7 @@ mu_vdiagmc_values = claim(
     },
 )
 
-_strat_mu_values = noisy_and(
+_strat_mu_values = support(
     premises=[vdiagmc_method, homotopic_expansion],
     conclusion=mu_vdiagmc_values,
     background=[ueg_vertex_challenge, mu_microscopic_definition,
@@ -108,6 +108,7 @@ _strat_mu_values = noisy_and(
         "in the range 0.12--0.18 that are consistent with the empirical range "
         "but now microscopically grounded."
     ),
+    prior=0.90,
 )
 
 # ---------------------------------------------------------------------------
@@ -130,4 +131,5 @@ rpa_vs_vdiagmc = contradiction(
         "RPA prediction of attractive $\\mu^*$ is an artifact of the "
         "uncontrolled approximation."
     ),
+    prior=0.95,
 )

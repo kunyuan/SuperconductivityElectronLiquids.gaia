@@ -6,7 +6,8 @@ and obtaining microscopic definitions for lambda and mu. Validates the
 downfolding against a full BSE toy-model calculation.
 """
 
-from gaia.lang import abduction, claim, deduction, equivalence, noisy_and, setting
+from gaia.lang import claim, compare, deduction, equivalence, setting, support
+from gaia.lang.dsl.strategies import abduction
 
 from .motivation import (
     adiabatic_approx,
@@ -69,7 +70,7 @@ full_bse_toy_model = claim(
     },
 )
 
-_strat_full_bse = noisy_and(
+_strat_full_bse = support(
     premises=[bse_kernel_decomposition],
     conclusion=full_bse_toy_model,
     background=[rpa_dynamic_screening],
@@ -83,6 +84,7 @@ _strat_full_bse = noisy_and(
         "flow analysis of the solution yields "
         "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$."
     ),
+    prior=0.95,
 )
 
 downfolded_bse_toy_model = claim(
@@ -93,22 +95,8 @@ downfolded_bse_toy_model = claim(
     title="Downfolded BSE Toy Model Result",
 )
 
-# Note: downfolded_bse is defined below; Python forward reference via module-level execution
-# We use a lambda trick or define this infer after downfolded_bse. Moving to after downfolded_bse.
-
-_abduction_downfolding = abduction(
-    observation=full_bse_toy_model,
-    hypothesis=downfolded_bse_toy_model,
-    reason=(
-        "The full BSE numerical solution gives "
-        "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$ (@full_bse_toy_model), "
-        "while the downfolded BSE gives "
-        "$T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$ "
-        "(@downfolded_bse_toy_model). The two differ by only 0.2%, "
-        "demonstrating that the downfolding approximation is quantitatively "
-        "accurate for conventional metal parameters."
-    ),
-)
+# Note: _abduction_downfolding is defined after _strat_downfolded_bse_toy below,
+# because the new abduction() API requires sub-strategies as arguments.
 
 downfolding_validity_limits = claim(
     "The downfolded EFT-ME framework's applicability conditions and failure "
@@ -168,10 +156,11 @@ deduction(
         "equation in Matsubara frequency with microscopically defined "
         "$\\lambda$ and $\\mu_{\\omega_c}$ kernels."
     ),
+    prior=0.96,
 )
 
-# Now that downfolded_bse is defined, attach noisy_and for the toy model result
-_strat_downfolded_bse_toy = noisy_and(
+# Now that downfolded_bse is defined, attach support for the toy model result
+_strat_downfolded_bse_toy = support(
     premises=[downfolded_bse],
     conclusion=downfolded_bse_toy_model,
     background=[rpa_dynamic_screening],
@@ -181,6 +170,37 @@ _strat_downfolded_bse_toy = noisy_and(
         "@rpa_dynamic_screening, $r_s = 1.92$, $\\omega_D/E_F = 0.005$). "
         "Solving the frequency-only equation yields "
         "$T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$."
+    ),
+    prior=0.95,
+)
+
+# Abduction: compare downfolded vs full BSE predictions
+_comp_downfolding = compare(
+    downfolded_bse_toy_model,
+    full_bse_toy_model,
+    full_bse_toy_model,
+    reason=(
+        "The downfolded BSE prediction "
+        "$T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$ (@downfolded_bse_toy_model) "
+        "and the full BSE result "
+        "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$ (@full_bse_toy_model) "
+        "differ by only 0.2%, demonstrating quantitative agreement."
+    ),
+    prior=0.98,
+)
+
+_abduction_downfolding = abduction(
+    _strat_downfolded_bse_toy,
+    _strat_full_bse,
+    _comp_downfolding,
+    reason=(
+        "The full BSE numerical solution gives "
+        "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$ (@full_bse_toy_model), "
+        "while the downfolded BSE gives "
+        "$T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$ "
+        "(@downfolded_bse_toy_model). The two differ by only 0.2%, "
+        "demonstrating that the downfolding approximation is quantitatively "
+        "accurate for conventional metal parameters."
     ),
 )
 
@@ -217,6 +237,7 @@ deduction(
         "the traditional ME equation, but now with $\\mu^*$ and $\\lambda$ "
         "having precise microscopic definitions from the downfolding."
     ),
+    prior=0.97,
 )
 
 lambda_microscopic_definition = claim(
@@ -258,6 +279,7 @@ deduction(
         "providing a controlled microscopic definition that generalizes the "
         "standard Eliashberg coupling constant."
     ),
+    prior=0.96,
 )
 
 mu_microscopic_definition = claim(
@@ -304,6 +326,7 @@ deduction(
         "non-perturbative Coulomb correlations — evaluated at a specific "
         "energy scale, without any phenomenological input."
     ),
+    prior=0.96,
 )
 
 mu_scale_independence = claim(
@@ -335,6 +358,7 @@ deduction(
         "as an exact consequence of the downfolded theory's structure, "
         "rather than an ad hoc ansatz."
     ),
+    prior=0.98,
 )
 
 bts_microscopic_equivalence = equivalence(
@@ -351,6 +375,7 @@ bts_microscopic_equivalence = equivalence(
         "structure, establishing it as an exact consequence of the theory "
         "rather than a phenomenological ansatz."
     ),
+    prior=0.98,
 )
 
 ma_pseudopotential_justified = claim(
@@ -384,4 +409,5 @@ deduction(
         "precisely because the energy-scale hierarchy $\\omega_c \\ll E_F$ "
         "is maintained."
     ),
+    prior=0.95,
 )

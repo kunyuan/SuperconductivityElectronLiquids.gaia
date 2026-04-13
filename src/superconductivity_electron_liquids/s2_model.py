@@ -62,6 +62,7 @@ deduction(
         "Cross terms between these two contributions are higher order in "
         "$\\omega_D/E_F$ and can be neglected."
     ),
+    prior=0.97,
 )
 
 precursory_cooper_flow = claim(
