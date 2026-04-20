@@ -1,8 +1,10 @@
-export interface GraphNode {
+// --- Node types ---
+
+export interface KnowledgeNode {
   id: string
   label: string
   title?: string
-  type: 'claim' | 'setting' | 'question'
+  type: 'claim' | 'setting' | 'question' | 'action'
   module?: string
   content: string
   prior?: number | null
@@ -11,16 +13,77 @@ export interface GraphNode {
   metadata: Record<string, unknown>
 }
 
+export interface LikelihoodScoreDetail {
+  score_id?: string | null
+  module_ref?: string | null
+  target?: string | null
+  score_type?: string | null
+  value?: unknown
+  query?: unknown
+  rationale?: string | null
+}
+
+export interface StrategyMethodDetails {
+  kind: string
+  module_ref?: string
+  function_ref?: string
+  parameter_ref?: string
+  input_bindings?: Record<string, string>
+  output_bindings?: Record<string, string>
+  premise_bindings?: Record<string, string>
+  output_binding?: Record<string, string>
+  output_ref?: string
+  score_ref?: string
+  score?: LikelihoodScoreDetail
+  code_hash?: string
+}
+
+export interface StrategyNode {
+  id: string
+  type: 'strategy'
+  strategy_type: string
+  module?: string
+  reason?: string
+  method?: StrategyMethodDetails
+}
+
+export interface OperatorNode {
+  id: string
+  type: 'operator'
+  operator_type: string
+  module?: string
+}
+
+export type GraphNode = KnowledgeNode | StrategyNode | OperatorNode
+
+// --- Edge types ---
+
 export interface GraphEdge {
   source: string
   target: string
-  type: 'strategy' | 'operator'
-  strategy_type?: string
-  operator_type?: string
-  reason?: string
+  role: 'premise' | 'background' | 'conclusion' | 'variable'
 }
 
+// --- Module types ---
+
+export interface ModuleInfo {
+  id: string
+  order: number
+  node_count: number
+  strategy_count: number
+}
+
+export interface CrossModuleEdge {
+  from_module: string
+  to_module: string
+  count: number
+}
+
+// --- Top-level data ---
+
 export interface GraphData {
+  modules: ModuleInfo[]
+  cross_module_edges: CrossModuleEdge[]
   nodes: GraphNode[]
   edges: GraphEdge[]
 }
@@ -29,4 +92,18 @@ export interface MetaData {
   package_name: string
   namespace: string
   description?: string
+}
+
+// --- Type guards ---
+
+export function isKnowledgeNode(n: GraphNode): n is KnowledgeNode {
+  return n.type === 'claim' || n.type === 'setting' || n.type === 'question' || n.type === 'action'
+}
+
+export function isStrategyNode(n: GraphNode): n is StrategyNode {
+  return n.type === 'strategy'
+}
+
+export function isOperatorNode(n: GraphNode): n is OperatorNode {
+  return n.type === 'operator'
 }

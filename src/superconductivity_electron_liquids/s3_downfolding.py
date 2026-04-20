@@ -94,9 +94,6 @@ downfolded_bse_toy_model = claim(
     title="Downfolded BSE Toy Model Result",
 )
 
-# Note: _abduction_downfolding is defined after _strat_downfolded_bse_toy below,
-# because the new abduction() API requires sub-strategies as arguments.
-
 downfolding_validity_limits = claim(
     "The downfolded EFT-ME framework's applicability conditions and failure "
     "modes: (i) the adiabatic parameter $\\omega_D/E_F \\ll 1$ must hold, "

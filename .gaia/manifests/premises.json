@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:344eafa861e109edb2ee60d1249a1abef6b38e6dcf4c0438a852d0d7c4faaadb",
+  "ir_hash": "sha256:8439303ad7bc78922db69e7155d605a4e020bd9b8222749308a5930ef29e9926",
   "manifest_schema_version": 1,
   "package": "superconductivity-electron-liquids",
   "premises": [
@@ -24,6 +24,30 @@
       "qid": "github:superconductivity_electron_liquids::cross_term_suppressed",
       "required_by": [
         "github:superconductivity_electron_liquids::downfolded_bse"
+      ],
+      "role": "local_hole"
+    },
+    {
+      "content": "The Ward-identity constraint at $q \\to 0$ and the finite-$q$ vDiagMC calculation probe independent aspects of the three-point vertex: one is an exact conservation-law limit, while the other is a numerical many-body calculation away from that limit.",
+      "content_hash": "e9429196a5cdf2e07ec8edeff5e38d3a0231526a4b2b5a384a71ae268ae8e480",
+      "exported": false,
+      "interface_hash": "sha256:150adad79f2e50c6bce3092ce8e28afd97d492121949af98fe2a91b506244f49",
+      "label": "gamma3_evidence_independent",
+      "qid": "github:superconductivity_electron_liquids::gamma3_evidence_independent",
+      "required_by": [
+        "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals"
+      ],
+      "role": "local_hole"
+    },
+    {
+      "content": "The Ward-identity limit and the finite-$q$ vDiagMC vertex calculation are valid tests of the same interpolation approximation for $\\Gamma_3^e(k,q)$ within the Fermi sphere. Passing both tests licenses using the approximation $\\Gamma_3^e \\approx m^*/m$ across the relevant momentum range.",
+      "content_hash": "3bb76d6db5daf25cb59de65f1f29e80baa7d6f77655b6110862ab2d7c550c5a4",
+      "exported": false,
+      "interface_hash": "sha256:d06dbd1b487b46f5f8bba2a8fb118962828eaafd9c351966d5973f4af03a73f1",
+      "label": "gamma3_interpolation_test_valid",
+      "qid": "github:superconductivity_electron_liquids::gamma3_interpolation_test_valid",
+      "required_by": [
+        "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals"
       ],
       "role": "local_hole"
     },

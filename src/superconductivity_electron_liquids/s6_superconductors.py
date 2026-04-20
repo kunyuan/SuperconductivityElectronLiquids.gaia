@@ -2,11 +2,13 @@
 
 Assembles the ab initio workflow for predicting Tc of simple metals, presents
 the first-principles predictions for Al, Zn, Li, Na, and Mg, and confronts
-them with experiment via abduction.
+them with experiment via v6 likelihood model-comparison factors.
 """
 
-from gaia.lang import claim, compare, composite, deduction, setting, support
-from gaia.lang.dsl.strategies import abduction
+import math
+
+from gaia.lang import claim, composite, deduction, setting, support
+from gaia.std.likelihood import gaussian_model_comparison
 
 from .motivation import (
     bts_renormalization,
@@ -336,10 +338,26 @@ _strat_mg_na_qpt = support(
 )
 
 # ---------------------------------------------------------------------------
-# Abductions: comparing ab initio predictions with experiment
+# v6 likelihood comparisons: confronting predictions with experiment
 # ---------------------------------------------------------------------------
 
 # --- Aluminum ---
+tc_al_abinitio_outperforms_phenomenological = claim(
+    "For aluminum, the ab initio EFT prediction explains the observed "
+    "transition temperature better than the phenomenological McMillan "
+    "prediction: $T_c^{\\mathrm{EFT}} = 0.96$ K is closer to "
+    "$T_c^{\\mathrm{exp}} = 1.2$ K than the phenomenological value "
+    "$T_c \\approx 1.9$ K.",
+    title="Al Ab Initio Prediction Outperforms Phenomenological",
+)
+
+tc_al_comparison_valid = claim(
+    "The aluminum comparison uses the same material, the same experimental "
+    "$T_c$ target, and the same absolute-error criterion for the ab initio "
+    "and phenomenological predictions.",
+    title="Al Tc Comparison Valid",
+)
+
 _support_al_phenom = support(
     premises=[dfpt_computes_lambda, mu_star_phenomenological],
     conclusion=tc_al_phenomenological,
@@ -349,42 +367,48 @@ _support_al_phenom = support(
         "$\\mu^* = 0.1$ (@mu_star_phenomenological) to predict "
         "$T_c \\approx 1.9$ K."
     ),
-    prior=0.35,
+    prior=0.95,
 )
 
-_comp_al = compare(
-    tc_al_predicted,
-    tc_al_phenomenological,
-    tc_al_experimental,
-    reason=(
-        "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K "
-        "(@tc_al_predicted) is closer to the experimental "
-        "$T_c = 1.2$ K (@tc_al_experimental) than the phenomenological "
-        "prediction of 1.9 K (@tc_al_phenomenological), which overestimates "
-        "by 58%. The ab initio $\\mu^* = 0.13$ correctly reduces $T_c$."
-    ),
-    prior=0.90,
-)
-
-_abduction_al = abduction(
-    _strat_tc_al,
-    _support_al_phenom,
-    _comp_al,
-    reason=(
-        "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) "
-        "is well reproduced by the ab initio prediction "
-        "$T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted), which "
-        "uses no adjustable parameters. The phenomenological prediction "
-        "(@tc_al_phenomenological) using $\\mu^* = 0.1$ gives 1.9 K, "
-        "overestimating by 58%. The ab initio approach provides a better "
-        "explanation because it determines $\\mu^*$ from first principles "
-        "rather than using an ad hoc value, and the resulting $\\mu^* = "
-        "0.13$ is above the standard guess of 0.1, correctly "
-        "reducing $T_c$ toward the experimental value."
-    ),
+_al_comparison_likelihood = gaussian_model_comparison(
+    target=tc_al_abinitio_outperforms_phenomenological,
+    observed=1.2,
+    candidate_mean=0.96,
+    baseline_mean=1.9,
+    sigma=0.3,
+    data=tc_al_experimental,
+    assumptions=[
+        tc_al_predicted,
+        tc_al_phenomenological,
+        tc_al_comparison_valid,
+    ],
+    query={
+        "quantity": "Tc",
+        "material": "Al",
+        "unit": "K",
+        "candidate": "ab_initio_eft",
+        "baseline": "phenomenological_mcmillan",
+        "criterion": "higher Gaussian predictive likelihood for observed Tc",
+    },
 )
 
 # --- Zinc ---
+tc_zn_abinitio_outperforms_phenomenological = claim(
+    "For zinc, the ab initio EFT prediction explains the observed transition "
+    "temperature better than the phenomenological McMillan prediction: "
+    "$T_c^{\\mathrm{EFT}} = 0.874$ K is nearly identical to "
+    "$T_c^{\\mathrm{exp}} = 0.875$ K, while the phenomenological value "
+    "$T_c \\approx 1.37$ K overestimates the measurement.",
+    title="Zn Ab Initio Prediction Outperforms Phenomenological",
+)
+
+tc_zn_comparison_valid = claim(
+    "The zinc comparison uses the same material, the same experimental $T_c$ "
+    "target, and the same absolute-error criterion for the ab initio and "
+    "phenomenological predictions.",
+    title="Zn Tc Comparison Valid",
+)
+
 _support_zn_phenom = support(
     premises=[dfpt_computes_lambda, mu_star_phenomenological],
     conclusion=tc_zn_phenomenological,
@@ -394,39 +418,50 @@ _support_zn_phenom = support(
         "$\\mu^* = 0.1$ (@mu_star_phenomenological) to predict "
         "$T_c \\approx 1.37$ K."
     ),
-    prior=0.35,
-)
-
-_comp_zn = compare(
-    tc_zn_predicted,
-    tc_zn_phenomenological,
-    tc_zn_experimental,
-    reason=(
-        "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K "
-        "(@tc_zn_predicted) is in near-exact agreement with the "
-        "experimental $T_c = 0.875$ K (@tc_zn_experimental), while the "
-        "phenomenological prediction of 1.37 K overestimates by 57%."
-    ),
     prior=0.95,
 )
 
-_abduction_zn = abduction(
-    _strat_tc_zn,
-    _support_zn_phenom,
-    _comp_zn,
-    reason=(
-        "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) "
-        "is in excellent agreement with the ab initio prediction "
-        "$T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted). "
-        "The phenomenological prediction (@tc_zn_phenomenological) using "
-        "$\\mu^* = 0.1$ gives 1.37 K, overestimating by 57%. The ab initio "
-        "$\\mu^* = 0.12$ from $r_s = 2.90$ correctly captures the "
-        "Coulomb repulsion strength in Zn, "
-        "bringing the prediction into near-exact agreement with experiment."
-    ),
+_zn_comparison_likelihood = gaussian_model_comparison(
+    target=tc_zn_abinitio_outperforms_phenomenological,
+    observed=0.875,
+    candidate_mean=0.874,
+    baseline_mean=1.37,
+    sigma=0.2,
+    data=tc_zn_experimental,
+    assumptions=[
+        tc_zn_predicted,
+        tc_zn_phenomenological,
+        tc_zn_comparison_valid,
+    ],
+    query={
+        "quantity": "Tc",
+        "material": "Zn",
+        "unit": "K",
+        "candidate": "ab_initio_eft",
+        "baseline": "phenomenological_mcmillan",
+        "criterion": "higher Gaussian predictive likelihood for observed Tc",
+    },
 )
 
 # --- Lithium ---
+tc_li_abinitio_outperforms_phenomenological = claim(
+    "For lithium, the ab initio EFT prediction explains the observed ultra-low "
+    "transition temperature better than the phenomenological McMillan "
+    "prediction: the ab initio value is within an order of magnitude of "
+    "$T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K, while the "
+    "phenomenological value $T_c \\approx 0.35$ K is too high by roughly "
+    "three orders of magnitude.",
+    title="Li Ab Initio Prediction Outperforms Phenomenological",
+)
+
+tc_li_comparison_valid = claim(
+    "The lithium comparison uses the same 9R low-temperature structure target "
+    "where applicable, the same experimental $T_c$ reference, and an "
+    "order-of-magnitude error criterion appropriate for the ultra-low "
+    "transition temperature regime.",
+    title="Li Tc Comparison Valid",
+)
+
 _support_li_phenom = support(
     premises=[dfpt_computes_lambda, mu_star_phenomenological],
     conclusion=tc_li_phenomenological,
@@ -436,41 +471,26 @@ _support_li_phenom = support(
         "$\\mu^* = 0.1$ (@mu_star_phenomenological) to predict "
         "$T_c \\approx 0.35$ K."
     ),
-    prior=0.10,
+    prior=0.95,
 )
 
-_comp_li = compare(
-    tc_li_predicted,
-    tc_li_phenomenological,
-    tc_li_experimental,
-    reason=(
-        "The ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K "
-        "(@tc_li_predicted) is within an order of magnitude of the "
-        "experimental $T_c \\approx 4 \\times 10^{-4}$ K "
-        "(@tc_li_experimental), while the phenomenological prediction of "
-        "0.35 K overestimates by three orders of magnitude. The exponential "
-        "sensitivity of $T_c$ amplifies the $\\mu^*$ difference."
-    ),
-    prior=0.85,
-)
-
-_abduction_li = abduction(
-    _strat_tc_li,
-    _support_li_phenom,
-    _comp_li,
-    reason=(
-        "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K "
-        "(@tc_li_experimental) is within an order of magnitude of the ab "
-        "initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K "
-        "(@tc_li_predicted, 9R structure). The phenomenological prediction "
-        "(@tc_li_phenomenological) using $\\mu^* = 0.1$ gives $\\approx 0.35$ K, "
-        "overestimating by three orders of magnitude. The dramatic improvement "
-        "of the ab initio approach is because the first-principles "
-        "$\\mu^* = 0.18$ for lithium ($r_s = 3.25$, $m_b = 1.75$) is "
-        "significantly larger than the standard guess of 0.1, reflecting "
-        "the stronger Coulomb repulsion at lower electron density. In the "
-        "regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ is small, the "
-        "exponential sensitivity amplifies the $\\mu^*$ difference from "
-        "0.08 to nearly three orders of magnitude in $T_c$."
-    ),
+_li_comparison_likelihood = gaussian_model_comparison(
+    target=tc_li_abinitio_outperforms_phenomenological,
+    observed=math.log10(4e-4),
+    candidate_mean=math.log10(5e-3),
+    baseline_mean=math.log10(0.35),
+    sigma=1.0,
+    data=tc_li_experimental,
+    assumptions=[
+        tc_li_predicted,
+        tc_li_phenomenological,
+        tc_li_comparison_valid,
+    ],
+    query={
+        "quantity": "log10(Tc/K)",
+        "material": "Li",
+        "candidate": "ab_initio_eft_9R",
+        "baseline": "phenomenological_mcmillan",
+        "criterion": "higher Gaussian predictive likelihood for observed log Tc",
+    },
 )
