@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:bcf82503098587ccaddb595e2d4db03cc2eeeb94e9561e1daedbca7266500794",
+  "ir_hash": "sha256:98f362b1315c1b79badd7e93f0b88657ed6b6f2d0f2808712055ab944446bd99",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -1590,12 +1590,9 @@
         "kind": "likelihood_score",
         "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
         "query": {
-          "baseline": "phenomenological_mcmillan",
-          "candidate": "ab_initio_eft",
-          "criterion": "higher Gaussian predictive likelihood for observed Tc",
-          "material": "Al",
-          "quantity": "Tc",
-          "unit": "K"
+          "direction": "candidate_over_baseline",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
         },
         "score_type": "log_lr",
         "target": "github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological",
@@ -1815,12 +1812,9 @@
         "kind": "likelihood_score",
         "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
         "query": {
-          "baseline": "phenomenological_mcmillan",
-          "candidate": "ab_initio_eft",
-          "criterion": "higher Gaussian predictive likelihood for observed Tc",
-          "material": "Zn",
-          "quantity": "Tc",
-          "unit": "K"
+          "direction": "candidate_over_baseline",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
         },
         "score_type": "log_lr",
         "target": "github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological",
@@ -2040,11 +2034,10 @@
         "kind": "likelihood_score",
         "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
         "query": {
-          "baseline": "phenomenological_mcmillan",
-          "candidate": "ab_initio_eft_9R",
-          "criterion": "higher Gaussian predictive likelihood for observed log Tc",
-          "material": "Li",
-          "quantity": "log10(Tc/K)"
+          "direction": "candidate_over_baseline",
+          "transform": "log10",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
         },
         "score_type": "log_lr",
         "target": "github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological",
@@ -2810,12 +2803,9 @@
     {
       "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
       "query": {
-        "baseline": "phenomenological_mcmillan",
-        "candidate": "ab_initio_eft",
-        "criterion": "higher Gaussian predictive likelihood for observed Tc",
-        "material": "Al",
-        "quantity": "Tc",
-        "unit": "K"
+        "direction": "candidate_over_baseline",
+        "type": "gaussian_model_comparison",
+        "value_field": "value_K"
       },
       "rationale": "The Gaussian model-comparison log-likelihood ratio is 2.402222222222223 for observed value 1.2, candidate mean 0.96, baseline mean 1.9, and sigma 0.3.",
       "score_id": "github:superconductivity_electron_liquids::_anon_005",
@@ -2826,12 +2816,9 @@
     {
       "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
       "query": {
-        "baseline": "phenomenological_mcmillan",
-        "candidate": "ab_initio_eft",
-        "criterion": "higher Gaussian predictive likelihood for observed Tc",
-        "material": "Zn",
-        "quantity": "Tc",
-        "unit": "K"
+        "direction": "candidate_over_baseline",
+        "type": "gaussian_model_comparison",
+        "value_field": "value_K"
       },
       "rationale": "The Gaussian model-comparison log-likelihood ratio is 3.062800000000002 for observed value 0.875, candidate mean 0.874, baseline mean 1.37, and sigma 0.2.",
       "score_id": "github:superconductivity_electron_liquids::_anon_010",
@@ -2842,11 +2829,10 @@
     {
       "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
       "query": {
-        "baseline": "phenomenological_mcmillan",
-        "candidate": "ab_initio_eft_9R",
-        "criterion": "higher Gaussian predictive likelihood for observed log Tc",
-        "material": "Li",
-        "quantity": "log10(Tc/K)"
+        "direction": "candidate_over_baseline",
+        "transform": "log10",
+        "type": "gaussian_model_comparison",
+        "value_field": "value_K"
       },
       "rationale": "The Gaussian model-comparison log-likelihood ratio is 3.7260999037054043 for observed value -3.3979400086720375, candidate mean -2.3010299956639813, baseline mean -0.4559319556497244, and sigma 1.0.",
       "score_id": "github:superconductivity_electron_liquids::_anon_015",
@@ -3770,12 +3756,9 @@
       "metadata": {
         "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
         "query": {
-          "baseline": "phenomenological_mcmillan",
-          "candidate": "ab_initio_eft",
-          "criterion": "higher Gaussian predictive likelihood for observed Tc",
-          "material": "Al",
-          "quantity": "Tc",
-          "unit": "K"
+          "direction": "candidate_over_baseline",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
         },
         "reason": "Use the SciPy-backed Gaussian model-comparison likelihood score.",
         "surface_construct": "likelihood_from"
@@ -3884,12 +3867,9 @@
       "metadata": {
         "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
         "query": {
-          "baseline": "phenomenological_mcmillan",
-          "candidate": "ab_initio_eft",
-          "criterion": "higher Gaussian predictive likelihood for observed Tc",
-          "material": "Zn",
-          "quantity": "Tc",
-          "unit": "K"
+          "direction": "candidate_over_baseline",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
         },
         "reason": "Use the SciPy-backed Gaussian model-comparison likelihood score.",
         "surface_construct": "likelihood_from"
@@ -3998,11 +3978,10 @@
       "metadata": {
         "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
         "query": {
-          "baseline": "phenomenological_mcmillan",
-          "candidate": "ab_initio_eft_9R",
-          "criterion": "higher Gaussian predictive likelihood for observed log Tc",
-          "material": "Li",
-          "quantity": "log10(Tc/K)"
+          "direction": "candidate_over_baseline",
+          "transform": "log10",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
         },
         "reason": "Use the SciPy-backed Gaussian model-comparison likelihood score.",
         "surface_construct": "likelihood_from"

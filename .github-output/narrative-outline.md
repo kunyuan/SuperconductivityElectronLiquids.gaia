@@ -71,19 +71,19 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
    - ← infer(dfpt_reliable_for_simple_metals, downfolded_bse, mu_vdiagmc_values, ueg_pseudopotential_parameterization)
    - → supports: al_pressure_transition, tc_al_predicted, tc_li_predicted, tc_mg_na_near_qpt, tc_zn_predicted
 
-## Tc(Al) Ab Initio Prediction
+## Tc(Zn) Ab Initio Prediction
 
 17. **Al Pressure-Tc Transition ★** (prior: 0.50 → belief: 0.82)
    - ← infer(ab_initio_workflow)
 
-18. **Tc(Li) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.82)
+18. **Na and Mg Near Quantum Phase Transition ★** (prior: 0.50 → belief: 0.82)
    - ← infer(ab_initio_workflow)
 
-19. **Na and Mg Near Quantum Phase Transition ★** (prior: 0.50 → belief: 0.82)
+19. **Tc(Li) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.82)
    - ← infer(ab_initio_workflow)
 
-20. **Tc(Zn) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.84)
+20. **Tc(Al) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.84)
    - ← infer(ab_initio_workflow)
 
-21. **Tc(Al) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.84)
+21. **Tc(Zn) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.84)
    - ← infer(ab_initio_workflow)

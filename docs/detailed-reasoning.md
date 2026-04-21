@@ -1131,7 +1131,7 @@ Use the SciPy-backed Gaussian model-comparison likelihood score.
 
 - method: gaia.std.likelihood.gaussian_model_comparison@v1
 - score: log_lr=2.40222
-- query: {"baseline": "phenomenological_mcmillan", "candidate": "ab_initio_eft", "criterion": "higher Gaussian predictive likelihood for observed Tc", "material": "Al", "quantity": "Tc", "unit": "K"}
+- query: {"direction": "candidate_over_baseline", "type": "gaussian_model_comparison", "value_field": "value_K"}
 - rationale: The Gaussian model-comparison log-likelihood ratio is 2.402222222222223 for observed value 1.2, candidate mean 0.96, baseline mean 1.9, and sigma 0.3.
 
 </details>
@@ -1166,7 +1166,7 @@ Use the SciPy-backed Gaussian model-comparison likelihood score.
 
 - method: gaia.std.likelihood.gaussian_model_comparison@v1
 - score: log_lr=3.0628
-- query: {"baseline": "phenomenological_mcmillan", "candidate": "ab_initio_eft", "criterion": "higher Gaussian predictive likelihood for observed Tc", "material": "Zn", "quantity": "Tc", "unit": "K"}
+- query: {"direction": "candidate_over_baseline", "type": "gaussian_model_comparison", "value_field": "value_K"}
 - rationale: The Gaussian model-comparison log-likelihood ratio is 3.062800000000002 for observed value 0.875, candidate mean 0.874, baseline mean 1.37, and sigma 0.2.
 
 </details>
@@ -1201,7 +1201,7 @@ Use the SciPy-backed Gaussian model-comparison likelihood score.
 
 - method: gaia.std.likelihood.gaussian_model_comparison@v1
 - score: log_lr=3.7261
-- query: {"baseline": "phenomenological_mcmillan", "candidate": "ab_initio_eft_9R", "criterion": "higher Gaussian predictive likelihood for observed log Tc", "material": "Li", "quantity": "log10(Tc/K)"}
+- query: {"direction": "candidate_over_baseline", "transform": "log10", "type": "gaussian_model_comparison", "value_field": "value_K"}
 - rationale: The Gaussian model-comparison log-likelihood ratio is 3.7260999037054043 for observed value -3.3979400086720375, candidate mean -2.3010299956639813, baseline mean -0.4559319556497244, and sigma 1.0.
 
 </details>
@@ -1228,8 +1228,8 @@ Use the SciPy-backed Gaussian model-comparison likelihood score.
 | [tc_li_abinitio_outperforms_phenomenological](#tc_li_abinitio_outperforms_phenomenological) | claim | — | 0.7904 | derived |
 | [ab_initio_workflow](#ab_initio_workflow) | claim | — | 0.8012 | derived |
 | [al_pressure_transition](#al_pressure_transition) | claim | — | 0.8199 | derived |
-| [tc_li_predicted](#tc_li_predicted) | claim | — | 0.8199 | derived |
 | [tc_mg_na_near_qpt](#tc_mg_na_near_qpt) | claim | — | 0.8199 | derived |
+| [tc_li_predicted](#tc_li_predicted) | claim | — | 0.8199 | derived |
 | [tc_al_abinitio_outperforms_phenomenological](#tc_al_abinitio_outperforms_phenomenological) | claim | — | 0.8272 | derived |
 | [tc_al_predicted](#tc_al_predicted) | claim | — | 0.8398 | derived |
 | [tc_zn_predicted](#tc_zn_predicted) | claim | — | 0.8398 | derived |

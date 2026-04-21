@@ -384,14 +384,6 @@ _al_comparison_likelihood = gaussian_model_comparison_from_claims(
     assumptions=[
         tc_al_comparison_valid,
     ],
-    query={
-        "quantity": "Tc",
-        "material": "Al",
-        "unit": "K",
-        "candidate": "ab_initio_eft",
-        "baseline": "phenomenological_mcmillan",
-        "criterion": "higher Gaussian predictive likelihood for observed Tc",
-    },
 )
 
 # --- Zinc ---
@@ -433,14 +425,6 @@ _zn_comparison_likelihood = gaussian_model_comparison_from_claims(
     assumptions=[
         tc_zn_comparison_valid,
     ],
-    query={
-        "quantity": "Tc",
-        "material": "Zn",
-        "unit": "K",
-        "candidate": "ab_initio_eft",
-        "baseline": "phenomenological_mcmillan",
-        "criterion": "higher Gaussian predictive likelihood for observed Tc",
-    },
 )
 
 # --- Lithium ---
@@ -485,11 +469,4 @@ _li_comparison_likelihood = gaussian_model_comparison_from_claims(
     assumptions=[
         tc_li_comparison_valid,
     ],
-    query={
-        "quantity": "log10(Tc/K)",
-        "material": "Li",
-        "candidate": "ab_initio_eft_9R",
-        "baseline": "phenomenological_mcmillan",
-        "criterion": "higher Gaussian predictive likelihood for observed log Tc",
-    },
 )

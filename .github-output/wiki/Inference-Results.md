@@ -63,14 +63,14 @@
 | simple_metals_weak_lattice | claim | 0.90 | 0.90 | background |
 | gamma3_interpolation_test_valid | claim | 0.90 | 0.90 | independent |
 | eft_vertex_matches_dfpt | claim | — | 0.88 | derived |
-| tc_li_comparison_valid | claim | 0.88 | 0.88 | independent |
 | gamma3_vdiagmc | claim | 0.88 | 0.88 | independent |
+| tc_li_comparison_valid | claim | 0.88 | 0.88 | independent |
 | dfpt_reliable_for_simple_metals | claim | — | 0.87 | derived |
 | vdiagmc_method | claim | 0.90 | 0.87 | independent |
 | tc_zn_abinitio_outperforms_phenomenological | claim | — | 0.86 | derived |
 | gamma3_approximation | claim | — | 0.86 | derived |
-| tc_li_experimental | claim | 0.85 | 0.85 | independent |
 | ueg_pseudopotential_parameterization | claim | 0.85 | 0.85 | independent |
+| tc_li_experimental | claim | 0.85 | 0.85 | independent |
 | homotopic_expansion | claim | 0.88 | 0.84 | independent |
 | tc_al_predicted | claim | — | 0.84 | derived |
 | tc_zn_predicted | claim | — | 0.84 | derived |

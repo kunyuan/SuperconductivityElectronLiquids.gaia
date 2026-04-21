@@ -256,7 +256,7 @@
 **claim_class:** gaia.std.likelihood.GaussianModelComparisonLogLR
 **kind:** likelihood_score
 **function_ref:** gaia.std.likelihood.gaussian_model_comparison_log_lr_claim
-**query:** {'quantity': 'Tc', 'material': 'Al', 'unit': 'K', 'candidate': 'ab_initio_eft', 'baseline': 'phenomenological_mcmillan', 'criterion': 'higher Gaussian predictive likelihood for observed Tc'}
+**query:** {'type': 'gaussian_model_comparison', 'direction': 'candidate_over_baseline', 'value_field': 'value_K'}
 **target:** github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological
 **value:** 2.402222222222223
 **Referenced by:** likelihood -> `github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological`
@@ -360,7 +360,7 @@
 **claim_class:** gaia.std.likelihood.GaussianModelComparisonLogLR
 **kind:** likelihood_score
 **function_ref:** gaia.std.likelihood.gaussian_model_comparison_log_lr_claim
-**query:** {'quantity': 'Tc', 'material': 'Zn', 'unit': 'K', 'candidate': 'ab_initio_eft', 'baseline': 'phenomenological_mcmillan', 'criterion': 'higher Gaussian predictive likelihood for observed Tc'}
+**query:** {'type': 'gaussian_model_comparison', 'direction': 'candidate_over_baseline', 'value_field': 'value_K'}
 **target:** github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological
 **value:** 3.062800000000002
 **Referenced by:** likelihood -> `github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological`
@@ -464,7 +464,7 @@
 **claim_class:** gaia.std.likelihood.GaussianModelComparisonLogLR
 **kind:** likelihood_score
 **function_ref:** gaia.std.likelihood.gaussian_model_comparison_log_lr_claim
-**query:** {'quantity': 'log10(Tc/K)', 'material': 'Li', 'candidate': 'ab_initio_eft_9R', 'baseline': 'phenomenological_mcmillan', 'criterion': 'higher Gaussian predictive likelihood for observed log Tc'}
+**query:** {'type': 'gaussian_model_comparison', 'direction': 'candidate_over_baseline', 'value_field': 'value_K', 'transform': 'log10'}
 **target:** github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological
 **value:** 3.7260999037054043
 **Referenced by:** likelihood -> `github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological`

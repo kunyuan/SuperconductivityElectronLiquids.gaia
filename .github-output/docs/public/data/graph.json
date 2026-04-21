@@ -193,7 +193,7 @@
       "module": "motivation",
       "content": "When treating the dynamically screened Coulomb interaction within the random phase approximation (RPA), the predicted $\\mu^* < 0$ (i.e. the Coulomb effect becomes net attractive in the Cooper channel) for Wigner-Seitz radius $r_s \\gtrsim 2$ ($r_s$ is proportional to the ratio of electron spacing to Bohr radius, measuring the ratio of Coulomb interaction to kinetic energy). However, RPA neglects beyond-RPA effects such as vertex corrections and self-energy renormalization for $r_s \\gtrsim 1$, making its predictions unreliable in this density regime and inconsistent with extensive experimental evidence.",
       "prior": 0.5,
-      "belief": 0.12761861038932354,
+      "belief": 0.12761861038932357,
       "exported": false,
       "metadata": {
         "prior": 0.5,
@@ -208,7 +208,7 @@
       "module": "motivation",
       "content": "Density functional perturbation theory (DFPT) computes the electron-phonon coupling constant $\\lambda$ (a dimensionless parameter quantifying the phonon-mediated attraction strength at the Fermi surface) via the linear response of the Kohn-Sham ground-state energy to lattice distortions. DFPT has been validated for weakly correlated superconductors but its accuracy for strongly correlated systems is unknown.",
       "prior": 0.92,
-      "belief": 0.9858845230932352,
+      "belief": 0.985884523093235,
       "exported": false,
       "metadata": {
         "prior": 0.92,
@@ -239,7 +239,7 @@
       "module": "motivation",
       "content": "The experimental superconducting transition temperature of lithium (Li) is 0.0004 K. This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
       "prior": 0.85,
-      "belief": 0.85,
+      "belief": 0.8499999999999999,
       "exported": false,
       "metadata": {
         "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
@@ -711,7 +711,7 @@
       "module": "s4_pseudopotential",
       "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\\mu_{E_F} \\approx 0.27\\, r_s$. The complete set of values (Cai et al., TABLE I), computed at $\\omega_c = 0.1\\, E_F$ and rescaled to $E_F$ via the BTS relation:\n\n| $r_s$              | 1       | 2       | 3       | 4        | 5        | 6      |\n|--------------------|---------|---------|---------|----------|----------|--------|\n| $\\mu_{0.1\\,E_F}$ | 0.172(4)| 0.238(4)| 0.278(6)| 0.306(15)| 0.328(12)| 0.35(3)|\n| $\\mu_{E_F}$       | 0.28(1) | 0.53(2) | 0.77(5) | 1.0(2)   | 1.3(2)   | 1.8(8) |\n\nNumbers in parentheses indicate the systematic uncertainty in the last digit. These results, combined with the BTS relation, yield $\\mu^\\ast \\approx 0.12\\text{--}0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent. The values are dramatically larger than the static RPA, Morel-Anderson, and dynamic RPA predictions for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — and resolve the long-standing contradiction between phenomenological and RPA-based treatments of the Coulomb pseudopotential.",
       "prior": null,
-      "belief": 0.7477507913837222,
+      "belief": 0.7477507913837221,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/8_0.jpg",
@@ -1045,7 +1045,7 @@
       "module": "s6_superconductors",
       "content": "For simple metals, the Coulomb pseudopotential $\\mu^*$ can be obtained from first principles without adjustable parameters: the vDiagMC-computed $\\mu_{E_F}(r_s)$ for the uniform electron gas is mapped to real materials via material-specific $r_s$ and band mass, then scaled to the Debye frequency via the BTS renormalization relation.",
       "prior": null,
-      "belief": 0.778980399428786,
+      "belief": 0.7789803994287859,
       "exported": false,
       "metadata": {
         "gaia": {
@@ -1140,7 +1140,7 @@
       "module": "s6_superconductors",
       "content": "Under hydrostatic pressure, the ab initio framework predicts that aluminum's superconducting $T_c$ monotonically decreases, consistent with experimental data up to 6 GPa. The framework predicts that superconductivity in Al vanishes at approximately 60 GPa; at 20 GPa, $T_c$ is already suppressed below 1 mK.",
       "prior": null,
-      "belief": 0.8198582403620166,
+      "belief": 0.8198582403620165,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/14_0.jpg",
@@ -1163,7 +1163,7 @@
       "module": "s6_superconductors",
       "content": "The ab initio framework predicts that sodium and magnesium have extremely low or vanishing $T_c$: for Na ($r_s = 3.96$, $\\lambda = 0.2$, $\\mu^* = 0.15$), the Coulomb repulsion nearly cancels the weak electron-phonon coupling, giving $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no superconductivity). For Mg ($r_s = 2.66$, $\\lambda = 0.24$, $\\mu^* = 0.14$), $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. Both materials are near the quantum phase transition between superconducting and non-superconducting ground states, where $T_c$ varies exponentially with small parameter changes.",
       "prior": null,
-      "belief": 0.8198582403620166,
+      "belief": 0.8198582403620165,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/15_0.jpg",
@@ -1298,12 +1298,9 @@
         "kind": "likelihood_score",
         "function_ref": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim",
         "query": {
-          "quantity": "Tc",
-          "material": "Al",
-          "unit": "K",
-          "candidate": "ab_initio_eft",
-          "baseline": "phenomenological_mcmillan",
-          "criterion": "higher Gaussian predictive likelihood for observed Tc"
+          "type": "gaussian_model_comparison",
+          "direction": "candidate_over_baseline",
+          "value_field": "value_K"
         },
         "target": "github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological",
         "value": 2.402222222222223
@@ -1427,12 +1424,9 @@
         "kind": "likelihood_score",
         "function_ref": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim",
         "query": {
-          "quantity": "Tc",
-          "material": "Zn",
-          "unit": "K",
-          "candidate": "ab_initio_eft",
-          "baseline": "phenomenological_mcmillan",
-          "criterion": "higher Gaussian predictive likelihood for observed Tc"
+          "type": "gaussian_model_comparison",
+          "direction": "candidate_over_baseline",
+          "value_field": "value_K"
         },
         "target": "github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological",
         "value": 3.062800000000002
@@ -1446,7 +1440,7 @@
       "module": "s6_superconductors",
       "content": "For lithium, the ab initio EFT prediction explains the observed ultra-low transition temperature better than the phenomenological McMillan prediction: the ab initio value is within an order of magnitude of $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K, while the phenomenological value $T_c \\approx 0.35$ K is too high by roughly three orders of magnitude.",
       "prior": null,
-      "belief": 0.7903503417722071,
+      "belief": 0.790350341772207,
       "exported": false,
       "metadata": {}
     },
@@ -1458,7 +1452,7 @@
       "module": "s6_superconductors",
       "content": "The lithium comparison uses the same 9R low-temperature structure target where applicable, the same experimental $T_c$ reference, and an order-of-magnitude error criterion appropriate for the ultra-low transition temperature regime.",
       "prior": 0.88,
-      "belief": 0.8800000000000001,
+      "belief": 0.88,
       "exported": false,
       "metadata": {
         "prior": 0.88,
@@ -1556,11 +1550,10 @@
         "kind": "likelihood_score",
         "function_ref": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim",
         "query": {
-          "quantity": "log10(Tc/K)",
-          "material": "Li",
-          "candidate": "ab_initio_eft_9R",
-          "baseline": "phenomenological_mcmillan",
-          "criterion": "higher Gaussian predictive likelihood for observed log Tc"
+          "type": "gaussian_model_comparison",
+          "direction": "candidate_over_baseline",
+          "value_field": "value_K",
+          "transform": "log10"
         },
         "target": "github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological",
         "value": 3.7260999037054043
@@ -1770,12 +1763,9 @@
           "score_type": "log_lr",
           "value": 2.402222222222223,
           "query": {
-            "quantity": "Tc",
-            "material": "Al",
-            "unit": "K",
-            "candidate": "ab_initio_eft",
-            "baseline": "phenomenological_mcmillan",
-            "criterion": "higher Gaussian predictive likelihood for observed Tc"
+            "type": "gaussian_model_comparison",
+            "direction": "candidate_over_baseline",
+            "value_field": "value_K"
           },
           "rationale": "The Gaussian model-comparison log-likelihood ratio is 2.402222222222223 for observed value 1.2, candidate mean 0.96, baseline mean 1.9, and sigma 0.3."
         }
@@ -1811,12 +1801,9 @@
           "score_type": "log_lr",
           "value": 2.402222222222223,
           "query": {
-            "quantity": "Tc",
-            "material": "Al",
-            "unit": "K",
-            "candidate": "ab_initio_eft",
-            "baseline": "phenomenological_mcmillan",
-            "criterion": "higher Gaussian predictive likelihood for observed Tc"
+            "type": "gaussian_model_comparison",
+            "direction": "candidate_over_baseline",
+            "value_field": "value_K"
           },
           "rationale": "The Gaussian model-comparison log-likelihood ratio is 2.402222222222223 for observed value 1.2, candidate mean 0.96, baseline mean 1.9, and sigma 0.3."
         }
@@ -1855,12 +1842,9 @@
           "score_type": "log_lr",
           "value": 3.062800000000002,
           "query": {
-            "quantity": "Tc",
-            "material": "Zn",
-            "unit": "K",
-            "candidate": "ab_initio_eft",
-            "baseline": "phenomenological_mcmillan",
-            "criterion": "higher Gaussian predictive likelihood for observed Tc"
+            "type": "gaussian_model_comparison",
+            "direction": "candidate_over_baseline",
+            "value_field": "value_K"
           },
           "rationale": "The Gaussian model-comparison log-likelihood ratio is 3.062800000000002 for observed value 0.875, candidate mean 0.874, baseline mean 1.37, and sigma 0.2."
         }
@@ -1896,12 +1880,9 @@
           "score_type": "log_lr",
           "value": 3.062800000000002,
           "query": {
-            "quantity": "Tc",
-            "material": "Zn",
-            "unit": "K",
-            "candidate": "ab_initio_eft",
-            "baseline": "phenomenological_mcmillan",
-            "criterion": "higher Gaussian predictive likelihood for observed Tc"
+            "type": "gaussian_model_comparison",
+            "direction": "candidate_over_baseline",
+            "value_field": "value_K"
           },
           "rationale": "The Gaussian model-comparison log-likelihood ratio is 3.062800000000002 for observed value 0.875, candidate mean 0.874, baseline mean 1.37, and sigma 0.2."
         }
@@ -1940,11 +1921,10 @@
           "score_type": "log_lr",
           "value": 3.7260999037054043,
           "query": {
-            "quantity": "log10(Tc/K)",
-            "material": "Li",
-            "candidate": "ab_initio_eft_9R",
-            "baseline": "phenomenological_mcmillan",
-            "criterion": "higher Gaussian predictive likelihood for observed log Tc"
+            "type": "gaussian_model_comparison",
+            "direction": "candidate_over_baseline",
+            "value_field": "value_K",
+            "transform": "log10"
           },
           "rationale": "The Gaussian model-comparison log-likelihood ratio is 3.7260999037054043 for observed value -3.3979400086720375, candidate mean -2.3010299956639813, baseline mean -0.4559319556497244, and sigma 1.0."
         }
@@ -1980,11 +1960,10 @@
           "score_type": "log_lr",
           "value": 3.7260999037054043,
           "query": {
-            "quantity": "log10(Tc/K)",
-            "material": "Li",
-            "candidate": "ab_initio_eft_9R",
-            "baseline": "phenomenological_mcmillan",
-            "criterion": "higher Gaussian predictive likelihood for observed log Tc"
+            "type": "gaussian_model_comparison",
+            "direction": "candidate_over_baseline",
+            "value_field": "value_K",
+            "transform": "log10"
           },
           "rationale": "The Gaussian model-comparison log-likelihood ratio is 3.7260999037054043 for observed value -3.3979400086720375, candidate mean -2.3010299956639813, baseline mean -0.4559319556497244, and sigma 1.0."
         }

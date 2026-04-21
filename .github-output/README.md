@@ -34,8 +34,8 @@ graph TB
     tc_li_predicted["★ Tc(Li) Ab Initio Prediction\n(0.50 → 0.82)"]:::exported
     al_pressure_transition["★ Al Pressure-Tc Transition\n(0.50 → 0.82)"]:::exported
     tc_mg_na_near_qpt["★ Na and Mg Near Quantum Phase Transition\n(0.50 → 0.82)"]:::exported
-    rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast;\n(0.50 → 0.13)"]:::premise
     rpa_vs_vdiagmc["rpa_vs_vdiagmc\n(0.95 → 1.00)"]:::premise
+    rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast;\n(0.50 → 0.13)"]:::premise
     strat_0(["infer"]):::weak
     ab_initio_workflow --> strat_0
     strat_0 --> al_pressure_transition
