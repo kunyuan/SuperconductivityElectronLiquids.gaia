@@ -91,12 +91,13 @@
 **QID:** `github:superconductivity_electron_liquids::tc_al_predicted`
 **Type:** claim
 **Role:** derived
-**Content:** The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\mathrm{exp}} = 1.2$ K. The first-principles $\mu^*(\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization.
+**Content:** The ab initio EFT predicted superconducting transition temperature of aluminum (Al) is 0.96 K. The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization.
 **Belief:** 0.84
 **Derived from:** support
 **Premises:** `github:superconductivity_electron_liquids::ab_initio_workflow`
 **figure:** artifacts/images/14_0.jpg
 **caption:** Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.
+**claim_class:** superconductivity_electron_liquids.motivation.TcValue
 **gaia:** {'provenance': {'referenced_claims': ['ab_initio_workflow', 'aluminum_parameters']}}
 **Referenced by:** likelihood -> `github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological`
 
@@ -105,12 +106,13 @@
 **QID:** `github:superconductivity_electron_liquids::tc_zn_predicted`
 **Type:** claim
 **Role:** derived
-**Content:** The ab initio predicted superconducting transition temperature of zinc is $T_c^{\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\mathrm{exp}} = 0.875$ K. The first-principles $\mu^*(\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization.
+**Content:** The ab initio EFT predicted superconducting transition temperature of zinc (Zn) is 0.874 K. The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization.
 **Belief:** 0.84
 **Derived from:** support
 **Premises:** `github:superconductivity_electron_liquids::ab_initio_workflow`
 **figure:** artifacts/images/15_0.jpg
 **caption:** Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.
+**claim_class:** superconductivity_electron_liquids.motivation.TcValue
 **gaia:** {'provenance': {'referenced_claims': ['ab_initio_workflow', 'zinc_parameters']}}
 **Referenced by:** likelihood -> `github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological`
 
@@ -119,12 +121,13 @@
 **QID:** `github:superconductivity_electron_liquids::tc_li_predicted`
 **Type:** claim
 **Role:** derived
-**Content:** The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\mathrm{EFT}} = 5 \times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\mathrm{exp}} \approx 4 \times 10^{-4}$ K. The large $\mu^*(\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\mathrm{EFT}} = 0.03$ K with $\mu^* = 0.17$ and $\lambda = 0.37$.
+**Content:** The ab initio EFT predicted superconducting transition temperature of lithium (Li) (9R structure) is 0.005 K. The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37.
 **Belief:** 0.82
 **Derived from:** support
 **Premises:** `github:superconductivity_electron_liquids::ab_initio_workflow`
 **figure:** artifacts/images/15_0.jpg
 **caption:** Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.
+**claim_class:** superconductivity_electron_liquids.motivation.TcValue
 **gaia:** {'provenance': {'referenced_claims': ['ab_initio_workflow', 'lithium_parameters']}}
 **Referenced by:** likelihood -> `github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological`
 

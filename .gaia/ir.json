@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:8439303ad7bc78922db69e7155d605a4e020bd9b8222749308a5930ef29e9926",
+  "ir_hash": "sha256:bcf82503098587ccaddb595e2d4db03cc2eeeb94e9561e1daedbca7266500794",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -150,61 +150,150 @@
       "type": "claim"
     },
     {
-      "content": "The experimental superconducting transition temperature of aluminum (Al) is $T_c^{\\mathrm{exp}} = 1.2$ K.",
-      "content_hash": "03145efc7914bc12e9e0b18438ce865c8d79cd6dd854676fde0cc015fd269433",
+      "content": "The experimental superconducting transition temperature of aluminum (Al) is 1.2 K. This value is the experimental target used in the Al comparison.",
+      "content_hash": "a1803079efb0bee378cc3df56b735a8a38566d6e1d941c21c75ab0b629c06f45",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 9,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_al_experimental",
       "label": "tc_al_experimental",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.99,
         "prior_justification": "Well-established measurement."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "aluminum (Al)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "experimental"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 1.2
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This value is the experimental target used in the Al comparison."
+        }
+      ],
+      "rendered_content": "The experimental superconducting transition temperature of aluminum (Al) is 1.2 K. This value is the experimental target used in the Al comparison.",
       "title": "Tc(Al) Experimental",
       "type": "claim"
     },
     {
-      "content": "The experimental superconducting transition temperature of lithium (Li) is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). This measurement corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
-      "content_hash": "00a609d948446a47ad5d60b718e6e011e72183c8f48203e32be1fa36292e2ad4",
+      "content": "The experimental superconducting transition temperature of lithium (Li) is 0.0004 K. This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
+      "content_hash": "1bc4ee334d6974147048e05282725c064d0d73e3aaa6d3dc414170770d65a203",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 10,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_li_experimental",
       "label": "tc_li_experimental",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.85,
         "prior_justification": "Crystal structure controversial at ultra-low T."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "lithium (Li)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "experimental"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.0004
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial."
+        }
+      ],
+      "rendered_content": "The experimental superconducting transition temperature of lithium (Li) is 0.0004 K. This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
       "title": "Tc(Li) Experimental",
       "type": "claim"
     },
     {
-      "content": "The experimental superconducting transition temperature of zinc (Zn) is $T_c^{\\mathrm{exp}} = 0.875$ K.",
-      "content_hash": "285d83f8b3eb400f03eb8dfb29a63f2adc9f6faad61961249891696e3c578ea3",
+      "content": "The experimental superconducting transition temperature of zinc (Zn) is 0.875 K. This value is the experimental target used in the Zn comparison.",
+      "content_hash": "488a04c30e2f12977821072c9869affa1a05358e8ff20dce5aa6ddaecb3d8d24",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 11,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_zn_experimental",
       "label": "tc_zn_experimental",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.99,
         "prior_justification": "Well-established measurement."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "zinc (Zn)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "experimental"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.875
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This value is the experimental target used in the Zn comparison."
+        }
+      ],
+      "rendered_content": "The experimental superconducting transition temperature of zinc (Zn) is 0.875 K. This value is the experimental target used in the Zn comparison.",
       "title": "Tc(Zn) Experimental",
       "type": "claim"
     },
     {
-      "content": "Using the McMillan formula (an empirical formula for $T_c$ based on the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of aluminum is $T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a deviation of approximately 58%.",
-      "content_hash": "9df4c70ac882dcab11f5468201b2339bc6daa9ad53924b6aec8d5c33bd63202b",
+      "content": "The phenomenological McMillan predicted superconducting transition temperature of aluminum (Al) is 1.9 K. This uses the standard empirical value mu* = 0.1; the experimental value is 1.2 K, giving a deviation of approximately 58%.",
+      "content_hash": "efe411aeabb7af6ee6323bff5b55ecc23ce1c89b4c2161ae7876d21889c60e45",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 12,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_al_phenomenological",
       "label": "tc_al_phenomenological",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -217,18 +306,47 @@
         "prior_justification": "McMillan calculation/report of 1.9K is straightforward; fit quality is represented separately."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "aluminum (Al)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "phenomenological McMillan predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 1.9
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This uses the standard empirical value mu* = 0.1; the experimental value is 1.2 K, giving a deviation of approximately 58%."
+        }
+      ],
+      "rendered_content": "The phenomenological McMillan predicted superconducting transition temperature of aluminum (Al) is 1.9 K. This uses the standard empirical value mu* = 0.1; the experimental value is 1.2 K, giving a deviation of approximately 58%.",
       "title": "Tc(Al) Phenomenological Prediction",
       "type": "claim"
     },
     {
-      "content": "Using the McMillan formula with $\\mu^* = 0.1$, the predicted superconducting transition temperature of lithium is $T_c \\approx 0.35$ K, while the experimental value is approximately $4 \\times 10^{-4}$ K; the theory overestimates by about three orders of magnitude.",
-      "content_hash": "778b5b8ea3aa48c403e9b9770376da2377312425161685c410bef5313aa17489",
+      "content": "The phenomenological McMillan predicted superconducting transition temperature of lithium (Li) is 0.35 K. This uses mu* = 0.1; the experimental value is approximately 4e-4 K, so the theory overestimates by about three orders of magnitude.",
+      "content_hash": "3bc32c0974ec2ee995b1603172984632a66a5bd9d277b2feedac4911e06c4ec5",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 13,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_li_phenomenological",
       "label": "tc_li_phenomenological",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -241,18 +359,47 @@
         "prior_justification": "McMillan calculation/report of 0.35K is straightforward; fit quality is represented separately."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "lithium (Li)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "phenomenological McMillan predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.35
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This uses mu* = 0.1; the experimental value is approximately 4e-4 K, so the theory overestimates by about three orders of magnitude."
+        }
+      ],
+      "rendered_content": "The phenomenological McMillan predicted superconducting transition temperature of lithium (Li) is 0.35 K. This uses mu* = 0.1; the experimental value is approximately 4e-4 K, so the theory overestimates by about three orders of magnitude.",
       "title": "Tc(Li) Phenomenological Prediction",
       "type": "claim"
     },
     {
-      "content": "Using the McMillan formula with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of zinc is $T_c \\approx 1.37$ K, while the experimental value is 0.875 K, a deviation of approximately 57%.",
-      "content_hash": "93bdb1c4cf36956d8db64fca57fe5855ffa5f26c0cb802901f558c6a34751ec5",
+      "content": "The phenomenological McMillan predicted superconducting transition temperature of zinc (Zn) is 1.37 K. This uses the standard empirical value mu* = 0.1; the experimental value is 0.875 K, giving a deviation of approximately 57%.",
+      "content_hash": "01b00c319a9c14b3b3e1dd46087b7db0c41a8baa156c800e084795862d7ee5e6",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 14,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_zn_phenomenological",
       "label": "tc_zn_phenomenological",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -265,7 +412,34 @@
         "prior_justification": "McMillan calculation/report of 1.37K is straightforward; fit quality is represented separately."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "zinc (Zn)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "phenomenological McMillan predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 1.37
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This uses the standard empirical value mu* = 0.1; the experimental value is 0.875 K, giving a deviation of approximately 57%."
+        }
+      ],
+      "rendered_content": "The phenomenological McMillan predicted superconducting transition temperature of zinc (Zn) is 1.37 K. This uses the standard empirical value mu* = 0.1; the experimental value is 0.875 K, giving a deviation of approximately 57%.",
       "title": "Tc(Zn) Phenomenological Prediction",
       "type": "claim"
     },
@@ -1025,14 +1199,16 @@
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization.",
-      "content_hash": "6a8ebb89878068183f610716027606b9fe5ee6076fe9231089445abcc691824e",
+      "content": "The ab initio EFT predicted superconducting transition temperature of aluminum (Al) is 0.96 K. The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization.",
+      "content_hash": "73079be0f4cf8f469d5a4de6a41c296bf909c9e80b1113f11b1031a266935ccd",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 9,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_al_predicted",
       "label": "tc_al_predicted",
       "metadata": {
         "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "figure": "artifacts/images/14_0.jpg",
         "gaia": {
           "provenance": {
@@ -1044,19 +1220,48 @@
         }
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "aluminum (Al)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "ab initio EFT predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.96
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization."
+        }
+      ],
+      "rendered_content": "The ab initio EFT predicted superconducting transition temperature of aluminum (Al) is 0.96 K. The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization.",
       "title": "Tc(Al) Ab Initio Prediction",
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization.",
-      "content_hash": "8e12c1382dcd1c0a5383f1aedcbddd075a8c66aadf05846bb16e5c676c7bd22b",
+      "content": "The ab initio EFT predicted superconducting transition temperature of zinc (Zn) is 0.874 K. The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization.",
+      "content_hash": "ed2634bd4c93e59a0dcd2751e3fa100b99a6fef621df0051c40db65d9c318d9e",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 10,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_zn_predicted",
       "label": "tc_zn_predicted",
       "metadata": {
         "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "figure": "artifacts/images/15_0.jpg",
         "gaia": {
           "provenance": {
@@ -1068,19 +1273,48 @@
         }
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "zinc (Zn)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "ab initio EFT predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.874
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization."
+        }
+      ],
+      "rendered_content": "The ab initio EFT predicted superconducting transition temperature of zinc (Zn) is 0.874 K. The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization.",
       "title": "Tc(Zn) Ab Initio Prediction",
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with $\\mu^* = 0.17$ and $\\lambda = 0.37$.",
-      "content_hash": "03465d1d36613dd01d05702ced651adfaf383169397a9b5e7b35b562ff81b78f",
+      "content": "The ab initio EFT predicted superconducting transition temperature of lithium (Li) (9R structure) is 0.005 K. The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37.",
+      "content_hash": "7bdc776da2b866811338d29ca5fc2244510645666240619322266500d6e09800",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 11,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_li_predicted",
       "label": "tc_li_predicted",
       "metadata": {
         "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "figure": "artifacts/images/15_0.jpg",
         "gaia": {
           "provenance": {
@@ -1092,7 +1326,34 @@
         }
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "lithium (Li)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "ab initio EFT predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": " (9R structure)"
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.005
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37."
+        }
+      ],
+      "rendered_content": "The ab initio EFT predicted superconducting transition temperature of lithium (Li) (9R structure) is 0.005 K. The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37.",
       "title": "Tc(Li) Ab Initio Prediction",
       "type": "claim"
     },

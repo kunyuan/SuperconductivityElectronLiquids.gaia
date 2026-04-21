@@ -76,10 +76,10 @@ Auto-generated from the coarse reasoning graph. Sections are grouped by connecti
 17. **Al Pressure-Tc Transition ★** (prior: 0.50 → belief: 0.82)
    - ← infer(ab_initio_workflow)
 
-18. **Na and Mg Near Quantum Phase Transition ★** (prior: 0.50 → belief: 0.82)
+18. **Tc(Li) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.82)
    - ← infer(ab_initio_workflow)
 
-19. **Tc(Li) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.82)
+19. **Na and Mg Near Quantum Phase Transition ★** (prior: 0.50 → belief: 0.82)
    - ← infer(ab_initio_workflow)
 
 20. **Tc(Zn) Ab Initio Prediction ★** (prior: 0.50 → belief: 0.84)

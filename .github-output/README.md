@@ -34,8 +34,8 @@ graph TB
     tc_li_predicted["★ Tc(Li) Ab Initio Prediction\n(0.50 → 0.82)"]:::exported
     al_pressure_transition["★ Al Pressure-Tc Transition\n(0.50 → 0.82)"]:::exported
     tc_mg_na_near_qpt["★ Na and Mg Near Quantum Phase Transition\n(0.50 → 0.82)"]:::exported
-    rpa_vs_vdiagmc["rpa_vs_vdiagmc\n(0.95 → 1.00)"]:::premise
     rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast;\n(0.50 → 0.13)"]:::premise
+    rpa_vs_vdiagmc["rpa_vs_vdiagmc\n(0.95 → 1.00)"]:::premise
     strat_0(["infer"]):::weak
     ab_initio_workflow --> strat_0
     strat_0 --> al_pressure_transition
@@ -93,10 +93,10 @@ graph TB
 | dfpt_reliable_for_simple_metals | For simple metals, the DFPT calculation of the electron-phonon coupling const... | 0.50 | 0.87 |
 | downfolded_bse | The frequency-only downfolded Bethe-Salpeter equation: the full momentum-freq... | 0.50 | 0.96 |
 | mu_vdiagmc_values | vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopot... | 0.50 | 0.75 |
-| tc_al_predicted | The ab initio predicted superconducting transition temperature of aluminum is... | 0.50 | 0.84 |
-| tc_li_predicted | The ab initio predicted superconducting transition temperature of lithium (9R... | 0.50 | 0.82 |
+| tc_al_predicted | The ab initio EFT predicted superconducting transition temperature of aluminu... | 0.50 | 0.84 |
+| tc_li_predicted | The ab initio EFT predicted superconducting transition temperature of lithium... | 0.50 | 0.82 |
 | tc_mg_na_near_qpt | The ab initio framework predicts that sodium and magnesium have extremely low... | 0.50 | 0.82 |
-| tc_zn_predicted | The ab initio predicted superconducting transition temperature of zinc is $T_... | 0.50 | 0.84 |
+| tc_zn_predicted | The ab initio EFT predicted superconducting transition temperature of zinc (Z... | 0.50 | 0.84 |
 
 <!-- content:start -->
 <!-- content:end -->

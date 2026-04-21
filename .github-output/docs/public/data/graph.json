@@ -148,7 +148,7 @@
       "module": "motivation",
       "content": "The downfolding procedure (integrating out high-energy degrees of freedom to obtain a low-energy effective theory) in traditional Migdal-Eliashberg (ME) theory is phenomenological: the Coulomb effect is replaced by a static pseudopotential $\\mu^*$, ignoring corrections from Coulomb fluctuations to quasiparticle renormalization and electron-phonon coupling, as well as non-local effects of screening.",
       "prior": 0.95,
-      "belief": 0.95,
+      "belief": 0.9499999999999998,
       "exported": false,
       "metadata": {
         "prior": 0.95,
@@ -163,7 +163,7 @@
       "module": "motivation",
       "content": "Traditional electron-phonon superconductivity theory uses the McMillan (or Allen-Dynes) formula, with the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$ as inputs to predict the superconducting transition temperature $T_c$. Since $\\mu^*$ cannot be reliably computed from first principles, it is typically assigned an empirical value $\\mu^* \\in [0.1, 0.2]$. For materials with $T_c$ in the sub-kelvin range, the exponential sensitivity $T_c \\propto \\exp(-1/g)$ to $\\mu^*$ causes this uncertainty to span several orders of magnitude in the predicted $T_c$, destroying predictive power.",
       "prior": 0.95,
-      "belief": 0.95,
+      "belief": 0.9499999999999998,
       "exported": false,
       "metadata": {
         "prior": 0.95,
@@ -193,7 +193,7 @@
       "module": "motivation",
       "content": "When treating the dynamically screened Coulomb interaction within the random phase approximation (RPA), the predicted $\\mu^* < 0$ (i.e. the Coulomb effect becomes net attractive in the Cooper channel) for Wigner-Seitz radius $r_s \\gtrsim 2$ ($r_s$ is proportional to the ratio of electron spacing to Bohr radius, measuring the ratio of Coulomb interaction to kinetic energy). However, RPA neglects beyond-RPA effects such as vertex corrections and self-energy renormalization for $r_s \\gtrsim 1$, making its predictions unreliable in this density regime and inconsistent with extensive experimental evidence.",
       "prior": 0.5,
-      "belief": 0.1276186103893236,
+      "belief": 0.12761861038932354,
       "exported": false,
       "metadata": {
         "prior": 0.5,
@@ -221,11 +221,12 @@
       "title": "Tc(Al) Experimental",
       "type": "claim",
       "module": "motivation",
-      "content": "The experimental superconducting transition temperature of aluminum (Al) is $T_c^{\\mathrm{exp}} = 1.2$ K.",
+      "content": "The experimental superconducting transition temperature of aluminum (Al) is 1.2 K. This value is the experimental target used in the Al comparison.",
       "prior": 0.99,
       "belief": 0.9899999999999999,
       "exported": false,
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.99,
         "prior_justification": "Well-established measurement."
       }
@@ -236,11 +237,12 @@
       "title": "Tc(Li) Experimental",
       "type": "claim",
       "module": "motivation",
-      "content": "The experimental superconducting transition temperature of lithium (Li) is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). This measurement corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
+      "content": "The experimental superconducting transition temperature of lithium (Li) is 0.0004 K. This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
       "prior": 0.85,
-      "belief": 0.8499999999999999,
+      "belief": 0.85,
       "exported": false,
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.85,
         "prior_justification": "Crystal structure controversial at ultra-low T."
       }
@@ -251,11 +253,12 @@
       "title": "Tc(Zn) Experimental",
       "type": "claim",
       "module": "motivation",
-      "content": "The experimental superconducting transition temperature of zinc (Zn) is $T_c^{\\mathrm{exp}} = 0.875$ K.",
+      "content": "The experimental superconducting transition temperature of zinc (Zn) is 0.875 K. This value is the experimental target used in the Zn comparison.",
       "prior": 0.99,
       "belief": 0.9899999999999999,
       "exported": false,
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.99,
         "prior_justification": "Well-established measurement."
       }
@@ -266,11 +269,12 @@
       "title": "Tc(Al) Phenomenological Prediction",
       "type": "claim",
       "module": "motivation",
-      "content": "Using the McMillan formula (an empirical formula for $T_c$ based on the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of aluminum is $T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a deviation of approximately 58%.",
+      "content": "The phenomenological McMillan predicted superconducting transition temperature of aluminum (Al) is 1.9 K. This uses the standard empirical value mu* = 0.1; the experimental value is 1.2 K, giving a deviation of approximately 58%.",
       "prior": 0.95,
       "belief": 0.9974956713256532,
       "exported": false,
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.95,
         "prior_justification": "McMillan calculation/report of 1.9K is straightforward; fit quality is represented separately.",
         "gaia": {
@@ -289,11 +293,12 @@
       "title": "Tc(Li) Phenomenological Prediction",
       "type": "claim",
       "module": "motivation",
-      "content": "Using the McMillan formula with $\\mu^* = 0.1$, the predicted superconducting transition temperature of lithium is $T_c \\approx 0.35$ K, while the experimental value is approximately $4 \\times 10^{-4}$ K; the theory overestimates by about three orders of magnitude.",
+      "content": "The phenomenological McMillan predicted superconducting transition temperature of lithium (Li) is 0.35 K. This uses mu* = 0.1; the experimental value is approximately 4e-4 K, so the theory overestimates by about three orders of magnitude.",
       "prior": 0.95,
       "belief": 0.9974956713256532,
       "exported": false,
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.95,
         "prior_justification": "McMillan calculation/report of 0.35K is straightforward; fit quality is represented separately.",
         "gaia": {
@@ -312,11 +317,12 @@
       "title": "Tc(Zn) Phenomenological Prediction",
       "type": "claim",
       "module": "motivation",
-      "content": "Using the McMillan formula with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of zinc is $T_c \\approx 1.37$ K, while the experimental value is 0.875 K, a deviation of approximately 57%.",
+      "content": "The phenomenological McMillan predicted superconducting transition temperature of zinc (Zn) is 1.37 K. This uses the standard empirical value mu* = 0.1; the experimental value is 0.875 K, giving a deviation of approximately 57%.",
       "prior": 0.95,
       "belief": 0.9974956713256532,
       "exported": false,
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.95,
         "prior_justification": "McMillan calculation/report of 1.37K is straightforward; fit quality is represented separately.",
         "gaia": {
@@ -349,7 +355,7 @@
       "module": "s2_model",
       "content": "The effective action of the electron-phonon coupled system can be decomposed as $S = S_e + S_{\\mathrm{ph}} + S_{e\\text{-ph}} + S_{\\mathrm{CT}} + O(\\sqrt{m/M})$, where $m$ is the electron mass and $M$ is the ion mass. $S_e$ is the complete many-electron action without any approximation, $S_{\\mathrm{ph}}$ describes phonons with physical dispersion, $S_{e\\text{-ph}}$ is the coupling between electron density and ionic displacement, and $S_{\\mathrm{CT}}$ is a counterterm that subtracts the static electron polarization contribution already included in the physical phonon dispersion to prevent double counting.",
       "prior": 0.95,
-      "belief": 0.95,
+      "belief": 0.9499999999999998,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/4_1.jpg",
@@ -388,7 +394,7 @@
       "module": "s2_model",
       "content": "The low-frequency limit of the anomalous vertex function on the Fermi surface $\\Lambda_0$ obeys a universal scaling relation (precursory Cooper flow, PCF): $\\Lambda_0 = 1/(1 + g\\ln(\\omega_\\Lambda/T)) + O(T)$, where $g$ is the dimensionless coupling constant ($g < 0$ corresponds to net attraction) and $\\omega_\\Lambda$ is an effective high-energy cutoff. When $g < 0$, $\\Lambda_0$ diverges at $T_c = \\omega_\\Lambda e^{1/g}$; by computing in the normal state and extrapolating, one can predict $T_c$.",
       "prior": 0.9,
-      "belief": 0.9,
+      "belief": 0.9000000000000001,
       "exported": false,
       "metadata": {
         "prior": 0.9,
@@ -486,7 +492,7 @@
       "module": "s3_downfolding",
       "content": "The downfolded EFT-ME framework's applicability conditions and failure modes: (i) the adiabatic parameter $\\omega_D/E_F \\ll 1$ must hold, (ii) the intermediate cutoff $\\omega_c$ must satisfy $\\omega_D \\ll \\omega_c \\ll E_F$ with $\\omega_c/\\omega_p \\ll 1$, and (iii) the framework breaks down for strongly non-adiabatic systems (e.g. high-$T_c$ hydrides where $\\omega_D/E_F \\sim 0.1$) and for strongly correlated materials where the quasiparticle picture fails.",
       "prior": 0.92,
-      "belief": 0.92,
+      "belief": 0.9200000000000002,
       "exported": false,
       "metadata": {
         "prior": 0.92,
@@ -582,7 +588,7 @@
       "module": "s3_downfolding",
       "content": "The Coulomb pseudopotential $\\mu_{\\omega_c}(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is determined by the purely electronic particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ projected onto the Fermi surface, with the high-energy electronic degrees of freedom integrated out above the cutoff $\\omega_c$.\n\nOperationally, in a purely electronic theory ($\\lambda = 0$, $z^{\\mathrm{ph}} = 1$), solving the downfolded equation gives the temperature-dependent effective Cooper-channel repulsion (Cai et al., Eq. 23):\n\n$$\\gamma_T = \\frac{\\mu_{\\omega_c}}{1 + \\mu_{\\omega_c} \\ln(\\omega_c/T)} \\quad (T \\ll \\omega_c),$$\n\nwhere $\\gamma_T$ is computed directly from the four-point vertex (Cai et al., Eq. 24):\n\n$$\\gamma_T \\equiv z_e^2\\, N_F^{\\ast}\\, \\bigl\\langle \\Gamma_4^e(\\mathbf{k}_F, \\omega_0;\\, \\mathbf{k}_F', \\omega_0)\\bigr\\rangle_{\\mathbf{k}_F, \\mathbf{k}_F'},\\qquad \\omega_0 = \\pi T.$$\n\nHere $z_e$ is the electronic quasiparticle weight, $N_F^\\ast$ is the quasiparticle density of states, and $\\Gamma_4^e$ is the full electronic four-point vertex on the Fermi surface evaluated at the lowest Matsubara frequency $\\omega_0 = \\pi T$. Inverting Eq. 23 yields $\\mu_{\\omega_c}$ from the measured $\\gamma_T$, providing a precise meaning to the Coulomb pseudopotential as the effective repulsion in the low-energy pairing channel, renormalized by all electronic correlations.",
       "prior": null,
-      "belief": 0.9763976362026077,
+      "belief": 0.9763976362026076,
       "exported": false,
       "metadata": {
         "gaia": {
@@ -658,7 +664,7 @@
       "module": "s4_pseudopotential",
       "content": "Computing the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ of the uniform electron gas (UEG) is a long-standing challenge: perturbation theory in the bare Coulomb interaction diverges for $r_s \\gtrsim 1$, and partial resummations (RPA, GW) miss crucial vertex corrections. A controlled, systematically improvable method is needed to evaluate $\\tilde\\Gamma^e$ in the metallic density range $r_s \\in [1, 6]$.",
       "prior": 0.95,
-      "belief": 0.95,
+      "belief": 0.9499999999999998,
       "exported": false,
       "metadata": {
         "prior": 0.95,
@@ -705,7 +711,7 @@
       "module": "s4_pseudopotential",
       "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\\mu_{E_F} \\approx 0.27\\, r_s$. The complete set of values (Cai et al., TABLE I), computed at $\\omega_c = 0.1\\, E_F$ and rescaled to $E_F$ via the BTS relation:\n\n| $r_s$              | 1       | 2       | 3       | 4        | 5        | 6      |\n|--------------------|---------|---------|---------|----------|----------|--------|\n| $\\mu_{0.1\\,E_F}$ | 0.172(4)| 0.238(4)| 0.278(6)| 0.306(15)| 0.328(12)| 0.35(3)|\n| $\\mu_{E_F}$       | 0.28(1) | 0.53(2) | 0.77(5) | 1.0(2)   | 1.3(2)   | 1.8(8) |\n\nNumbers in parentheses indicate the systematic uncertainty in the last digit. These results, combined with the BTS relation, yield $\\mu^\\ast \\approx 0.12\\text{--}0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent. The values are dramatically larger than the static RPA, Morel-Anderson, and dynamic RPA predictions for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — and resolve the long-standing contradiction between phenomenological and RPA-based treatments of the Coulomb pseudopotential.",
       "prior": null,
-      "belief": 0.7477507913837221,
+      "belief": 0.7477507913837222,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/8_0.jpg",
@@ -761,7 +767,7 @@
       "module": "s5_eph_coupling",
       "content": "vDiagMC computation of the three-point vertex $\\Gamma_3^e(k, q)$ of the UEG at finite momentum transfer $q$ shows that vertex corrections are modest (10--20% level) for momenta within the Fermi sphere ($|k|, |k+q| \\lesssim k_F$) at metallic densities $r_s \\in [2, 4]$. The corrections vary smoothly with $q$ and can be accurately interpolated between the Ward-identity limit ($q \\to 0$) and the large-$q$ asymptotic behavior.",
       "prior": 0.88,
-      "belief": 0.8800000000000001,
+      "belief": 0.88,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/12_0.jpg",
@@ -778,7 +784,7 @@
       "module": "s5_eph_coupling",
       "content": "The DFPT expression for the electron-phonon coupling $g^{\\mathrm{DFPT}}(k, q) = \\sqrt{\\omega_q / 2} \\, \\langle k+q | \\delta V_{\\mathrm{KS}} / \\delta u_q | k \\rangle$ implicitly assumes that vertex corrections to the electron-phonon coupling beyond the Kohn-Sham mean-field level are absorbed into the exchange-correlation functional. The accuracy of this ansatz depends on how well DFT captures the relevant vertex corrections.",
       "prior": 0.9,
-      "belief": 0.9,
+      "belief": 0.9000000000000001,
       "exported": false,
       "metadata": {
         "prior": 0.9,
@@ -851,7 +857,7 @@
       "module": "s5_eph_coupling",
       "content": "The Ward-identity limit and the finite-$q$ vDiagMC vertex calculation are valid tests of the same interpolation approximation for $\\Gamma_3^e(k,q)$ within the Fermi sphere. Passing both tests licenses using the approximation $\\Gamma_3^e \\approx m^*/m$ across the relevant momentum range.",
       "prior": 0.9,
-      "belief": 0.9000000000000001,
+      "belief": 0.9,
       "exported": false,
       "metadata": {
         "prior": 0.9,
@@ -985,7 +991,7 @@
       "module": "s6_superconductors",
       "content": "Simple metals (Al, Li, Na, Mg, Zn) have weak lattice effects in the Coulomb pseudopotential: the difference between the crystalline $\\mu^*$ and the UEG $\\mu^*$ at the same $r_s$ is small (a few percent) because the nearly-free-electron character of these metals means the Fermi surface is approximately spherical and the electronic structure is well described by the homogeneous electron gas with minor crystal-field perturbations.",
       "prior": 0.9,
-      "belief": 0.9,
+      "belief": 0.9000000000000001,
       "exported": false,
       "metadata": {
         "prior": 0.9,
@@ -1039,7 +1045,7 @@
       "module": "s6_superconductors",
       "content": "For simple metals, the Coulomb pseudopotential $\\mu^*$ can be obtained from first principles without adjustable parameters: the vDiagMC-computed $\\mu_{E_F}(r_s)$ for the uniform electron gas is mapped to real materials via material-specific $r_s$ and band mass, then scaled to the Debye frequency via the BTS renormalization relation.",
       "prior": null,
-      "belief": 0.7789803994287859,
+      "belief": 0.778980399428786,
       "exported": false,
       "metadata": {
         "gaia": {
@@ -1060,13 +1066,14 @@
       "title": "Tc(Al) Ab Initio Prediction",
       "type": "claim",
       "module": "s6_superconductors",
-      "content": "The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization.",
+      "content": "The ab initio EFT predicted superconducting transition temperature of aluminum (Al) is 0.96 K. The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization.",
       "prior": null,
       "belief": 0.8398493803846426,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/14_0.jpg",
         "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1083,13 +1090,14 @@
       "title": "Tc(Zn) Ab Initio Prediction",
       "type": "claim",
       "module": "s6_superconductors",
-      "content": "The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization.",
+      "content": "The ab initio EFT predicted superconducting transition temperature of zinc (Zn) is 0.874 K. The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization.",
       "prior": null,
       "belief": 0.8398493803846426,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/15_0.jpg",
         "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1106,13 +1114,14 @@
       "title": "Tc(Li) Ab Initio Prediction",
       "type": "claim",
       "module": "s6_superconductors",
-      "content": "The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with $\\mu^* = 0.17$ and $\\lambda = 0.37$.",
+      "content": "The ab initio EFT predicted superconducting transition temperature of lithium (Li) (9R structure) is 0.005 K. The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37.",
       "prior": null,
       "belief": 0.8198582403620166,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/15_0.jpg",
         "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1131,7 +1140,7 @@
       "module": "s6_superconductors",
       "content": "Under hydrostatic pressure, the ab initio framework predicts that aluminum's superconducting $T_c$ monotonically decreases, consistent with experimental data up to 6 GPa. The framework predicts that superconductivity in Al vanishes at approximately 60 GPa; at 20 GPa, $T_c$ is already suppressed below 1 mK.",
       "prior": null,
-      "belief": 0.8198582403620165,
+      "belief": 0.8198582403620166,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/14_0.jpg",
@@ -1191,7 +1200,7 @@
       "module": "s6_superconductors",
       "content": "The aluminum comparison uses the same material, the same experimental $T_c$ target, and the same absolute-error criterion for the ab initio and phenomenological predictions.",
       "prior": 0.95,
-      "belief": 0.95,
+      "belief": 0.9499999999999998,
       "exported": false,
       "metadata": {
         "prior": 0.95,
@@ -1437,7 +1446,7 @@
       "module": "s6_superconductors",
       "content": "For lithium, the ab initio EFT prediction explains the observed ultra-low transition temperature better than the phenomenological McMillan prediction: the ab initio value is within an order of magnitude of $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K, while the phenomenological value $T_c \\approx 0.35$ K is too high by roughly three orders of magnitude.",
       "prior": null,
-      "belief": 0.790350341772207,
+      "belief": 0.7903503417722071,
       "exported": false,
       "metadata": {}
     },
@@ -1449,7 +1458,7 @@
       "module": "s6_superconductors",
       "content": "The lithium comparison uses the same 9R low-temperature structure target where applicable, the same experimental $T_c$ reference, and an order-of-magnitude error criterion appropriate for the ultra-low transition temperature regime.",
       "prior": 0.88,
-      "belief": 0.88,
+      "belief": 0.8800000000000001,
       "exported": false,
       "metadata": {
         "prior": 0.88,

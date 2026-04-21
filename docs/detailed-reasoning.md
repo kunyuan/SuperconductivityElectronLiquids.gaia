@@ -133,7 +133,7 @@ The adiabatic condition $\omega_D/E_F \ll 1$ (@adiabatic_approx) ensures that th
 
 📌 `tc_al_experimental`   |   Prior: 0.99   |   Belief: **0.99**
 
-> The experimental superconducting transition temperature of aluminum (Al) is $T_c^{\mathrm{exp}} = 1.2$ K.
+> The experimental superconducting transition temperature of aluminum (Al) is 1.2 K. This value is the experimental target used in the Al comparison.
 
 
 <a id="tc_li_experimental"></a>
@@ -142,7 +142,7 @@ The adiabatic condition $\omega_D/E_F \ll 1$ (@adiabatic_approx) ensures that th
 
 📌 `tc_li_experimental`   |   Prior: 0.85   |   Belief: **0.85**
 
-> The experimental superconducting transition temperature of lithium (Li) is $T_c^{\mathrm{exp}} \approx 4 \times 10^{-4}$ K (0.4 mK). This measurement corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.
+> The experimental superconducting transition temperature of lithium (Li) is 0.0004 K. This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.
 
 
 <a id="tc_zn_experimental"></a>
@@ -151,7 +151,7 @@ The adiabatic condition $\omega_D/E_F \ll 1$ (@adiabatic_approx) ensures that th
 
 📌 `tc_zn_experimental`   |   Prior: 0.99   |   Belief: **0.99**
 
-> The experimental superconducting transition temperature of zinc (Zn) is $T_c^{\mathrm{exp}} = 0.875$ K.
+> The experimental superconducting transition temperature of zinc (Zn) is 0.875 K. This value is the experimental target used in the Zn comparison.
 
 
 <a id="tc_al_phenomenological"></a>
@@ -160,7 +160,7 @@ The adiabatic condition $\omega_D/E_F \ll 1$ (@adiabatic_approx) ensures that th
 
 📌 `tc_al_phenomenological`   |   Prior: 0.95   |   Belief: **1.00**
 
-> Using the McMillan formula (an empirical formula for $T_c$ based on the electron-phonon coupling constant $\lambda$ and Coulomb pseudopotential $\mu^*$) with the standard value $\mu^* = 0.1$, the predicted superconducting transition temperature of aluminum is $T_c \approx 1.9$ K, while the experimental value is 1.2 K, a deviation of approximately 58%.
+> The phenomenological McMillan predicted superconducting transition temperature of aluminum (Al) is 1.9 K. This uses the standard empirical value mu* = 0.1; the experimental value is 1.2 K, giving a deviation of approximately 58%.
 
 🔗 **support**([DFPT Computes lambda](#dfpt_computes_lambda), [mu* as Phenomenological Parameter](#mu_star_phenomenological))
 
@@ -177,7 +177,7 @@ The phenomenological McMillan prediction for aluminum uses DFPT-computed $\lambd
 
 📌 `tc_li_phenomenological`   |   Prior: 0.95   |   Belief: **1.00**
 
-> Using the McMillan formula with $\mu^* = 0.1$, the predicted superconducting transition temperature of lithium is $T_c \approx 0.35$ K, while the experimental value is approximately $4 \times 10^{-4}$ K; the theory overestimates by about three orders of magnitude.
+> The phenomenological McMillan predicted superconducting transition temperature of lithium (Li) is 0.35 K. This uses mu* = 0.1; the experimental value is approximately 4e-4 K, so the theory overestimates by about three orders of magnitude.
 
 🔗 **support**([DFPT Computes lambda](#dfpt_computes_lambda), [mu* as Phenomenological Parameter](#mu_star_phenomenological))
 
@@ -194,7 +194,7 @@ The phenomenological McMillan prediction for lithium uses DFPT-computed $\lambda
 
 📌 `tc_zn_phenomenological`   |   Prior: 0.95   |   Belief: **1.00**
 
-> Using the McMillan formula with the standard value $\mu^* = 0.1$, the predicted superconducting transition temperature of zinc is $T_c \approx 1.37$ K, while the experimental value is 0.875 K, a deviation of approximately 57%.
+> The phenomenological McMillan predicted superconducting transition temperature of zinc (Zn) is 1.37 K. This uses the standard empirical value mu* = 0.1; the experimental value is 0.875 K, giving a deviation of approximately 57%.
 
 🔗 **support**([DFPT Computes lambda](#dfpt_computes_lambda), [mu* as Phenomenological Parameter](#mu_star_phenomenological))
 
@@ -1032,7 +1032,7 @@ The vDiagMC results provide $\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). T
 
 📌 `tc_al_predicted`   |   Belief: **0.84**
 
-> The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\mathrm{exp}} = 1.2$ K. The first-principles $\mu^*(\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization.
+> The ab initio EFT predicted superconducting transition temperature of aluminum (Al) is 0.96 K. The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization.
 
 🔗 **support**([Ab Initio Tc Prediction Workflow](#ab_initio_workflow))
 
@@ -1049,7 +1049,7 @@ Applying the ab initio workflow (@ab_initio_workflow) to aluminum with its mater
 
 📌 `tc_zn_predicted`   |   Belief: **0.84**
 
-> The ab initio predicted superconducting transition temperature of zinc is $T_c^{\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\mathrm{exp}} = 0.875$ K. The first-principles $\mu^*(\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization.
+> The ab initio EFT predicted superconducting transition temperature of zinc (Zn) is 0.874 K. The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization.
 
 🔗 **support**([Ab Initio Tc Prediction Workflow](#ab_initio_workflow))
 
@@ -1066,7 +1066,7 @@ Applying the ab initio workflow (@ab_initio_workflow) to zinc with its material 
 
 📌 `tc_li_predicted`   |   Belief: **0.82**
 
-> The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\mathrm{EFT}} = 5 \times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\mathrm{exp}} \approx 4 \times 10^{-4}$ K. The large $\mu^*(\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\mathrm{EFT}} = 0.03$ K with $\mu^* = 0.17$ and $\lambda = 0.37$.
+> The ab initio EFT predicted superconducting transition temperature of lithium (Li) (9R structure) is 0.005 K. The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37.
 
 🔗 **support**([Ab Initio Tc Prediction Workflow](#ab_initio_workflow))
 
@@ -1240,13 +1240,13 @@ Use the SciPy-backed Gaussian model-comparison likelihood score.
 | [tc_zn_abinitio_outperforms_phenomenological](#tc_zn_abinitio_outperforms_phenomenological) | claim | — | 0.8648 | derived |
 | [vdiagmc_method](#vdiagmc_method) | claim | 0.90 | 0.8691 | independent |
 | [dfpt_reliable_for_simple_metals](#dfpt_reliable_for_simple_metals) | claim | — | 0.8734 | derived |
-| [tc_li_comparison_valid](#tc_li_comparison_valid) | claim | 0.88 | 0.8800 | independent |
 | [gamma3_vdiagmc](#gamma3_vdiagmc) | claim | 0.88 | 0.8800 | independent |
+| [tc_li_comparison_valid](#tc_li_comparison_valid) | claim | 0.88 | 0.8800 | independent |
 | [eft_vertex_matches_dfpt](#eft_vertex_matches_dfpt) | claim | — | 0.8848 | derived |
+| [gamma3_interpolation_test_valid](#gamma3_interpolation_test_valid) | claim | 0.90 | 0.9000 | independent |
 | [dfpt_eph_ansatz](#dfpt_eph_ansatz) | claim | 0.90 | 0.9000 | background |
 | [precursory_cooper_flow](#precursory_cooper_flow) | claim | 0.90 | 0.9000 | background |
 | [simple_metals_weak_lattice](#simple_metals_weak_lattice) | claim | 0.90 | 0.9000 | background |
-| [gamma3_interpolation_test_valid](#gamma3_interpolation_test_valid) | claim | 0.90 | 0.9000 | independent |
 | [downfolding_validity_limits](#downfolding_validity_limits) | claim | 0.92 | 0.9200 | orphaned |
 | [quasiparticle_mass_near_unity](#quasiparticle_mass_near_unity) | claim | 0.92 | 0.9200 | independent |
 | [cross_term_suppressed](#cross_term_suppressed) | claim | 0.90 | 0.9261 | independent |

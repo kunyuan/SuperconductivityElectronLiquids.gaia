@@ -108,9 +108,10 @@
 **QID:** `github:superconductivity_electron_liquids::tc_al_experimental`
 **Type:** claim
 **Role:** independent
-**Content:** The experimental superconducting transition temperature of aluminum (Al) is $T_c^{\mathrm{exp}} = 1.2$ K.
+**Content:** The experimental superconducting transition temperature of aluminum (Al) is 1.2 K. This value is the experimental target used in the Al comparison.
 **Prior:** 0.99
 **Belief:** 0.99
+**claim_class:** superconductivity_electron_liquids.motivation.TcValue
 **prior:** 0.99
 **prior_justification:** Well-established measurement.
 **Referenced by:** likelihood -> `github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological`
@@ -120,9 +121,10 @@
 **QID:** `github:superconductivity_electron_liquids::tc_li_experimental`
 **Type:** claim
 **Role:** independent
-**Content:** The experimental superconducting transition temperature of lithium (Li) is $T_c^{\mathrm{exp}} \approx 4 \times 10^{-4}$ K (0.4 mK). This measurement corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.
+**Content:** The experimental superconducting transition temperature of lithium (Li) is 0.0004 K. This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.
 **Prior:** 0.85
 **Belief:** 0.85
+**claim_class:** superconductivity_electron_liquids.motivation.TcValue
 **prior:** 0.85
 **prior_justification:** Crystal structure controversial at ultra-low T.
 **Referenced by:** likelihood -> `github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological`
@@ -132,9 +134,10 @@
 **QID:** `github:superconductivity_electron_liquids::tc_zn_experimental`
 **Type:** claim
 **Role:** independent
-**Content:** The experimental superconducting transition temperature of zinc (Zn) is $T_c^{\mathrm{exp}} = 0.875$ K.
+**Content:** The experimental superconducting transition temperature of zinc (Zn) is 0.875 K. This value is the experimental target used in the Zn comparison.
 **Prior:** 0.99
 **Belief:** 0.99
+**claim_class:** superconductivity_electron_liquids.motivation.TcValue
 **prior:** 0.99
 **prior_justification:** Well-established measurement.
 **Referenced by:** likelihood -> `github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological`
@@ -144,11 +147,12 @@
 **QID:** `github:superconductivity_electron_liquids::tc_al_phenomenological`
 **Type:** claim
 **Role:** derived
-**Content:** Using the McMillan formula (an empirical formula for $T_c$ based on the electron-phonon coupling constant $\lambda$ and Coulomb pseudopotential $\mu^*$) with the standard value $\mu^* = 0.1$, the predicted superconducting transition temperature of aluminum is $T_c \approx 1.9$ K, while the experimental value is 1.2 K, a deviation of approximately 58%.
+**Content:** The phenomenological McMillan predicted superconducting transition temperature of aluminum (Al) is 1.9 K. This uses the standard empirical value mu* = 0.1; the experimental value is 1.2 K, giving a deviation of approximately 58%.
 **Prior:** 0.95
 **Belief:** 1.00
 **Derived from:** support
 **Premises:** `github:superconductivity_electron_liquids::dfpt_computes_lambda`, `github:superconductivity_electron_liquids::mu_star_phenomenological`
+**claim_class:** superconductivity_electron_liquids.motivation.TcValue
 **prior:** 0.95
 **prior_justification:** McMillan calculation/report of 1.9K is straightforward; fit quality is represented separately.
 **gaia:** {'provenance': {'referenced_claims': ['dfpt_computes_lambda', 'mu_star_phenomenological']}}
@@ -159,11 +163,12 @@
 **QID:** `github:superconductivity_electron_liquids::tc_li_phenomenological`
 **Type:** claim
 **Role:** derived
-**Content:** Using the McMillan formula with $\mu^* = 0.1$, the predicted superconducting transition temperature of lithium is $T_c \approx 0.35$ K, while the experimental value is approximately $4 \times 10^{-4}$ K; the theory overestimates by about three orders of magnitude.
+**Content:** The phenomenological McMillan predicted superconducting transition temperature of lithium (Li) is 0.35 K. This uses mu* = 0.1; the experimental value is approximately 4e-4 K, so the theory overestimates by about three orders of magnitude.
 **Prior:** 0.95
 **Belief:** 1.00
 **Derived from:** support
 **Premises:** `github:superconductivity_electron_liquids::dfpt_computes_lambda`, `github:superconductivity_electron_liquids::mu_star_phenomenological`
+**claim_class:** superconductivity_electron_liquids.motivation.TcValue
 **prior:** 0.95
 **prior_justification:** McMillan calculation/report of 0.35K is straightforward; fit quality is represented separately.
 **gaia:** {'provenance': {'referenced_claims': ['dfpt_computes_lambda', 'mu_star_phenomenological']}}
@@ -174,11 +179,12 @@
 **QID:** `github:superconductivity_electron_liquids::tc_zn_phenomenological`
 **Type:** claim
 **Role:** derived
-**Content:** Using the McMillan formula with the standard value $\mu^* = 0.1$, the predicted superconducting transition temperature of zinc is $T_c \approx 1.37$ K, while the experimental value is 0.875 K, a deviation of approximately 57%.
+**Content:** The phenomenological McMillan predicted superconducting transition temperature of zinc (Zn) is 1.37 K. This uses the standard empirical value mu* = 0.1; the experimental value is 0.875 K, giving a deviation of approximately 57%.
 **Prior:** 0.95
 **Belief:** 1.00
 **Derived from:** support
 **Premises:** `github:superconductivity_electron_liquids::dfpt_computes_lambda`, `github:superconductivity_electron_liquids::mu_star_phenomenological`
+**claim_class:** superconductivity_electron_liquids.motivation.TcValue
 **prior:** 0.95
 **prior_justification:** McMillan calculation/report of 1.37K is straightforward; fit quality is represented separately.
 **gaia:** {'provenance': {'referenced_claims': ['dfpt_computes_lambda', 'mu_star_phenomenological']}}

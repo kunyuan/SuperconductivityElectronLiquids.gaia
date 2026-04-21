@@ -5,12 +5,11 @@ the first-principles predictions for Al, Zn, Li, Na, and Mg, and confronts
 them with experiment via v6 likelihood model-comparison factors.
 """
 
-import math
-
 from gaia.lang import claim, composite, deduction, setting, support
-from gaia.std.likelihood import gaussian_model_comparison
+from gaia.std.likelihood import gaussian_model_comparison_from_claims
 
 from .motivation import (
+    TcValue,
     bts_renormalization,
     dfpt_computes_lambda,
     mu_star_phenomenological,
@@ -172,13 +171,15 @@ _composite_workflow = composite(
 # Material-specific Tc predictions
 # ---------------------------------------------------------------------------
 
-tc_al_predicted = claim(
-    "The ab initio predicted superconducting transition temperature of "
-    "aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement "
-    "with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. "
-    "The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained "
-    "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass "
-    "$m_b = 1.05$) via BTS renormalization.",
+tc_al_predicted = TcValue(
+    material="aluminum (Al)",
+    role="ab initio EFT predicted",
+    structure="",
+    value_K=0.96,
+    detail=(
+        "The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC "
+        "mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization."
+    ),
     title="Tc(Al) Ab Initio Prediction",
     metadata={
         "figure": "artifacts/images/14_0.jpg",
@@ -202,13 +203,15 @@ _strat_tc_al = support(
     prior=0.85,
 )
 
-tc_zn_predicted = claim(
-    "The ab initio predicted superconducting transition temperature of "
-    "zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement "
-    "with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. "
-    "The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained "
-    "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass "
-    "$m_b = 1.0$) via BTS renormalization.",
+tc_zn_predicted = TcValue(
+    material="zinc (Zn)",
+    role="ab initio EFT predicted",
+    structure="",
+    value_K=0.874,
+    detail=(
+        "The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC "
+        "mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization."
+    ),
     title="Tc(Zn) Ab Initio Prediction",
     metadata={
         "figure": "artifacts/images/15_0.jpg",
@@ -232,16 +235,17 @@ _strat_tc_zn = support(
     prior=0.85,
 )
 
-tc_li_predicted = claim(
-    "The ab initio predicted superconducting transition temperature of "
-    "lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, "
-    "within an order of magnitude of the experimental observation "
-    "$T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large "
-    "$\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass "
-    "$m_b = 1.75$) almost completely cancels the phonon-mediated attraction "
-    "$\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. "
-    "The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with "
-    "$\\mu^* = 0.17$ and $\\lambda = 0.37$.",
+tc_li_predicted = TcValue(
+    material="lithium (Li)",
+    role="ab initio EFT predicted",
+    structure=" (9R structure)",
+    value_K=5e-3,
+    detail=(
+        "The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 "
+        "almost completely cancels lambda = 0.34, pushing Tc to extremely "
+        "low temperatures. The HCP structure gives Tc = 0.03 K with "
+        "mu* = 0.17 and lambda = 0.37."
+    ),
     title="Tc(Li) Ab Initio Prediction",
     metadata={
         "figure": "artifacts/images/15_0.jpg",
@@ -370,16 +374,14 @@ _support_al_phenom = support(
     prior=0.95,
 )
 
-_al_comparison_likelihood = gaussian_model_comparison(
+_al_comparison_likelihood = gaussian_model_comparison_from_claims(
     target=tc_al_abinitio_outperforms_phenomenological,
-    observed=1.2,
-    candidate_mean=0.96,
-    baseline_mean=1.9,
+    observed=tc_al_experimental,
+    candidate=tc_al_predicted,
+    baseline=tc_al_phenomenological,
+    value_field="value_K",
     sigma=0.3,
-    data=tc_al_experimental,
     assumptions=[
-        tc_al_predicted,
-        tc_al_phenomenological,
         tc_al_comparison_valid,
     ],
     query={
@@ -421,16 +423,14 @@ _support_zn_phenom = support(
     prior=0.95,
 )
 
-_zn_comparison_likelihood = gaussian_model_comparison(
+_zn_comparison_likelihood = gaussian_model_comparison_from_claims(
     target=tc_zn_abinitio_outperforms_phenomenological,
-    observed=0.875,
-    candidate_mean=0.874,
-    baseline_mean=1.37,
+    observed=tc_zn_experimental,
+    candidate=tc_zn_predicted,
+    baseline=tc_zn_phenomenological,
+    value_field="value_K",
     sigma=0.2,
-    data=tc_zn_experimental,
     assumptions=[
-        tc_zn_predicted,
-        tc_zn_phenomenological,
         tc_zn_comparison_valid,
     ],
     query={
@@ -474,16 +474,15 @@ _support_li_phenom = support(
     prior=0.95,
 )
 
-_li_comparison_likelihood = gaussian_model_comparison(
+_li_comparison_likelihood = gaussian_model_comparison_from_claims(
     target=tc_li_abinitio_outperforms_phenomenological,
-    observed=math.log10(4e-4),
-    candidate_mean=math.log10(5e-3),
-    baseline_mean=math.log10(0.35),
+    observed=tc_li_experimental,
+    candidate=tc_li_predicted,
+    baseline=tc_li_phenomenological,
+    value_field="value_K",
+    transform="log10",
     sigma=1.0,
-    data=tc_li_experimental,
     assumptions=[
-        tc_li_predicted,
-        tc_li_phenomenological,
         tc_li_comparison_valid,
     ],
     query={

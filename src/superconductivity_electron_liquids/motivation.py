@@ -5,7 +5,20 @@ limitations of traditional approaches to predicting superconducting Tc, motivati
 need for a first-principles treatment of the Coulomb pseudopotential.
 """
 
-from gaia.lang import claim, deduction, question, setting
+from gaia.lang import ParameterizedClaim, claim, deduction, question, setting
+
+
+class TcValue(ParameterizedClaim):
+    template = (
+        "The {role} superconducting transition temperature of {material}"
+        "{structure} is {value_K} K. {detail}"
+    )
+
+    material: str
+    role: str
+    structure: str
+    value_K: float
+    detail: str
 
 # ---------------------------------------------------------------------------
 # Settings — background frameworks
@@ -136,23 +149,34 @@ dfpt_computes_lambda = claim(
 # Claims — experimental Tc values
 # ---------------------------------------------------------------------------
 
-tc_al_experimental = claim(
-    "The experimental superconducting transition temperature of aluminum (Al) "
-    "is $T_c^{\\mathrm{exp}} = 1.2$ K.",
+tc_al_experimental = TcValue(
+    material="aluminum (Al)",
+    role="experimental",
+    structure="",
+    value_K=1.2,
+    detail="This value is the experimental target used in the Al comparison.",
     title="Tc(Al) Experimental",
 )
 
-tc_li_experimental = claim(
-    "The experimental superconducting transition temperature of lithium (Li) "
-    "is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). "
-    "This measurement corresponds to the 9R crystal structure; the crystal "
-    "structure of lithium at ultra-low temperatures remains controversial.",
+tc_li_experimental = TcValue(
+    material="lithium (Li)",
+    role="experimental",
+    structure="",
+    value_K=4e-4,
+    detail=(
+        "This value is approximately 0.4 mK and corresponds to the 9R "
+        "crystal structure; the crystal structure of lithium at ultra-low "
+        "temperatures remains controversial."
+    ),
     title="Tc(Li) Experimental",
 )
 
-tc_zn_experimental = claim(
-    "The experimental superconducting transition temperature of zinc (Zn) "
-    "is $T_c^{\\mathrm{exp}} = 0.875$ K.",
+tc_zn_experimental = TcValue(
+    material="zinc (Zn)",
+    role="experimental",
+    structure="",
+    value_K=0.875,
+    detail="This value is the experimental target used in the Zn comparison.",
     title="Tc(Zn) Experimental",
 )
 
@@ -160,30 +184,39 @@ tc_zn_experimental = claim(
 # Claims — phenomenological Tc predictions
 # ---------------------------------------------------------------------------
 
-tc_al_phenomenological = claim(
-    "Using the McMillan formula (an empirical formula for $T_c$ based on "
-    "the electron-phonon coupling constant $\\lambda$ and Coulomb "
-    "pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, "
-    "the predicted superconducting transition temperature of aluminum is "
-    "$T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a "
-    "deviation of approximately 58%.",
+tc_al_phenomenological = TcValue(
+    material="aluminum (Al)",
+    role="phenomenological McMillan predicted",
+    structure="",
+    value_K=1.9,
+    detail=(
+        "This uses the standard empirical value mu* = 0.1; the experimental "
+        "value is 1.2 K, giving a deviation of approximately 58%."
+    ),
     title="Tc(Al) Phenomenological Prediction",
 )
 
-tc_li_phenomenological = claim(
-    "Using the McMillan formula with $\\mu^* = 0.1$, the predicted "
-    "superconducting transition temperature of lithium is "
-    "$T_c \\approx 0.35$ K, while the experimental value is approximately "
-    "$4 \\times 10^{-4}$ K; the theory overestimates by about three orders "
-    "of magnitude.",
+tc_li_phenomenological = TcValue(
+    material="lithium (Li)",
+    role="phenomenological McMillan predicted",
+    structure="",
+    value_K=0.35,
+    detail=(
+        "This uses mu* = 0.1; the experimental value is approximately "
+        "4e-4 K, so the theory overestimates by about three orders of magnitude."
+    ),
     title="Tc(Li) Phenomenological Prediction",
 )
 
-tc_zn_phenomenological = claim(
-    "Using the McMillan formula with the standard value $\\mu^* = 0.1$, "
-    "the predicted superconducting transition temperature of zinc is "
-    "$T_c \\approx 1.37$ K, while the experimental value is 0.875 K, "
-    "a deviation of approximately 57%.",
+tc_zn_phenomenological = TcValue(
+    material="zinc (Zn)",
+    role="phenomenological McMillan predicted",
+    structure="",
+    value_K=1.37,
+    detail=(
+        "This uses the standard empirical value mu* = 0.1; the experimental "
+        "value is 0.875 K, giving a deviation of approximately 57%."
+    ),
     title="Tc(Zn) Phenomenological Prediction",
 )
 
