@@ -6,7 +6,7 @@ via vDiagMC and the Ward identity, and shows that quasiparticle mass renormaliza
 is close to unity.
 """
 
-from gaia.lang import claim, composite, deduction, induction, support
+from gaia.lang import claim, composite, deduction, supported_by
 
 from .motivation import dfpt_computes_lambda
 from .s3_downfolding import lambda_microscopic_definition
@@ -114,40 +114,39 @@ gamma3_approximation = claim(
     title="Approximate Gamma_3 within Fermi Sphere",
 )
 
-_support_ward = support(
-    premises=[ward_identity],
-    conclusion=gamma3_approximation,
-    reason=(
-        "The Ward identity (@ward_identity) provides the exact value of "
-        "$\\Gamma_3^e$ at $q = 0$: $\\Gamma_3^e(k, 0) = m^*/m$. This exact "
-        "constraint anchors the approximation at zero momentum transfer."
-    ),
-    prior=0.95,
+gamma3_interpolation_test_valid = claim(
+    "The Ward-identity limit and the finite-$q$ vDiagMC vertex calculation "
+    "are valid tests of the same interpolation approximation for "
+    "$\\Gamma_3^e(k,q)$ within the Fermi sphere. Passing both tests licenses "
+    "using the approximation $\\Gamma_3^e \\approx m^*/m$ across the relevant "
+    "momentum range.",
+    title="Gamma_3 Interpolation Test Valid",
 )
 
-_support_gamma3_vdiagmc = support(
-    premises=[gamma3_vdiagmc],
-    conclusion=gamma3_approximation,
-    reason=(
-        "The vDiagMC computation (@gamma3_vdiagmc) shows that at finite $q$ "
-        "within the Fermi sphere, vertex corrections remain modest (10--20%) "
-        "and vary smoothly with momentum, supporting the approximation "
-        "$\\Gamma_3^e \\approx m^*/m$ across the relevant momentum range."
-    ),
-    prior=0.88,
+gamma3_evidence_independent = claim(
+    "The Ward-identity constraint at $q \\to 0$ and the finite-$q$ vDiagMC "
+    "calculation probe independent aspects of the three-point vertex: one is "
+    "an exact conservation-law limit, while the other is a numerical many-body "
+    "calculation away from that limit.",
+    title="Gamma_3 Evidence Independence",
 )
 
-_induction_gamma3 = induction(
-    _support_ward,
-    _support_gamma3_vdiagmc,
+_gamma3_supported_by_evidence = supported_by(
     gamma3_approximation,
+    inputs=[
+        ward_identity,
+        gamma3_vdiagmc,
+        gamma3_interpolation_test_valid,
+        gamma3_evidence_independent,
+    ],
     reason=(
-        "The Ward identity provides the exact value at $q = 0$ and the vDiagMC "
-        "computation confirms smooth, modest variations at finite $q$. By "
-        "interpolating between these two controlled limits, we obtain a reliable "
-        "approximation $\\Gamma_3^e \\approx m^*/m$ that captures the dominant "
-        "effect (mass renormalization) while bounding the error from momentum "
-        "dependence at the 10--15% level."
+        "The Ward identity provides the exact value at $q = 0$ "
+        "(@ward_identity), while the vDiagMC calculation confirms smooth, "
+        "modest finite-$q$ variations (@gamma3_vdiagmc). Given that these are "
+        "valid and independent tests of the same interpolation claim "
+        "(@gamma3_interpolation_test_valid, @gamma3_evidence_independent), "
+        "they jointly support the approximation $\\Gamma_3^e \\approx m^*/m$ "
+        "with bounded momentum-dependence error."
     ),
 )
 

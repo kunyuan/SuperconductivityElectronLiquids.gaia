@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:344eafa861e109edb2ee60d1249a1abef6b38e6dcf4c0438a852d0d7c4faaadb",
+  "ir_hash": "sha256:0ae23f5621f54a2cb95e0b496c2232efad98271db322408cc85ea499794f7bab",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -150,61 +150,150 @@
       "type": "claim"
     },
     {
-      "content": "The experimental superconducting transition temperature of aluminum (Al) is $T_c^{\\mathrm{exp}} = 1.2$ K.",
-      "content_hash": "03145efc7914bc12e9e0b18438ce865c8d79cd6dd854676fde0cc015fd269433",
+      "content": "The experimental superconducting transition temperature of aluminum (Al) is 1.2 K. This value is the experimental target used in the Al comparison.",
+      "content_hash": "a1803079efb0bee378cc3df56b735a8a38566d6e1d941c21c75ab0b629c06f45",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 9,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_al_experimental",
       "label": "tc_al_experimental",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.99,
         "prior_justification": "Well-established measurement."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "aluminum (Al)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "experimental"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 1.2
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This value is the experimental target used in the Al comparison."
+        }
+      ],
+      "rendered_content": "The experimental superconducting transition temperature of aluminum (Al) is 1.2 K. This value is the experimental target used in the Al comparison.",
       "title": "Tc(Al) Experimental",
       "type": "claim"
     },
     {
-      "content": "The experimental superconducting transition temperature of lithium (Li) is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). This measurement corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
-      "content_hash": "00a609d948446a47ad5d60b718e6e011e72183c8f48203e32be1fa36292e2ad4",
+      "content": "The experimental superconducting transition temperature of lithium (Li) is 0.0004 K. This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
+      "content_hash": "1bc4ee334d6974147048e05282725c064d0d73e3aaa6d3dc414170770d65a203",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 10,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_li_experimental",
       "label": "tc_li_experimental",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.85,
         "prior_justification": "Crystal structure controversial at ultra-low T."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "lithium (Li)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "experimental"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.0004
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial."
+        }
+      ],
+      "rendered_content": "The experimental superconducting transition temperature of lithium (Li) is 0.0004 K. This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
       "title": "Tc(Li) Experimental",
       "type": "claim"
     },
     {
-      "content": "The experimental superconducting transition temperature of zinc (Zn) is $T_c^{\\mathrm{exp}} = 0.875$ K.",
-      "content_hash": "285d83f8b3eb400f03eb8dfb29a63f2adc9f6faad61961249891696e3c578ea3",
+      "content": "The experimental superconducting transition temperature of zinc (Zn) is 0.875 K. This value is the experimental target used in the Zn comparison.",
+      "content_hash": "488a04c30e2f12977821072c9869affa1a05358e8ff20dce5aa6ddaecb3d8d24",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 11,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_zn_experimental",
       "label": "tc_zn_experimental",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "prior": 0.99,
         "prior_justification": "Well-established measurement."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "zinc (Zn)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "experimental"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.875
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This value is the experimental target used in the Zn comparison."
+        }
+      ],
+      "rendered_content": "The experimental superconducting transition temperature of zinc (Zn) is 0.875 K. This value is the experimental target used in the Zn comparison.",
       "title": "Tc(Zn) Experimental",
       "type": "claim"
     },
     {
-      "content": "Using the McMillan formula (an empirical formula for $T_c$ based on the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of aluminum is $T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a deviation of approximately 58%.",
-      "content_hash": "9df4c70ac882dcab11f5468201b2339bc6daa9ad53924b6aec8d5c33bd63202b",
+      "content": "The phenomenological McMillan predicted superconducting transition temperature of aluminum (Al) is 1.9 K. This uses the standard empirical value mu* = 0.1; the experimental value is 1.2 K, giving a deviation of approximately 58%.",
+      "content_hash": "efe411aeabb7af6ee6323bff5b55ecc23ce1c89b4c2161ae7876d21889c60e45",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 12,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_al_phenomenological",
       "label": "tc_al_phenomenological",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -213,22 +302,51 @@
             ]
           }
         },
-        "prior": 0.35,
-        "prior_justification": "Predicts 1.9K vs experiment 1.2K (58% overestimate); poor match."
+        "prior": 0.95,
+        "prior_justification": "McMillan calculation/report of 1.9K is straightforward; fit quality is represented separately."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "aluminum (Al)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "phenomenological McMillan predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 1.9
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This uses the standard empirical value mu* = 0.1; the experimental value is 1.2 K, giving a deviation of approximately 58%."
+        }
+      ],
+      "rendered_content": "The phenomenological McMillan predicted superconducting transition temperature of aluminum (Al) is 1.9 K. This uses the standard empirical value mu* = 0.1; the experimental value is 1.2 K, giving a deviation of approximately 58%.",
       "title": "Tc(Al) Phenomenological Prediction",
       "type": "claim"
     },
     {
-      "content": "Using the McMillan formula with $\\mu^* = 0.1$, the predicted superconducting transition temperature of lithium is $T_c \\approx 0.35$ K, while the experimental value is approximately $4 \\times 10^{-4}$ K; the theory overestimates by about three orders of magnitude.",
-      "content_hash": "778b5b8ea3aa48c403e9b9770376da2377312425161685c410bef5313aa17489",
+      "content": "The phenomenological McMillan predicted superconducting transition temperature of lithium (Li) is 0.35 K. This uses mu* = 0.1; the experimental value is approximately 4e-4 K, so the theory overestimates by about three orders of magnitude.",
+      "content_hash": "3bc32c0974ec2ee995b1603172984632a66a5bd9d277b2feedac4911e06c4ec5",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 13,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_li_phenomenological",
       "label": "tc_li_phenomenological",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -237,22 +355,51 @@
             ]
           }
         },
-        "prior": 0.1,
-        "prior_justification": "Predicts 0.35K vs experiment 4e-4K (3 orders too high); very poor match."
+        "prior": 0.95,
+        "prior_justification": "McMillan calculation/report of 0.35K is straightforward; fit quality is represented separately."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "lithium (Li)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "phenomenological McMillan predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.35
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This uses mu* = 0.1; the experimental value is approximately 4e-4 K, so the theory overestimates by about three orders of magnitude."
+        }
+      ],
+      "rendered_content": "The phenomenological McMillan predicted superconducting transition temperature of lithium (Li) is 0.35 K. This uses mu* = 0.1; the experimental value is approximately 4e-4 K, so the theory overestimates by about three orders of magnitude.",
       "title": "Tc(Li) Phenomenological Prediction",
       "type": "claim"
     },
     {
-      "content": "Using the McMillan formula with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of zinc is $T_c \\approx 1.37$ K, while the experimental value is 0.875 K, a deviation of approximately 57%.",
-      "content_hash": "93bdb1c4cf36956d8db64fca57fe5855ffa5f26c0cb802901f558c6a34751ec5",
+      "content": "The phenomenological McMillan predicted superconducting transition temperature of zinc (Zn) is 1.37 K. This uses the standard empirical value mu* = 0.1; the experimental value is 0.875 K, giving a deviation of approximately 57%.",
+      "content_hash": "01b00c319a9c14b3b3e1dd46087b7db0c41a8baa156c800e084795862d7ee5e6",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 14,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::tc_zn_phenomenological",
       "label": "tc_zn_phenomenological",
       "metadata": {
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -261,11 +408,38 @@
             ]
           }
         },
-        "prior": 0.35,
-        "prior_justification": "Predicts 1.37K vs experiment 0.875K (57% overestimate); poor match."
+        "prior": 0.95,
+        "prior_justification": "McMillan calculation/report of 1.37K is straightforward; fit quality is represented separately."
       },
       "module": "motivation",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "zinc (Zn)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "phenomenological McMillan predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 1.37
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "This uses the standard empirical value mu* = 0.1; the experimental value is 0.875 K, giving a deviation of approximately 57%."
+        }
+      ],
+      "rendered_content": "The phenomenological McMillan predicted superconducting transition temperature of zinc (Zn) is 1.37 K. This uses the standard empirical value mu* = 0.1; the experimental value is 0.875 K, giving a deviation of approximately 57%.",
       "title": "Tc(Zn) Phenomenological Prediction",
       "type": "claim"
     },
@@ -792,6 +966,8 @@
         "gaia": {
           "provenance": {
             "referenced_claims": [
+              "gamma3_evidence_independent",
+              "gamma3_interpolation_test_valid",
               "gamma3_vdiagmc",
               "ward_identity"
             ]
@@ -804,24 +980,41 @@
       "type": "claim"
     },
     {
-      "content": "Are observations independent? Do they support the same law?",
-      "content_hash": "36cff940124e21b8b39010b74e17da94c7ab9bd0761afb017b63be334a3f7876",
+      "content": "The Ward-identity limit and the finite-$q$ vDiagMC vertex calculation are valid tests of the same interpolation approximation for $\\Gamma_3^e(k,q)$ within the Fermi sphere. Passing both tests licenses using the approximation $\\Gamma_3^e \\approx m^*/m$ across the relevant momentum range.",
+      "content_hash": "3bb76d6db5daf25cb59de65f1f29e80baa7d6f77655b6110862ab2d7c550c5a4",
       "declaration_index": 6,
       "exported": false,
-      "id": "github:superconductivity_electron_liquids::_anon_001",
+      "id": "github:superconductivity_electron_liquids::gamma3_interpolation_test_valid",
+      "label": "gamma3_interpolation_test_valid",
       "metadata": {
-        "generated": true,
-        "helper_kind": "composition_validity",
-        "warrant": "The Ward identity provides the exact value at $q = 0$ and the vDiagMC computation confirms smooth, modest variations at finite $q$. By interpolating between these two controlled limits, we obtain a reliable approximation $\\Gamma_3^e \\approx m^*/m$ that captures the dominant effect (mass renormalization) while bounding the error from momentum dependence at the 10--15% level."
+        "prior": 0.9,
+        "prior_justification": "Ward limit and finite-q vDiagMC jointly constrain the interpolation."
       },
       "module": "s5_eph_coupling",
       "parameters": [],
+      "title": "Gamma_3 Interpolation Test Valid",
+      "type": "claim"
+    },
+    {
+      "content": "The Ward-identity constraint at $q \\to 0$ and the finite-$q$ vDiagMC calculation probe independent aspects of the three-point vertex: one is an exact conservation-law limit, while the other is a numerical many-body calculation away from that limit.",
+      "content_hash": "e9429196a5cdf2e07ec8edeff5e38d3a0231526a4b2b5a384a71ae268ae8e480",
+      "declaration_index": 7,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::gamma3_evidence_independent",
+      "label": "gamma3_evidence_independent",
+      "metadata": {
+        "prior": 0.93,
+        "prior_justification": "Exact Ward identity and finite-q vDiagMC have largely independent failure modes."
+      },
+      "module": "s5_eph_coupling",
+      "parameters": [],
+      "title": "Gamma_3 Evidence Independence",
       "type": "claim"
     },
     {
       "content": "In the uniform electron gas at densities $r_s \\in [1,5]$, the EFT electron-phonon vertex $g(\\mathbf{k},\\mathbf{q}) = g^{(0)}_{\\mathbf{q}} \\cdot (z^e/\\epsilon_{\\mathbf{q}}) \\cdot \\Gamma_3^e(\\mathbf{k};\\mathbf{q})$ is numerically well approximated by the DFPT Kohn-Sham screened potential $g^{\\mathrm{KS}}(\\mathbf{q}) = g^{(0)}_{\\mathbf{q}} / [1 - (v_{\\mathbf{q}} + f_{xc})\\chi_0^e(\\mathbf{q})]$ for Fermi-surface-relevant momentum transfers $|\\mathbf{q}| \\leq 2k_F$, with weak residual $\\mathbf{k}$-dependence.",
       "content_hash": "74b6e88b6744282ef8b646fc3b75bfb14cf83f8384e5b065c9703c4817b6a6b6",
-      "declaration_index": 7,
+      "declaration_index": 8,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::eft_vertex_matches_dfpt",
       "label": "eft_vertex_matches_dfpt",
@@ -844,7 +1037,7 @@
     {
       "content": "For simple metals, the DFPT calculation of the electron-phonon coupling constant $\\lambda$ is reliable: the EFT vertex matches the DFPT expression at the vertex level, and the quasiparticle density of states $N_F^*$ nearly equals the band density of states $N_F^{(0)}$, so $\\lambda_{\\mathrm{EFT}} \\approx \\lambda_{\\mathrm{DFPT}}$ with corrections at the few-percent level.",
       "content_hash": "b84fc23af7f3cbf72c941faef66934e8990174db81a2528b15698c322d38a001",
-      "declaration_index": 8,
+      "declaration_index": 9,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals",
       "label": "dfpt_reliable_for_simple_metals",
@@ -1006,14 +1199,16 @@
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization.",
-      "content_hash": "6a8ebb89878068183f610716027606b9fe5ee6076fe9231089445abcc691824e",
+      "content": "The ab initio EFT predicted superconducting transition temperature of aluminum (Al) is 0.96 K. The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization.",
+      "content_hash": "73079be0f4cf8f469d5a4de6a41c296bf909c9e80b1113f11b1031a266935ccd",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 9,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_al_predicted",
       "label": "tc_al_predicted",
       "metadata": {
         "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "figure": "artifacts/images/14_0.jpg",
         "gaia": {
           "provenance": {
@@ -1025,19 +1220,48 @@
         }
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "aluminum (Al)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "ab initio EFT predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.96
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization."
+        }
+      ],
+      "rendered_content": "The ab initio EFT predicted superconducting transition temperature of aluminum (Al) is 0.96 K. The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization.",
       "title": "Tc(Al) Ab Initio Prediction",
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization.",
-      "content_hash": "8e12c1382dcd1c0a5383f1aedcbddd075a8c66aadf05846bb16e5c676c7bd22b",
+      "content": "The ab initio EFT predicted superconducting transition temperature of zinc (Zn) is 0.874 K. The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization.",
+      "content_hash": "ed2634bd4c93e59a0dcd2751e3fa100b99a6fef621df0051c40db65d9c318d9e",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 10,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_zn_predicted",
       "label": "tc_zn_predicted",
       "metadata": {
         "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "figure": "artifacts/images/15_0.jpg",
         "gaia": {
           "provenance": {
@@ -1049,19 +1273,48 @@
         }
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "zinc (Zn)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "ab initio EFT predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.874
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization."
+        }
+      ],
+      "rendered_content": "The ab initio EFT predicted superconducting transition temperature of zinc (Zn) is 0.874 K. The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization.",
       "title": "Tc(Zn) Ab Initio Prediction",
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with $\\mu^* = 0.17$ and $\\lambda = 0.37$.",
-      "content_hash": "03465d1d36613dd01d05702ced651adfaf383169397a9b5e7b35b562ff81b78f",
+      "content": "The ab initio EFT predicted superconducting transition temperature of lithium (Li) (9R structure) is 0.005 K. The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37.",
+      "content_hash": "7bdc776da2b866811338d29ca5fc2244510645666240619322266500d6e09800",
+      "content_template": "The {role} superconducting transition temperature of {material}{structure} is {value_K} K. {detail}",
       "declaration_index": 11,
       "exported": true,
       "id": "github:superconductivity_electron_liquids::tc_li_predicted",
       "label": "tc_li_predicted",
       "metadata": {
         "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
+        "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
         "figure": "artifacts/images/15_0.jpg",
         "gaia": {
           "provenance": {
@@ -1073,7 +1326,34 @@
         }
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "lithium (Li)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "ab initio EFT predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": " (9R structure)"
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.005
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37."
+        }
+      ],
+      "rendered_content": "The ab initio EFT predicted superconducting transition temperature of lithium (Li) (9R structure) is 0.005 K. The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37.",
       "title": "Tc(Li) Ab Initio Prediction",
       "type": "claim"
     },
@@ -1128,117 +1408,670 @@
       "type": "claim"
     },
     {
-      "content": "compare(The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization., Using the McMillan formula (an empirical formula for $T_c$ based on the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of aluminum is $T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a deviation of approximately 58%., The experimental superconducting transition temperature of aluminum (Al) is $T_c^{\\mathrm{exp}} = 1.2$ K.)",
-      "content_hash": "fda05416776be06bb87933c4089ef8bc1858c5c7235ec2be8d8a95caacb66068",
+      "content": "For aluminum, the ab initio EFT prediction explains the observed transition temperature better than the phenomenological McMillan prediction: $T_c^{\\mathrm{EFT}} = 0.96$ K is closer to $T_c^{\\mathrm{exp}} = 1.2$ K than the phenomenological value $T_c \\approx 1.9$ K.",
+      "content_hash": "b0a78e850590d9f66c3f0f2704e04577b1c5749232d4adbf1e6972dc76da9a3e",
       "declaration_index": 14,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological",
+      "label": "tc_al_abinitio_outperforms_phenomenological",
+      "module": "s6_superconductors",
+      "parameters": [],
+      "title": "Al Ab Initio Prediction Outperforms Phenomenological",
+      "type": "claim"
+    },
+    {
+      "content": "The aluminum comparison uses the same material, the same experimental $T_c$ target, and the same absolute-error criterion for the ab initio and phenomenological predictions.",
+      "content_hash": "4058d7f51841e8557d12e98a50fcfe7bbc442c27594cf72692a380a9637b2e27",
+      "declaration_index": 15,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::tc_al_comparison_valid",
+      "label": "tc_al_comparison_valid",
+      "metadata": {
+        "prior": 0.95,
+        "prior_justification": "Same material and absolute-error comparison criterion."
+      },
+      "module": "s6_superconductors",
+      "parameters": [],
+      "title": "Al Tc Comparison Valid",
+      "type": "claim"
+    },
+    {
+      "content": "The argument observed of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 1.2.",
+      "content_hash": "186b783836c9c41034b657249b3057b32bffd4a6d3fc5c6bc66540070f3297d8",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 16,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_001",
+      "metadata": {
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
+        "generated": true,
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "observed"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": 1.2
+        }
+      ],
+      "rendered_content": "The argument observed of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 1.2.",
+      "type": "claim"
+    },
+    {
+      "content": "The argument candidate_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.96.",
+      "content_hash": "676659777d8185708f3d22c1e73e7b9f694ade9905f8952344c59ce058dc8843",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 17,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::_anon_002",
       "metadata": {
-        "gaia": {
-          "provenance": {
-            "referenced_claims": [
-              "tc_al_experimental",
-              "tc_al_phenomenological",
-              "tc_al_predicted"
-            ]
-          }
-        },
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
         "generated": true,
-        "helper_kind": "comparison_claim"
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "candidate_mean"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": 0.96
+        }
+      ],
+      "rendered_content": "The argument candidate_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.96.",
       "type": "claim"
     },
     {
-      "content": "abduction_validity(support, support, compare)",
-      "content_hash": "4ccad61dc008bbcf2f30f65bc920cc26f35586acf9ec7ee57972c8bcd78f9d5c",
-      "declaration_index": 15,
+      "content": "The argument baseline_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 1.9.",
+      "content_hash": "04cdf512ad4c587d333477f00a05ae534dd94ebe00df255741aa47336e9f4e5c",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 18,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::_anon_003",
       "metadata": {
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
         "generated": true,
-        "helper_kind": "composition_validity",
-        "warrant": "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) is well reproduced by the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted), which uses no adjustable parameters. The phenomenological prediction (@tc_al_phenomenological) using $\\mu^* = 0.1$ gives 1.9 K, overestimating by 58%. The ab initio approach provides a better explanation because it determines $\\mu^*$ from first principles rather than using an ad hoc value, and the resulting $\\mu^* = 0.13$ is above the standard guess of 0.1, correctly reducing $T_c$ toward the experimental value."
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "baseline_mean"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": 1.9
+        }
+      ],
+      "rendered_content": "The argument baseline_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 1.9.",
       "type": "claim"
     },
     {
-      "content": "compare(The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization., Using the McMillan formula with the standard value $\\mu^* = 0.1$, the predicted superconducting transition temperature of zinc is $T_c \\approx 1.37$ K, while the experimental value is 0.875 K, a deviation of approximately 57%., The experimental superconducting transition temperature of zinc (Zn) is $T_c^{\\mathrm{exp}} = 0.875$ K.)",
-      "content_hash": "5e32e32f737e976796bb3b4a1af46fd6ba942efbcddf25376ecd4cce29b461ae",
-      "declaration_index": 16,
+      "content": "The argument sigma of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.3.",
+      "content_hash": "6e32fbaa668e412826bea4126fe0f83d5f56582a76c60d92d148c1174080336c",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 19,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::_anon_004",
       "metadata": {
-        "gaia": {
-          "provenance": {
-            "referenced_claims": [
-              "tc_zn_experimental",
-              "tc_zn_phenomenological",
-              "tc_zn_predicted"
-            ]
-          }
-        },
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
         "generated": true,
-        "helper_kind": "comparison_claim"
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "sigma"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": 0.3
+        }
+      ],
+      "rendered_content": "The argument sigma of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.3.",
       "type": "claim"
     },
     {
-      "content": "abduction_validity(support, support, compare)",
-      "content_hash": "4ccad61dc008bbcf2f30f65bc920cc26f35586acf9ec7ee57972c8bcd78f9d5c",
-      "declaration_index": 17,
+      "content": "The Gaussian model-comparison log-likelihood ratio is 2.402222222222223 for observed value 1.2, candidate mean 0.96, baseline mean 1.9, and sigma 0.3.",
+      "content_hash": "87e946ad97694c6cf74a26528e77886af4c14051ec7c7258b548220463afe466",
+      "content_template": "The Gaussian model-comparison log-likelihood ratio is {value} for observed value {observed}, candidate mean {candidate_mean}, baseline mean {baseline_mean}, and sigma {sigma}.",
+      "declaration_index": 20,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::_anon_005",
       "metadata": {
+        "claim_class": "gaia.std.likelihood.GaussianModelComparisonLogLR",
+        "function_ref": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim",
         "generated": true,
-        "helper_kind": "composition_validity",
-        "warrant": "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) is in excellent agreement with the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted). The phenomenological prediction (@tc_zn_phenomenological) using $\\mu^* = 0.1$ gives 1.37 K, overestimating by 57%. The ab initio $\\mu^* = 0.12$ from $r_s = 2.90$ correctly captures the Coulomb repulsion strength in Zn, bringing the prediction into near-exact agreement with experiment."
+        "helper_kind": "likelihood_score",
+        "kind": "likelihood_score",
+        "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+        "query": {
+          "direction": "candidate_over_baseline",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
+        },
+        "score_type": "log_lr",
+        "target": "github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological",
+        "value": 2.402222222222223
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "observed",
+          "type": "float",
+          "value": 1.2
+        },
+        {
+          "name": "candidate_mean",
+          "type": "float",
+          "value": 0.96
+        },
+        {
+          "name": "baseline_mean",
+          "type": "float",
+          "value": 1.9
+        },
+        {
+          "name": "sigma",
+          "type": "float",
+          "value": 0.3
+        },
+        {
+          "name": "value",
+          "type": "float",
+          "value": 2.402222222222223
+        }
+      ],
+      "rendered_content": "The Gaussian model-comparison log-likelihood ratio is 2.402222222222223 for observed value 1.2, candidate mean 0.96, baseline mean 1.9, and sigma 0.3.",
       "type": "claim"
     },
     {
-      "content": "compare(The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with $\\mu^* = 0.17$ and $\\lambda = 0.37$., Using the McMillan formula with $\\mu^* = 0.1$, the predicted superconducting transition temperature of lithium is $T_c \\approx 0.35$ K, while the experimental value is approximately $4 \\times 10^{-4}$ K; the theory overestimates by about three orders of magnitude., The experimental superconducting transition temperature of lithium (Li) is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). This measurement corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.)",
-      "content_hash": "a9e16bf9aec1852947bf4dae93da22b528d7e2f59b9b664180da5afed8db737c",
-      "declaration_index": 18,
+      "content": "For zinc, the ab initio EFT prediction explains the observed transition temperature better than the phenomenological McMillan prediction: $T_c^{\\mathrm{EFT}} = 0.874$ K is nearly identical to $T_c^{\\mathrm{exp}} = 0.875$ K, while the phenomenological value $T_c \\approx 1.37$ K overestimates the measurement.",
+      "content_hash": "a702b0c197f362f9b62aa544de18d88575a6b1adf018b02b2d99fdbb1cd8a6ab",
+      "declaration_index": 21,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological",
+      "label": "tc_zn_abinitio_outperforms_phenomenological",
+      "module": "s6_superconductors",
+      "parameters": [],
+      "title": "Zn Ab Initio Prediction Outperforms Phenomenological",
+      "type": "claim"
+    },
+    {
+      "content": "The zinc comparison uses the same material, the same experimental $T_c$ target, and the same absolute-error criterion for the ab initio and phenomenological predictions.",
+      "content_hash": "d8065e0a663771e5ba9205e2366c195d5d155fe4b7b59b393f86bdbf310d250a",
+      "declaration_index": 22,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::tc_zn_comparison_valid",
+      "label": "tc_zn_comparison_valid",
+      "metadata": {
+        "prior": 0.97,
+        "prior_justification": "Same material and near-identical experimental target comparison."
+      },
+      "module": "s6_superconductors",
+      "parameters": [],
+      "title": "Zn Tc Comparison Valid",
+      "type": "claim"
+    },
+    {
+      "content": "The argument observed of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.875.",
+      "content_hash": "8d19109e40e0950201bb32a74f1eef250aa0b00413429a65f625bf120bb4e7dd",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 23,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::_anon_006",
       "metadata": {
-        "gaia": {
-          "provenance": {
-            "referenced_claims": [
-              "tc_li_experimental",
-              "tc_li_phenomenological",
-              "tc_li_predicted"
-            ]
-          }
-        },
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
         "generated": true,
-        "helper_kind": "comparison_claim"
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
       },
       "module": "s6_superconductors",
-      "parameters": [],
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "observed"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": 0.875
+        }
+      ],
+      "rendered_content": "The argument observed of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.875.",
       "type": "claim"
     },
     {
-      "content": "abduction_validity(support, support, compare)",
-      "content_hash": "4ccad61dc008bbcf2f30f65bc920cc26f35586acf9ec7ee57972c8bcd78f9d5c",
-      "declaration_index": 19,
+      "content": "The argument candidate_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.874.",
+      "content_hash": "bf6164b4ae3334ad7486a9406c7c36045eaa1a10dbcaf46e2ee47edb1e13d7a7",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 24,
       "exported": false,
       "id": "github:superconductivity_electron_liquids::_anon_007",
       "metadata": {
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
         "generated": true,
-        "helper_kind": "composition_validity",
-        "warrant": "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K (@tc_li_experimental) is within an order of magnitude of the ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K (@tc_li_predicted, 9R structure). The phenomenological prediction (@tc_li_phenomenological) using $\\mu^* = 0.1$ gives $\\approx 0.35$ K, overestimating by three orders of magnitude. The dramatic improvement of the ab initio approach is because the first-principles $\\mu^* = 0.18$ for lithium ($r_s = 3.25$, $m_b = 1.75$) is significantly larger than the standard guess of 0.1, reflecting the stronger Coulomb repulsion at lower electron density. In the regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ is small, the exponential sensitivity amplifies the $\\mu^*$ difference from 0.08 to nearly three orders of magnitude in $T_c$."
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "candidate_mean"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": 0.874
+        }
+      ],
+      "rendered_content": "The argument candidate_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.874.",
+      "type": "claim"
+    },
+    {
+      "content": "The argument baseline_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 1.37.",
+      "content_hash": "3075fd4aa0c7f7f5c84489fe46b62f11ed5a827c3073609c5af58c757a261b2c",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 25,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_008",
+      "metadata": {
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
+        "generated": true,
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "baseline_mean"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": 1.37
+        }
+      ],
+      "rendered_content": "The argument baseline_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 1.37.",
+      "type": "claim"
+    },
+    {
+      "content": "The argument sigma of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.2.",
+      "content_hash": "224588939de6f3bf29f929c954b6272fa3a1f9f0076fdcd53e0a158954c79a49",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 26,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_009",
+      "metadata": {
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
+        "generated": true,
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "sigma"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": 0.2
+        }
+      ],
+      "rendered_content": "The argument sigma of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 0.2.",
+      "type": "claim"
+    },
+    {
+      "content": "The Gaussian model-comparison log-likelihood ratio is 3.062800000000002 for observed value 0.875, candidate mean 0.874, baseline mean 1.37, and sigma 0.2.",
+      "content_hash": "0840fe473dc4e596ae2741a89932b28b11feadb3d854460df219e4c101c83cc8",
+      "content_template": "The Gaussian model-comparison log-likelihood ratio is {value} for observed value {observed}, candidate mean {candidate_mean}, baseline mean {baseline_mean}, and sigma {sigma}.",
+      "declaration_index": 27,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_010",
+      "metadata": {
+        "claim_class": "gaia.std.likelihood.GaussianModelComparisonLogLR",
+        "function_ref": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim",
+        "generated": true,
+        "helper_kind": "likelihood_score",
+        "kind": "likelihood_score",
+        "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+        "query": {
+          "direction": "candidate_over_baseline",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
+        },
+        "score_type": "log_lr",
+        "target": "github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological",
+        "value": 3.062800000000002
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "observed",
+          "type": "float",
+          "value": 0.875
+        },
+        {
+          "name": "candidate_mean",
+          "type": "float",
+          "value": 0.874
+        },
+        {
+          "name": "baseline_mean",
+          "type": "float",
+          "value": 1.37
+        },
+        {
+          "name": "sigma",
+          "type": "float",
+          "value": 0.2
+        },
+        {
+          "name": "value",
+          "type": "float",
+          "value": 3.062800000000002
+        }
+      ],
+      "rendered_content": "The Gaussian model-comparison log-likelihood ratio is 3.062800000000002 for observed value 0.875, candidate mean 0.874, baseline mean 1.37, and sigma 0.2.",
+      "type": "claim"
+    },
+    {
+      "content": "For lithium, the ab initio EFT prediction explains the observed ultra-low transition temperature better than the phenomenological McMillan prediction: the ab initio value is within an order of magnitude of $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K, while the phenomenological value $T_c \\approx 0.35$ K is too high by roughly three orders of magnitude.",
+      "content_hash": "38acbb481be6c4341a12e59333d572d55a0c4661058001d61950ff08648a51b9",
+      "declaration_index": 28,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological",
+      "label": "tc_li_abinitio_outperforms_phenomenological",
+      "module": "s6_superconductors",
+      "parameters": [],
+      "title": "Li Ab Initio Prediction Outperforms Phenomenological",
+      "type": "claim"
+    },
+    {
+      "content": "The lithium comparison uses the same 9R low-temperature structure target where applicable, the same experimental $T_c$ reference, and an order-of-magnitude error criterion appropriate for the ultra-low transition temperature regime.",
+      "content_hash": "1a21da03adcef4b8cce6036be527ae91f65cc1a4f2aeeb542bdc7930ebe31d1b",
+      "declaration_index": 29,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::tc_li_comparison_valid",
+      "label": "tc_li_comparison_valid",
+      "metadata": {
+        "prior": 0.88,
+        "prior_justification": "Lithium structure uncertainty and ultra-low-T scale make comparison less clean."
       },
       "module": "s6_superconductors",
       "parameters": [],
+      "title": "Li Tc Comparison Valid",
+      "type": "claim"
+    },
+    {
+      "content": "The argument observed of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is -3.3979400086720375.",
+      "content_hash": "30c0670bc1bc8286607730581e73bf8ecbf780769a16608a5fb7645a34c6de6e",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 30,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_011",
+      "metadata": {
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
+        "generated": true,
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "observed"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": -3.3979400086720375
+        }
+      ],
+      "rendered_content": "The argument observed of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is -3.3979400086720375.",
+      "type": "claim"
+    },
+    {
+      "content": "The argument candidate_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is -2.3010299956639813.",
+      "content_hash": "160f935bce22a6299c7d6ef5215bad069504ab3539dd613f9b9860c7ad96c163",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 31,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_012",
+      "metadata": {
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
+        "generated": true,
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "candidate_mean"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": -2.3010299956639813
+        }
+      ],
+      "rendered_content": "The argument candidate_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is -2.3010299956639813.",
+      "type": "claim"
+    },
+    {
+      "content": "The argument baseline_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is -0.4559319556497244.",
+      "content_hash": "09b7af070b5e68bb3497bff7b9e0fd46acbe90d0fa620751cac7556a4b03113a",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 32,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_013",
+      "metadata": {
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
+        "generated": true,
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "baseline_mean"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": -0.4559319556497244
+        }
+      ],
+      "rendered_content": "The argument baseline_mean of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is -0.4559319556497244.",
+      "type": "claim"
+    },
+    {
+      "content": "The argument sigma of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 1.0.",
+      "content_hash": "57cd972e65293282fa0f71e10e6fced313a16351d9a77d933a42bb0e0839c6be",
+      "content_template": "The argument {name} of Python function {function_ref} is {value}.",
+      "declaration_index": 33,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_014",
+      "metadata": {
+        "claim_class": "gaia.lang.dsl.claim_classes.ComputedArgument",
+        "generated": true,
+        "helper_kind": "compute_argument",
+        "kind": "compute_argument",
+        "prior": 0.999
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "function_ref",
+          "type": "str",
+          "value": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim"
+        },
+        {
+          "name": "name",
+          "type": "str",
+          "value": "sigma"
+        },
+        {
+          "name": "value",
+          "type": "object",
+          "value": 1.0
+        }
+      ],
+      "rendered_content": "The argument sigma of Python function gaia.std.likelihood.gaussian_model_comparison_log_lr_claim is 1.0.",
+      "type": "claim"
+    },
+    {
+      "content": "The Gaussian model-comparison log-likelihood ratio is 3.7260999037054043 for observed value -3.3979400086720375, candidate mean -2.3010299956639813, baseline mean -0.4559319556497244, and sigma 1.0.",
+      "content_hash": "97ec2652abedb39d785f157dd2a3ac0691d89881a0dd384896fc8124439e9b59",
+      "content_template": "The Gaussian model-comparison log-likelihood ratio is {value} for observed value {observed}, candidate mean {candidate_mean}, baseline mean {baseline_mean}, and sigma {sigma}.",
+      "declaration_index": 34,
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::_anon_015",
+      "metadata": {
+        "claim_class": "gaia.std.likelihood.GaussianModelComparisonLogLR",
+        "function_ref": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim",
+        "generated": true,
+        "helper_kind": "likelihood_score",
+        "kind": "likelihood_score",
+        "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+        "query": {
+          "direction": "candidate_over_baseline",
+          "transform": "log10",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
+        },
+        "score_type": "log_lr",
+        "target": "github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological",
+        "value": 3.7260999037054043
+      },
+      "module": "s6_superconductors",
+      "parameters": [
+        {
+          "name": "observed",
+          "type": "float",
+          "value": -3.3979400086720375
+        },
+        {
+          "name": "candidate_mean",
+          "type": "float",
+          "value": -2.3010299956639813
+        },
+        {
+          "name": "baseline_mean",
+          "type": "float",
+          "value": -0.4559319556497244
+        },
+        {
+          "name": "sigma",
+          "type": "float",
+          "value": 1.0
+        },
+        {
+          "name": "value",
+          "type": "float",
+          "value": 3.7260999037054043
+        }
+      ],
+      "rendered_content": "The Gaussian model-comparison log-likelihood ratio is 3.7260999037054043 for observed value -3.3979400086720375, candidate mean -2.3010299956639813, baseline mean -0.4559319556497244, and sigma 1.0.",
       "type": "claim"
     },
     {
@@ -1278,6 +2111,27 @@
         "owning_strategy_id": "lcs_7ade2157c52ec90d",
         "owning_strategy_type": "deduction",
         "prior": 0.97,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::bse_kernel_decomposition,github:superconductivity_electron_liquids::full_bse_toy_model)",
+      "content_hash": "4cdbcae05a07498d05c16986f24ea279f96d0d47c058c1922b268e7c5a133bb2",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_7ef3f541",
+      "label": "__implication_result_7ef3f541",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::bse_kernel_decomposition,github:superconductivity_electron_liquids::full_bse_toy_model)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_15942783fa1a3300",
+        "owning_strategy_type": "support",
+        "prior": 0.95,
         "visibility": "formal_internal"
       },
       "parameters": [],
@@ -1451,6 +2305,47 @@
       "type": "claim"
     },
     {
+      "content": "all_true(github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion)",
+      "content_hash": "f1de5222a6b3ce8746a7295ee452de9ca4d11e64ab5a19af640d38f1331685d9",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_002aa2da",
+      "label": "__conjunction_result_002aa2da",
+      "metadata": {
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "conjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "conjunction_result",
+        "owning_strategy_id": "lcs_21ab882a68715c3a",
+        "owning_strategy_type": "support",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_002aa2da,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+      "content_hash": "bf88f483f57bad91dcc6c34a49a82d40d9ec1ae902e3e29aa00a7db34632e2ed",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_43ed2b1e",
+      "label": "__implication_result_43ed2b1e",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_002aa2da,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_21ab882a68715c3a",
+        "owning_strategy_type": "support",
+        "prior": 0.9,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
       "content": "implies(github:superconductivity_electron_liquids::lambda_microscopic_definition,github:superconductivity_electron_liquids::eft_eph_vertex)",
       "content_hash": "63e888498e3f606775dc9d03ca5989676d9273edea7c89e504e0c03b2286e6ad",
       "exported": false,
@@ -1466,6 +2361,46 @@
         "owning_strategy_id": "lcs_82ae945b294b1aea",
         "owning_strategy_type": "deduction",
         "prior": 0.97,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "all_true(github:superconductivity_electron_liquids::ward_identity,github:superconductivity_electron_liquids::gamma3_vdiagmc,github:superconductivity_electron_liquids::gamma3_interpolation_test_valid,github:superconductivity_electron_liquids::gamma3_evidence_independent)",
+      "content_hash": "bd0f03318700ffcd4f2c59cee1a0eb7565659e1f3aa13cb70f3581337f9d0afb",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_91969f7b",
+      "label": "__conjunction_result_91969f7b",
+      "metadata": {
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::ward_identity,github:superconductivity_electron_liquids::gamma3_vdiagmc,github:superconductivity_electron_liquids::gamma3_interpolation_test_valid,github:superconductivity_electron_liquids::gamma3_evidence_independent)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "conjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "conjunction_result",
+        "owning_strategy_id": "lcs_c36a7fd32ceccc26",
+        "owning_strategy_type": "deduction",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_91969f7b,github:superconductivity_electron_liquids::gamma3_approximation)",
+      "content_hash": "c44f9f59ba1b497f11ae5dd1984d27f5ff675f5ee33796606b6813161b7a09a7",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_06d3e67b",
+      "label": "__implication_result_06d3e67b",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_91969f7b,github:superconductivity_electron_liquids::gamma3_approximation)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_c36a7fd32ceccc26",
+        "owning_strategy_type": "deduction",
         "visibility": "formal_internal"
       },
       "parameters": [],
@@ -1554,6 +2489,47 @@
       "type": "claim"
     },
     {
+      "content": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+      "content_hash": "b9ae9536e74dcc520246239ff4fe39e123671f88e65898f25884d75c4b419f66",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_c7c820e2",
+      "label": "__conjunction_result_c7c820e2",
+      "metadata": {
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "conjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "conjunction_result",
+        "owning_strategy_id": "lcs_2880a6b7691c5e14",
+        "owning_strategy_type": "support",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_c7c820e2,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
+      "content_hash": "7ffb8485b1df3f39626fbcae5d5441b7e15bcc224ffdeccdb2543d4d2421671a",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_99c474ec",
+      "label": "__implication_result_99c474ec",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_c7c820e2,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_2880a6b7691c5e14",
+        "owning_strategy_type": "support",
+        "prior": 0.88,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
       "content": "all_true(github:superconductivity_electron_liquids::downfolded_bse,github:superconductivity_electron_liquids::mu_available_for_simple_metals,github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals)",
       "content_hash": "d0723845f6d4bde0726b9ecd724a0c8a6c683285c46f70c0e8e1d2ed21c3a39c",
       "exported": false,
@@ -1593,6 +2569,276 @@
       },
       "parameters": [],
       "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::tc_al_predicted)",
+      "content_hash": "70329fe368130a262c9789a9aa21d4791200dbb354bedb8ad4e0fd04928ee53f",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_e8d60152",
+      "label": "__implication_result_e8d60152",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::tc_al_predicted)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_87e608f43c4a0186",
+        "owning_strategy_type": "support",
+        "prior": 0.85,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::tc_zn_predicted)",
+      "content_hash": "0e7326f3738652257dc208fb20abab879a822f2861ac6b8523d662283ef2199e",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_171fc827",
+      "label": "__implication_result_171fc827",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::tc_zn_predicted)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_8ba3824ad4826f50",
+        "owning_strategy_type": "support",
+        "prior": 0.85,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::tc_li_predicted)",
+      "content_hash": "12f6f9d6bad3add1e9574f0f53c128ced225d0e8f244c3670588a8be8af9dafc",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_a079a2be",
+      "label": "__implication_result_a079a2be",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::tc_li_predicted)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_5e632c2f84abd322",
+        "owning_strategy_type": "support",
+        "prior": 0.8,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::al_pressure_transition)",
+      "content_hash": "8a99136107e83ec694f1e5cce3c87dbb44f6792b241c7e6fdba30ea1a6764a40",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_82a7c09e",
+      "label": "__implication_result_82a7c09e",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::al_pressure_transition)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_898b90f4cb7262dc",
+        "owning_strategy_type": "support",
+        "prior": 0.8,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::tc_mg_na_near_qpt)",
+      "content_hash": "f53f75d7d227a32765b4a8a3c13f52b52ddb6b52f8f9722c1261f1905b57827f",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_952d0df5",
+      "label": "__implication_result_952d0df5",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::ab_initio_workflow,github:superconductivity_electron_liquids::tc_mg_na_near_qpt)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_2d89f5e412bbc281",
+        "owning_strategy_type": "support",
+        "prior": 0.8,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "all_true(github:superconductivity_electron_liquids::dfpt_computes_lambda,github:superconductivity_electron_liquids::mu_star_phenomenological)",
+      "content_hash": "4baab7c42fe8104ab2c4f11602a883d4fae54305ebda69253cf60f3ea1594ac0",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_351ab0f5",
+      "label": "__conjunction_result_351ab0f5",
+      "metadata": {
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::dfpt_computes_lambda,github:superconductivity_electron_liquids::mu_star_phenomenological)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "conjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "conjunction_result",
+        "owning_strategy_id": "lcs_80edda036461a65a",
+        "owning_strategy_type": "support",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_351ab0f5,github:superconductivity_electron_liquids::tc_al_phenomenological)",
+      "content_hash": "f75a961767878862c761ffcce28eae449fe22102e5ce2bc9dc75e09df3003d1f",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_0b4b0647",
+      "label": "__implication_result_0b4b0647",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_351ab0f5,github:superconductivity_electron_liquids::tc_al_phenomenological)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_80edda036461a65a",
+        "owning_strategy_type": "support",
+        "prior": 0.95,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "all_true(github:superconductivity_electron_liquids::dfpt_computes_lambda,github:superconductivity_electron_liquids::mu_star_phenomenological)",
+      "content_hash": "4baab7c42fe8104ab2c4f11602a883d4fae54305ebda69253cf60f3ea1594ac0",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_78e7f596",
+      "label": "__conjunction_result_78e7f596",
+      "metadata": {
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::dfpt_computes_lambda,github:superconductivity_electron_liquids::mu_star_phenomenological)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "conjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "conjunction_result",
+        "owning_strategy_id": "lcs_fae910c89e10bc44",
+        "owning_strategy_type": "support",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_78e7f596,github:superconductivity_electron_liquids::tc_zn_phenomenological)",
+      "content_hash": "1fa51f633223355e1bb738fab85104f3bab247adc6c0584ce09f683f0cf5b269",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_fe8b25dd",
+      "label": "__implication_result_fe8b25dd",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_78e7f596,github:superconductivity_electron_liquids::tc_zn_phenomenological)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_fae910c89e10bc44",
+        "owning_strategy_type": "support",
+        "prior": 0.95,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "all_true(github:superconductivity_electron_liquids::dfpt_computes_lambda,github:superconductivity_electron_liquids::mu_star_phenomenological)",
+      "content_hash": "4baab7c42fe8104ab2c4f11602a883d4fae54305ebda69253cf60f3ea1594ac0",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_eca6b539",
+      "label": "__conjunction_result_eca6b539",
+      "metadata": {
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::dfpt_computes_lambda,github:superconductivity_electron_liquids::mu_star_phenomenological)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "conjunction_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "conjunction_result",
+        "owning_strategy_id": "lcs_bf51acc5cff53a75",
+        "owning_strategy_type": "support",
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_eca6b539,github:superconductivity_electron_liquids::tc_li_phenomenological)",
+      "content_hash": "7879d99fa36ac3cf7274c43a523d2a882ef55a887b70f638236fbfa2d62f3443",
+      "exported": false,
+      "id": "github:superconductivity_electron_liquids::__implication_result_af83e055",
+      "label": "__implication_result_af83e055",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_eca6b539,github:superconductivity_electron_liquids::tc_li_phenomenological)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_bf51acc5cff53a75",
+        "owning_strategy_type": "support",
+        "prior": 0.95,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    }
+  ],
+  "likelihood_scores": [
+    {
+      "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+      "query": {
+        "direction": "candidate_over_baseline",
+        "type": "gaussian_model_comparison",
+        "value_field": "value_K"
+      },
+      "rationale": "The Gaussian model-comparison log-likelihood ratio is 2.402222222222223 for observed value 1.2, candidate mean 0.96, baseline mean 1.9, and sigma 0.3.",
+      "score_id": "github:superconductivity_electron_liquids::_anon_005",
+      "score_type": "log_lr",
+      "target": "github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological",
+      "value": 2.402222222222223
+    },
+    {
+      "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+      "query": {
+        "direction": "candidate_over_baseline",
+        "type": "gaussian_model_comparison",
+        "value_field": "value_K"
+      },
+      "rationale": "The Gaussian model-comparison log-likelihood ratio is 3.062800000000002 for observed value 0.875, candidate mean 0.874, baseline mean 1.37, and sigma 0.2.",
+      "score_id": "github:superconductivity_electron_liquids::_anon_010",
+      "score_type": "log_lr",
+      "target": "github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological",
+      "value": 3.062800000000002
+    },
+    {
+      "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+      "query": {
+        "direction": "candidate_over_baseline",
+        "transform": "log10",
+        "type": "gaussian_model_comparison",
+        "value_field": "value_K"
+      },
+      "rationale": "The Gaussian model-comparison log-likelihood ratio is 3.7260999037054043 for observed value -3.3979400086720375, candidate mean -2.3010299956639813, baseline mean -0.4559319556497244, and sigma 1.0.",
+      "score_id": "github:superconductivity_electron_liquids::_anon_015",
+      "score_type": "log_lr",
+      "target": "github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological",
+      "value": 3.7260999037054043
     }
   ],
   "module_order": [
@@ -1657,6 +2903,7 @@
   "scope": "local",
   "strategies": [
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::bcs_theory"
       ],
@@ -1687,6 +2934,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "conclusion": "github:superconductivity_electron_liquids::bse_kernel_decomposition",
       "formal_expr": {
         "operators": [
@@ -1714,23 +2962,38 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::rpa_dynamic_screening"
       ],
       "conclusion": "github:superconductivity_electron_liquids::full_bse_toy_model",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_7ef3f541",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::bse_kernel_decomposition",
+              "github:superconductivity_electron_liquids::full_bse_toy_model"
+            ]
+          }
+        ]
+      },
       "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
         "prior": 0.95,
-        "reason": "Using the Bethe-Salpeter equation with the kernel decomposition (@bse_kernel_decomposition) into the electronic four-point vertex (approximated by RPA dynamically screened Coulomb interaction, @rpa_dynamic_screening) and a model phonon-mediated interaction, numerically solve the full frequency-momentum BSE for a toy model at $r_s = 1.92$, $\\omega_D/E_F = 0.005$. The precursory Cooper flow analysis of the solution yields $T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$.",
-        "reverse_reason": ""
+        "reason": "Using the Bethe-Salpeter equation with the kernel decomposition (@bse_kernel_decomposition) into the electronic four-point vertex (approximated by RPA dynamically screened Coulomb interaction, @rpa_dynamic_screening) and a model phonon-mediated interaction, numerically solve the full frequency-momentum BSE for a toy model at $r_s = 1.92$, $\\omega_D/E_F = 0.005$. The precursory Cooper flow analysis of the solution yields $T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$."
       },
       "premises": [
         "github:superconductivity_electron_liquids::bse_kernel_decomposition"
       ],
       "scope": "local",
-      "strategy_id": "lcs_1e93e934173cc202",
+      "strategy_id": "lcs_15942783fa1a3300",
       "type": "support"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::pair_propagator_decomposition",
         "github:superconductivity_electron_liquids::adiabatic_approx"
@@ -1771,6 +3034,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::rpa_dynamic_screening"
       ],
@@ -1801,6 +3065,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::precursory_cooper_flow"
       ],
@@ -1831,6 +3096,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::electron_phonon_action"
       ],
@@ -1861,6 +3127,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "conclusion": "github:superconductivity_electron_liquids::mu_microscopic_definition",
       "formal_expr": {
         "operators": [
@@ -1888,6 +3155,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "conclusion": "github:superconductivity_electron_liquids::mu_scale_independence",
       "formal_expr": {
         "operators": [
@@ -1915,6 +3183,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::mu_star_phenomenological"
       ],
@@ -1945,26 +3214,49 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::ueg_vertex_challenge",
         "github:superconductivity_electron_liquids::mu_microscopic_definition",
         "github:superconductivity_electron_liquids::bts_renormalization"
       ],
       "conclusion": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_002aa2da",
+            "operator": "conjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::vdiagmc_method",
+              "github:superconductivity_electron_liquids::homotopic_expansion"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_43ed2b1e",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::__conjunction_result_002aa2da",
+              "github:superconductivity_electron_liquids::mu_vdiagmc_values"
+            ]
+          }
+        ]
+      },
       "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
         "prior": 0.9,
-        "reason": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) provides a controlled, systematically improvable approach by stochastically sampling Feynman diagrams with bold-line propagators. The homotopic expansion (@homotopic_expansion) dramatically improves convergence by reorganizing the series through a continuous deformation of the bare interaction, enabling convergence at modest diagram orders. Together, these yield numerically exact values of $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale, producing values in the range 0.12--0.18 that are consistent with the empirical range but now microscopically grounded.",
-        "reverse_reason": ""
+        "reason": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) provides a controlled, systematically improvable approach by stochastically sampling Feynman diagrams with bold-line propagators. The homotopic expansion (@homotopic_expansion) dramatically improves convergence by reorganizing the series through a continuous deformation of the bare interaction, enabling convergence at modest diagram orders. Together, these yield numerically exact values of $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale, producing values in the range 0.12--0.18 that are consistent with the empirical range but now microscopically grounded."
       },
       "premises": [
         "github:superconductivity_electron_liquids::vdiagmc_method",
         "github:superconductivity_electron_liquids::homotopic_expansion"
       ],
       "scope": "local",
-      "strategy_id": "lcs_5c8141afcb9ad653",
+      "strategy_id": "lcs_21ab882a68715c3a",
       "type": "support"
     },
     {
+      "assertions": [],
       "conclusion": "github:superconductivity_electron_liquids::eft_eph_vertex",
       "formal_expr": {
         "operators": [
@@ -1992,51 +3284,51 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
-      "metadata": {
-        "prior": 0.95,
-        "reason": "The Ward identity (@ward_identity) provides the exact value of $\\Gamma_3^e$ at $q = 0$: $\\Gamma_3^e(k, 0) = m^*/m$. This exact constraint anchors the approximation at zero momentum transfer.",
-        "reverse_reason": ""
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_91969f7b",
+            "operator": "conjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::ward_identity",
+              "github:superconductivity_electron_liquids::gamma3_vdiagmc",
+              "github:superconductivity_electron_liquids::gamma3_interpolation_test_valid",
+              "github:superconductivity_electron_liquids::gamma3_evidence_independent"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_06d3e67b",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::__conjunction_result_91969f7b",
+              "github:superconductivity_electron_liquids::gamma3_approximation"
+            ]
+          }
+        ]
       },
-      "premises": [
-        "github:superconductivity_electron_liquids::ward_identity"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_680c694c96b5f2f7",
-      "type": "support"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
       "metadata": {
-        "prior": 0.88,
-        "reason": "The vDiagMC computation (@gamma3_vdiagmc) shows that at finite $q$ within the Fermi sphere, vertex corrections remain modest (10--20%) and vary smoothly with momentum, supporting the approximation $\\Gamma_3^e \\approx m^*/m$ across the relevant momentum range.",
-        "reverse_reason": ""
+        "formalization_template": "deduction",
+        "generated_formal_expr": true,
+        "reason": "The Ward identity provides the exact value at $q = 0$ (@ward_identity), while the vDiagMC calculation confirms smooth, modest finite-$q$ variations (@gamma3_vdiagmc). Given that these are valid and independent tests of the same interpolation claim (@gamma3_interpolation_test_valid, @gamma3_evidence_independent), they jointly support the approximation $\\Gamma_3^e \\approx m^*/m$ with bounded momentum-dependence error.",
+        "surface_construct": "supported_by"
       },
-      "premises": [
-        "github:superconductivity_electron_liquids::gamma3_vdiagmc"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_99d232145f02cab6",
-      "type": "support"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::gamma3_approximation",
-      "metadata": {
-        "reason": "The Ward identity provides the exact value at $q = 0$ and the vDiagMC computation confirms smooth, modest variations at finite $q$. By interpolating between these two controlled limits, we obtain a reliable approximation $\\Gamma_3^e \\approx m^*/m$ that captures the dominant effect (mass renormalization) while bounding the error from momentum dependence at the 10--15% level."
+      "method": {
+        "kind": "deduction"
       },
       "premises": [
         "github:superconductivity_electron_liquids::ward_identity",
-        "github:superconductivity_electron_liquids::gamma3_vdiagmc"
+        "github:superconductivity_electron_liquids::gamma3_vdiagmc",
+        "github:superconductivity_electron_liquids::gamma3_interpolation_test_valid",
+        "github:superconductivity_electron_liquids::gamma3_evidence_independent"
       ],
       "scope": "local",
-      "strategy_id": "lcs_b62ac3dec059f530",
-      "sub_strategies": [
-        "lcs_680c694c96b5f2f7",
-        "lcs_99d232145f02cab6"
-      ],
-      "type": "induction"
+      "strategy_id": "lcs_c36a7fd32ceccc26",
+      "type": "deduction"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::dfpt_eph_ansatz"
       ],
@@ -2076,6 +3368,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::dfpt_computes_lambda"
       ],
@@ -2115,6 +3408,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "conclusion": "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals",
       "premises": [
         "github:superconductivity_electron_liquids::eft_eph_vertex",
@@ -2130,25 +3424,48 @@
       "type": "infer"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::simple_metals_weak_lattice",
         "github:superconductivity_electron_liquids::bts_renormalization"
       ],
       "conclusion": "github:superconductivity_electron_liquids::mu_available_for_simple_metals",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_c7c820e2",
+            "operator": "conjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
+              "github:superconductivity_electron_liquids::mu_vdiagmc_values"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_99c474ec",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::__conjunction_result_c7c820e2",
+              "github:superconductivity_electron_liquids::mu_available_for_simple_metals"
+            ]
+          }
+        ]
+      },
       "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
         "prior": 0.88,
-        "reason": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency.",
-        "reverse_reason": ""
+        "reason": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
         "github:superconductivity_electron_liquids::mu_vdiagmc_values"
       ],
       "scope": "local",
-      "strategy_id": "lcs_679508a7ed27fd9e",
+      "strategy_id": "lcs_2880a6b7691c5e14",
       "type": "support"
     },
     {
+      "assertions": [],
       "conclusion": "github:superconductivity_electron_liquids::ab_initio_workflow",
       "formal_expr": {
         "operators": [
@@ -2187,6 +3504,7 @@
       "type": "deduction"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::simple_metals_weak_lattice",
         "github:superconductivity_electron_liquids::bts_renormalization"
@@ -2199,255 +3517,503 @@
         "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization"
       ],
       "scope": "local",
-      "strategy_id": "lcs_881f23b0f933a928",
+      "strategy_id": "lcs_9093677e218566bf",
       "sub_strategies": [
-        "lcs_679508a7ed27fd9e",
+        "lcs_2880a6b7691c5e14",
         "lcs_4bab615451eae5de"
       ],
       "type": "infer"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::aluminum_parameters"
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_al_predicted",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_e8d60152",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::ab_initio_workflow",
+              "github:superconductivity_electron_liquids::tc_al_predicted"
+            ]
+          }
+        ]
+      },
       "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
         "prior": 0.85,
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum with its material parameters (@aluminum_parameters): $r_s = 2.07$ with band mass $m_b = 1.05$ gives $\\mu^* = 0.13$ from the vDiagMC parameterization via BTS renormalization. Combined with the DFPT $\\lambda = 0.44$ and $\\omega_{\\mathrm{log}} = 320$ K, solving the Eliashberg equations yields $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value of 1.2 K.",
-        "reverse_reason": ""
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum with its material parameters (@aluminum_parameters): $r_s = 2.07$ with band mass $m_b = 1.05$ gives $\\mu^* = 0.13$ from the vDiagMC parameterization via BTS renormalization. Combined with the DFPT $\\lambda = 0.44$ and $\\omega_{\\mathrm{log}} = 320$ K, solving the Eliashberg equations yields $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value of 1.2 K."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_cc663e34cccd988f",
+      "strategy_id": "lcs_87e608f43c4a0186",
       "type": "support"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::zinc_parameters"
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_zn_predicted",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_171fc827",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::ab_initio_workflow",
+              "github:superconductivity_electron_liquids::tc_zn_predicted"
+            ]
+          }
+        ]
+      },
       "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
         "prior": 0.85,
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to zinc with its material parameters (@zinc_parameters): $r_s = 2.90$ with band mass $m_b = 1.0$ gives $\\mu^* = 0.12$ via BTS. Combined with $\\lambda = 0.502$ and $\\omega_{\\mathrm{log}} = 111$ K from DFPT, the predicted $T_c^{\\mathrm{EFT}} = 0.874$ K is in excellent agreement with the experimental value of 0.875 K.",
-        "reverse_reason": ""
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to zinc with its material parameters (@zinc_parameters): $r_s = 2.90$ with band mass $m_b = 1.0$ gives $\\mu^* = 0.12$ via BTS. Combined with $\\lambda = 0.502$ and $\\omega_{\\mathrm{log}} = 111$ K from DFPT, the predicted $T_c^{\\mathrm{EFT}} = 0.874$ K is in excellent agreement with the experimental value of 0.875 K."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_c771a7cb80470927",
+      "strategy_id": "lcs_8ba3824ad4826f50",
       "type": "support"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::lithium_parameters"
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_li_predicted",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_a079a2be",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::ab_initio_workflow",
+              "github:superconductivity_electron_liquids::tc_li_predicted"
+            ]
+          }
+        ]
+      },
       "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
         "prior": 0.8,
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to lithium (9R structure) with its material parameters (@lithium_parameters): $r_s = 3.25$ with band mass $m_b = 1.75$ gives $\\mu^* = 0.18$ via BTS. Despite a moderate $\\lambda = 0.34$ from DFPT, the large $\\mu^*$ nearly cancels the effective pairing interaction, making the dimensionless coupling $g = \\lambda - \\mu^*(1+0.62\\lambda)$ very small. The exponential sensitivity $T_c \\propto \\exp(-1/g)$ drives $T_c$ to $5 \\times 10^{-3}$ K, within an order of magnitude of the experimental value $4 \\times 10^{-4}$ K.",
-        "reverse_reason": ""
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to lithium (9R structure) with its material parameters (@lithium_parameters): $r_s = 3.25$ with band mass $m_b = 1.75$ gives $\\mu^* = 0.18$ via BTS. Despite a moderate $\\lambda = 0.34$ from DFPT, the large $\\mu^*$ nearly cancels the effective pairing interaction, making the dimensionless coupling $g = \\lambda - \\mu^*(1+0.62\\lambda)$ very small. The exponential sensitivity $T_c \\propto \\exp(-1/g)$ drives $T_c$ to $5 \\times 10^{-3}$ K, within an order of magnitude of the experimental value $4 \\times 10^{-4}$ K."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_4ba0980a078d3d4b",
+      "strategy_id": "lcs_5e632c2f84abd322",
       "type": "support"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::aluminum_parameters"
       ],
       "conclusion": "github:superconductivity_electron_liquids::al_pressure_transition",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_82a7c09e",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::ab_initio_workflow",
+              "github:superconductivity_electron_liquids::al_pressure_transition"
+            ]
+          }
+        ]
+      },
       "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
         "prior": 0.8,
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum under varying hydrostatic pressure (@aluminum_parameters): as pressure increases, $r_s$ decreases (higher electron density), modifying both $\\mu^*$ and $\\lambda$. The net effect is a monotonic decrease in $T_c$, accurately capturing the experimental trend from ambient to 6 GPa. Extrapolating beyond experimental data, the framework predicts SC vanishes at ~60 GPa, with $T_c < 1$ mK already at 20 GPa.",
-        "reverse_reason": ""
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to aluminum under varying hydrostatic pressure (@aluminum_parameters): as pressure increases, $r_s$ decreases (higher electron density), modifying both $\\mu^*$ and $\\lambda$. The net effect is a monotonic decrease in $T_c$, accurately capturing the experimental trend from ambient to 6 GPa. Extrapolating beyond experimental data, the framework predicts SC vanishes at ~60 GPa, with $T_c < 1$ mK already at 20 GPa."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_405646f714cad946",
+      "strategy_id": "lcs_898b90f4cb7262dc",
       "type": "support"
     },
     {
+      "assertions": [],
       "background": [
         "github:superconductivity_electron_liquids::magnesium_parameters",
         "github:superconductivity_electron_liquids::sodium_parameters",
         "github:superconductivity_electron_liquids::precursory_cooper_flow"
       ],
       "conclusion": "github:superconductivity_electron_liquids::tc_mg_na_near_qpt",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_952d0df5",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::ab_initio_workflow",
+              "github:superconductivity_electron_liquids::tc_mg_na_near_qpt"
+            ]
+          }
+        ]
+      },
       "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
         "prior": 0.8,
-        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to sodium (@sodium_parameters) and magnesium (@magnesium_parameters): Na has $r_s = 3.96$, yielding $\\mu^* = 0.15$ which nearly cancels its weak $\\lambda = 0.2$, giving $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no superconductivity). Mg has $r_s = 2.66$, yielding $\\mu^* = 0.14$ which nearly cancels $\\lambda = 0.24$, giving $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. The precursory Cooper flow formalism (@precursory_cooper_flow) shows that near the quantum phase transition ($g \\to 0$), $T_c = \\omega_\\Lambda e^{1/g}$ is exponentially sensitive to the coupling, explaining why small parameter variations can toggle between superconducting and non-superconducting ground states.",
-        "reverse_reason": ""
+        "reason": "Applying the ab initio workflow (@ab_initio_workflow) to sodium (@sodium_parameters) and magnesium (@magnesium_parameters): Na has $r_s = 3.96$, yielding $\\mu^* = 0.15$ which nearly cancels its weak $\\lambda = 0.2$, giving $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no superconductivity). Mg has $r_s = 2.66$, yielding $\\mu^* = 0.14$ which nearly cancels $\\lambda = 0.24$, giving $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. The precursory Cooper flow formalism (@precursory_cooper_flow) shows that near the quantum phase transition ($g \\to 0$), $T_c = \\omega_\\Lambda e^{1/g}$ is exponentially sensitive to the coupling, explaining why small parameter variations can toggle between superconducting and non-superconducting ground states."
       },
       "premises": [
         "github:superconductivity_electron_liquids::ab_initio_workflow"
       ],
       "scope": "local",
-      "strategy_id": "lcs_735c84fb06c02975",
+      "strategy_id": "lcs_2d89f5e412bbc281",
       "type": "support"
     },
     {
+      "assertions": [],
       "conclusion": "github:superconductivity_electron_liquids::tc_al_phenomenological",
-      "metadata": {
-        "prior": 0.35,
-        "reason": "The phenomenological McMillan prediction for aluminum uses DFPT-computed $\\lambda$ (@dfpt_computes_lambda) and the standard empirical value $\\mu^* = 0.1$ (@mu_star_phenomenological) to predict $T_c \\approx 1.9$ K.",
-        "reverse_reason": ""
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_351ab0f5",
+            "operator": "conjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+              "github:superconductivity_electron_liquids::mu_star_phenomenological"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_0b4b0647",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::__conjunction_result_351ab0f5",
+              "github:superconductivity_electron_liquids::tc_al_phenomenological"
+            ]
+          }
+        ]
       },
-      "premises": [
-        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
-        "github:superconductivity_electron_liquids::mu_star_phenomenological"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_11232342e575a122",
-      "type": "support"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::_anon_002",
       "metadata": {
-        "prior": 0.9,
-        "reason": "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted) is closer to the experimental $T_c = 1.2$ K (@tc_al_experimental) than the phenomenological prediction of 1.9 K (@tc_al_phenomenological), which overestimates by 58%. The ab initio $\\mu^* = 0.13$ correctly reduces $T_c$."
-      },
-      "premises": [
-        "github:superconductivity_electron_liquids::tc_al_predicted",
-        "github:superconductivity_electron_liquids::tc_al_phenomenological",
-        "github:superconductivity_electron_liquids::tc_al_experimental"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_5c04275549e290c6",
-      "type": "compare"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::_anon_002",
-      "metadata": {
-        "reason": "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) is well reproduced by the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted), which uses no adjustable parameters. The phenomenological prediction (@tc_al_phenomenological) using $\\mu^* = 0.1$ gives 1.9 K, overestimating by 58%. The ab initio approach provides a better explanation because it determines $\\mu^*$ from first principles rather than using an ad hoc value, and the resulting $\\mu^* = 0.13$ is above the standard guess of 0.1, correctly reducing $T_c$ toward the experimental value."
-      },
-      "premises": [
-        "github:superconductivity_electron_liquids::ab_initio_workflow",
-        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
-        "github:superconductivity_electron_liquids::mu_star_phenomenological",
-        "github:superconductivity_electron_liquids::tc_al_predicted",
-        "github:superconductivity_electron_liquids::tc_al_phenomenological",
-        "github:superconductivity_electron_liquids::tc_al_experimental"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_d575c2f6ca42c784",
-      "sub_strategies": [
-        "lcs_cc663e34cccd988f",
-        "lcs_11232342e575a122",
-        "lcs_5c04275549e290c6"
-      ],
-      "type": "abduction"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::tc_zn_phenomenological",
-      "metadata": {
-        "prior": 0.35,
-        "reason": "The phenomenological McMillan prediction for zinc uses DFPT-computed $\\lambda$ (@dfpt_computes_lambda) and the standard empirical value $\\mu^* = 0.1$ (@mu_star_phenomenological) to predict $T_c \\approx 1.37$ K.",
-        "reverse_reason": ""
-      },
-      "premises": [
-        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
-        "github:superconductivity_electron_liquids::mu_star_phenomenological"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_d845485230078c49",
-      "type": "support"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::_anon_004",
-      "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
         "prior": 0.95,
-        "reason": "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted) is in near-exact agreement with the experimental $T_c = 0.875$ K (@tc_zn_experimental), while the phenomenological prediction of 1.37 K overestimates by 57%."
-      },
-      "premises": [
-        "github:superconductivity_electron_liquids::tc_zn_predicted",
-        "github:superconductivity_electron_liquids::tc_zn_phenomenological",
-        "github:superconductivity_electron_liquids::tc_zn_experimental"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_5206ce8aacc1a3a3",
-      "type": "compare"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::_anon_004",
-      "metadata": {
-        "reason": "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) is in excellent agreement with the ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted). The phenomenological prediction (@tc_zn_phenomenological) using $\\mu^* = 0.1$ gives 1.37 K, overestimating by 57%. The ab initio $\\mu^* = 0.12$ from $r_s = 2.90$ correctly captures the Coulomb repulsion strength in Zn, bringing the prediction into near-exact agreement with experiment."
-      },
-      "premises": [
-        "github:superconductivity_electron_liquids::ab_initio_workflow",
-        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
-        "github:superconductivity_electron_liquids::mu_star_phenomenological",
-        "github:superconductivity_electron_liquids::tc_zn_predicted",
-        "github:superconductivity_electron_liquids::tc_zn_phenomenological",
-        "github:superconductivity_electron_liquids::tc_zn_experimental"
-      ],
-      "scope": "local",
-      "strategy_id": "lcs_1c88a20862032bfe",
-      "sub_strategies": [
-        "lcs_c771a7cb80470927",
-        "lcs_d845485230078c49",
-        "lcs_5206ce8aacc1a3a3"
-      ],
-      "type": "abduction"
-    },
-    {
-      "conclusion": "github:superconductivity_electron_liquids::tc_li_phenomenological",
-      "metadata": {
-        "prior": 0.1,
-        "reason": "The phenomenological McMillan prediction for lithium uses DFPT-computed $\\lambda$ (@dfpt_computes_lambda) and the standard empirical value $\\mu^* = 0.1$ (@mu_star_phenomenological) to predict $T_c \\approx 0.35$ K.",
-        "reverse_reason": ""
+        "reason": "The phenomenological McMillan prediction for aluminum uses DFPT-computed $\\lambda$ (@dfpt_computes_lambda) and the standard empirical value $\\mu^* = 0.1$ (@mu_star_phenomenological) to predict $T_c \\approx 1.9$ K."
       },
       "premises": [
         "github:superconductivity_electron_liquids::dfpt_computes_lambda",
         "github:superconductivity_electron_liquids::mu_star_phenomenological"
       ],
       "scope": "local",
-      "strategy_id": "lcs_c135ea064a8e666a",
+      "strategy_id": "lcs_80edda036461a65a",
       "type": "support"
     },
     {
-      "conclusion": "github:superconductivity_electron_liquids::_anon_006",
+      "assertions": [],
+      "conclusion": "github:superconductivity_electron_liquids::_anon_005",
       "metadata": {
-        "prior": 0.85,
-        "reason": "The ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K (@tc_li_predicted) is within an order of magnitude of the experimental $T_c \\approx 4 \\times 10^{-4}$ K (@tc_li_experimental), while the phenomenological prediction of 0.35 K overestimates by three orders of magnitude. The exponential sensitivity of $T_c$ amplifies the $\\mu^*$ difference."
+        "decorator": true,
+        "surface_construct": "compute"
+      },
+      "method": {
+        "function_ref": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim",
+        "input_bindings": {
+          "baseline_mean": "github:superconductivity_electron_liquids::_anon_003",
+          "candidate_mean": "github:superconductivity_electron_liquids::_anon_002",
+          "observed": "github:superconductivity_electron_liquids::_anon_001",
+          "sigma": "github:superconductivity_electron_liquids::_anon_004"
+        },
+        "kind": "compute",
+        "output": "github:superconductivity_electron_liquids::_anon_005",
+        "output_binding": {
+          "value": "return_value"
+        }
       },
       "premises": [
-        "github:superconductivity_electron_liquids::tc_li_predicted",
-        "github:superconductivity_electron_liquids::tc_li_phenomenological",
-        "github:superconductivity_electron_liquids::tc_li_experimental"
+        "github:superconductivity_electron_liquids::_anon_001",
+        "github:superconductivity_electron_liquids::_anon_002",
+        "github:superconductivity_electron_liquids::_anon_003",
+        "github:superconductivity_electron_liquids::_anon_004"
       ],
       "scope": "local",
-      "strategy_id": "lcs_79412c9ed6879fb6",
-      "type": "compare"
+      "strategy_id": "lcs_dd83b4a206f3c62b",
+      "type": "compute"
     },
     {
-      "conclusion": "github:superconductivity_electron_liquids::_anon_006",
+      "assertions": [],
+      "conclusion": "github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological",
       "metadata": {
-        "reason": "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K (@tc_li_experimental) is within an order of magnitude of the ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K (@tc_li_predicted, 9R structure). The phenomenological prediction (@tc_li_phenomenological) using $\\mu^* = 0.1$ gives $\\approx 0.35$ K, overestimating by three orders of magnitude. The dramatic improvement of the ab initio approach is because the first-principles $\\mu^* = 0.18$ for lithium ($r_s = 3.25$, $m_b = 1.75$) is significantly larger than the standard guess of 0.1, reflecting the stronger Coulomb repulsion at lower electron density. In the regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ is small, the exponential sensitivity amplifies the $\\mu^*$ difference from 0.08 to nearly three orders of magnitude in $T_c$."
+        "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+        "query": {
+          "direction": "candidate_over_baseline",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
+        },
+        "reason": "Use the SciPy-backed Gaussian model-comparison likelihood score.",
+        "surface_construct": "likelihood_from"
+      },
+      "method": {
+        "input_bindings": {
+          "data": "github:superconductivity_electron_liquids::tc_al_experimental",
+          "target": "github:superconductivity_electron_liquids::tc_al_abinitio_outperforms_phenomenological"
+        },
+        "kind": "module_use",
+        "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+        "output_bindings": {
+          "score": "github:superconductivity_electron_liquids::_anon_005"
+        },
+        "premise_bindings": {
+          "assumption_0": "github:superconductivity_electron_liquids::tc_al_predicted",
+          "assumption_1": "github:superconductivity_electron_liquids::tc_al_phenomenological",
+          "assumption_2": "github:superconductivity_electron_liquids::tc_al_comparison_valid",
+          "data_0": "github:superconductivity_electron_liquids::tc_al_experimental",
+          "score": "github:superconductivity_electron_liquids::_anon_005"
+        }
       },
       "premises": [
-        "github:superconductivity_electron_liquids::ab_initio_workflow",
+        "github:superconductivity_electron_liquids::tc_al_experimental",
+        "github:superconductivity_electron_liquids::tc_al_predicted",
+        "github:superconductivity_electron_liquids::tc_al_phenomenological",
+        "github:superconductivity_electron_liquids::tc_al_comparison_valid",
+        "github:superconductivity_electron_liquids::_anon_005"
+      ],
+      "reason": "Use the SciPy-backed Gaussian model-comparison likelihood score.",
+      "scope": "local",
+      "strategy_id": "lcs_def4d1530fc90e41",
+      "type": "likelihood"
+    },
+    {
+      "assertions": [],
+      "conclusion": "github:superconductivity_electron_liquids::tc_zn_phenomenological",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_78e7f596",
+            "operator": "conjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+              "github:superconductivity_electron_liquids::mu_star_phenomenological"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_fe8b25dd",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::__conjunction_result_78e7f596",
+              "github:superconductivity_electron_liquids::tc_zn_phenomenological"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
+        "prior": 0.95,
+        "reason": "The phenomenological McMillan prediction for zinc uses DFPT-computed $\\lambda$ (@dfpt_computes_lambda) and the standard empirical value $\\mu^* = 0.1$ (@mu_star_phenomenological) to predict $T_c \\approx 1.37$ K."
+      },
+      "premises": [
         "github:superconductivity_electron_liquids::dfpt_computes_lambda",
-        "github:superconductivity_electron_liquids::mu_star_phenomenological",
-        "github:superconductivity_electron_liquids::tc_li_predicted",
-        "github:superconductivity_electron_liquids::tc_li_phenomenological",
-        "github:superconductivity_electron_liquids::tc_li_experimental"
+        "github:superconductivity_electron_liquids::mu_star_phenomenological"
       ],
       "scope": "local",
-      "strategy_id": "lcs_3e67662367aa073d",
-      "sub_strategies": [
-        "lcs_4ba0980a078d3d4b",
-        "lcs_c135ea064a8e666a",
-        "lcs_79412c9ed6879fb6"
+      "strategy_id": "lcs_fae910c89e10bc44",
+      "type": "support"
+    },
+    {
+      "assertions": [],
+      "conclusion": "github:superconductivity_electron_liquids::_anon_010",
+      "metadata": {
+        "decorator": true,
+        "surface_construct": "compute"
+      },
+      "method": {
+        "function_ref": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim",
+        "input_bindings": {
+          "baseline_mean": "github:superconductivity_electron_liquids::_anon_008",
+          "candidate_mean": "github:superconductivity_electron_liquids::_anon_007",
+          "observed": "github:superconductivity_electron_liquids::_anon_006",
+          "sigma": "github:superconductivity_electron_liquids::_anon_009"
+        },
+        "kind": "compute",
+        "output": "github:superconductivity_electron_liquids::_anon_010",
+        "output_binding": {
+          "value": "return_value"
+        }
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::_anon_006",
+        "github:superconductivity_electron_liquids::_anon_007",
+        "github:superconductivity_electron_liquids::_anon_008",
+        "github:superconductivity_electron_liquids::_anon_009"
       ],
-      "type": "abduction"
+      "scope": "local",
+      "strategy_id": "lcs_6d60a5c0f43e04b8",
+      "type": "compute"
+    },
+    {
+      "assertions": [],
+      "conclusion": "github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological",
+      "metadata": {
+        "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+        "query": {
+          "direction": "candidate_over_baseline",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
+        },
+        "reason": "Use the SciPy-backed Gaussian model-comparison likelihood score.",
+        "surface_construct": "likelihood_from"
+      },
+      "method": {
+        "input_bindings": {
+          "data": "github:superconductivity_electron_liquids::tc_zn_experimental",
+          "target": "github:superconductivity_electron_liquids::tc_zn_abinitio_outperforms_phenomenological"
+        },
+        "kind": "module_use",
+        "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+        "output_bindings": {
+          "score": "github:superconductivity_electron_liquids::_anon_010"
+        },
+        "premise_bindings": {
+          "assumption_0": "github:superconductivity_electron_liquids::tc_zn_predicted",
+          "assumption_1": "github:superconductivity_electron_liquids::tc_zn_phenomenological",
+          "assumption_2": "github:superconductivity_electron_liquids::tc_zn_comparison_valid",
+          "data_0": "github:superconductivity_electron_liquids::tc_zn_experimental",
+          "score": "github:superconductivity_electron_liquids::_anon_010"
+        }
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::tc_zn_experimental",
+        "github:superconductivity_electron_liquids::tc_zn_predicted",
+        "github:superconductivity_electron_liquids::tc_zn_phenomenological",
+        "github:superconductivity_electron_liquids::tc_zn_comparison_valid",
+        "github:superconductivity_electron_liquids::_anon_010"
+      ],
+      "reason": "Use the SciPy-backed Gaussian model-comparison likelihood score.",
+      "scope": "local",
+      "strategy_id": "lcs_f0f30de380d1c34b",
+      "type": "likelihood"
+    },
+    {
+      "assertions": [],
+      "conclusion": "github:superconductivity_electron_liquids::tc_li_phenomenological",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_eca6b539",
+            "operator": "conjunction",
+            "variables": [
+              "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+              "github:superconductivity_electron_liquids::mu_star_phenomenological"
+            ]
+          },
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_af83e055",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::__conjunction_result_eca6b539",
+              "github:superconductivity_electron_liquids::tc_li_phenomenological"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "formalization_template": "support",
+        "generated_formal_expr": true,
+        "prior": 0.95,
+        "reason": "The phenomenological McMillan prediction for lithium uses DFPT-computed $\\lambda$ (@dfpt_computes_lambda) and the standard empirical value $\\mu^* = 0.1$ (@mu_star_phenomenological) to predict $T_c \\approx 0.35$ K."
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::dfpt_computes_lambda",
+        "github:superconductivity_electron_liquids::mu_star_phenomenological"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_bf51acc5cff53a75",
+      "type": "support"
+    },
+    {
+      "assertions": [],
+      "conclusion": "github:superconductivity_electron_liquids::_anon_015",
+      "metadata": {
+        "decorator": true,
+        "surface_construct": "compute"
+      },
+      "method": {
+        "function_ref": "gaia.std.likelihood.gaussian_model_comparison_log_lr_claim",
+        "input_bindings": {
+          "baseline_mean": "github:superconductivity_electron_liquids::_anon_013",
+          "candidate_mean": "github:superconductivity_electron_liquids::_anon_012",
+          "observed": "github:superconductivity_electron_liquids::_anon_011",
+          "sigma": "github:superconductivity_electron_liquids::_anon_014"
+        },
+        "kind": "compute",
+        "output": "github:superconductivity_electron_liquids::_anon_015",
+        "output_binding": {
+          "value": "return_value"
+        }
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::_anon_011",
+        "github:superconductivity_electron_liquids::_anon_012",
+        "github:superconductivity_electron_liquids::_anon_013",
+        "github:superconductivity_electron_liquids::_anon_014"
+      ],
+      "scope": "local",
+      "strategy_id": "lcs_f2506d99195b555e",
+      "type": "compute"
+    },
+    {
+      "assertions": [],
+      "conclusion": "github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological",
+      "metadata": {
+        "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+        "query": {
+          "direction": "candidate_over_baseline",
+          "transform": "log10",
+          "type": "gaussian_model_comparison",
+          "value_field": "value_K"
+        },
+        "reason": "Use the SciPy-backed Gaussian model-comparison likelihood score.",
+        "surface_construct": "likelihood_from"
+      },
+      "method": {
+        "input_bindings": {
+          "data": "github:superconductivity_electron_liquids::tc_li_experimental",
+          "target": "github:superconductivity_electron_liquids::tc_li_abinitio_outperforms_phenomenological"
+        },
+        "kind": "module_use",
+        "module_ref": "gaia.std.likelihood.gaussian_model_comparison@v1",
+        "output_bindings": {
+          "score": "github:superconductivity_electron_liquids::_anon_015"
+        },
+        "premise_bindings": {
+          "assumption_0": "github:superconductivity_electron_liquids::tc_li_predicted",
+          "assumption_1": "github:superconductivity_electron_liquids::tc_li_phenomenological",
+          "assumption_2": "github:superconductivity_electron_liquids::tc_li_comparison_valid",
+          "data_0": "github:superconductivity_electron_liquids::tc_li_experimental",
+          "score": "github:superconductivity_electron_liquids::_anon_015"
+        }
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::tc_li_experimental",
+        "github:superconductivity_electron_liquids::tc_li_predicted",
+        "github:superconductivity_electron_liquids::tc_li_phenomenological",
+        "github:superconductivity_electron_liquids::tc_li_comparison_valid",
+        "github:superconductivity_electron_liquids::_anon_015"
+      ],
+      "reason": "Use the SciPy-backed Gaussian model-comparison likelihood score.",
+      "scope": "local",
+      "strategy_id": "lcs_8cb869205de8d7a1",
+      "type": "likelihood"
     }
   ]
 }

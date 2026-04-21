@@ -36,16 +36,70 @@
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass $m_b = 1.05$) via BTS renormalization.",
-      "content_hash": "6a8ebb89878068183f610716027606b9fe5ee6076fe9231089445abcc691824e",
+      "content": "The ab initio EFT predicted superconducting transition temperature of aluminum (Al) is 0.96 K. The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization.",
+      "content_hash": "73079be0f4cf8f469d5a4de6a41c296bf909c9e80b1113f11b1031a266935ccd",
       "label": "tc_al_predicted",
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "aluminum (Al)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "ab initio EFT predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.96
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "The first-principles mu*(Al) = 0.13 is obtained from the vDiagMC mu_EF at r_s = 2.07 with band mass m_b = 1.05 via BTS renormalization."
+        }
+      ],
       "qid": "github:superconductivity_electron_liquids::tc_al_predicted",
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, within an order of magnitude of the experimental observation $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large $\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass $m_b = 1.75$) almost completely cancels the phonon-mediated attraction $\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with $\\mu^* = 0.17$ and $\\lambda = 0.37$.",
-      "content_hash": "03465d1d36613dd01d05702ced651adfaf383169397a9b5e7b35b562ff81b78f",
+      "content": "The ab initio EFT predicted superconducting transition temperature of lithium (Li) (9R structure) is 0.005 K. The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37.",
+      "content_hash": "7bdc776da2b866811338d29ca5fc2244510645666240619322266500d6e09800",
       "label": "tc_li_predicted",
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "lithium (Li)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "ab initio EFT predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": " (9R structure)"
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.005
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37."
+        }
+      ],
       "qid": "github:superconductivity_electron_liquids::tc_li_predicted",
       "type": "claim"
     },
@@ -57,14 +111,41 @@
       "type": "claim"
     },
     {
-      "content": "The ab initio predicted superconducting transition temperature of zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass $m_b = 1.0$) via BTS renormalization.",
-      "content_hash": "8e12c1382dcd1c0a5383f1aedcbddd075a8c66aadf05846bb16e5c676c7bd22b",
+      "content": "The ab initio EFT predicted superconducting transition temperature of zinc (Zn) is 0.874 K. The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization.",
+      "content_hash": "ed2634bd4c93e59a0dcd2751e3fa100b99a6fef621df0051c40db65d9c318d9e",
       "label": "tc_zn_predicted",
+      "parameters": [
+        {
+          "name": "material",
+          "type": "str",
+          "value": "zinc (Zn)"
+        },
+        {
+          "name": "role",
+          "type": "str",
+          "value": "ab initio EFT predicted"
+        },
+        {
+          "name": "structure",
+          "type": "str",
+          "value": ""
+        },
+        {
+          "name": "value_K",
+          "type": "float",
+          "value": 0.874
+        },
+        {
+          "name": "detail",
+          "type": "str",
+          "value": "The first-principles mu*(Zn) = 0.12 is obtained from the vDiagMC mu_EF at r_s = 2.90 with band mass m_b = 1.0 via BTS renormalization."
+        }
+      ],
       "qid": "github:superconductivity_electron_liquids::tc_zn_predicted",
       "type": "claim"
     }
   ],
-  "ir_hash": "sha256:344eafa861e109edb2ee60d1249a1abef6b38e6dcf4c0438a852d0d7c4faaadb",
+  "ir_hash": "sha256:0ae23f5621f54a2cb95e0b496c2232efad98271db322408cc85ea499794f7bab",
   "manifest_schema_version": 1,
   "package": "superconductivity-electron-liquids",
   "version": "1.1.0"
