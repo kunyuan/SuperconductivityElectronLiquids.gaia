@@ -1,5 +1,5 @@
 {
-  "ir_hash": "sha256:98f362b1315c1b79badd7e93f0b88657ed6b6f2d0f2808712055ab944446bd99",
+  "ir_hash": "sha256:0ae23f5621f54a2cb95e0b496c2232efad98271db322408cc85ea499794f7bab",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -3311,7 +3311,6 @@
       "metadata": {
         "formalization_template": "deduction",
         "generated_formal_expr": true,
-        "pattern": "induction",
         "reason": "The Ward identity provides the exact value at $q = 0$ (@ward_identity), while the vDiagMC calculation confirms smooth, modest finite-$q$ variations (@gamma3_vdiagmc). Given that these are valid and independent tests of the same interpolation claim (@gamma3_interpolation_test_valid, @gamma3_evidence_independent), they jointly support the approximation $\\Gamma_3^e \\approx m^*/m$ with bounded momentum-dependence error.",
         "surface_construct": "supported_by"
       },

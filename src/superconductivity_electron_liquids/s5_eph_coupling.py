@@ -139,7 +139,6 @@ _gamma3_supported_by_evidence = supported_by(
         gamma3_interpolation_test_valid,
         gamma3_evidence_independent,
     ],
-    pattern="induction",
     reason=(
         "The Ward identity provides the exact value at $q = 0$ "
         "(@ward_identity), while the vDiagMC calculation confirms smooth, "

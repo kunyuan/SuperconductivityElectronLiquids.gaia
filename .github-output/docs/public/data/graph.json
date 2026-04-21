@@ -148,7 +148,7 @@
       "module": "motivation",
       "content": "The downfolding procedure (integrating out high-energy degrees of freedom to obtain a low-energy effective theory) in traditional Migdal-Eliashberg (ME) theory is phenomenological: the Coulomb effect is replaced by a static pseudopotential $\\mu^*$, ignoring corrections from Coulomb fluctuations to quasiparticle renormalization and electron-phonon coupling, as well as non-local effects of screening.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
       "metadata": {
         "prior": 0.95,
@@ -163,7 +163,7 @@
       "module": "motivation",
       "content": "Traditional electron-phonon superconductivity theory uses the McMillan (or Allen-Dynes) formula, with the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$ as inputs to predict the superconducting transition temperature $T_c$. Since $\\mu^*$ cannot be reliably computed from first principles, it is typically assigned an empirical value $\\mu^* \\in [0.1, 0.2]$. For materials with $T_c$ in the sub-kelvin range, the exponential sensitivity $T_c \\propto \\exp(-1/g)$ to $\\mu^*$ causes this uncertainty to span several orders of magnitude in the predicted $T_c$, destroying predictive power.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
       "metadata": {
         "prior": 0.95,
@@ -208,7 +208,7 @@
       "module": "motivation",
       "content": "Density functional perturbation theory (DFPT) computes the electron-phonon coupling constant $\\lambda$ (a dimensionless parameter quantifying the phonon-mediated attraction strength at the Fermi surface) via the linear response of the Kohn-Sham ground-state energy to lattice distortions. DFPT has been validated for weakly correlated superconductors but its accuracy for strongly correlated systems is unknown.",
       "prior": 0.92,
-      "belief": 0.985884523093235,
+      "belief": 0.9858845230932352,
       "exported": false,
       "metadata": {
         "prior": 0.92,
@@ -239,7 +239,7 @@
       "module": "motivation",
       "content": "The experimental superconducting transition temperature of lithium (Li) is 0.0004 K. This value is approximately 0.4 mK and corresponds to the 9R crystal structure; the crystal structure of lithium at ultra-low temperatures remains controversial.",
       "prior": 0.85,
-      "belief": 0.8499999999999999,
+      "belief": 0.85,
       "exported": false,
       "metadata": {
         "claim_class": "superconductivity_electron_liquids.motivation.TcValue",
@@ -355,7 +355,7 @@
       "module": "s2_model",
       "content": "The effective action of the electron-phonon coupled system can be decomposed as $S = S_e + S_{\\mathrm{ph}} + S_{e\\text{-ph}} + S_{\\mathrm{CT}} + O(\\sqrt{m/M})$, where $m$ is the electron mass and $M$ is the ion mass. $S_e$ is the complete many-electron action without any approximation, $S_{\\mathrm{ph}}$ describes phonons with physical dispersion, $S_{e\\text{-ph}}$ is the coupling between electron density and ionic displacement, and $S_{\\mathrm{CT}}$ is a counterterm that subtracts the static electron polarization contribution already included in the physical phonon dispersion to prevent double counting.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/4_1.jpg",
@@ -394,7 +394,7 @@
       "module": "s2_model",
       "content": "The low-frequency limit of the anomalous vertex function on the Fermi surface $\\Lambda_0$ obeys a universal scaling relation (precursory Cooper flow, PCF): $\\Lambda_0 = 1/(1 + g\\ln(\\omega_\\Lambda/T)) + O(T)$, where $g$ is the dimensionless coupling constant ($g < 0$ corresponds to net attraction) and $\\omega_\\Lambda$ is an effective high-energy cutoff. When $g < 0$, $\\Lambda_0$ diverges at $T_c = \\omega_\\Lambda e^{1/g}$; by computing in the normal state and extrapolating, one can predict $T_c$.",
       "prior": 0.9,
-      "belief": 0.9000000000000001,
+      "belief": 0.9,
       "exported": false,
       "metadata": {
         "prior": 0.9,
@@ -421,7 +421,7 @@
       "module": "s3_downfolding",
       "content": "Cross terms mixing Coulomb and phonon channels are suppressed by the plasma frequency $\\omega_p$, at order $O(\\omega_c^2/\\omega_p^2)$, where $\\omega_c$ is an intermediate energy cutoff satisfying $\\omega_D \\ll \\omega_c \\ll E_F$. For most three-dimensional metals $\\omega_c/\\omega_p \\lesssim 0.1$, so cross terms contribute no more than 1%.",
       "prior": 0.9,
-      "belief": 0.9260760880573298,
+      "belief": 0.9260760880573299,
       "exported": false,
       "metadata": {
         "prior": 0.9,
@@ -492,7 +492,7 @@
       "module": "s3_downfolding",
       "content": "The downfolded EFT-ME framework's applicability conditions and failure modes: (i) the adiabatic parameter $\\omega_D/E_F \\ll 1$ must hold, (ii) the intermediate cutoff $\\omega_c$ must satisfy $\\omega_D \\ll \\omega_c \\ll E_F$ with $\\omega_c/\\omega_p \\ll 1$, and (iii) the framework breaks down for strongly non-adiabatic systems (e.g. high-$T_c$ hydrides where $\\omega_D/E_F \\sim 0.1$) and for strongly correlated materials where the quasiparticle picture fails.",
       "prior": 0.92,
-      "belief": 0.9200000000000002,
+      "belief": 0.92,
       "exported": false,
       "metadata": {
         "prior": 0.92,
@@ -545,7 +545,7 @@
       "module": "s3_downfolding",
       "content": "At the superconducting critical temperature $T_c$, the downfolded Bethe-Salpeter equation reduces to the traditional linearized Migdal-Eliashberg (ME) gap equation: $\\Delta_\\omega = \\pi T_c \\sum_{|\\omega'|<\\omega_c} (\\lambda_{\\omega\\omega'} - \\mu^*) \\frac{z_{\\omega'}^{\\mathrm{ph}}}{|\\omega'|} \\Delta_{\\omega'}$. As $T \\to T_c$, the anomalous vertex diverges as $\\Lambda_{k\\omega} \\sim \\Delta_{k\\omega}/(T - T_c)$, causing the source term $\\eta$ to become irrelevant. The diverging prefactor $(T - T_c)^{-1}$ cancels between the two sides of the equation, yielding the gap equation with $\\mu^* \\equiv \\mu_{\\omega_c}$. This establishes the microscopic foundation for the ME equation with precise definitions of $\\mu^*$ and $\\lambda$ in terms of electron vertex functions.",
       "prior": null,
-      "belief": 0.9662951127679278,
+      "belief": 0.9662951127679277,
       "exported": false,
       "metadata": {
         "gaia": {
@@ -566,7 +566,7 @@
       "module": "s3_downfolding",
       "content": "The electron-phonon coupling $\\lambda(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is the Fermi-surface average of the phonon-mediated interaction $W^{\\mathrm{ph}}$ weighted by quasiparticle renormalization factors $z^e$ and $z_\\omega^{\\mathrm{ph}}$.\n\nIn the standard ME normalization, the static dimensionless coupling follows the Fermi-surface average of $g^2/\\omega^2$ over phonon branches $\\kappa$ (Cai et al., Eq. 31):\n\n$$\\lambda = N_F \\sum_\\kappa \\left\\langle \\frac{g_\\kappa^2(\\mathbf{k}, \\mathbf{q})}{\\omega_{\\kappa, \\mathbf{q}}^2}\\right\\rangle_{\\mathrm{FS}},$$\n\nwith $|\\mathbf{k}| = |\\mathbf{k} + \\mathbf{q}| = k_F$, $N_F$ the density of states at the Fermi level, and $g_\\kappa(\\mathbf{k}, \\mathbf{q})$ the physical screened-and-renormalized e-ph vertex (see @eft_eph_vertex). This definition reduces to the standard Eliashberg $\\lambda$ in the adiabatic limit but retains dynamical corrections from the electron self-energy.",
       "prior": null,
-      "belief": 0.9614879466569183,
+      "belief": 0.9614879466569182,
       "exported": false,
       "metadata": {
         "gaia": {
@@ -588,7 +588,7 @@
       "module": "s3_downfolding",
       "content": "The Coulomb pseudopotential $\\mu_{\\omega_c}(\\omega, \\omega')$ in the downfolded BSE has a microscopic definition: it is determined by the purely electronic particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ projected onto the Fermi surface, with the high-energy electronic degrees of freedom integrated out above the cutoff $\\omega_c$.\n\nOperationally, in a purely electronic theory ($\\lambda = 0$, $z^{\\mathrm{ph}} = 1$), solving the downfolded equation gives the temperature-dependent effective Cooper-channel repulsion (Cai et al., Eq. 23):\n\n$$\\gamma_T = \\frac{\\mu_{\\omega_c}}{1 + \\mu_{\\omega_c} \\ln(\\omega_c/T)} \\quad (T \\ll \\omega_c),$$\n\nwhere $\\gamma_T$ is computed directly from the four-point vertex (Cai et al., Eq. 24):\n\n$$\\gamma_T \\equiv z_e^2\\, N_F^{\\ast}\\, \\bigl\\langle \\Gamma_4^e(\\mathbf{k}_F, \\omega_0;\\, \\mathbf{k}_F', \\omega_0)\\bigr\\rangle_{\\mathbf{k}_F, \\mathbf{k}_F'},\\qquad \\omega_0 = \\pi T.$$\n\nHere $z_e$ is the electronic quasiparticle weight, $N_F^\\ast$ is the quasiparticle density of states, and $\\Gamma_4^e$ is the full electronic four-point vertex on the Fermi surface evaluated at the lowest Matsubara frequency $\\omega_0 = \\pi T$. Inverting Eq. 23 yields $\\mu_{\\omega_c}$ from the measured $\\gamma_T$, providing a precise meaning to the Coulomb pseudopotential as the effective repulsion in the low-energy pairing channel, renormalized by all electronic correlations.",
       "prior": null,
-      "belief": 0.9763976362026076,
+      "belief": 0.9763976362026077,
       "exported": false,
       "metadata": {
         "gaia": {
@@ -664,7 +664,7 @@
       "module": "s4_pseudopotential",
       "content": "Computing the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ of the uniform electron gas (UEG) is a long-standing challenge: perturbation theory in the bare Coulomb interaction diverges for $r_s \\gtrsim 1$, and partial resummations (RPA, GW) miss crucial vertex corrections. A controlled, systematically improvable method is needed to evaluate $\\tilde\\Gamma^e$ in the metallic density range $r_s \\in [1, 6]$.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
       "metadata": {
         "prior": 0.95,
@@ -694,7 +694,7 @@
       "module": "s4_pseudopotential",
       "content": "The homotopic transformation provides a physically motivated reorganization of the diagrammatic series: by continuously deforming the bare Coulomb interaction $v(q)$ into a form that incorporates partial screening at each perturbative order, the series convergence is dramatically improved. This allows the vDiagMC calculation to reach converged results for the four-point vertex at metallic densities with modest diagram orders ($n \\lesssim 7$).",
       "prior": 0.88,
-      "belief": 0.8429134796728326,
+      "belief": 0.8429134796728327,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/10_0.jpg",
@@ -711,7 +711,7 @@
       "module": "s4_pseudopotential",
       "content": "vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\\mu_{E_F} \\approx 0.27\\, r_s$. The complete set of values (Cai et al., TABLE I), computed at $\\omega_c = 0.1\\, E_F$ and rescaled to $E_F$ via the BTS relation:\n\n| $r_s$              | 1       | 2       | 3       | 4        | 5        | 6      |\n|--------------------|---------|---------|---------|----------|----------|--------|\n| $\\mu_{0.1\\,E_F}$ | 0.172(4)| 0.238(4)| 0.278(6)| 0.306(15)| 0.328(12)| 0.35(3)|\n| $\\mu_{E_F}$       | 0.28(1) | 0.53(2) | 0.77(5) | 1.0(2)   | 1.3(2)   | 1.8(8) |\n\nNumbers in parentheses indicate the systematic uncertainty in the last digit. These results, combined with the BTS relation, yield $\\mu^\\ast \\approx 0.12\\text{--}0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent. The values are dramatically larger than the static RPA, Morel-Anderson, and dynamic RPA predictions for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — and resolve the long-standing contradiction between phenomenological and RPA-based treatments of the Coulomb pseudopotential.",
       "prior": null,
-      "belief": 0.7477507913837221,
+      "belief": 0.7477507913837222,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/8_0.jpg",
@@ -767,7 +767,7 @@
       "module": "s5_eph_coupling",
       "content": "vDiagMC computation of the three-point vertex $\\Gamma_3^e(k, q)$ of the UEG at finite momentum transfer $q$ shows that vertex corrections are modest (10--20% level) for momenta within the Fermi sphere ($|k|, |k+q| \\lesssim k_F$) at metallic densities $r_s \\in [2, 4]$. The corrections vary smoothly with $q$ and can be accurately interpolated between the Ward-identity limit ($q \\to 0$) and the large-$q$ asymptotic behavior.",
       "prior": 0.88,
-      "belief": 0.88,
+      "belief": 0.8800000000000001,
       "exported": false,
       "metadata": {
         "figure": "artifacts/images/12_0.jpg",
@@ -784,7 +784,7 @@
       "module": "s5_eph_coupling",
       "content": "The DFPT expression for the electron-phonon coupling $g^{\\mathrm{DFPT}}(k, q) = \\sqrt{\\omega_q / 2} \\, \\langle k+q | \\delta V_{\\mathrm{KS}} / \\delta u_q | k \\rangle$ implicitly assumes that vertex corrections to the electron-phonon coupling beyond the Kohn-Sham mean-field level are absorbed into the exchange-correlation functional. The accuracy of this ansatz depends on how well DFT captures the relevant vertex corrections.",
       "prior": 0.9,
-      "belief": 0.9000000000000001,
+      "belief": 0.9,
       "exported": false,
       "metadata": {
         "prior": 0.9,
@@ -799,7 +799,7 @@
       "module": "s5_eph_coupling",
       "content": "For simple metals at metallic densities ($r_s \\in [2, 4]$), the quasiparticle effective mass ratio $m^*/m \\approx 1$ (deviations less than 5--10%). This near-unity mass ratio means that the quasiparticle renormalization factor $z^e \\approx 1/(1 + \\lambda_e)$ primarily reflects the frequency-dependent self-energy rather than momentum-dependent mass enhancement, simplifying the mapping between microscopic and DFPT-level electron-phonon coupling.",
       "prior": 0.92,
-      "belief": 0.9200000000000002,
+      "belief": 0.9199999999999999,
       "exported": false,
       "metadata": {
         "prior": 0.92,
@@ -857,7 +857,7 @@
       "module": "s5_eph_coupling",
       "content": "The Ward-identity limit and the finite-$q$ vDiagMC vertex calculation are valid tests of the same interpolation approximation for $\\Gamma_3^e(k,q)$ within the Fermi sphere. Passing both tests licenses using the approximation $\\Gamma_3^e \\approx m^*/m$ across the relevant momentum range.",
       "prior": 0.9,
-      "belief": 0.9,
+      "belief": 0.9000000000000001,
       "exported": false,
       "metadata": {
         "prior": 0.9,
@@ -887,7 +887,7 @@
       "module": "s5_eph_coupling",
       "content": "In the uniform electron gas at densities $r_s \\in [1,5]$, the EFT electron-phonon vertex $g(\\mathbf{k},\\mathbf{q}) = g^{(0)}_{\\mathbf{q}} \\cdot (z^e/\\epsilon_{\\mathbf{q}}) \\cdot \\Gamma_3^e(\\mathbf{k};\\mathbf{q})$ is numerically well approximated by the DFPT Kohn-Sham screened potential $g^{\\mathrm{KS}}(\\mathbf{q}) = g^{(0)}_{\\mathbf{q}} / [1 - (v_{\\mathbf{q}} + f_{xc})\\chi_0^e(\\mathbf{q})]$ for Fermi-surface-relevant momentum transfers $|\\mathbf{q}| \\leq 2k_F$, with weak residual $\\mathbf{k}$-dependence.",
       "prior": null,
-      "belief": 0.8848066128811143,
+      "belief": 0.8848066128811141,
       "exported": false,
       "metadata": {
         "gaia": {
@@ -909,7 +909,7 @@
       "module": "s5_eph_coupling",
       "content": "For simple metals, the DFPT calculation of the electron-phonon coupling constant $\\lambda$ is reliable: the EFT vertex matches the DFPT expression at the vertex level, and the quasiparticle density of states $N_F^*$ nearly equals the band density of states $N_F^{(0)}$, so $\\lambda_{\\mathrm{EFT}} \\approx \\lambda_{\\mathrm{DFPT}}$ with corrections at the few-percent level.",
       "prior": null,
-      "belief": 0.8734129357376367,
+      "belief": 0.8734129357376366,
       "exported": true,
       "metadata": {
         "gaia": {
@@ -991,7 +991,7 @@
       "module": "s6_superconductors",
       "content": "Simple metals (Al, Li, Na, Mg, Zn) have weak lattice effects in the Coulomb pseudopotential: the difference between the crystalline $\\mu^*$ and the UEG $\\mu^*$ at the same $r_s$ is small (a few percent) because the nearly-free-electron character of these metals means the Fermi surface is approximately spherical and the electronic structure is well described by the homogeneous electron gas with minor crystal-field perturbations.",
       "prior": 0.9,
-      "belief": 0.9000000000000001,
+      "belief": 0.9,
       "exported": false,
       "metadata": {
         "prior": 0.9,
@@ -1021,7 +1021,7 @@
       "module": "s6_superconductors",
       "content": "The complete ab initio workflow for predicting $T_c$ of simple metals: (1) compute $\\mu_{E_F}$ from the UEG four-point vertex via vDiagMC, (2) map to the material's $r_s$ and run down to $\\mu^*$ via the BTS relation, (3) obtain $\\lambda$ from DFPT, (4) solve the downfolded Eliashberg equations (or use the PCF extrapolation) to predict $T_c$. All inputs are from first principles; no adjustable parameters remain.",
       "prior": null,
-      "belief": 0.8012480970992398,
+      "belief": 0.8012480970992399,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/13_0.jpg",
@@ -1116,7 +1116,7 @@
       "module": "s6_superconductors",
       "content": "The ab initio EFT predicted superconducting transition temperature of lithium (Li) (9R structure) is 0.005 K. The large mu*(Li) = 0.18 from r_s = 3.25 with band mass m_b = 1.75 almost completely cancels lambda = 0.34, pushing Tc to extremely low temperatures. The HCP structure gives Tc = 0.03 K with mu* = 0.17 and lambda = 0.37.",
       "prior": null,
-      "belief": 0.8198582403620166,
+      "belief": 0.8198582403620165,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/15_0.jpg",
@@ -1140,7 +1140,7 @@
       "module": "s6_superconductors",
       "content": "Under hydrostatic pressure, the ab initio framework predicts that aluminum's superconducting $T_c$ monotonically decreases, consistent with experimental data up to 6 GPa. The framework predicts that superconductivity in Al vanishes at approximately 60 GPa; at 20 GPa, $T_c$ is already suppressed below 1 mK.",
       "prior": null,
-      "belief": 0.8198582403620165,
+      "belief": 0.8198582403620166,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/14_0.jpg",
@@ -1163,7 +1163,7 @@
       "module": "s6_superconductors",
       "content": "The ab initio framework predicts that sodium and magnesium have extremely low or vanishing $T_c$: for Na ($r_s = 3.96$, $\\lambda = 0.2$, $\\mu^* = 0.15$), the Coulomb repulsion nearly cancels the weak electron-phonon coupling, giving $T_c^{\\mathrm{EFT}} = 2 \\times 10^{-13}$ K (effectively no superconductivity). For Mg ($r_s = 2.66$, $\\lambda = 0.24$, $\\mu^* = 0.14$), $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-5}$ K. Both materials are near the quantum phase transition between superconducting and non-superconducting ground states, where $T_c$ varies exponentially with small parameter changes.",
       "prior": null,
-      "belief": 0.8198582403620165,
+      "belief": 0.8198582403620166,
       "exported": true,
       "metadata": {
         "figure": "artifacts/images/15_0.jpg",
@@ -1200,7 +1200,7 @@
       "module": "s6_superconductors",
       "content": "The aluminum comparison uses the same material, the same experimental $T_c$ target, and the same absolute-error criterion for the ab initio and phenomenological predictions.",
       "prior": 0.95,
-      "belief": 0.9499999999999998,
+      "belief": 0.95,
       "exported": false,
       "metadata": {
         "prior": 0.95,
