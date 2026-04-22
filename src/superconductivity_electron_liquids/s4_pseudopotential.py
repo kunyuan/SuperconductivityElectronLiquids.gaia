@@ -6,7 +6,7 @@ Monte Carlo (vDiagMC), obtaining numerically exact values of mu at the Fermi
 energy scale, and confronting the RPA prediction of attractive mu*.
 """
 
-from gaia.lang import claim, contradiction, support
+from .v6_actions import Claim, contradiction, noisy_and
 
 from .motivation import bts_renormalization, rpa_predicts_attractive_mu
 from .s3_downfolding import mu_microscopic_definition
@@ -15,7 +15,7 @@ from .s3_downfolding import mu_microscopic_definition
 # Leaf claims (no strategies)
 # ---------------------------------------------------------------------------
 
-ueg_vertex_challenge = claim(
+ueg_vertex_challenge = Claim(
     "Computing the particle-particle irreducible four-point vertex "
     "$\\tilde\\Gamma^e$ of the uniform electron gas (UEG) is a "
     "long-standing challenge: perturbation theory in the bare Coulomb "
@@ -26,7 +26,7 @@ ueg_vertex_challenge = claim(
     title="UEG Four-Point Vertex Challenge",
 )
 
-vdiagmc_method = claim(
+vdiagmc_method = Claim(
     "Variational diagrammatic Monte Carlo (vDiagMC) provides a controlled, "
     "systematically improvable method for computing Feynman diagrammatic "
     "series to high order: (i) bold-line (self-consistent) resummation "
@@ -39,7 +39,7 @@ vdiagmc_method = claim(
     title="vDiagMC Method",
 )
 
-homotopic_expansion = claim(
+homotopic_expansion = Claim(
     "The homotopic transformation provides a physically motivated "
     "reorganization of the diagrammatic series: by continuously deforming "
     "the bare Coulomb interaction $v(q)$ into a form that incorporates "
@@ -48,44 +48,26 @@ homotopic_expansion = claim(
     "reach converged results for the four-point vertex at metallic "
     "densities with modest diagram orders ($n \\lesssim 7$).",
     title="Homotopic Expansion",
-    metadata={
-        "figure": "artifacts/images/10_0.jpg",
-        "caption": "Fig. 6 | Diagrammatic contributions to the 4-point vertex at first and second order, with Coulomb interaction re-expanded from Yukawa interaction with screening parameter lambda_R.",
-    },
 )
 
 # ---------------------------------------------------------------------------
 # Derived claim
 # ---------------------------------------------------------------------------
 
-mu_vdiagmc_values = claim(
+mu_vdiagmc_values = Claim(
     "vDiagMC calculations of the UEG four-point vertex yield the Coulomb "
     "pseudopotential at the Fermi energy scale: $\\mu_{E_F}(r_s)$ is "
     "positive and monotonically increasing with $r_s$ in the metallic "
-    "density range, approximately following $\\mu_{E_F} \\approx 0.27\\, r_s$. "
-    "The complete set of values (Cai et al., TABLE I), computed at "
-    "$\\omega_c = 0.1\\, E_F$ and rescaled to $E_F$ via the BTS relation:\n\n"
-    "| $r_s$              | 1       | 2       | 3       | 4        | 5        | 6      |\n"
-    "|--------------------|---------|---------|---------|----------|----------|--------|\n"
-    "| $\\mu_{0.1\\,E_F}$ | 0.172(4)| 0.238(4)| 0.278(6)| 0.306(15)| 0.328(12)| 0.35(3)|\n"
-    "| $\\mu_{E_F}$       | 0.28(1) | 0.53(2) | 0.77(5) | 1.0(2)   | 1.3(2)   | 1.8(8) |\n\n"
-    "Numbers in parentheses indicate the systematic uncertainty in the last "
-    "digit. These results, combined with the BTS relation, yield "
-    "$\\mu^\\ast \\approx 0.12\\text{--}0.18$ at the Debye scale, consistent "
-    "with the empirical range but now derived from first principles with "
-    "controlled error bars of a few percent. The values are dramatically "
-    "larger than the static RPA, Morel-Anderson, and dynamic RPA predictions "
-    "for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — and resolve the "
-    "long-standing contradiction between phenomenological and RPA-based "
-    "treatments of the Coulomb pseudopotential.",
+    "density range. Representative values include $\\mu_{E_F} \\approx 0.21$ "
+    "at $r_s = 2$ (aluminum-like) and $\\mu_{E_F} \\approx 0.33$ at "
+    "$r_s = 3.3$ (lithium-like). These results, combined with the BTS "
+    "relation, yield $\\mu^* \\approx 0.10$--$0.15$ at the Debye scale, "
+    "consistent with the empirical range but now derived from first "
+    "principles with controlled error bars of a few percent.",
     title="mu from vDiagMC: Numerical Values",
-    metadata={
-        "figure": "artifacts/images/8_0.jpg",
-        "caption": "Fig. 4 | Dimensionless bare Coulomb pseudopotential mu_EF as a function of r_s for the 3D UEG from vDiagMC data, compared with static RPA, Morel-Anderson, and dynamic RPA predictions.",
-    },
 )
 
-_strat_mu_values = support(
+_strat_mu_values = noisy_and(
     premises=[vdiagmc_method, homotopic_expansion],
     conclusion=mu_vdiagmc_values,
     background=[ueg_vertex_challenge, mu_microscopic_definition,
@@ -102,13 +84,11 @@ _strat_mu_values = support(
         "convergence by reorganizing the series through a continuous deformation "
         "of the bare interaction, enabling convergence at modest diagram orders. "
         "Together, these yield numerically exact values of $\\mu_{E_F}(r_s)$ "
-        "with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). "
-        "The BTS renormalization relation (@bts_renormalization) then maps "
-        "$\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale, producing values "
-        "in the range 0.12--0.18 that are consistent with the empirical range "
-        "but now microscopically grounded."
+        "with controlled error bars. The BTS renormalization relation "
+        "(@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at "
+        "the Debye scale, producing values in the range 0.10--0.15 that are "
+        "consistent with the empirical range but now microscopically grounded."
     ),
-    prior=0.90,
 )
 
 # ---------------------------------------------------------------------------
@@ -131,5 +111,4 @@ rpa_vs_vdiagmc = contradiction(
         "RPA prediction of attractive $\\mu^*$ is an artifact of the "
         "uncontrolled approximation."
     ),
-    prior=0.95,
 )

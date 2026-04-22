@@ -6,7 +6,7 @@ and obtaining microscopic definitions for lambda and mu. Validates the
 downfolding against a full BSE toy-model calculation.
 """
 
-from gaia.lang import claim, deduction, equivalence, setting, support
+from .v6_actions import Claim, Setting, deduction, equivalence, noisy_and
 
 from .motivation import (
     adiabatic_approx,
@@ -20,7 +20,7 @@ from .s2_model import bse_kernel_decomposition, electron_phonon_action, precurso
 # Leaf claims (no strategies)
 # ---------------------------------------------------------------------------
 
-pair_propagator_decomposition = setting(
+pair_propagator_decomposition = Setting(
     "The pair propagator (product of two single-particle Green's functions "
     "$G_{k\\omega}G_{-k,-\\omega}$) can be exactly decomposed into a "
     "low-energy coherent part $\\Pi_{\\mathrm{BCS}}$ and a high-energy "
@@ -34,7 +34,7 @@ pair_propagator_decomposition = setting(
     title="Pair Propagator Decomposition",
 )
 
-cross_term_suppressed = claim(
+cross_term_suppressed = Claim(
     "Cross terms mixing Coulomb and phonon channels are suppressed by the "
     "plasma frequency $\\omega_p$, at order $O(\\omega_c^2/\\omega_p^2)$, "
     "where $\\omega_c$ is an intermediate energy cutoff satisfying "
@@ -44,7 +44,7 @@ cross_term_suppressed = claim(
     title="Cross-Channel Terms Suppressed",
 )
 
-rpa_dynamic_screening = setting(
+rpa_dynamic_screening = Setting(
     "Random Phase Approximation (RPA) dynamically screened Coulomb interaction: "
     "$W_{\\mathrm{RPA}}(\\mathbf{q},\\nu) = v_q / (1 - v_q \\Pi^0_{\\mathbf{q}\\nu})$, "
     "where $v_q = 4\\pi e^2/q^2$ is the bare Coulomb potential and $\\Pi^0$ is "
@@ -53,7 +53,7 @@ rpa_dynamic_screening = setting(
     title="RPA Dynamic Screening",
 )
 
-full_bse_toy_model = claim(
+full_bse_toy_model = Claim(
     "For a toy model with aluminum-like parameters (Wigner-Seitz radius "
     "$r_s = 1.92$, adiabatic ratio $\\omega_D/E_F = 0.005$), numerically "
     "solving the full frequency-momentum dependent Bethe-Salpeter equation "
@@ -63,13 +63,9 @@ full_bse_toy_model = claim(
     "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$, where $T_F$ is the Fermi "
     "temperature.",
     title="Full BSE Toy Model Result",
-    metadata={
-        "figure": "artifacts/images/8_1.jpg",
-        "caption": "Fig. 5 | Comparison between the precursory Cooper flow solutions of the full and downfolded BSE for a toy model, demonstrating 0.2% agreement in Tc.",
-    },
 )
 
-_strat_full_bse = support(
+_strat_full_bse = noisy_and(
     premises=[bse_kernel_decomposition],
     conclusion=full_bse_toy_model,
     background=[rpa_dynamic_screening],
@@ -83,10 +79,9 @@ _strat_full_bse = support(
         "flow analysis of the solution yields "
         "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$."
     ),
-    prior=0.95,
 )
 
-downfolded_bse_toy_model = claim(
+downfolded_bse_toy_model = Claim(
     "For the same toy model (aluminum-like parameters $r_s = 1.92$, "
     "$\\omega_D/E_F = 0.005$), solving the downfolded frequency-only "
     "Bethe-Salpeter equation yields $T_c^{\\mathrm{approx}}/T_F = "
@@ -94,10 +89,21 @@ downfolded_bse_toy_model = claim(
     title="Downfolded BSE Toy Model Result",
 )
 
-# Note: _abduction_downfolding is defined after _strat_downfolded_bse_toy below,
-# because the new abduction() API requires sub-strategies as arguments.
+_equal_downfolding_toy_match = equivalence(
+    full_bse_toy_model,
+    downfolded_bse_toy_model,
+    label="equal_downfolding_toy_match",
+    reason=(
+        "The full BSE numerical solution gives "
+        "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$ (@full_bse_toy_model), "
+        "while the downfolded BSE gives "
+        "$T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$ "
+        "(@downfolded_bse_toy_model). The two differ by only 0.2%, so they "
+        "match within numerical accuracy for this toy validation."
+    ),
+)
 
-downfolding_validity_limits = claim(
+downfolding_validity_limits = Claim(
     "The downfolded EFT-ME framework's applicability conditions and failure "
     "modes: (i) the adiabatic parameter $\\omega_D/E_F \\ll 1$ must hold, "
     "(ii) the intermediate cutoff $\\omega_c$ must satisfy "
@@ -112,26 +118,16 @@ downfolding_validity_limits = claim(
 # Derived claims (with infer strategies)
 # ---------------------------------------------------------------------------
 
-downfolded_bse = claim(
+downfolded_bse = Claim(
     "The frequency-only downfolded Bethe-Salpeter equation: the full "
     "momentum-frequency BSE kernel reduces to a one-dimensional integral "
-    "equation in Matsubara frequency for the Fermi-surface-averaged "
-    "anomalous vertex $\\Lambda_\\omega$ "
-    "(Cai et al., Eq. 20):\n\n"
-    "$$\\Lambda_\\omega = \\eta_\\omega + \\pi T \\sum_{|\\omega'|<\\omega_c} "
-    "\\bigl(\\lambda_{\\omega\\omega'} - \\mu_{\\omega_c}\\bigr) "
-    "\\frac{z_{\\omega'}^{\\mathrm{ph}}}{|\\omega'|}\\, \\Lambda_{\\omega'}.$$\n\n"
-    "Here $\\eta_\\omega$ is the symmetry-breaking pair source (set to unity "
-    "for numerical convenience without affecting $T_c$), $z_\\omega^{\\mathrm{ph}}$ "
-    "is the e-ph quasiparticle weight (Cai et al., Eq. 21), and the kernel "
-    "decomposes into the phonon-mediated attraction "
-    "$\\lambda_{\\omega\\omega'}$ and the Coulomb pseudopotential "
-    "$\\mu_{\\omega_c}$, both with microscopic definitions in terms of "
-    "electron vertex functions. Corrections are bounded by three small "
-    "parameters: $\\omega_D/E_F$, $\\omega_c^2/\\omega_p^2$, and "
-    "$T/\\omega_c$. The momentum integration is absorbed into the density "
-    "of states, and the pair propagator's coherent part generates the BCS "
-    "logarithm that drives the Cooper instability.",
+    "equation in Matsubara frequency, with an effective kernel "
+    "$K(\\omega, \\omega') = \\lambda(\\omega, \\omega') - "
+    "\\mu_{\\omega_c}(\\omega, \\omega')$, where the phonon-mediated "
+    "attraction $\\lambda$ and Coulomb pseudopotential $\\mu_{\\omega_c}$ "
+    "are microscopically defined. The momentum integration is absorbed into "
+    "the density of states, and the pair propagator's coherent part "
+    "generates the BCS logarithm that drives the Cooper instability.",
     title="Downfolded BSE",
 )
 
@@ -155,11 +151,10 @@ deduction(
         "equation in Matsubara frequency with microscopically defined "
         "$\\lambda$ and $\\mu_{\\omega_c}$ kernels."
     ),
-    prior=0.96,
 )
 
-# Theory prediction: apply downfolded BSE to the toy model
-deduction(
+# Now that downfolded_bse is defined, attach noisy_and for the toy model result
+_strat_downfolded_bse_toy = noisy_and(
     premises=[downfolded_bse],
     conclusion=downfolded_bse_toy_model,
     background=[rpa_dynamic_screening],
@@ -170,26 +165,9 @@ deduction(
         "Solving the frequency-only equation yields "
         "$T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$."
     ),
-    prior=0.95,
 )
 
-# Numerical validation: downfolded and full BSE give the same answer
-# This is the core evidence that the downfolding approximation works.
-# The two results are independent computations that should agree.
-equivalence(
-    downfolded_bse_toy_model,
-    full_bse_toy_model,
-    reason=(
-        "The downfolded BSE prediction "
-        "$T_c^{\\mathrm{approx}}/T_F = 10^{-5.667}$ (@downfolded_bse_toy_model) "
-        "and the full BSE numerical result "
-        "$T_c^{\\mathrm{full}}/T_F = 10^{-5.668}$ (@full_bse_toy_model) "
-        "differ by only 0.2%, demonstrating quantitative agreement."
-    ),
-    prior=0.98,
-)
-
-downfolded_me_equation = claim(
+downfolded_me_equation = Claim(
     "At the superconducting critical temperature $T_c$, the downfolded "
     "Bethe-Salpeter equation reduces to the traditional linearized "
     "Migdal-Eliashberg (ME) gap equation: $\\Delta_\\omega = \\pi T_c "
@@ -222,27 +200,16 @@ deduction(
         "the traditional ME equation, but now with $\\mu^*$ and $\\lambda$ "
         "having precise microscopic definitions from the downfolding."
     ),
-    prior=0.97,
 )
 
-lambda_microscopic_definition = claim(
+lambda_microscopic_definition = Claim(
     "The electron-phonon coupling $\\lambda(\\omega, \\omega')$ in the "
     "downfolded BSE has a microscopic definition: it is the Fermi-surface "
     "average of the phonon-mediated interaction $W^{\\mathrm{ph}}$ weighted "
-    "by quasiparticle renormalization factors $z^e$ and "
-    "$z_\\omega^{\\mathrm{ph}}$.\n\n"
-    "In the standard ME normalization, the static dimensionless coupling "
-    "follows the Fermi-surface average of $g^2/\\omega^2$ over phonon "
-    "branches $\\kappa$ (Cai et al., Eq. 31):\n\n"
-    "$$\\lambda = N_F \\sum_\\kappa "
-    "\\left\\langle \\frac{g_\\kappa^2(\\mathbf{k}, \\mathbf{q})}"
-    "{\\omega_{\\kappa, \\mathbf{q}}^2}\\right\\rangle_{\\mathrm{FS}},$$\n\n"
-    "with $|\\mathbf{k}| = |\\mathbf{k} + \\mathbf{q}| = k_F$, $N_F$ the "
-    "density of states at the Fermi level, and $g_\\kappa(\\mathbf{k}, "
-    "\\mathbf{q})$ the physical screened-and-renormalized e-ph vertex (see "
-    "@eft_eph_vertex). This definition reduces to the standard Eliashberg "
-    "$\\lambda$ in the adiabatic limit but retains dynamical corrections "
-    "from the electron self-energy.",
+    "by quasiparticle renormalization factors $z^e$ and $z_\\omega^{\\mathrm{ph}}$. "
+    "This definition reduces to the standard Eliashberg $\\lambda$ in the "
+    "adiabatic limit but retains dynamical corrections from the electron "
+    "self-energy.",
     title="Microscopic Definition of lambda",
 )
 
@@ -264,35 +231,17 @@ deduction(
         "providing a controlled microscopic definition that generalizes the "
         "standard Eliashberg coupling constant."
     ),
-    prior=0.96,
 )
 
-mu_microscopic_definition = claim(
+mu_microscopic_definition = Claim(
     "The Coulomb pseudopotential $\\mu_{\\omega_c}(\\omega, \\omega')$ in the "
     "downfolded BSE has a microscopic definition: it is determined by the "
     "purely electronic particle-particle irreducible four-point vertex "
     "$\\tilde\\Gamma^e$ projected onto the Fermi surface, with the high-energy "
     "electronic degrees of freedom integrated out above the cutoff "
-    "$\\omega_c$.\n\n"
-    "Operationally, in a purely electronic theory ($\\lambda = 0$, "
-    "$z^{\\mathrm{ph}} = 1$), solving the downfolded equation gives the "
-    "temperature-dependent effective Cooper-channel repulsion (Cai et al., "
-    "Eq. 23):\n\n"
-    "$$\\gamma_T = \\frac{\\mu_{\\omega_c}}"
-    "{1 + \\mu_{\\omega_c} \\ln(\\omega_c/T)} \\quad (T \\ll \\omega_c),$$\n\n"
-    "where $\\gamma_T$ is computed directly from the four-point vertex "
-    "(Cai et al., Eq. 24):\n\n"
-    "$$\\gamma_T \\equiv z_e^2\\, N_F^{\\ast}\\, "
-    "\\bigl\\langle \\Gamma_4^e(\\mathbf{k}_F, \\omega_0;\\, "
-    "\\mathbf{k}_F', \\omega_0)\\bigr\\rangle_{\\mathbf{k}_F, \\mathbf{k}_F'},"
-    "\\qquad \\omega_0 = \\pi T.$$\n\n"
-    "Here $z_e$ is the electronic quasiparticle weight, $N_F^\\ast$ is the "
-    "quasiparticle density of states, and $\\Gamma_4^e$ is the full electronic "
-    "four-point vertex on the Fermi surface evaluated at the lowest Matsubara "
-    "frequency $\\omega_0 = \\pi T$. Inverting Eq. 23 yields $\\mu_{\\omega_c}$ "
-    "from the measured $\\gamma_T$, providing a precise meaning to the Coulomb "
-    "pseudopotential as the effective repulsion in the low-energy pairing "
-    "channel, renormalized by all electronic correlations.",
+    "$\\omega_c$. This gives $\\mu_{\\omega_c}$ a precise meaning as the "
+    "effective Coulomb repulsion in the low-energy pairing channel, "
+    "renormalized by all electronic correlations.",
     title="Microscopic Definition of mu",
 )
 
@@ -311,10 +260,9 @@ deduction(
         "non-perturbative Coulomb correlations — evaluated at a specific "
         "energy scale, without any phenomenological input."
     ),
-    prior=0.96,
 )
 
-mu_scale_independence = claim(
+mu_scale_independence = Claim(
     "The BTS renormalization relation $\\mu_{\\omega_c} = \\mu_{\\omega_c'} / "
     "(1 + \\mu_{\\omega_c'} \\ln(\\omega_c'/\\omega_c))$ emerges as a "
     "corollary of the microscopic definition of $\\mu_{\\omega_c}$: changing "
@@ -343,7 +291,6 @@ deduction(
         "as an exact consequence of the downfolded theory's structure, "
         "rather than an ad hoc ansatz."
     ),
-    prior=0.98,
 )
 
 bts_microscopic_equivalence = equivalence(
@@ -360,10 +307,9 @@ bts_microscopic_equivalence = equivalence(
         "structure, establishing it as an exact consequence of the theory "
         "rather than a phenomenological ansatz."
     ),
-    prior=0.98,
 )
 
-ma_pseudopotential_justified = claim(
+ma_pseudopotential_justified = Claim(
     "The Morel-Anderson constant-pseudopotential ansatz — treating "
     "$\\mu_{\\omega_c}$ as approximately frequency-independent — is "
     "microscopically justified: the four-point vertex $\\tilde\\Gamma^e$ "
@@ -394,5 +340,4 @@ deduction(
         "precisely because the energy-scale hierarchy $\\omega_c \\ll E_F$ "
         "is maintained."
     ),
-    prior=0.95,
 )

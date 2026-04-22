@@ -60,7 +60,6 @@ from .s4_pseudopotential import (
 # Section V: Electron-Phonon Coupling
 from .s5_eph_coupling import (
     dfpt_eph_ansatz,
-    dfpt_eph_ansatz,
     dfpt_reliable_for_simple_metals,
     eft_eph_vertex,
     eft_vertex_matches_dfpt,
@@ -73,18 +72,35 @@ from .s5_eph_coupling import (
 # Section VI: Conventional Superconductors
 from .s6_superconductors import (
     ab_initio_workflow,
+    al_arxiv_table_row,
+    al_effective_coupling,
+    al_lambda_input,
+    al_mu_star_input,
     al_pressure_transition,
     mu_available_for_simple_metals,
     aluminum_parameters,
     lithium_parameters,
     magnesium_parameters,
+    li_effective_coupling,
+    li_effective_coupling_error_bounded,
+    li_arxiv_table_row,
+    li_lambda_input,
+    li_low_temperature_lattice_assumption,
+    li_mu_star_input,
     simple_metals_weak_lattice,
+    shared_dfpt_lambda_error_model,
     sodium_parameters,
     tc_al_predicted,
     tc_li_predicted,
     tc_mg_na_near_qpt,
     tc_zn_predicted,
+    tolmachev_log_mu_star_error_model,
+    ueg_mu_ef_table_i,
     ueg_pseudopotential_parameterization,
+    zn_effective_coupling,
+    zn_arxiv_table_row,
+    zn_lambda_input,
+    zn_mu_star_input,
     zinc_parameters,
 )
 

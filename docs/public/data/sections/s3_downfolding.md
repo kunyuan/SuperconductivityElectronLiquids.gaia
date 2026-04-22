@@ -1,3 +1,15 @@
-# Downfolding the Bethe-Salpeter Equation
+# Module: s3_downfolding
 
-The full momentum-frequency Bethe-Salpeter equation is reduced to a one-dimensional integral equation in Matsubara frequency through a controlled downfolding procedure. The pair propagator $G_k G_{-k}$ is exactly decomposed into a low-energy coherent part $\Pi_{\mathrm{BCS}}$ carrying the Cooper logarithm and a high-energy incoherent remainder. Momentum summation over the coherent part absorbs the angular dependence into the density of states, leaving a frequency-only kernel $K(\omega, \omega') = \lambda(\omega, \omega') - \mu_{\omega_c}(\omega, \omega')$. The key enabling assumption is that cross terms mixing Coulomb and phonon channels are suppressed at order $O(\omega_c^2 / \omega_p^2)$ (belief 0.69, prior 0.90) --- the largest belief drop among all premises, reflecting material-dependent uncertainty in the intermediate-cutoff hierarchy. Combined with the adiabatic approximation (belief 0.90), inference lifts the downfolded BSE conclusion from its uninformative prior of 0.50 to belief 0.76 with 0.01 bits of mutual information. A toy-model validation at aluminum-like parameters confirms quantitative accuracy: the full BSE gives $T_c/T_F = 10^{-5.668}$ while the downfolded version gives $10^{-5.667}$, a 0.2% discrepancy. The downfolding also provides microscopic definitions for both $\lambda$ (the Fermi-surface average of $W^{\mathrm{ph}}$ weighted by quasiparticle factors, belief 0.81) and $\mu_{\omega_c}$ (the projection of the electronic four-point vertex onto the Fermi surface, belief 0.84). As a corollary, the BTS renormalization relation emerges as an exact consequence of cutoff invariance (belief 0.99), and the Morel-Anderson constant-pseudopotential ansatz is justified by the energy-scale hierarchy $\omega_c \ll E_F$ (belief 0.92).
+### pair_propagator_decomposition
+
+**QID:** `github:superconductivity_electron_liquids::pair_propagator_decomposition`
+**Type:** setting
+**Role:** setting
+**Content:** The pair propagator (product of two single-particle Green's functions $G_{k\omega}G_{-k,-\omega}$) can be exactly decomposed into a low-energy coherent part $\Pi_{\mathrm{BCS}}$ and a high-energy incoherent remainder $\phi_{k\omega}$: $G_{k\omega}G_{-k,-\omega} = \Pi_{\mathrm{BCS}} + \phi_{k\omega}$. The coherent part is expressed in terms of the quasiparticle weight $z^e$, frequency-dependent quasiparticle weight $z_\omega^{\mathrm{ph}}$, and renormalized dispersion $\epsilon_k$. This is an exact mathematical identity introducing energy-scale separation in the two-electron channel.
+
+### rpa_dynamic_screening
+
+**QID:** `github:superconductivity_electron_liquids::rpa_dynamic_screening`
+**Type:** setting
+**Role:** setting
+**Content:** Random Phase Approximation (RPA) dynamically screened Coulomb interaction: $W_{\mathrm{RPA}}(\mathbf{q},\nu) = v_q / (1 - v_q \Pi^0_{\mathbf{q}\nu})$, where $v_q = 4\pi e^2/q^2$ is the bare Coulomb potential and $\Pi^0$ is the non-interacting polarization function. This is a standard approximation that becomes exact in the weak-coupling limit ($r_s \lesssim 1$).
