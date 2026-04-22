@@ -1,3 +1,15 @@
-# Motivation and Background
+# Module: motivation
 
-Traditional superconductivity theory predicts the transition temperature $T_c$ via the McMillan or Allen-Dynes formula, which requires two inputs: the electron-phonon coupling constant $\lambda$ computed from DFPT, and the Coulomb pseudopotential $\mu^*$ that encodes the net electron-electron repulsion in the Cooper pairing channel. Because $\mu^*$ cannot be reliably computed from first principles, it is treated as a free parameter in the range 0.1--0.2. This phenomenological freedom is tolerable for strong-coupling superconductors, but for metals with $T_c$ in the kelvin or sub-kelvin range the exponential sensitivity $T_c \propto \exp(-1/g)$ amplifies even modest uncertainties in $\mu^*$ into order-of-magnitude errors. The phenomenological predictions starkly illustrate the problem: for lithium, using $\mu^* = 0.1$ gives $T_c \approx 0.35$ K versus the experimental $4 \times 10^{-4}$ K, an overestimate by three orders of magnitude (belief 0.13, prior 0.10). For aluminum the predicted 1.9 K overshoots the measured 1.2 K by 58% (belief 0.40, prior 0.35), and for zinc the predicted 1.37 K exceeds the observed 0.875 K by 57% (belief 0.40, prior 0.35). The experimental values themselves are firmly established at belief 1.00. Meanwhile, the RPA treatment of the screened Coulomb interaction predicts an attractive $\mu^* < 0$ for $r_s \gtrsim 2$, but this claim collapses to belief 0.25 (prior 0.50) when confronted with controlled vDiagMC results, confirming that RPA's neglect of vertex corrections produces qualitatively wrong results in the metallic density regime.
+### bcs_theory
+
+**QID:** `github:superconductivity_electron_liquids::bcs_theory`
+**Type:** setting
+**Role:** setting
+**Content:** Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.
+
+### main_question
+
+**QID:** `github:superconductivity_electron_liquids::main_question`
+**Type:** question
+**Role:** question
+**Content:** Can the Coulomb pseudopotential $\mu^*$ (the parameter quantifying effective electron-electron repulsion in the Cooper pairing channel) be computed from first principles with controlled accuracy, and can this yield quantitative predictions of the superconducting transition temperature $T_c$ for simple metals (e.g. Al, Li, Na, Mg)?

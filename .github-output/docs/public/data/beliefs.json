@@ -1,92 +1,107 @@
 {
   "beliefs": [
     {
-      "belief": 0.5699531192166091,
+      "belief": 0.6176677367152743,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_216f14df",
+      "label": "__conjunction_result_216f14df"
+    },
+    {
+      "belief": 0.6371737551833412,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_26d09062",
+      "label": "__conjunction_result_26d09062"
+    },
+    {
+      "belief": 0.8980753454941492,
       "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_29fd33aa",
       "label": "__conjunction_result_29fd33aa"
     },
     {
-      "belief": 0.49381010681499665,
+      "belief": 0.8845816215281306,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_3c3c9afd",
+      "label": "__conjunction_result_3c3c9afd"
+    },
+    {
+      "belief": 0.7458771711946772,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_3f6d5c18",
+      "label": "__conjunction_result_3f6d5c18"
+    },
+    {
+      "belief": 0.7780811317245462,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_63f5f99f",
+      "label": "__conjunction_result_63f5f99f"
+    },
+    {
+      "belief": 0.7453964273074383,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_6aac4047",
+      "label": "__conjunction_result_6aac4047"
+    },
+    {
+      "belief": 0.9275288137666424,
       "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_7ecef2e5",
       "label": "__conjunction_result_7ecef2e5"
     },
     {
-      "belief": 0.17000645717372537,
+      "belief": 0.6986734058327643,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_a941736a",
+      "label": "__conjunction_result_a941736a"
+    },
+    {
+      "belief": 0.9278502769570427,
       "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_a95f2951",
       "label": "__conjunction_result_a95f2951"
     },
     {
-      "belief": 0.07419732534521045,
+      "belief": 0.6991399607845691,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_aa208711",
+      "label": "__conjunction_result_aa208711"
+    },
+    {
+      "belief": 0.8869735451744742,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_ba3560f8",
+      "label": "__conjunction_result_ba3560f8"
+    },
+    {
+      "belief": 0.8391077928516972,
       "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_bd1fffb9",
       "label": "__conjunction_result_bd1fffb9"
     },
     {
-      "belief": 0.9999987978967324,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_0ae5063e",
-      "label": "__implication_result_0ae5063e"
+      "belief": 0.8658107313308682,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_c115a805",
+      "label": "__conjunction_result_c115a805"
     },
     {
-      "belief": 0.9946678576568018,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_1f14277b",
-      "label": "__implication_result_1f14277b"
+      "belief": 0.6797489950876815,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_c958f286",
+      "label": "__conjunction_result_c958f286"
     },
     {
-      "belief": 0.9993418841162572,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_25e93df7",
-      "label": "__implication_result_25e93df7"
+      "belief": 0.736696468866284,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc",
+      "label": "__conjunction_result_e3ae32cc"
     },
     {
-      "belief": 0.9994294399340297,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_264cbd9c",
-      "label": "__implication_result_264cbd9c"
+      "belief": 0.7764914352213105,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_e63bb07f",
+      "label": "__conjunction_result_e63bb07f"
     },
     {
-      "belief": 0.9998209328592293,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_40898892",
-      "label": "__implication_result_40898892"
+      "belief": 0.7242939019006909,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_f1b2c201",
+      "label": "__conjunction_result_f1b2c201"
     },
     {
-      "belief": 0.9990438327170156,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_4d692877",
-      "label": "__implication_result_4d692877"
+      "belief": 0.7227845718550446,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_f4389edd",
+      "label": "__conjunction_result_f4389edd"
     },
     {
-      "belief": 0.9995572733517348,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_6c02f798",
-      "label": "__implication_result_6c02f798"
+      "belief": 0.5948397146358729,
+      "knowledge_id": "github:superconductivity_electron_liquids::__conjunction_result_f9f35bcc",
+      "label": "__conjunction_result_f9f35bcc"
     },
     {
-      "belief": 0.9950871765718782,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_73c21cba",
-      "label": "__implication_result_73c21cba"
-    },
-    {
-      "belief": 0.9951095403670547,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_8e8cdd90",
-      "label": "__implication_result_8e8cdd90"
-    },
-    {
-      "belief": 0.9999799390098397,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_c9db0e28",
-      "label": "__implication_result_c9db0e28"
-    },
-    {
-      "belief": 0.9996250300083005,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_ddae658b",
-      "label": "__implication_result_ddae658b"
-    },
-    {
-      "belief": 0.9999748218771018,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_eba7d2f7",
-      "label": "__implication_result_eba7d2f7"
-    },
-    {
-      "belief": 0.9990895471300018,
-      "knowledge_id": "github:superconductivity_electron_liquids::__implication_result_ff4a13fc",
-      "label": "__implication_result_ff4a13fc"
-    },
-    {
-      "belief": 0.9991590061506106,
+      "belief": 0.9999756012143876,
       "knowledge_id": "github:superconductivity_electron_liquids::_anon_000",
       "label": null
     },
@@ -96,7 +111,7 @@
       "label": null
     },
     {
-      "belief": 0.9999987212039547,
+      "belief": 0.5,
       "knowledge_id": "github:superconductivity_electron_liquids::_anon_002",
       "label": null
     },
@@ -106,7 +121,7 @@
       "label": null
     },
     {
-      "belief": 0.9999987212039547,
+      "belief": 0.5,
       "knowledge_id": "github:superconductivity_electron_liquids::_anon_004",
       "label": null
     },
@@ -116,52 +131,67 @@
       "label": null
     },
     {
-      "belief": 0.9999959459676245,
+      "belief": 0.5,
       "knowledge_id": "github:superconductivity_electron_liquids::_anon_006",
       "label": null
     },
     {
-      "belief": 0.5,
-      "knowledge_id": "github:superconductivity_electron_liquids::_anon_007",
-      "label": null
-    },
-    {
-      "belief": 0.9975119992028554,
+      "belief": 0.9614575855049617,
       "knowledge_id": "github:superconductivity_electron_liquids::ab_initio_workflow",
       "label": "ab_initio_workflow"
     },
     {
-      "belief": 0.6842418545870439,
+      "belief": 0.9571172222125064,
       "knowledge_id": "github:superconductivity_electron_liquids::adiabatic_approx",
       "label": "adiabatic_approx"
     },
     {
-      "belief": 0.7974160631883553,
+      "belief": 0.9109027816555239,
+      "knowledge_id": "github:superconductivity_electron_liquids::al_arxiv_table_row",
+      "label": "al_arxiv_table_row"
+    },
+    {
+      "belief": 0.9178978459271211,
+      "knowledge_id": "github:superconductivity_electron_liquids::al_effective_coupling",
+      "label": "al_effective_coupling"
+    },
+    {
+      "belief": 0.8832825017568251,
+      "knowledge_id": "github:superconductivity_electron_liquids::al_lambda_input",
+      "label": "al_lambda_input"
+    },
+    {
+      "belief": 0.8627551622953751,
+      "knowledge_id": "github:superconductivity_electron_liquids::al_mu_star_input",
+      "label": "al_mu_star_input"
+    },
+    {
+      "belief": 0.9792875678318089,
       "knowledge_id": "github:superconductivity_electron_liquids::al_pressure_transition",
       "label": "al_pressure_transition"
     },
     {
-      "belief": 0.735497640302644,
+      "belief": 0.9940450005125432,
       "knowledge_id": "github:superconductivity_electron_liquids::bse_kernel_decomposition",
       "label": "bse_kernel_decomposition"
     },
     {
-      "belief": 0.999417548525367,
+      "belief": 0.9999386636353716,
       "knowledge_id": "github:superconductivity_electron_liquids::bts_microscopic_equivalence",
       "label": "bts_microscopic_equivalence"
     },
     {
-      "belief": 0.9720152239406309,
+      "belief": 0.9994909905847972,
       "knowledge_id": "github:superconductivity_electron_liquids::bts_renormalization",
       "label": "bts_renormalization"
     },
     {
-      "belief": 0.41308812341376455,
+      "belief": 0.9336899607951823,
       "knowledge_id": "github:superconductivity_electron_liquids::cross_term_suppressed",
       "label": "cross_term_suppressed"
     },
     {
-      "belief": 0.9999928539643088,
+      "belief": 0.9200000000000002,
       "knowledge_id": "github:superconductivity_electron_liquids::dfpt_computes_lambda",
       "label": "dfpt_computes_lambda"
     },
@@ -171,22 +201,22 @@
       "label": "dfpt_eph_ansatz"
     },
     {
-      "belief": 0.7838271392202188,
+      "belief": 0.9569665004526421,
       "knowledge_id": "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals",
       "label": "dfpt_reliable_for_simple_metals"
     },
     {
-      "belief": 0.17824373935400747,
+      "belief": 0.9833949779296259,
       "knowledge_id": "github:superconductivity_electron_liquids::downfolded_bse",
       "label": "downfolded_bse"
     },
     {
-      "belief": 0.7072018103638397,
+      "belief": 0.9988950341577129,
       "knowledge_id": "github:superconductivity_electron_liquids::downfolded_bse_toy_model",
       "label": "downfolded_bse_toy_model"
     },
     {
-      "belief": 0.5887657386857744,
+      "belief": 0.9902233798928964,
       "knowledge_id": "github:superconductivity_electron_liquids::downfolded_me_equation",
       "label": "downfolded_me_equation"
     },
@@ -196,87 +226,117 @@
       "label": "downfolding_validity_limits"
     },
     {
-      "belief": 0.5234059137601064,
+      "belief": 0.9937726737266005,
       "knowledge_id": "github:superconductivity_electron_liquids::eft_eph_vertex",
       "label": "eft_eph_vertex"
     },
     {
-      "belief": 0.6698282996483994,
+      "belief": 0.965141389561283,
       "knowledge_id": "github:superconductivity_electron_liquids::eft_vertex_matches_dfpt",
       "label": "eft_vertex_matches_dfpt"
     },
     {
-      "belief": 0.9500000000000001,
+      "belief": 0.95,
       "knowledge_id": "github:superconductivity_electron_liquids::electron_phonon_action",
       "label": "electron_phonon_action"
     },
     {
-      "belief": 0.7076390139498936,
+      "belief": 0.9989162491091554,
       "knowledge_id": "github:superconductivity_electron_liquids::full_bse_toy_model",
       "label": "full_bse_toy_model"
     },
     {
-      "belief": 0.9621640669802679,
+      "belief": 0.9341042023282857,
       "knowledge_id": "github:superconductivity_electron_liquids::gamma3_approximation",
       "label": "gamma3_approximation"
     },
     {
-      "belief": 0.9808873247359684,
+      "belief": 0.8835835065778296,
       "knowledge_id": "github:superconductivity_electron_liquids::gamma3_vdiagmc",
       "label": "gamma3_vdiagmc"
     },
     {
-      "belief": 0.8375601670894687,
+      "belief": 0.8485592050203377,
       "knowledge_id": "github:superconductivity_electron_liquids::homotopic_expansion",
       "label": "homotopic_expansion"
     },
     {
-      "belief": 0.35142093055013485,
+      "belief": 0.9902717620584139,
       "knowledge_id": "github:superconductivity_electron_liquids::lambda_microscopic_definition",
       "label": "lambda_microscopic_definition"
     },
     {
-      "belief": 0.720200398529059,
+      "belief": 0.8305000664835505,
+      "knowledge_id": "github:superconductivity_electron_liquids::li_arxiv_table_row",
+      "label": "li_arxiv_table_row"
+    },
+    {
+      "belief": 0.8806486883653964,
+      "knowledge_id": "github:superconductivity_electron_liquids::li_effective_coupling",
+      "label": "li_effective_coupling"
+    },
+    {
+      "belief": 0.8772883588022932,
+      "knowledge_id": "github:superconductivity_electron_liquids::li_effective_coupling_error_bounded",
+      "label": "li_effective_coupling_error_bounded"
+    },
+    {
+      "belief": 0.8463627523264868,
+      "knowledge_id": "github:superconductivity_electron_liquids::li_lambda_input",
+      "label": "li_lambda_input"
+    },
+    {
+      "belief": 0.6891944197690665,
+      "knowledge_id": "github:superconductivity_electron_liquids::li_low_temperature_lattice_assumption",
+      "label": "li_low_temperature_lattice_assumption"
+    },
+    {
+      "belief": 0.8265618652471067,
+      "knowledge_id": "github:superconductivity_electron_liquids::li_mu_star_input",
+      "label": "li_mu_star_input"
+    },
+    {
+      "belief": 0.9952521313801342,
       "knowledge_id": "github:superconductivity_electron_liquids::ma_pseudopotential_justified",
       "label": "ma_pseudopotential_justified"
     },
     {
-      "belief": 0.9500000000000001,
+      "belief": 0.95,
       "knowledge_id": "github:superconductivity_electron_liquids::me_downfolding_is_phenomenological",
       "label": "me_downfolding_is_phenomenological"
     },
     {
-      "belief": 0.7090311079340543,
+      "belief": 0.9813084530783797,
       "knowledge_id": "github:superconductivity_electron_liquids::me_framework",
       "label": "me_framework"
     },
     {
-      "belief": 0.45592271540455837,
+      "belief": 0.8881129819789649,
       "knowledge_id": "github:superconductivity_electron_liquids::mu_available_for_simple_metals",
       "label": "mu_available_for_simple_metals"
     },
     {
-      "belief": 0.44216769918405746,
+      "belief": 0.9934827239667204,
       "knowledge_id": "github:superconductivity_electron_liquids::mu_microscopic_definition",
       "label": "mu_microscopic_definition"
     },
     {
-      "belief": 0.971056938577181,
+      "belief": 0.9995809479563339,
       "knowledge_id": "github:superconductivity_electron_liquids::mu_scale_independence",
       "label": "mu_scale_independence"
     },
     {
-      "belief": 0.999995533727693,
+      "belief": 0.95,
       "knowledge_id": "github:superconductivity_electron_liquids::mu_star_phenomenological",
       "label": "mu_star_phenomenological"
     },
     {
-      "belief": 0.5978697240606294,
+      "belief": 0.8317816497990208,
       "knowledge_id": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
       "label": "mu_vdiagmc_values"
     },
     {
-      "belief": 0.9500000000000001,
+      "belief": 0.95,
       "knowledge_id": "github:superconductivity_electron_liquids::phenomenological_me_theory",
       "label": "phenomenological_me_theory"
     },
@@ -286,19 +346,24 @@
       "label": "precursory_cooper_flow"
     },
     {
-      "belief": 0.8746345085168259,
+      "belief": 0.9307901446865922,
       "knowledge_id": "github:superconductivity_electron_liquids::quasiparticle_mass_near_unity",
       "label": "quasiparticle_mass_near_unity"
     },
     {
-      "belief": 0.20225968167835837,
+      "belief": 0.085771074836788,
       "knowledge_id": "github:superconductivity_electron_liquids::rpa_predicts_attractive_mu",
       "label": "rpa_predicts_attractive_mu"
     },
     {
-      "belief": 0.9994017273405986,
+      "belief": 0.9991680497950776,
       "knowledge_id": "github:superconductivity_electron_liquids::rpa_vs_vdiagmc",
       "label": "rpa_vs_vdiagmc"
+    },
+    {
+      "belief": 0.8173586365259795,
+      "knowledge_id": "github:superconductivity_electron_liquids::shared_dfpt_lambda_error_model",
+      "label": "shared_dfpt_lambda_error_model"
     },
     {
       "belief": 0.9,
@@ -306,421 +371,397 @@
       "label": "simple_metals_weak_lattice"
     },
     {
-      "belief": 0.9915912630267868,
+      "belief": 0.9960269930498254,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_al_experimental",
       "label": "tc_al_experimental"
     },
     {
-      "belief": 0.9848002773186255,
+      "belief": 0.7838712088048795,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_al_phenomenological",
       "label": "tc_al_phenomenological"
     },
     {
-      "belief": 0.9913823280196584,
+      "belief": 0.9884770810336642,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_al_predicted",
       "label": "tc_al_predicted"
     },
     {
-      "belief": 0.24480222193104823,
+      "belief": 0.7795663901795263,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_li_experimental",
       "label": "tc_li_experimental"
     },
     {
-      "belief": 0.21091522560216916,
+      "belief": 0.7036912734251555,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_li_phenomenological",
       "label": "tc_li_phenomenological"
     },
     {
-      "belief": 0.247732823715279,
+      "belief": 0.8291878910990289,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_li_predicted",
       "label": "tc_li_predicted"
     },
     {
-      "belief": 0.7974160631883553,
+      "belief": 0.9792875678318089,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_mg_na_near_qpt",
       "label": "tc_mg_na_near_qpt"
     },
     {
-      "belief": 0.9915912630267868,
+      "belief": 0.997397944562635,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_zn_experimental",
       "label": "tc_zn_experimental"
     },
     {
-      "belief": 0.9848002773186255,
+      "belief": 0.830728552163657,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_zn_phenomenological",
       "label": "tc_zn_phenomenological"
     },
     {
-      "belief": 0.9913823280196584,
+      "belief": 0.9926207863423251,
       "knowledge_id": "github:superconductivity_electron_liquids::tc_zn_predicted",
       "label": "tc_zn_predicted"
     },
     {
-      "belief": 0.8591920183350275,
+      "belief": 0.8326035394051626,
+      "knowledge_id": "github:superconductivity_electron_liquids::tolmachev_log_mu_star_error_model",
+      "label": "tolmachev_log_mu_star_error_model"
+    },
+    {
+      "belief": 0.9163017697025813,
+      "knowledge_id": "github:superconductivity_electron_liquids::ueg_mu_ef_table_i",
+      "label": "ueg_mu_ef_table_i"
+    },
+    {
+      "belief": 0.8675583499511045,
       "knowledge_id": "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
       "label": "ueg_pseudopotential_parameterization"
     },
     {
-      "belief": 0.9500000000000001,
+      "belief": 0.95,
       "knowledge_id": "github:superconductivity_electron_liquids::ueg_vertex_challenge",
       "label": "ueg_vertex_challenge"
     },
     {
-      "belief": 0.8646334725745572,
+      "belief": 0.873799337516948,
       "knowledge_id": "github:superconductivity_electron_liquids::vdiagmc_method",
       "label": "vdiagmc_method"
     },
     {
-      "belief": 0.9895314140683455,
+      "belief": 0.9805972510963049,
       "knowledge_id": "github:superconductivity_electron_liquids::ward_identity",
       "label": "ward_identity"
+    },
+    {
+      "belief": 0.9114178615647437,
+      "knowledge_id": "github:superconductivity_electron_liquids::zn_arxiv_table_row",
+      "label": "zn_arxiv_table_row"
+    },
+    {
+      "belief": 0.9202697741650175,
+      "knowledge_id": "github:superconductivity_electron_liquids::zn_effective_coupling",
+      "label": "zn_effective_coupling"
+    },
+    {
+      "belief": 0.8841228150727181,
+      "knowledge_id": "github:superconductivity_electron_liquids::zn_lambda_input",
+      "label": "zn_lambda_input"
+    },
+    {
+      "belief": 0.8637316497884545,
+      "knowledge_id": "github:superconductivity_electron_liquids::zn_mu_star_input",
+      "label": "zn_mu_star_input"
     }
   ],
   "diagnostics": {
     "belief_history": {
-      "github:superconductivity_electron_liquids::__conjunction_result_002aa2da": [
-        0.717553753203769
+      "github:superconductivity_electron_liquids::__conjunction_result_216f14df": [
+        0.6176677367152743
+      ],
+      "github:superconductivity_electron_liquids::__conjunction_result_26d09062": [
+        0.6371737551833412
       ],
       "github:superconductivity_electron_liquids::__conjunction_result_29fd33aa": [
-        0.5699531192166091
+        0.8980753454941492
       ],
-      "github:superconductivity_electron_liquids::__conjunction_result_351ab0f5": [
-        0.9999787270052117
+      "github:superconductivity_electron_liquids::__conjunction_result_3c3c9afd": [
+        0.8845816215281306
       ],
-      "github:superconductivity_electron_liquids::__conjunction_result_78e7f596": [
-        0.9999787270052117
+      "github:superconductivity_electron_liquids::__conjunction_result_3f6d5c18": [
+        0.7458771711946772
+      ],
+      "github:superconductivity_electron_liquids::__conjunction_result_63f5f99f": [
+        0.7780811317245462
+      ],
+      "github:superconductivity_electron_liquids::__conjunction_result_6aac4047": [
+        0.7453964273074383
       ],
       "github:superconductivity_electron_liquids::__conjunction_result_7ecef2e5": [
-        0.49381010681499665
+        0.9275288137666424
+      ],
+      "github:superconductivity_electron_liquids::__conjunction_result_a941736a": [
+        0.6986734058327643
       ],
       "github:superconductivity_electron_liquids::__conjunction_result_a95f2951": [
-        0.17000645717372537
+        0.9278502769570427
+      ],
+      "github:superconductivity_electron_liquids::__conjunction_result_aa208711": [
+        0.6991399607845691
+      ],
+      "github:superconductivity_electron_liquids::__conjunction_result_ba3560f8": [
+        0.8869735451744742
       ],
       "github:superconductivity_electron_liquids::__conjunction_result_bd1fffb9": [
-        0.07419732534521045
+        0.8391077928516972
       ],
-      "github:superconductivity_electron_liquids::__conjunction_result_c7c820e2": [
-        0.5174727706431428
+      "github:superconductivity_electron_liquids::__conjunction_result_c115a805": [
+        0.8658107313308682
       ],
-      "github:superconductivity_electron_liquids::__conjunction_result_eca6b539": [
-        0.9998998914160032
+      "github:superconductivity_electron_liquids::__conjunction_result_c958f286": [
+        0.6797489950876815
       ],
-      "github:superconductivity_electron_liquids::__equivalence_result_326b1122": [
-        0.9965982048550636
+      "github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc": [
+        0.736696468866284
       ],
-      "github:superconductivity_electron_liquids::__equivalence_result_7398986f": [
-        0.9999986025271684
+      "github:superconductivity_electron_liquids::__conjunction_result_e63bb07f": [
+        0.7764914352213105
       ],
-      "github:superconductivity_electron_liquids::__equivalence_result_852e78df": [
-        0.9965982048550636
+      "github:superconductivity_electron_liquids::__conjunction_result_f1b2c201": [
+        0.7242939019006909
       ],
-      "github:superconductivity_electron_liquids::__equivalence_result_a8a5e78c": [
-        0.9999895677043602
+      "github:superconductivity_electron_liquids::__conjunction_result_f4389edd": [
+        0.7227845718550446
       ],
-      "github:superconductivity_electron_liquids::__equivalence_result_c9434a4e": [
-        0.9830345065567427
-      ],
-      "github:superconductivity_electron_liquids::__equivalence_result_f77cac47": [
-        0.9999986025271684
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_0ae5063e": [
-        0.9999987978967324
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_0b4b0647": [
-        0.9830001137507841
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_0eea5f20": [
-        0.9998676987110221
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_16c81d03": [
-        0.9997256771415429
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_171fc827": [
-        0.9935981866447475
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_1f14277b": [
-        0.9946678576568018
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_23ec1935": [
-        0.9998413505875983
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_25e93df7": [
-        0.9993418841162572
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_264cbd9c": [
-        0.9994294399340297
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_2cc5f6b7": [
-        0.9999987922274765
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_2fdffab9": [
-        0.9999330232599074
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_34378444": [
-        0.981018606234566
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_40898892": [
-        0.9998209328592293
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_43ed2b1e": [
-        0.8809742331014426
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_4ccf4872": [
-        0.9730536247130365
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_4d692877": [
-        0.9990438327170156
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_55ffc7a3": [
-        0.9995171618524294
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_58788128": [
-        0.9999965124901846
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_6bbf2a24": [
-        0.9999965124901846
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_6c02f798": [
-        0.9995572733517348
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_73c21cba": [
-        0.9950871765718782
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_76375845": [
-        0.9999330232599074
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_789787a1": [
-        0.9999793432030998
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_7ef3f541": [
-        0.9720737030659429
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_82a7c09e": [
-        0.8004969776923794
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_8e8cdd90": [
-        0.9951095403670547
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_952d0df5": [
-        0.8004969776923794
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_99c474ec": [
-        0.9378138698734847
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_a079a2be": [
-        0.2531479588201727
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_a10915da": [
-        0.9999978826434153
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_a1785311": [
-        0.9999978826434153
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_abc2071d": [
-        0.999998783626673
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_af83e055": [
-        0.2092185867912028
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_c9db0e28": [
-        0.9999799390098397
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_ddae658b": [
-        0.9996250300083005
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_e8d60152": [
-        0.9935981866447475
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_eba7d2f7": [
-        0.9999748218771018
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_fe8b25dd": [
-        0.9830001137507841
-      ],
-      "github:superconductivity_electron_liquids::__implication_result_ff4a13fc": [
-        0.9990895471300018
+      "github:superconductivity_electron_liquids::__conjunction_result_f9f35bcc": [
+        0.5948397146358729
       ],
       "github:superconductivity_electron_liquids::_anon_000": [
-        0.9991590061506106
+        0.9999756012143876
       ],
       "github:superconductivity_electron_liquids::_anon_001": [
         0.5
       ],
       "github:superconductivity_electron_liquids::_anon_002": [
-        0.9999987212039547
+        0.5
       ],
       "github:superconductivity_electron_liquids::_anon_003": [
         0.5
       ],
       "github:superconductivity_electron_liquids::_anon_004": [
-        0.9999987212039547
+        0.5
       ],
       "github:superconductivity_electron_liquids::_anon_005": [
         0.5
       ],
       "github:superconductivity_electron_liquids::_anon_006": [
-        0.9999959459676245
-      ],
-      "github:superconductivity_electron_liquids::_anon_007": [
         0.5
       ],
       "github:superconductivity_electron_liquids::ab_initio_workflow": [
-        0.9975119992028554
+        0.9614575855049617
       ],
       "github:superconductivity_electron_liquids::adiabatic_approx": [
-        0.6842418545870439
+        0.9571172222125064
+      ],
+      "github:superconductivity_electron_liquids::al_arxiv_table_row": [
+        0.9109027816555239
+      ],
+      "github:superconductivity_electron_liquids::al_effective_coupling": [
+        0.9178978459271211
+      ],
+      "github:superconductivity_electron_liquids::al_lambda_input": [
+        0.8832825017568251
+      ],
+      "github:superconductivity_electron_liquids::al_mu_star_input": [
+        0.8627551622953751
       ],
       "github:superconductivity_electron_liquids::al_pressure_transition": [
-        0.7974160631883553
+        0.9792875678318089
       ],
       "github:superconductivity_electron_liquids::bse_kernel_decomposition": [
-        0.735497640302644
+        0.9940450005125432
       ],
       "github:superconductivity_electron_liquids::bts_microscopic_equivalence": [
-        0.999417548525367
+        0.9999386636353716
       ],
       "github:superconductivity_electron_liquids::bts_renormalization": [
-        0.9720152239406309
+        0.9994909905847972
       ],
       "github:superconductivity_electron_liquids::cross_term_suppressed": [
-        0.41308812341376455
+        0.9336899607951823
       ],
       "github:superconductivity_electron_liquids::dfpt_computes_lambda": [
-        0.9999928539643088
+        0.9200000000000002
       ],
       "github:superconductivity_electron_liquids::dfpt_eph_ansatz": [
         0.9
       ],
       "github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals": [
-        0.7838271392202188
+        0.9569665004526421
       ],
       "github:superconductivity_electron_liquids::downfolded_bse": [
-        0.17824373935400747
+        0.9833949779296259
       ],
       "github:superconductivity_electron_liquids::downfolded_bse_toy_model": [
-        0.7072018103638397
+        0.9988950341577129
       ],
       "github:superconductivity_electron_liquids::downfolded_me_equation": [
-        0.5887657386857744
+        0.9902233798928964
       ],
       "github:superconductivity_electron_liquids::downfolding_validity_limits": [
         0.9200000000000002
       ],
       "github:superconductivity_electron_liquids::eft_eph_vertex": [
-        0.5234059137601064
+        0.9937726737266005
       ],
       "github:superconductivity_electron_liquids::eft_vertex_matches_dfpt": [
-        0.6698282996483994
+        0.965141389561283
       ],
       "github:superconductivity_electron_liquids::electron_phonon_action": [
-        0.9500000000000001
+        0.95
       ],
       "github:superconductivity_electron_liquids::full_bse_toy_model": [
-        0.7076390139498936
+        0.9989162491091554
       ],
       "github:superconductivity_electron_liquids::gamma3_approximation": [
-        0.9621640669802679
+        0.9341042023282857
       ],
       "github:superconductivity_electron_liquids::gamma3_vdiagmc": [
-        0.9808873247359684
+        0.8835835065778296
       ],
       "github:superconductivity_electron_liquids::homotopic_expansion": [
-        0.8375601670894687
+        0.8485592050203377
       ],
       "github:superconductivity_electron_liquids::lambda_microscopic_definition": [
-        0.35142093055013485
+        0.9902717620584139
+      ],
+      "github:superconductivity_electron_liquids::li_arxiv_table_row": [
+        0.8305000664835505
+      ],
+      "github:superconductivity_electron_liquids::li_effective_coupling": [
+        0.8806486883653964
+      ],
+      "github:superconductivity_electron_liquids::li_effective_coupling_error_bounded": [
+        0.8772883588022932
+      ],
+      "github:superconductivity_electron_liquids::li_lambda_input": [
+        0.8463627523264868
+      ],
+      "github:superconductivity_electron_liquids::li_low_temperature_lattice_assumption": [
+        0.6891944197690665
+      ],
+      "github:superconductivity_electron_liquids::li_mu_star_input": [
+        0.8265618652471067
       ],
       "github:superconductivity_electron_liquids::ma_pseudopotential_justified": [
-        0.720200398529059
+        0.9952521313801342
       ],
       "github:superconductivity_electron_liquids::me_downfolding_is_phenomenological": [
-        0.9500000000000001
+        0.95
       ],
       "github:superconductivity_electron_liquids::me_framework": [
-        0.7090311079340543
+        0.9813084530783797
       ],
       "github:superconductivity_electron_liquids::mu_available_for_simple_metals": [
-        0.45592271540455837
+        0.8881129819789649
       ],
       "github:superconductivity_electron_liquids::mu_microscopic_definition": [
-        0.44216769918405746
+        0.9934827239667204
       ],
       "github:superconductivity_electron_liquids::mu_scale_independence": [
-        0.971056938577181
+        0.9995809479563339
       ],
       "github:superconductivity_electron_liquids::mu_star_phenomenological": [
-        0.999995533727693
+        0.95
       ],
       "github:superconductivity_electron_liquids::mu_vdiagmc_values": [
-        0.5978697240606294
+        0.8317816497990208
       ],
       "github:superconductivity_electron_liquids::phenomenological_me_theory": [
-        0.9500000000000001
+        0.95
       ],
       "github:superconductivity_electron_liquids::precursory_cooper_flow": [
         0.9
       ],
       "github:superconductivity_electron_liquids::quasiparticle_mass_near_unity": [
-        0.8746345085168259
+        0.9307901446865922
       ],
       "github:superconductivity_electron_liquids::rpa_predicts_attractive_mu": [
-        0.20225968167835837
+        0.085771074836788
       ],
       "github:superconductivity_electron_liquids::rpa_vs_vdiagmc": [
-        0.9994017273405986
+        0.9991680497950776
+      ],
+      "github:superconductivity_electron_liquids::shared_dfpt_lambda_error_model": [
+        0.8173586365259795
       ],
       "github:superconductivity_electron_liquids::simple_metals_weak_lattice": [
         0.9
       ],
       "github:superconductivity_electron_liquids::tc_al_experimental": [
-        0.9915912630267868
+        0.9960269930498254
       ],
       "github:superconductivity_electron_liquids::tc_al_phenomenological": [
-        0.9848002773186255
+        0.7838712088048795
       ],
       "github:superconductivity_electron_liquids::tc_al_predicted": [
-        0.9913823280196584
+        0.9884770810336642
       ],
       "github:superconductivity_electron_liquids::tc_li_experimental": [
-        0.24480222193104823
+        0.7795663901795263
       ],
       "github:superconductivity_electron_liquids::tc_li_phenomenological": [
-        0.21091522560216916
+        0.7036912734251555
       ],
       "github:superconductivity_electron_liquids::tc_li_predicted": [
-        0.247732823715279
+        0.8291878910990289
       ],
       "github:superconductivity_electron_liquids::tc_mg_na_near_qpt": [
-        0.7974160631883553
+        0.9792875678318089
       ],
       "github:superconductivity_electron_liquids::tc_zn_experimental": [
-        0.9915912630267868
+        0.997397944562635
       ],
       "github:superconductivity_electron_liquids::tc_zn_phenomenological": [
-        0.9848002773186255
+        0.830728552163657
       ],
       "github:superconductivity_electron_liquids::tc_zn_predicted": [
-        0.9913823280196584
+        0.9926207863423251
+      ],
+      "github:superconductivity_electron_liquids::tolmachev_log_mu_star_error_model": [
+        0.8326035394051626
+      ],
+      "github:superconductivity_electron_liquids::ueg_mu_ef_table_i": [
+        0.9163017697025813
       ],
       "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization": [
-        0.8591920183350275
+        0.8675583499511045
       ],
       "github:superconductivity_electron_liquids::ueg_vertex_challenge": [
-        0.9500000000000001
+        0.95
       ],
       "github:superconductivity_electron_liquids::vdiagmc_method": [
-        0.8646334725745572
+        0.873799337516948
       ],
       "github:superconductivity_electron_liquids::ward_identity": [
-        0.9895314140683455
+        0.9805972510963049
+      ],
+      "github:superconductivity_electron_liquids::zn_arxiv_table_row": [
+        0.9114178615647437
+      ],
+      "github:superconductivity_electron_liquids::zn_effective_coupling": [
+        0.9202697741650175
+      ],
+      "github:superconductivity_electron_liquids::zn_lambda_input": [
+        0.8841228150727181
+      ],
+      "github:superconductivity_electron_liquids::zn_mu_star_input": [
+        0.8637316497884545
       ]
     },
     "converged": true,
     "direction_changes": {},
     "iterations_run": 2,
     "max_change_at_stop": 0.0,
-    "treewidth": 3
+    "treewidth": 5
   },
-  "gaia_lang_version": "0.3.0",
-  "ir_hash": "sha256:344eafa861e109edb2ee60d1249a1abef6b38e6dcf4c0438a852d0d7c4faaadb"
+  "gaia_lang_version": "0.4.3",
+  "ir_hash": "sha256:82b08fd8e2ac203d85ec0bde2090295e94a051938314331cb5f4ffddf1f02bd1"
 }

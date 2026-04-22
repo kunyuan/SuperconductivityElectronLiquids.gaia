@@ -5,7 +5,7 @@ the Bethe-Salpeter equation kernel decomposition, and the precursory Cooper flow
 that connects the normal-state four-point vertex to the superconducting Tc.
 """
 
-from gaia.lang import claim, deduction
+from .v6_actions import Claim, deduction
 
 from .motivation import me_framework
 
@@ -13,7 +13,7 @@ from .motivation import me_framework
 # Claims
 # ---------------------------------------------------------------------------
 
-electron_phonon_action = claim(
+electron_phonon_action = Claim(
     "The effective action of the electron-phonon coupled system can be "
     "decomposed as $S = S_e + S_{\\mathrm{ph}} + S_{e\\text{-ph}} + "
     "S_{\\mathrm{CT}} + O(\\sqrt{m/M})$, where $m$ is the electron mass "
@@ -25,13 +25,9 @@ electron_phonon_action = claim(
     "already included in the physical phonon dispersion to prevent double "
     "counting.",
     title="Electron-Phonon Action Decomposition",
-    metadata={
-        "figure": "artifacts/images/4_1.jpg",
-        "caption": "Fig. 2 | Diagrammatic representation of the phonon-mediated e-e interaction W^ph, composed of phonon propagator D, bare coupling g^(0), vertex function Gamma_3^e, and dielectric function.",
-    },
 )
 
-bse_kernel_decomposition = claim(
+bse_kernel_decomposition = Claim(
     "The kernel of the Bethe-Salpeter equation (BSE) can be decomposed into "
     "the purely electronic particle-particle irreducible four-point vertex "
     "$\\tilde\\Gamma^e$ (encoding all non-perturbative Coulomb effects) and "
@@ -41,10 +37,6 @@ bse_kernel_decomposition = claim(
     "higher-order phonon vertex corrections are suppressed by the adiabatic "
     "small parameter.",
     title="BSE Kernel Decomposition",
-    metadata={
-        "figure": "artifacts/images/4_2.jpg",
-        "caption": "Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous vertex in momentum space, with kernel consisting of the electronic four-point vertex Gamma_e and phonon-mediated interaction W^ph.",
-    },
 )
 
 deduction(
@@ -62,10 +54,9 @@ deduction(
         "Cross terms between these two contributions are higher order in "
         "$\\omega_D/E_F$ and can be neglected."
     ),
-    prior=0.97,
 )
 
-precursory_cooper_flow = claim(
+precursory_cooper_flow = Claim(
     "The low-frequency limit of the anomalous vertex function on the Fermi "
     "surface $\\Lambda_0$ obeys a universal scaling relation (precursory "
     "Cooper flow, PCF): $\\Lambda_0 = 1/(1 + g\\ln(\\omega_\\Lambda/T)) "
