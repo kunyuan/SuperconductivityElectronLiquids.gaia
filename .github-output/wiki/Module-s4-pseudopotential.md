@@ -13,7 +13,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** Variational diagrammatic Monte Carlo (vDiagMC) provides a controlled, systematically improvable method for computing Feynman diagrammatic series to high order: (i) bold-line (self-consistent) resummation avoids infrared divergences in individual diagrams, (ii) stochastic sampling of diagram topologies and internal variables accesses orders unreachable by deterministic methods, (iii) the series can be extrapolated to infinite order with controlled error bars. For the UEG, vDiagMC achieves reliable convergence of the irreducible vertex in the metallic density range.
-**Belief:** 0.31
+**Belief:** 0.54
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::mu_vdiagmc_values`; deduction -> `github:superconductivity_electron_liquids::gamma3_vdiagmc`
 
 ### homotopic_expansion
@@ -22,7 +22,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** The homotopic transformation provides a physically motivated reorganization of the diagrammatic series: by continuously deforming the bare Coulomb interaction $v(q)$ into a form that incorporates partial screening at each perturbative order, the series convergence is dramatically improved. This allows the vDiagMC calculation to reach converged results for the four-point vertex at metallic densities with modest diagram orders ($n \lesssim 7$).
-**Belief:** 0.49
+**Belief:** 0.46
 **figure:** artifacts/images/10_0.jpg
 **caption:** Fig. 6 | Diagrammatic contributions to the 4-point vertex at first and second order, with Coulomb interaction re-expanded from Yukawa interaction with screening parameter lambda_R.
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::mu_vdiagmc_values`
@@ -40,7 +40,7 @@
 | $\mu_{E_F}$       | 0.28(1) | 0.53(2) | 0.77(5) | 1.0(2)   | 1.3(2)   | 1.8(8) |
 
 Numbers in parentheses indicate the systematic uncertainty in the last digit. These results, combined with the BTS relation, yield $\mu^\ast \approx 0.12\text{--}0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent. The values are dramatically larger than the static RPA, Morel-Anderson, and dynamic RPA predictions for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — and resolve the long-standing contradiction between phenomenological and RPA-based treatments of the Coulomb pseudopotential.
-**Belief:** 0.30
+**Belief:** 0.49
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::mu_microscopic_definition`, `github:superconductivity_electron_liquids::vdiagmc_method`, `github:superconductivity_electron_liquids::homotopic_expansion`, `github:superconductivity_electron_liquids::bts_renormalization`
 **figure:** artifacts/images/8_0.jpg

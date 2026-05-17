@@ -20,7 +20,7 @@
 **Role:** independent
 **Content:** In conventional metals, the typical phonon frequency (Debye frequency $\omega_D$) is much smaller than the electron Fermi energy $E_F$, i.e. $\omega_D / E_F \ll 1$ (adiabatic approximation). This energy-scale separation has three key consequences: (i) electrons adiabatically adjust to ionic motion, (ii) the electron-ion coupling can be linearized, and (iii) the space-time scale separation between electron and phonon physics permits a controlled effective field theory (EFT) treatment.
 **Prior:** 0.95
-**Belief:** 0.76
+**Belief:** 0.96
 **prior_records:** [{'value': 0.95, 'source_id': 'empirical_physical_scale', 'justification': "For simple metals omega_D / E_F ~ 0.005, satisfying the adiabatic small-parameter condition by two orders of magnitude. Migdal's theorem has been validated across the relevant material class."}]
 **prior:** 0.95
 **prior_justification:** For simple metals omega_D / E_F ~ 0.005, satisfying the adiabatic small-parameter condition by two orders of magnitude. Migdal's theorem has been validated across the relevant material class.
@@ -33,7 +33,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** Migdal-Eliashberg (ME) theory provides a rigorous treatment of the dynamic electron-phonon interaction. Under the adiabatic condition $\omega_D / E_F \ll 1$, Migdal's theorem guarantees that phonon vertex corrections are suppressed at $O(\omega_D/E_F)$, allowing the electron-phonon self-energy to be truncated at the self-consistent Fock diagram level. This justifies the ME formalism as a controlled low-energy theory for electron-phonon superconductors.
-**Belief:** 0.80
+**Belief:** 0.98
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::adiabatic_approx`
 **figure:** artifacts/images/4_0.jpg
@@ -62,7 +62,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** The Bogoliubov-Tolmachev-Shirkov (BTS) renormalization relation connects the Coulomb pseudopotential $\mu_{\omega_c}$ (a dimensionless parameter describing the effective electron-electron repulsion strength in the pairing channel) defined at different energy cutoff scales $\omega_c$: $\mu_{\omega_c} = \mu_{\omega_c'} / (1 + \mu_{\omega_c'} \ln(\omega_c'/\omega_c))$. This relation ensures that physical observables do not depend on the choice of the arbitrary cutoff scale.
-**Belief:** 0.58
+**Belief:** 0.97
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::mu_vdiagmc_values`; deduction -> `github:superconductivity_electron_liquids::mu_available_for_simple_metals`; unknown -> `github:superconductivity_electron_liquids::bts_microscopic_equivalence`
 
 ### me_downfolding_is_phenomenological
@@ -71,7 +71,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The downfolding procedure (integrating out high-energy degrees of freedom to obtain a low-energy effective theory) in traditional Migdal-Eliashberg (ME) theory is phenomenological: the Coulomb effect is replaced by a static pseudopotential $\mu^*$, ignoring corrections from Coulomb fluctuations to quasiparticle renormalization and electron-phonon coupling, as well as non-local effects of screening.
-**Belief:** 0.19
+**Belief:** 0.47
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::mu_star_phenomenological`
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::phenomenological_me_theory`
@@ -82,7 +82,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** Traditional electron-phonon superconductivity theory uses the McMillan (or Allen-Dynes) formula, with the electron-phonon coupling constant $\lambda$ and Coulomb pseudopotential $\mu^*$ as inputs to predict the superconducting transition temperature $T_c$. Since $\mu^*$ cannot be reliably computed from first principles, it is typically assigned an empirical value $\mu^* \in [0.1, 0.2]$. For materials with $T_c$ in the sub-kelvin range, the exponential sensitivity $T_c \propto \exp(-1/g)$ to $\mu^*$ causes this uncertainty to span several orders of magnitude in the predicted $T_c$, destroying predictive power.
-**Belief:** 0.31
+**Belief:** 0.55
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::me_downfolding_is_phenomenological`
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::tc_al_phenomenological`; deduction -> `github:superconductivity_electron_liquids::tc_zn_phenomenological`; deduction -> `github:superconductivity_electron_liquids::tc_li_phenomenological`; infer -> `github:superconductivity_electron_liquids::tc_al_likelihood`; infer -> `github:superconductivity_electron_liquids::tc_zn_likelihood`; infer -> `github:superconductivity_electron_liquids::tc_li_likelihood`
@@ -93,7 +93,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** Due to the lack of a reliable microscopic calculation, the Coulomb pseudopotential $\mu^*$ (a dimensionless parameter describing the effective Coulomb repulsion strength in the low-energy pairing channel) is typically treated as an adjustable parameter with empirical values in the range 0.1--0.2.
-**Belief:** 0.07
+**Belief:** 0.31
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::me_downfolding_is_phenomenological`; deduction -> `github:superconductivity_electron_liquids::tc_al_phenomenological`; deduction -> `github:superconductivity_electron_liquids::tc_zn_phenomenological`; deduction -> `github:superconductivity_electron_liquids::tc_li_phenomenological`
 
 ### github:superconductivity_electron_liquids::_anon_001
@@ -134,7 +134,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** When treating the dynamically screened Coulomb interaction within the random phase approximation (RPA), the predicted $\mu^* < 0$ (i.e. the Coulomb effect becomes net attractive in the Cooper channel) for Wigner-Seitz radius $r_s \gtrsim 2$ ($r_s$ is proportional to the ratio of electron spacing to Bohr radius, measuring the ratio of Coulomb interaction to kinetic energy). However, RPA neglects beyond-RPA effects such as vertex corrections and self-energy renormalization for $r_s \gtrsim 1$, making its predictions unreliable in this density regime and inconsistent with extensive experimental evidence.
-**Belief:** 0.35
+**Belief:** 0.25
 **Referenced by:** unknown -> `github:superconductivity_electron_liquids::rpa_vs_vdiagmc`
 
 ### dfpt_computes_lambda
@@ -143,7 +143,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** Density functional perturbation theory (DFPT) computes the electron-phonon coupling constant $\lambda$ (a dimensionless parameter quantifying the phonon-mediated attraction strength at the Fermi surface) via the linear response of the Kohn-Sham ground-state energy to lattice distortions. DFPT has been validated for weakly correlated superconductors but its accuracy for strongly correlated systems is unknown.
-**Belief:** 0.47
+**Belief:** 0.50
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::tc_al_phenomenological`; deduction -> `github:superconductivity_electron_liquids::tc_zn_phenomenological`; deduction -> `github:superconductivity_electron_liquids::tc_li_phenomenological`
 
 ### tc_al_experimental
@@ -186,7 +186,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** Lithium's crystal structure at sub-kelvin temperatures is debated. Measurements consistent with the 9R polytype are typically cited, but the structural identification at the sample where $T_c \approx 4 \times 10^{-4}$ K was inferred is not independently established. The Tc(Li) experimental input therefore assumes 9R is the relevant phase.
-**Belief:** 0.33
+**Belief:** 0.50
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::tc_li_observation_binding`
 
 ### li_is_superconducting
@@ -195,7 +195,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** Li in the 9R structure undergoes a genuine bulk superconducting transition at $T_c \approx 4 \times 10^{-4}$ K. The Cooper pair condensate is bulk (not filamentary or surface), and the observed resistive anomaly reflects this true SC state.
-**Belief:** 0.71
+**Belief:** 0.75
 **Referenced by:** infer -> `github:superconductivity_electron_liquids::li_zero_resistance_observed`; infer -> `github:superconductivity_electron_liquids::li_meissner_observed`; deduction -> `github:superconductivity_electron_liquids::tc_li_predicted`; deduction -> `github:superconductivity_electron_liquids::tc_li_phenomenological`; unknown -> `github:superconductivity_electron_liquids::_anon_003`
 
 ### li_anomaly_not_sc
@@ -204,7 +204,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** The resistive anomaly observed in Li 9R at $\sim 0.4$ mK is *not* a bulk superconducting transition: it could be filamentary SC on grain boundaries / impurity phases, surface superconductivity, measurement / contact artifacts amplified at sub-mK temperatures, a structural transition that mimics a SC signature, or another phenomenon of the extreme sub-mK regime.
-**Belief:** 0.29
+**Belief:** 0.25
 **Referenced by:** unknown -> `github:superconductivity_electron_liquids::_anon_003`
 
 ### github:superconductivity_electron_liquids::_anon_003
@@ -266,7 +266,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** Meissner-Ochsenfeld expulsion of magnetic flux is observed for the Li 9R sample at sub-K temperatures, confirming bulk SC.
-**Belief:** 0.71
+**Belief:** 0.74
 **Derived from:** infer
 **Premises:** `github:superconductivity_electron_liquids::li_is_superconducting`
 

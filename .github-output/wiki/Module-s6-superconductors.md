@@ -54,7 +54,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** The UEG Coulomb pseudopotential $\mu_{E_F}(r_s)$ computed by vDiagMC can be parameterized as a smooth function of $r_s$ and mapped onto real materials by using the material's effective $r_s$ (determined from the valence electron density). Combined with the BTS relation to run $\mu_{E_F}$ down to the Debye scale, this provides $\mu^*(r_s)$ for any simple metal without additional adjustable parameters.
-**Belief:** 0.47
+**Belief:** 0.53
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::mu_available_for_simple_metals`
 
 ### mu_available_for_simple_metals
@@ -63,7 +63,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** For simple metals, the Coulomb pseudopotential $\mu^*$ can be obtained from first principles without adjustable parameters: the vDiagMC-computed $\mu_{E_F}(r_s)$ for the uniform electron gas is mapped to real materials via material-specific $r_s$ and band mass, then scaled to the Debye frequency via the BTS renormalization relation.
-**Belief:** 0.52
+**Belief:** 0.72
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization`, `github:superconductivity_electron_liquids::mu_vdiagmc_values`, `github:superconductivity_electron_liquids::bts_renormalization`
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::ab_initio_workflow`
@@ -90,7 +90,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The complete ab initio workflow for predicting $T_c$ of simple metals: (1) compute $\mu_{E_F}$ from the UEG four-point vertex via vDiagMC, (2) map to the material's $r_s$ and run down to $\mu^*$ via the BTS relation, (3) obtain $\lambda$ from DFPT, (4) solve the downfolded Eliashberg equations (or use the PCF extrapolation) to predict $T_c$. All inputs are from first principles; no adjustable parameters remain.
-**Belief:** 0.24
+**Belief:** 0.96
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::downfolded_bse`, `github:superconductivity_electron_liquids::mu_available_for_simple_metals`, `github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals`
 **figure:** artifacts/images/13_0.jpg
@@ -119,7 +119,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** Under hydrostatic pressure, the ab initio framework predicts that aluminum's superconducting $T_c$ monotonically decreases, consistent with experimental data up to 6 GPa. The framework predicts that superconductivity in Al vanishes at approximately 60 GPa; at 20 GPa, $T_c$ is already suppressed below 1 mK.
-**Belief:** 0.62
+**Belief:** 0.98
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::ab_initio_workflow`
 **figure:** artifacts/images/14_0.jpg
@@ -147,7 +147,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The ab initio framework predicts that sodium and magnesium have extremely low or vanishing $T_c$: for Na ($r_s = 3.96$, $\lambda = 0.2$, $\mu^* = 0.15$), the Coulomb repulsion nearly cancels the weak electron-phonon coupling, giving $T_c^{\mathrm{EFT}} = 2 \times 10^{-13}$ K (effectively no superconductivity). For Mg ($r_s = 2.66$, $\lambda = 0.24$, $\mu^* = 0.14$), $T_c^{\mathrm{EFT}} = 5 \times 10^{-5}$ K. Both materials are near the quantum phase transition between superconducting and non-superconducting ground states, where $T_c$ varies exponentially with small parameter changes.
-**Belief:** 0.62
+**Belief:** 0.98
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::ab_initio_workflow`
 **figure:** artifacts/images/15_0.jpg
@@ -175,7 +175,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The ab initio EFT framework predicts $T_c^{\mathrm{EFT}} = 1.14$ K for aluminum using $\lambda = 0.44$, $\mu^* = 0.13$ from vDiagMC + BTS, and $\omega_{\mathrm{log}} = 320$ K. The experimental value is $T_c^{\mathrm{exp}} = 1.2$ K.
-**Belief:** 0.62
+**Belief:** 0.98
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::ab_initio_workflow`
 
@@ -200,7 +200,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The phenomenological McMillan formula with the standard guess $\mu^* = 0.1$ predicts $T_c \approx 2.22$ K for aluminum, overestimating the experimental 1.2 K by ~85%.
-**Belief:** 0.50
+**Belief:** 0.58
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::phenomenological_me_theory`, `github:superconductivity_electron_liquids::mu_star_phenomenological`, `github:superconductivity_electron_liquids::dfpt_computes_lambda`
 
@@ -302,7 +302,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The ab initio EFT framework predicts $T_c^{\mathrm{EFT}} = 0.995$ K for zinc using $\lambda = 0.502$, $\mu^* = 0.12$, and $\omega_{\mathrm{log}} = 111$ K. The experimental value is $T_c^{\mathrm{exp}} = 0.875$ K.
-**Belief:** 0.62
+**Belief:** 0.98
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::ab_initio_workflow`
 
@@ -327,7 +327,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The phenomenological McMillan formula with the standard guess $\mu^* = 0.1$ predicts $T_c \approx 1.37$ K for zinc, overestimating the experimental 0.875 K by ~57%.
-**Belief:** 0.50
+**Belief:** 0.58
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::phenomenological_me_theory`, `github:superconductivity_electron_liquids::mu_star_phenomenological`, `github:superconductivity_electron_liquids::dfpt_computes_lambda`
 
@@ -429,7 +429,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The ab initio EFT framework predicts $T_c^{\mathrm{EFT}} \approx 2.2e-03$ K for lithium (9R) using $\lambda = 0.34$, $\mu^* = 0.18$, and $\omega_{\mathrm{log}} = 242$ K. The large $\mu^*$ from $r_s = 3.25$ nearly cancels the moderate $\lambda$, pushing $T_c$ into the sub-mK regime. Experimental: $T_c \approx 4e-04$ K.
-**Belief:** 0.57
+**Belief:** 0.86
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::ab_initio_workflow`, `github:superconductivity_electron_liquids::li_is_superconducting`
 
@@ -455,7 +455,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** The phenomenological McMillan formula with $\mu^* = 0.1$ predicts $T_c \approx 0.35$ K for lithium, overestimating the experimental 4e-04 K by three orders of magnitude.
-**Belief:** 0.50
+**Belief:** 0.56
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::phenomenological_me_theory`, `github:superconductivity_electron_liquids::mu_star_phenomenological`, `github:superconductivity_electron_liquids::dfpt_computes_lambda`, `github:superconductivity_electron_liquids::li_is_superconducting`
 
@@ -481,7 +481,7 @@
 **Type:** claim
 **Role:** derived
 **Content:** Experimental log Tc(Li) = log(4e-04) = -7.8240.
-**Belief:** 0.67
+**Belief:** 0.75
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::li_crystal_structure_at_low_t`
 **formula_lowering:** atom
