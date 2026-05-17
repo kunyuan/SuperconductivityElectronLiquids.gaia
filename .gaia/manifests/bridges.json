@@ -1,6 +1,6 @@
 {
   "bridges": [],
-  "ir_hash": "sha256:12320328d27259cde089349c9df3693d1e2589bbda204b9c686641ff78889c71",
+  "ir_hash": "sha256:d7706fa1034277580992aabe760bc84960469941f27bf9187b551fad948ac364",
   "manifest_schema_version": 1,
   "package": "superconductivity-electron-liquids",
   "version": "1.1.0"
