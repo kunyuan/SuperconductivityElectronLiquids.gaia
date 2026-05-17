@@ -1,4 +1,4 @@
-"""Coulomb Pseudopotential
+"""Section IV — Coulomb Pseudopotential.
 
 Addresses the central computational challenge: evaluating the purely electronic
 four-point vertex of the uniform electron gas (UEG) via variational diagrammatic
@@ -6,13 +6,13 @@ Monte Carlo (vDiagMC), obtaining numerically exact values of mu at the Fermi
 energy scale, and confronting the RPA prediction of attractive mu*.
 """
 
-from gaia.lang import claim, contradiction, support
+from gaia.engine.lang import claim, contradict, derive
 
 from .motivation import bts_renormalization, rpa_predicts_attractive_mu
 from .s3_downfolding import mu_microscopic_definition
 
 # ---------------------------------------------------------------------------
-# Leaf claims (no strategies)
+# Leaf claims
 # ---------------------------------------------------------------------------
 
 ueg_vertex_challenge = claim(
@@ -24,6 +24,7 @@ ueg_vertex_challenge = claim(
     "improvable method is needed to evaluate $\\tilde\\Gamma^e$ in the "
     "metallic density range $r_s \\in [1, 6]$.",
     title="UEG Four-Point Vertex Challenge",
+    prior=0.95,
 )
 
 vdiagmc_method = claim(
@@ -37,6 +38,7 @@ vdiagmc_method = claim(
     "UEG, vDiagMC achieves reliable convergence of the irreducible vertex "
     "in the metallic density range.",
     title="vDiagMC Method",
+    prior=0.90,
 )
 
 homotopic_expansion = claim(
@@ -48,9 +50,14 @@ homotopic_expansion = claim(
     "reach converged results for the four-point vertex at metallic "
     "densities with modest diagram orders ($n \\lesssim 7$).",
     title="Homotopic Expansion",
+    prior=0.88,
     metadata={
         "figure": "artifacts/images/10_0.jpg",
-        "caption": "Fig. 6 | Diagrammatic contributions to the 4-point vertex at first and second order, with Coulomb interaction re-expanded from Yukawa interaction with screening parameter lambda_R.",
+        "caption": (
+            "Fig. 6 | Diagrammatic contributions to the 4-point vertex at "
+            "first and second order, with Coulomb interaction re-expanded "
+            "from Yukawa interaction with screening parameter lambda_R."
+        ),
     },
 )
 
@@ -81,16 +88,19 @@ mu_vdiagmc_values = claim(
     title="mu from vDiagMC: Numerical Values",
     metadata={
         "figure": "artifacts/images/8_0.jpg",
-        "caption": "Fig. 4 | Dimensionless bare Coulomb pseudopotential mu_EF as a function of r_s for the 3D UEG from vDiagMC data, compared with static RPA, Morel-Anderson, and dynamic RPA predictions.",
+        "caption": (
+            "Fig. 4 | Dimensionless bare Coulomb pseudopotential mu_EF as a "
+            "function of r_s for the 3D UEG from vDiagMC data, compared with "
+            "static RPA, Morel-Anderson, and dynamic RPA predictions."
+        ),
     },
 )
 
-_strat_mu_values = support(
-    premises=[vdiagmc_method, homotopic_expansion],
-    conclusion=mu_vdiagmc_values,
-    background=[ueg_vertex_challenge, mu_microscopic_definition,
-                bts_renormalization],
-    reason=(
+derive(
+    mu_vdiagmc_values,
+    given=(vdiagmc_method, homotopic_expansion),
+    background=[ueg_vertex_challenge, mu_microscopic_definition, bts_renormalization],
+    rationale=(
         "The microscopic definition of $\\mu_{\\omega_c}$ "
         "(@mu_microscopic_definition) reduces, for the uniform electron gas, "
         "to evaluating the particle-particle irreducible four-point vertex "
@@ -108,17 +118,16 @@ _strat_mu_values = support(
         "in the range 0.12--0.18 that are consistent with the empirical range "
         "but now microscopically grounded."
     ),
-    prior=0.90,
 )
 
 # ---------------------------------------------------------------------------
 # Contradiction: RPA attractive mu* vs vDiagMC repulsive mu*
 # ---------------------------------------------------------------------------
 
-rpa_vs_vdiagmc = contradiction(
+rpa_vs_vdiagmc = contradict(
     rpa_predicts_attractive_mu,
     mu_vdiagmc_values,
-    reason=(
+    rationale=(
         "RPA predicts $\\mu^* < 0$ (net attraction) for $r_s \\gtrsim 2$ "
         "(@rpa_predicts_attractive_mu), whereas the vDiagMC calculation "
         "(@mu_vdiagmc_values) finds $\\mu_{E_F}$ positive and monotonically "
@@ -131,5 +140,5 @@ rpa_vs_vdiagmc = contradiction(
         "RPA prediction of attractive $\\mu^*$ is an artifact of the "
         "uncontrolled approximation."
     ),
-    prior=0.95,
+    label="rpa_vs_vdiagmc",
 )

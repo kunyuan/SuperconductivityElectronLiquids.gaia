@@ -1,23 +1,35 @@
-"""Conventional Superconductors
+"""Section VI — Conventional Superconductors.
 
 Assembles the ab initio workflow for predicting Tc of simple metals, presents
 the first-principles predictions for Al, Zn, Li, Na, and Mg, and confronts
-them with experiment via abduction.
+them with experiment via three structured Bayesian likelihood comparisons
+that replace the legacy ``compare`` / ``abduction`` triples.
 """
 
-from gaia.lang import claim, compare, composite, deduction, setting, support
-from gaia.lang.dsl.strategies import abduction
+from __future__ import annotations
+
+import math
+
+import gaia.engine.bayes as bayes
+from gaia.engine.lang import Constant, Real, claim, derive, equals, note, observe
 
 from .motivation import (
-    bts_renormalization,
     dfpt_computes_lambda,
     mu_star_phenomenological,
+    phenomenological_me_theory,
     tc_al_experimental,
-    tc_al_phenomenological,
     tc_li_experimental,
-    tc_li_phenomenological,
     tc_zn_experimental,
-    tc_zn_phenomenological,
+)
+from .probabilities import (
+    MATERIAL_PARAMS,
+    eft_log_tc_mean,
+    eft_log_tc_sigma,
+    log_tc_al,
+    log_tc_li,
+    log_tc_zn,
+    mcmillan_log_tc_moments,
+    mcmillan_tc,
 )
 from .s2_model import precursory_cooper_flow
 from .s3_downfolding import downfolded_bse
@@ -25,10 +37,10 @@ from .s4_pseudopotential import mu_vdiagmc_values
 from .s5_eph_coupling import dfpt_reliable_for_simple_metals
 
 # ---------------------------------------------------------------------------
-# Settings — material parameters
+# Material parameter notes (formerly setting(); pure context, non-probabilistic)
 # ---------------------------------------------------------------------------
 
-aluminum_parameters = setting(
+aluminum_parameters = note(
     "Aluminum (Al): FCC crystal structure, $r_s = 2.07$, band mass "
     "$m_b = 1.05$, DFPT electron-phonon coupling $\\lambda = 0.44$, "
     "logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 320$ K, "
@@ -36,7 +48,7 @@ aluminum_parameters = setting(
     title="Aluminum Material Parameters",
 )
 
-lithium_parameters = setting(
+lithium_parameters = note(
     "Lithium (Li): 9R crystal structure at low $T$ (also studied in "
     "HCP). 9R parameters: $r_s = 3.25$, $m_b = 1.75$, $\\lambda = 0.34$, "
     "$\\omega_{\\mathrm{log}} = 242$ K, $T_F = 4.0 \\times 10^4$ K. "
@@ -46,7 +58,7 @@ lithium_parameters = setting(
     title="Lithium Material Parameters",
 )
 
-sodium_parameters = setting(
+sodium_parameters = note(
     "Sodium (Na): BCC crystal structure, $r_s = 3.96$, band mass "
     "$m_b = 1.0$, DFPT electron-phonon coupling $\\lambda = 0.2$, "
     "logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 127$ K, "
@@ -55,7 +67,7 @@ sodium_parameters = setting(
     title="Sodium Material Parameters",
 )
 
-magnesium_parameters = setting(
+magnesium_parameters = note(
     "Magnesium (Mg): HCP crystal structure, $r_s = 2.66$, band mass "
     "$m_b = 1.02$, DFPT electron-phonon coupling $\\lambda = 0.24$, "
     "logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 269$ K, "
@@ -64,7 +76,7 @@ magnesium_parameters = setting(
     title="Magnesium Material Parameters",
 )
 
-zinc_parameters = setting(
+zinc_parameters = note(
     "Zinc (Zn): HCP crystal structure, $r_s = 2.90$, band mass "
     "$m_b = 1.0$, DFPT electron-phonon coupling $\\lambda = 0.502$, "
     "logarithmic phonon frequency $\\omega_{\\mathrm{log}} = 111$ K, "
@@ -85,6 +97,7 @@ simple_metals_weak_lattice = claim(
     "structure is well described by the homogeneous electron gas with "
     "minor crystal-field perturbations.",
     title="Simple Metals Have Weak Lattice Effects",
+    prior=0.90,
 )
 
 ueg_pseudopotential_parameterization = claim(
@@ -96,11 +109,37 @@ ueg_pseudopotential_parameterization = claim(
     "$\\mu^*(r_s)$ for any simple metal without additional adjustable "
     "parameters.",
     title="UEG mu* Parameterization and Mapping",
+    prior=0.85,
 )
 
 # ---------------------------------------------------------------------------
-# Derived claims
+# Intermediate derived claims
 # ---------------------------------------------------------------------------
+
+mu_available_for_simple_metals = claim(
+    "For simple metals, the Coulomb pseudopotential $\\mu^*$ can be obtained "
+    "from first principles without adjustable parameters: the vDiagMC-computed "
+    "$\\mu_{E_F}(r_s)$ for the uniform electron gas is mapped to real materials "
+    "via material-specific $r_s$ and band mass, then scaled to the Debye "
+    "frequency via the BTS renormalization relation.",
+    title="mu* Available for Simple Metals",
+    prior=0.88,
+)
+
+derive(
+    mu_available_for_simple_metals,
+    given=(ueg_pseudopotential_parameterization, mu_vdiagmc_values),
+    background=[simple_metals_weak_lattice],
+    rationale=(
+        "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG "
+        "(@mu_vdiagmc_values). The parameterization procedure "
+        "(@ueg_pseudopotential_parameterization) maps these to real materials "
+        "using material-specific $r_s$ and band mass, justified by the weak "
+        "lattice effects in simple metals (@simple_metals_weak_lattice). "
+        "The BTS relation scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye "
+        "frequency."
+    ),
+)
 
 ab_initio_workflow = claim(
     "The complete ab initio workflow for predicting $T_c$ of simple metals: "
@@ -112,41 +151,19 @@ ab_initio_workflow = claim(
     title="Ab Initio Tc Prediction Workflow",
     metadata={
         "figure": "artifacts/images/13_0.jpg",
-        "caption": "Fig. 9 | Proposed ab initio framework for electron-phonon SC beyond the weak correlation limit, showing computational pathway from fundamental parameters through correlated electrons and lattice vibrations to superconducting properties.",
+        "caption": (
+            "Fig. 9 | Proposed ab initio framework for electron-phonon SC "
+            "beyond the weak correlation limit, showing computational pathway "
+            "from fundamental parameters through correlated electrons and "
+            "lattice vibrations to superconducting properties."
+        ),
     },
 )
 
-# Intermediate claim: μ* available for simple metals
-mu_available_for_simple_metals = claim(
-    "For simple metals, the Coulomb pseudopotential $\\mu^*$ can be obtained "
-    "from first principles without adjustable parameters: the vDiagMC-computed "
-    "$\\mu_{E_F}(r_s)$ for the uniform electron gas is mapped to real materials "
-    "via material-specific $r_s$ and band mass, then scaled to the Debye "
-    "frequency via the BTS renormalization relation.",
-    title="mu* Available for Simple Metals",
-)
-
-_s1 = support(
-    premises=[ueg_pseudopotential_parameterization, mu_vdiagmc_values],
-    conclusion=mu_available_for_simple_metals,
-    background=[simple_metals_weak_lattice, bts_renormalization],
-    reason=(
-        "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG "
-        "(@mu_vdiagmc_values). The parameterization procedure "
-        "(@ueg_pseudopotential_parameterization) maps these to real materials "
-        "using material-specific $r_s$ and band mass, justified by the weak "
-        "lattice effects in simple metals (@simple_metals_weak_lattice). "
-        "The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down "
-        "to $\\mu^*$ at the Debye frequency."
-    ),
-    prior=0.88,
-)
-
-_s2 = deduction(
-    premises=[downfolded_bse, mu_available_for_simple_metals,
-              dfpt_reliable_for_simple_metals],
-    conclusion=ab_initio_workflow,
-    reason=(
+derive(
+    ab_initio_workflow,
+    given=(downfolded_bse, mu_available_for_simple_metals, dfpt_reliable_for_simple_metals),
+    rationale=(
         "The downfolded BSE (@downfolded_bse) provides the theoretical "
         "equation requiring two microscopic inputs: $\\mu^*$ and $\\lambda$. "
         "Both are now available from first principles — $\\mu^*$ from the "
@@ -155,115 +172,11 @@ _s2 = deduction(
         "components determined from first principles, the workflow is "
         "complete and parameter-free."
     ),
-    prior=0.92,
-)
-
-_composite_workflow = composite(
-    premises=[downfolded_bse, mu_vdiagmc_values, dfpt_reliable_for_simple_metals,
-              ueg_pseudopotential_parameterization],
-    conclusion=ab_initio_workflow,
-    sub_strategies=[_s1, _s2],
-    background=[simple_metals_weak_lattice, bts_renormalization],
 )
 
 # ---------------------------------------------------------------------------
-# Material-specific Tc predictions
+# Qualitative predictions (Al pressure, Na/Mg QPT)
 # ---------------------------------------------------------------------------
-
-tc_al_predicted = claim(
-    "The ab initio predicted superconducting transition temperature of "
-    "aluminum is $T_c^{\\mathrm{EFT}} = 0.96$ K, in good agreement "
-    "with the experimental value $T_c^{\\mathrm{exp}} = 1.2$ K. "
-    "The first-principles $\\mu^*(\\mathrm{Al}) = 0.13$ is obtained "
-    "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.07$ (with band mass "
-    "$m_b = 1.05$) via BTS renormalization.",
-    title="Tc(Al) Ab Initio Prediction",
-    metadata={
-        "figure": "artifacts/images/14_0.jpg",
-        "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
-    },
-)
-
-_strat_tc_al = support(
-    premises=[ab_initio_workflow],
-    conclusion=tc_al_predicted,
-    background=[aluminum_parameters],
-    reason=(
-        "Applying the ab initio workflow (@ab_initio_workflow) to aluminum "
-        "with its material parameters (@aluminum_parameters): $r_s = 2.07$ "
-        "with band mass $m_b = 1.05$ gives $\\mu^* = 0.13$ from the vDiagMC "
-        "parameterization via BTS renormalization. Combined with the DFPT "
-        "$\\lambda = 0.44$ and $\\omega_{\\mathrm{log}} = 320$ K, solving "
-        "the Eliashberg equations yields $T_c^{\\mathrm{EFT}} = 0.96$ K, "
-        "in good agreement with the experimental value of 1.2 K."
-    ),
-    prior=0.85,
-)
-
-tc_zn_predicted = claim(
-    "The ab initio predicted superconducting transition temperature of "
-    "zinc is $T_c^{\\mathrm{EFT}} = 0.874$ K, in excellent agreement "
-    "with the experimental value $T_c^{\\mathrm{exp}} = 0.875$ K. "
-    "The first-principles $\\mu^*(\\mathrm{Zn}) = 0.12$ is obtained "
-    "from the vDiagMC $\\mu_{E_F}$ at $r_s = 2.90$ (with band mass "
-    "$m_b = 1.0$) via BTS renormalization.",
-    title="Tc(Zn) Ab Initio Prediction",
-    metadata={
-        "figure": "artifacts/images/15_0.jpg",
-        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
-    },
-)
-
-_strat_tc_zn = support(
-    premises=[ab_initio_workflow],
-    conclusion=tc_zn_predicted,
-    background=[zinc_parameters],
-    reason=(
-        "Applying the ab initio workflow (@ab_initio_workflow) to zinc with "
-        "its material parameters (@zinc_parameters): $r_s = 2.90$ with "
-        "band mass $m_b = 1.0$ gives $\\mu^* = 0.12$ via BTS. "
-        "Combined with $\\lambda = 0.502$ and "
-        "$\\omega_{\\mathrm{log}} = 111$ K from DFPT, the predicted "
-        "$T_c^{\\mathrm{EFT}} = 0.874$ K is in excellent agreement with "
-        "the experimental value of 0.875 K."
-    ),
-    prior=0.85,
-)
-
-tc_li_predicted = claim(
-    "The ab initio predicted superconducting transition temperature of "
-    "lithium (9R structure) is $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K, "
-    "within an order of magnitude of the experimental observation "
-    "$T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K. The large "
-    "$\\mu^*(\\mathrm{Li}) = 0.18$ from $r_s = 3.25$ (with band mass "
-    "$m_b = 1.75$) almost completely cancels the phonon-mediated attraction "
-    "$\\lambda = 0.34$, pushing $T_c$ to extremely low temperatures. "
-    "The HCP structure gives $T_c^{\\mathrm{EFT}} = 0.03$ K with "
-    "$\\mu^* = 0.17$ and $\\lambda = 0.37$.",
-    title="Tc(Li) Ab Initio Prediction",
-    metadata={
-        "figure": "artifacts/images/15_0.jpg",
-        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. E-ph couplings from DFPT; pseudopotentials from vDiagMC. Includes Al, Zn, Li, Na, Mg predictions.",
-    },
-)
-
-_strat_tc_li = support(
-    premises=[ab_initio_workflow],
-    conclusion=tc_li_predicted,
-    background=[lithium_parameters],
-    reason=(
-        "Applying the ab initio workflow (@ab_initio_workflow) to lithium "
-        "(9R structure) with its material parameters (@lithium_parameters): "
-        "$r_s = 3.25$ with band mass $m_b = 1.75$ gives $\\mu^* = 0.18$ "
-        "via BTS. Despite a moderate $\\lambda = 0.34$ from DFPT, the large "
-        "$\\mu^*$ nearly cancels the effective pairing interaction, making "
-        "the dimensionless coupling $g = \\lambda - \\mu^*(1+0.62\\lambda)$ "
-        "very small. The exponential sensitivity $T_c \\propto \\exp(-1/g)$ "
-        "drives $T_c$ to $5 \\times 10^{-3}$ K, within an order of "
-        "magnitude of the experimental value $4 \\times 10^{-4}$ K."
-    ),
-    prior=0.80,
-)
 
 al_pressure_transition = claim(
     "Under hydrostatic pressure, the ab initio framework predicts that "
@@ -272,17 +185,22 @@ al_pressure_transition = claim(
     "superconductivity in Al vanishes at approximately 60 GPa; at 20 GPa, "
     "$T_c$ is already suppressed below 1 mK.",
     title="Al Pressure-Tc Transition",
+    prior=0.80,
     metadata={
         "figure": "artifacts/images/14_0.jpg",
-        "caption": "Fig. 10 | Pressure dependence of the superconducting critical temperature in aluminum. EFT results (squares) compared with experimental data from Levy et al. and Gubser et al.",
+        "caption": (
+            "Fig. 10 | Pressure dependence of the superconducting critical "
+            "temperature in aluminum. EFT results (squares) compared with "
+            "experimental data from Levy et al. and Gubser et al."
+        ),
     },
 )
 
-_strat_al_pressure = support(
-    premises=[ab_initio_workflow],
-    conclusion=al_pressure_transition,
+derive(
+    al_pressure_transition,
+    given=(ab_initio_workflow,),
     background=[aluminum_parameters],
-    reason=(
+    rationale=(
         "Applying the ab initio workflow (@ab_initio_workflow) to aluminum "
         "under varying hydrostatic pressure (@aluminum_parameters): as "
         "pressure increases, $r_s$ decreases (higher electron density), "
@@ -292,7 +210,6 @@ _strat_al_pressure = support(
         "experimental data, the framework predicts SC vanishes at ~60 GPa, "
         "with $T_c < 1$ mK already at 20 GPa."
     ),
-    prior=0.80,
 )
 
 tc_mg_na_near_qpt = claim(
@@ -307,17 +224,22 @@ tc_mg_na_near_qpt = claim(
     "superconducting and non-superconducting ground states, where "
     "$T_c$ varies exponentially with small parameter changes.",
     title="Na and Mg Near Quantum Phase Transition",
+    prior=0.80,
     metadata={
         "figure": "artifacts/images/15_0.jpg",
-        "caption": "Fig. 11 | Effective BCS coupling strength for simple metals. Na and Mg appear near the origin, indicating near-cancellation of pairing interaction.",
+        "caption": (
+            "Fig. 11 | Effective BCS coupling strength for simple metals. Na "
+            "and Mg appear near the origin, indicating near-cancellation of "
+            "pairing interaction."
+        ),
     },
 )
 
-_strat_mg_na_qpt = support(
-    premises=[ab_initio_workflow],
-    conclusion=tc_mg_na_near_qpt,
+derive(
+    tc_mg_na_near_qpt,
+    given=(ab_initio_workflow,),
     background=[magnesium_parameters, sodium_parameters, precursory_cooper_flow],
-    reason=(
+    rationale=(
         "Applying the ab initio workflow (@ab_initio_workflow) to sodium "
         "(@sodium_parameters) and magnesium (@magnesium_parameters): Na has "
         "$r_s = 3.96$, yielding $\\mu^* = 0.15$ which nearly cancels its "
@@ -332,145 +254,274 @@ _strat_mg_na_qpt = support(
         "parameter variations can toggle between superconducting and "
         "non-superconducting ground states."
     ),
-    prior=0.80,
 )
 
-# ---------------------------------------------------------------------------
-# Abductions: comparing ab initio predictions with experiment
-# ---------------------------------------------------------------------------
+# ===========================================================================
+# Quantitative Tc comparisons (Al, Zn, Li): structured Bayesian likelihood
+# ===========================================================================
+#
+# For each material, the legacy ``compare(eft_pred, phenom_pred, exp)`` plus
+# ``abduction(s_eft, s_phenom, comparison)`` triple is replaced by:
+#   - ``derive`` of the EFT prediction claim from the ab initio workflow
+#   - ``derive`` of the McMillan prediction claim from the phenomenological theory
+#   - ``observe`` of the experimental ``log T_c``
+#   - ``bayes.model`` for the EFT prediction: Normal(eft_log_tc_mean, σ_EFT)
+#   - ``bayes.model`` for the McMillan prediction: Normal(mcmillan_mean, mcmillan_σ)
+#     where σ is the propagated ``μ* ~ Uniform[0.1, 0.2]`` uncertainty
+#   - ``bayes.likelihood`` comparing the two models against the observation
 
-# --- Aluminum ---
-_support_al_phenom = support(
-    premises=[dfpt_computes_lambda, mu_star_phenomenological],
-    conclusion=tc_al_phenomenological,
-    reason=(
-        "The phenomenological McMillan prediction for aluminum uses DFPT-computed "
-        "$\\lambda$ (@dfpt_computes_lambda) and the standard empirical value "
-        "$\\mu^* = 0.1$ (@mu_star_phenomenological) to predict "
-        "$T_c \\approx 1.9$ K."
-    ),
-    prior=0.35,
+
+# --- Aluminum -----------------------------------------------------------
+
+tc_al_predicted = derive(
+    f"The ab initio EFT framework predicts $T_c^{{\\mathrm{{EFT}}}} = "
+    f"{mcmillan_tc(MATERIAL_PARAMS['al']['lam'], MATERIAL_PARAMS['al']['mu_eft'], MATERIAL_PARAMS['al']['omega_log']):.2f}$ K "
+    f"for aluminum using $\\lambda = {MATERIAL_PARAMS['al']['lam']}$, "
+    f"$\\mu^* = {MATERIAL_PARAMS['al']['mu_eft']}$ from vDiagMC + BTS, "
+    f"and $\\omega_{{\\mathrm{{log}}}} = {MATERIAL_PARAMS['al']['omega_log']:.0f}$ K. "
+    f"The experimental value is $T_c^{{\\mathrm{{exp}}}} = "
+    f"{MATERIAL_PARAMS['al']['tc_exp']}$ K.",
+    given=(ab_initio_workflow,),
+    background=[aluminum_parameters],
+    rationale="Plug Al's first-principles inputs into the McMillan estimator.",
+    label="tc_al_predicted",
 )
 
-_comp_al = compare(
-    tc_al_predicted,
-    tc_al_phenomenological,
-    tc_al_experimental,
-    reason=(
-        "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.96$ K "
-        "(@tc_al_predicted) is closer to the experimental "
-        "$T_c = 1.2$ K (@tc_al_experimental) than the phenomenological "
-        "prediction of 1.9 K (@tc_al_phenomenological), which overestimates "
-        "by 58%. The ab initio $\\mu^* = 0.13$ correctly reduces $T_c$."
-    ),
-    prior=0.90,
+tc_al_phenomenological = derive(
+    f"The phenomenological McMillan formula with the standard guess "
+    f"$\\mu^* = 0.1$ predicts $T_c \\approx "
+    f"{mcmillan_tc(MATERIAL_PARAMS['al']['lam'], 0.10, MATERIAL_PARAMS['al']['omega_log']):.2f}$ K "
+    f"for aluminum, overestimating the experimental "
+    f"{MATERIAL_PARAMS['al']['tc_exp']} K by ~85%.",
+    given=(phenomenological_me_theory, mu_star_phenomenological, dfpt_computes_lambda),
+    background=[aluminum_parameters],
+    rationale="McMillan with fixed empirical μ* = 0.1 applied to Al's λ, ω_log.",
+    label="tc_al_phenomenological",
 )
 
-_abduction_al = abduction(
-    _strat_tc_al,
-    _support_al_phenom,
-    _comp_al,
-    reason=(
-        "The experimental $T_c(\\mathrm{Al}) = 1.2$ K (@tc_al_experimental) "
-        "is well reproduced by the ab initio prediction "
-        "$T_c^{\\mathrm{EFT}} = 0.96$ K (@tc_al_predicted), which "
-        "uses no adjustable parameters. The phenomenological prediction "
-        "(@tc_al_phenomenological) using $\\mu^* = 0.1$ gives 1.9 K, "
-        "overestimating by 58%. The ab initio approach provides a better "
-        "explanation because it determines $\\mu^*$ from first principles "
-        "rather than using an ad hoc value, and the resulting $\\mu^* = "
-        "0.13$ is above the standard guess of 0.1, correctly "
-        "reducing $T_c$ toward the experimental value."
+_tc_al_observation_binding = claim(
+    f"Experimental log Tc(Al) = log({MATERIAL_PARAMS['al']['tc_exp']}) "
+    f"= {math.log(MATERIAL_PARAMS['al']['tc_exp']):.4f}.",
+    formula=equals(log_tc_al, Constant(math.log(MATERIAL_PARAMS["al"]["tc_exp"]), Real)),
+)
+_tc_al_observation_binding.label = "tc_al_observation_binding"
+
+tc_al_observation = observe(
+    _tc_al_observation_binding,
+    background=[aluminum_parameters, tc_al_experimental],
+    rationale=(
+        "Well-established measurement: T_c(Al) = 1.2 K (@tc_al_experimental). "
+        "Pin via log Tc binding so the Bayesian log-Tc likelihood comparison "
+        "sees the data point."
     ),
+    label="tc_al_observation",
 )
 
-# --- Zinc ---
-_support_zn_phenom = support(
-    premises=[dfpt_computes_lambda, mu_star_phenomenological],
-    conclusion=tc_zn_phenomenological,
-    reason=(
-        "The phenomenological McMillan prediction for zinc uses DFPT-computed "
-        "$\\lambda$ (@dfpt_computes_lambda) and the standard empirical value "
-        "$\\mu^* = 0.1$ (@mu_star_phenomenological) to predict "
-        "$T_c \\approx 1.37$ K."
+eft_al_model = bayes.model(
+    ab_initio_workflow,
+    observable=log_tc_al,
+    distribution=bayes.Normal(mu=eft_log_tc_mean("al"), sigma=eft_log_tc_sigma("al")),
+    background=[aluminum_parameters],
+    rationale=(
+        "EFT prediction: μ* = 0.13 (vDiagMC + BTS) → Tc ≈ 1.14 K via McMillan. "
+        "Per-material σ propagated from μ*_EFT ±5% relative precision."
     ),
-    prior=0.35,
+    label="eft_al_model",
 )
 
-_comp_zn = compare(
-    tc_zn_predicted,
-    tc_zn_phenomenological,
-    tc_zn_experimental,
-    reason=(
-        "The ab initio prediction $T_c^{\\mathrm{EFT}} = 0.874$ K "
-        "(@tc_zn_predicted) is in near-exact agreement with the "
-        "experimental $T_c = 0.875$ K (@tc_zn_experimental), while the "
-        "phenomenological prediction of 1.37 K overestimates by 57%."
+_mcmillan_al_mean, _mcmillan_al_sigma = mcmillan_log_tc_moments(MATERIAL_PARAMS["al"])
+mcmillan_al_model = bayes.model(
+    phenomenological_me_theory,
+    observable=log_tc_al,
+    distribution=bayes.Normal(mu=_mcmillan_al_mean, sigma=_mcmillan_al_sigma),
+    background=[aluminum_parameters, mu_star_phenomenological],
+    rationale=(
+        "Traditional McMillan: μ* ~ Uniform[0.1, 0.2] propagated through the "
+        "formula gives a log-Tc Gaussian with much wider σ than the EFT model."
     ),
-    prior=0.95,
+    label="mcmillan_al_model",
 )
 
-_abduction_zn = abduction(
-    _strat_tc_zn,
-    _support_zn_phenom,
-    _comp_zn,
-    reason=(
-        "The experimental $T_c(\\mathrm{Zn}) = 0.875$ K (@tc_zn_experimental) "
-        "is in excellent agreement with the ab initio prediction "
-        "$T_c^{\\mathrm{EFT}} = 0.874$ K (@tc_zn_predicted). "
-        "The phenomenological prediction (@tc_zn_phenomenological) using "
-        "$\\mu^* = 0.1$ gives 1.37 K, overestimating by 57%. The ab initio "
-        "$\\mu^* = 0.12$ from $r_s = 2.90$ correctly captures the "
-        "Coulomb repulsion strength in Zn, "
-        "bringing the prediction into near-exact agreement with experiment."
+tc_al_likelihood = bayes.likelihood(
+    tc_al_observation,
+    model=eft_al_model,
+    against=[mcmillan_al_model],
+    background=[aluminum_parameters],
+    rationale=(
+        "Likelihood of the observed log Tc(Al) = ln(1.2) under the EFT "
+        "Normal model versus the propagated-McMillan Normal model. The EFT "
+        "predictive Gaussian is both centred closer to the observation and "
+        "much narrower, yielding a clear Bayes factor in favour of EFT."
     ),
+    exclusivity="none",
+    label="tc_al_likelihood",
 )
 
-# --- Lithium ---
-_support_li_phenom = support(
-    premises=[dfpt_computes_lambda, mu_star_phenomenological],
-    conclusion=tc_li_phenomenological,
-    reason=(
-        "The phenomenological McMillan prediction for lithium uses DFPT-computed "
-        "$\\lambda$ (@dfpt_computes_lambda) and the standard empirical value "
-        "$\\mu^* = 0.1$ (@mu_star_phenomenological) to predict "
-        "$T_c \\approx 0.35$ K."
-    ),
-    prior=0.10,
+# --- Zinc ---------------------------------------------------------------
+
+tc_zn_predicted = derive(
+    f"The ab initio EFT framework predicts $T_c^{{\\mathrm{{EFT}}}} = "
+    f"{mcmillan_tc(MATERIAL_PARAMS['zn']['lam'], MATERIAL_PARAMS['zn']['mu_eft'], MATERIAL_PARAMS['zn']['omega_log']):.3f}$ K "
+    f"for zinc using $\\lambda = {MATERIAL_PARAMS['zn']['lam']}$, "
+    f"$\\mu^* = {MATERIAL_PARAMS['zn']['mu_eft']}$, and "
+    f"$\\omega_{{\\mathrm{{log}}}} = {MATERIAL_PARAMS['zn']['omega_log']:.0f}$ K. "
+    f"The experimental value is $T_c^{{\\mathrm{{exp}}}} = "
+    f"{MATERIAL_PARAMS['zn']['tc_exp']}$ K.",
+    given=(ab_initio_workflow,),
+    background=[zinc_parameters],
+    rationale="Plug Zn's first-principles inputs into the McMillan estimator.",
+    label="tc_zn_predicted",
 )
 
-_comp_li = compare(
-    tc_li_predicted,
-    tc_li_phenomenological,
-    tc_li_experimental,
-    reason=(
-        "The ab initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K "
-        "(@tc_li_predicted) is within an order of magnitude of the "
-        "experimental $T_c \\approx 4 \\times 10^{-4}$ K "
-        "(@tc_li_experimental), while the phenomenological prediction of "
-        "0.35 K overestimates by three orders of magnitude. The exponential "
-        "sensitivity of $T_c$ amplifies the $\\mu^*$ difference."
-    ),
-    prior=0.85,
+tc_zn_phenomenological = derive(
+    f"The phenomenological McMillan formula with the standard guess "
+    f"$\\mu^* = 0.1$ predicts $T_c \\approx "
+    f"{mcmillan_tc(MATERIAL_PARAMS['zn']['lam'], 0.10, MATERIAL_PARAMS['zn']['omega_log']):.2f}$ K "
+    f"for zinc, overestimating the experimental "
+    f"{MATERIAL_PARAMS['zn']['tc_exp']} K by ~57%.",
+    given=(phenomenological_me_theory, mu_star_phenomenological, dfpt_computes_lambda),
+    background=[zinc_parameters],
+    rationale="McMillan with fixed empirical μ* = 0.1 applied to Zn's λ, ω_log.",
+    label="tc_zn_phenomenological",
 )
 
-_abduction_li = abduction(
-    _strat_tc_li,
-    _support_li_phenom,
-    _comp_li,
-    reason=(
-        "The experimental $T_c(\\mathrm{Li}) \\approx 4 \\times 10^{-4}$ K "
-        "(@tc_li_experimental) is within an order of magnitude of the ab "
-        "initio prediction $T_c^{\\mathrm{EFT}} = 5 \\times 10^{-3}$ K "
-        "(@tc_li_predicted, 9R structure). The phenomenological prediction "
-        "(@tc_li_phenomenological) using $\\mu^* = 0.1$ gives $\\approx 0.35$ K, "
-        "overestimating by three orders of magnitude. The dramatic improvement "
-        "of the ab initio approach is because the first-principles "
-        "$\\mu^* = 0.18$ for lithium ($r_s = 3.25$, $m_b = 1.75$) is "
-        "significantly larger than the standard guess of 0.1, reflecting "
-        "the stronger Coulomb repulsion at lower electron density. In the "
-        "regime where $\\lambda - \\mu^*(1+0.62\\lambda)$ is small, the "
-        "exponential sensitivity amplifies the $\\mu^*$ difference from "
-        "0.08 to nearly three orders of magnitude in $T_c$."
+_tc_zn_observation_binding = claim(
+    f"Experimental log Tc(Zn) = log({MATERIAL_PARAMS['zn']['tc_exp']}) "
+    f"= {math.log(MATERIAL_PARAMS['zn']['tc_exp']):.4f}.",
+    formula=equals(log_tc_zn, Constant(math.log(MATERIAL_PARAMS["zn"]["tc_exp"]), Real)),
+)
+_tc_zn_observation_binding.label = "tc_zn_observation_binding"
+
+tc_zn_observation = observe(
+    _tc_zn_observation_binding,
+    background=[zinc_parameters, tc_zn_experimental],
+    rationale=(
+        "Well-established measurement: T_c(Zn) = 0.875 K "
+        "(@tc_zn_experimental); pinned via log Tc binding."
     ),
+    label="tc_zn_observation",
+)
+
+eft_zn_model = bayes.model(
+    ab_initio_workflow,
+    observable=log_tc_zn,
+    distribution=bayes.Normal(mu=eft_log_tc_mean("zn"), sigma=eft_log_tc_sigma("zn")),
+    background=[zinc_parameters],
+    rationale="EFT prediction: μ* = 0.12 (vDiagMC + BTS) → Tc ≈ 0.99 K.",
+    label="eft_zn_model",
+)
+
+_mcmillan_zn_mean, _mcmillan_zn_sigma = mcmillan_log_tc_moments(MATERIAL_PARAMS["zn"])
+mcmillan_zn_model = bayes.model(
+    phenomenological_me_theory,
+    observable=log_tc_zn,
+    distribution=bayes.Normal(mu=_mcmillan_zn_mean, sigma=_mcmillan_zn_sigma),
+    background=[zinc_parameters, mu_star_phenomenological],
+    rationale="Traditional McMillan: μ* ~ Uniform[0.1, 0.2] propagated for Zn.",
+    label="mcmillan_zn_model",
+)
+
+tc_zn_likelihood = bayes.likelihood(
+    tc_zn_observation,
+    model=eft_zn_model,
+    against=[mcmillan_zn_model],
+    background=[zinc_parameters],
+    rationale=(
+        "Likelihood of log Tc(Zn) under EFT vs propagated-McMillan. EFT "
+        "centres almost on the observation with a tight Gaussian; McMillan "
+        "is offset and broad."
+    ),
+    exclusivity="none",
+    label="tc_zn_likelihood",
+)
+
+# --- Lithium ------------------------------------------------------------
+
+tc_li_predicted = derive(
+    f"The ab initio EFT framework predicts $T_c^{{\\mathrm{{EFT}}}} \\approx "
+    f"{mcmillan_tc(MATERIAL_PARAMS['li']['lam'], MATERIAL_PARAMS['li']['mu_eft'], MATERIAL_PARAMS['li']['omega_log']):.1e}$ K "
+    f"for lithium (9R) using $\\lambda = {MATERIAL_PARAMS['li']['lam']}$, "
+    f"$\\mu^* = {MATERIAL_PARAMS['li']['mu_eft']}$, and "
+    f"$\\omega_{{\\mathrm{{log}}}} = {MATERIAL_PARAMS['li']['omega_log']:.0f}$ K. "
+    f"The large $\\mu^*$ from $r_s = 3.25$ nearly cancels the moderate "
+    f"$\\lambda$, pushing $T_c$ into the sub-mK regime. Experimental: "
+    f"$T_c \\approx {MATERIAL_PARAMS['li']['tc_exp']:.0e}$ K.",
+    given=(ab_initio_workflow,),
+    background=[lithium_parameters],
+    rationale=(
+        "Plug Li's first-principles inputs into the McMillan estimator; "
+        "near-cancellation of g amplifies parameter sensitivity exponentially."
+    ),
+    label="tc_li_predicted",
+)
+
+tc_li_phenomenological = derive(
+    f"The phenomenological McMillan formula with $\\mu^* = 0.1$ predicts "
+    f"$T_c \\approx "
+    f"{mcmillan_tc(MATERIAL_PARAMS['li']['lam'], 0.10, MATERIAL_PARAMS['li']['omega_log']):.2f}$ K "
+    f"for lithium, overestimating the experimental "
+    f"{MATERIAL_PARAMS['li']['tc_exp']:.0e} K by three orders of magnitude.",
+    given=(phenomenological_me_theory, mu_star_phenomenological, dfpt_computes_lambda),
+    background=[lithium_parameters],
+    rationale="McMillan with fixed empirical μ* = 0.1 applied to Li's λ, ω_log.",
+    label="tc_li_phenomenological",
+)
+
+_tc_li_observation_binding = claim(
+    f"Experimental log Tc(Li) = log({MATERIAL_PARAMS['li']['tc_exp']:.0e}) "
+    f"= {math.log(MATERIAL_PARAMS['li']['tc_exp']):.4f}.",
+    formula=equals(log_tc_li, Constant(math.log(MATERIAL_PARAMS["li"]["tc_exp"]), Real)),
+)
+_tc_li_observation_binding.label = "tc_li_observation_binding"
+
+tc_li_observation = observe(
+    _tc_li_observation_binding,
+    background=[lithium_parameters, tc_li_experimental],
+    rationale=(
+        "Experimental T_c(Li) ≈ 4×10⁻⁴ K (@tc_li_experimental, 9R structure). "
+        "The crystal structure at sub-kelvin temperatures is still debated, "
+        "contributing some structural uncertainty to the comparison."
+    ),
+    label="tc_li_observation",
+)
+
+eft_li_model = bayes.model(
+    ab_initio_workflow,
+    observable=log_tc_li,
+    distribution=bayes.Normal(mu=eft_log_tc_mean("li"), sigma=eft_log_tc_sigma("li")),
+    background=[lithium_parameters],
+    rationale=(
+        "EFT prediction: μ* = 0.18 (vDiagMC + BTS) → Tc ≈ 2e-3 K. Note: σ "
+        "for Li is large because the exponential sensitivity to g near the "
+        "QPT magnifies any μ*_EFT uncertainty."
+    ),
+    label="eft_li_model",
+)
+
+_mcmillan_li_mean, _mcmillan_li_sigma = mcmillan_log_tc_moments(MATERIAL_PARAMS["li"])
+mcmillan_li_model = bayes.model(
+    phenomenological_me_theory,
+    observable=log_tc_li,
+    distribution=bayes.Normal(mu=_mcmillan_li_mean, sigma=_mcmillan_li_sigma),
+    background=[lithium_parameters, mu_star_phenomenological],
+    rationale=(
+        "Traditional McMillan: μ* ~ Uniform[0.1, 0.2] propagated for Li; "
+        "near-QPT exponential sensitivity gives a very broad log-Tc spread."
+    ),
+    label="mcmillan_li_model",
+)
+
+tc_li_likelihood = bayes.likelihood(
+    tc_li_observation,
+    model=eft_li_model,
+    against=[mcmillan_li_model],
+    background=[lithium_parameters],
+    rationale=(
+        "Likelihood of log Tc(Li) under EFT vs propagated-McMillan. Li is "
+        "the hard case: both predictive distributions are off by 1.3-1.7 σ, "
+        "with EFT narrowly preferred — illustrating the limits of any "
+        "method in the near-cancellation regime."
+    ),
+    exclusivity="none",
+    label="tc_li_likelihood",
 )

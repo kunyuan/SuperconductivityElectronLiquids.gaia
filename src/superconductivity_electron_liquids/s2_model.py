@@ -1,11 +1,11 @@
-"""The Model and Basic Relations
+"""Section II — The Model and Basic Relations.
 
 Establishes the formal field-theoretic framework: the electron-phonon action,
-the Bethe-Salpeter equation kernel decomposition, and the precursory Cooper flow
-that connects the normal-state four-point vertex to the superconducting Tc.
+the Bethe-Salpeter equation kernel decomposition, and the precursory Cooper
+flow that connects the normal-state four-point vertex to the superconducting Tc.
 """
 
-from gaia.lang import claim, deduction
+from gaia.engine.lang import claim, derive
 
 from .motivation import me_framework
 
@@ -25,9 +25,14 @@ electron_phonon_action = claim(
     "already included in the physical phonon dispersion to prevent double "
     "counting.",
     title="Electron-Phonon Action Decomposition",
+    prior=0.95,
     metadata={
         "figure": "artifacts/images/4_1.jpg",
-        "caption": "Fig. 2 | Diagrammatic representation of the phonon-mediated e-e interaction W^ph, composed of phonon propagator D, bare coupling g^(0), vertex function Gamma_3^e, and dielectric function.",
+        "caption": (
+            "Fig. 2 | Diagrammatic representation of the phonon-mediated e-e "
+            "interaction W^ph, composed of phonon propagator D, bare coupling "
+            "g^(0), vertex function Gamma_3^e, and dielectric function."
+        ),
     },
 )
 
@@ -43,14 +48,18 @@ bse_kernel_decomposition = claim(
     title="BSE Kernel Decomposition",
     metadata={
         "figure": "artifacts/images/4_2.jpg",
-        "caption": "Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous vertex in momentum space, with kernel consisting of the electronic four-point vertex Gamma_e and phonon-mediated interaction W^ph.",
+        "caption": (
+            "Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous "
+            "vertex in momentum space, with kernel consisting of the electronic "
+            "four-point vertex Gamma_e and phonon-mediated interaction W^ph."
+        ),
     },
 )
 
-deduction(
-    premises=[me_framework],
-    conclusion=bse_kernel_decomposition,
-    reason=(
+derive(
+    bse_kernel_decomposition,
+    given=(me_framework,),
+    rationale=(
         "Migdal's theorem (@me_framework) guarantees that phonon vertex "
         "corrections to the BSE kernel are suppressed at $O(\\omega_D/E_F)$. "
         "This allows the full particle-particle irreducible kernel to be "
@@ -62,7 +71,6 @@ deduction(
         "Cross terms between these two contributions are higher order in "
         "$\\omega_D/E_F$ and can be neglected."
     ),
-    prior=0.97,
 )
 
 precursory_cooper_flow = claim(
@@ -75,4 +83,5 @@ precursory_cooper_flow = claim(
     "$T_c = \\omega_\\Lambda e^{1/g}$; by computing in the normal state "
     "and extrapolating, one can predict $T_c$.",
     title="Precursory Cooper Flow",
+    prior=0.90,
 )

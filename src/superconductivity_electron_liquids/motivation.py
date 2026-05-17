@@ -1,25 +1,27 @@
-"""Introduction: Motivation and Background
+"""Introduction: Motivation and Background.
 
-Establishes the theoretical context (BCS/Migdal-Eliashberg) and the phenomenological
-limitations of traditional approaches to predicting superconducting Tc, motivating the
-need for a first-principles treatment of the Coulomb pseudopotential.
+Establishes the theoretical context (BCS / Migdal-Eliashberg) and the
+phenomenological limitations of traditional approaches to predicting
+superconducting Tc, motivating the need for a first-principles treatment
+of the Coulomb pseudopotential.
 """
 
-from gaia.lang import claim, deduction, question, setting
+from gaia.engine.lang import claim, derive, question
 
 # ---------------------------------------------------------------------------
-# Settings — background frameworks
+# Framework claims (axiomatic but probabilistic; carry an inline prior)
 # ---------------------------------------------------------------------------
 
-bcs_theory = setting(
+bcs_theory = claim(
     "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron "
     "attraction leads to Cooper pairing instability at the Fermi surface, providing "
     "the fundamental framework for understanding conventional superconductors.",
     title="BCS Theory",
+    prior=0.98,
 )
 
 # ---------------------------------------------------------------------------
-# Claims — leaf nodes (no strategies)
+# Leaf claims (no derivation; priors carried inline)
 # ---------------------------------------------------------------------------
 
 adiabatic_approx = claim(
@@ -31,6 +33,7 @@ adiabatic_approx = claim(
     "(iii) the space-time scale separation between electron and phonon physics "
     "permits a controlled effective field theory (EFT) treatment.",
     title="Adiabatic Approximation",
+    prior=0.95,
 )
 
 me_framework = claim(
@@ -44,15 +47,19 @@ me_framework = claim(
     title="Migdal-Eliashberg Framework",
     metadata={
         "figure": "artifacts/images/4_0.jpg",
-        "caption": "Fig. 1 | Normal component of the electron self-energy approximated by the self-consistent Fock diagram with the phonon-mediated e-e interaction W^ph.",
+        "caption": (
+            "Fig. 1 | Normal component of the electron self-energy approximated "
+            "by the self-consistent Fock diagram with the phonon-mediated e-e "
+            "interaction W^ph."
+        ),
     },
 )
 
-deduction(
-    premises=[adiabatic_approx],
-    conclusion=me_framework,
+derive(
+    me_framework,
+    given=(adiabatic_approx,),
     background=[bcs_theory],
-    reason=(
+    rationale=(
         "The adiabatic condition $\\omega_D/E_F \\ll 1$ (@adiabatic_approx) "
         "ensures that the ratio of ionic to electronic energy scales is small. "
         "Migdal's theorem then proves that phonon vertex corrections beyond "
@@ -60,7 +67,6 @@ deduction(
         "establishing the Migdal-Eliashberg formalism as a controlled "
         "approximation built on the BCS pairing mechanism (@bcs_theory)."
     ),
-    prior=0.97,
 )
 
 bts_renormalization = claim(
@@ -73,6 +79,7 @@ bts_renormalization = claim(
     "This relation ensures that physical observables do not depend on the "
     "choice of the arbitrary cutoff scale.",
     title="BTS Renormalization Relation",
+    prior=0.95,
 )
 
 me_downfolding_is_phenomenological = claim(
@@ -83,6 +90,7 @@ me_downfolding_is_phenomenological = claim(
     "fluctuations to quasiparticle renormalization and electron-phonon "
     "coupling, as well as non-local effects of screening.",
     title="ME Downfolding is Phenomenological",
+    prior=0.95,
 )
 
 phenomenological_me_theory = claim(
@@ -97,6 +105,7 @@ phenomenological_me_theory = claim(
     "several orders of magnitude in the predicted $T_c$, destroying "
     "predictive power.",
     title="Phenomenological ME Theory Limitations",
+    prior=0.95,
 )
 
 mu_star_phenomenological = claim(
@@ -106,6 +115,7 @@ mu_star_phenomenological = claim(
     "is typically treated as an adjustable parameter with empirical values "
     "in the range 0.1--0.2.",
     title="mu* as Phenomenological Parameter",
+    prior=0.95,
 )
 
 rpa_predicts_attractive_mu = claim(
@@ -120,6 +130,7 @@ rpa_predicts_attractive_mu = claim(
     "in this density regime and inconsistent with extensive experimental "
     "evidence.",
     title="RPA Predicts Attractive mu*",
+    prior=0.50,
 )
 
 dfpt_computes_lambda = claim(
@@ -130,16 +141,18 @@ dfpt_computes_lambda = claim(
     "distortions. DFPT has been validated for weakly correlated superconductors "
     "but its accuracy for strongly correlated systems is unknown.",
     title="DFPT Computes lambda",
+    prior=0.92,
 )
 
 # ---------------------------------------------------------------------------
-# Claims — experimental Tc values
+# Experimental Tc observations
 # ---------------------------------------------------------------------------
 
 tc_al_experimental = claim(
     "The experimental superconducting transition temperature of aluminum (Al) "
     "is $T_c^{\\mathrm{exp}} = 1.2$ K.",
     title="Tc(Al) Experimental",
+    prior=0.99,
 )
 
 tc_li_experimental = claim(
@@ -148,43 +161,14 @@ tc_li_experimental = claim(
     "This measurement corresponds to the 9R crystal structure; the crystal "
     "structure of lithium at ultra-low temperatures remains controversial.",
     title="Tc(Li) Experimental",
+    prior=0.85,
 )
 
 tc_zn_experimental = claim(
     "The experimental superconducting transition temperature of zinc (Zn) "
     "is $T_c^{\\mathrm{exp}} = 0.875$ K.",
     title="Tc(Zn) Experimental",
-)
-
-# ---------------------------------------------------------------------------
-# Claims — phenomenological Tc predictions
-# ---------------------------------------------------------------------------
-
-tc_al_phenomenological = claim(
-    "Using the McMillan formula (an empirical formula for $T_c$ based on "
-    "the electron-phonon coupling constant $\\lambda$ and Coulomb "
-    "pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, "
-    "the predicted superconducting transition temperature of aluminum is "
-    "$T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a "
-    "deviation of approximately 58%.",
-    title="Tc(Al) Phenomenological Prediction",
-)
-
-tc_li_phenomenological = claim(
-    "Using the McMillan formula with $\\mu^* = 0.1$, the predicted "
-    "superconducting transition temperature of lithium is "
-    "$T_c \\approx 0.35$ K, while the experimental value is approximately "
-    "$4 \\times 10^{-4}$ K; the theory overestimates by about three orders "
-    "of magnitude.",
-    title="Tc(Li) Phenomenological Prediction",
-)
-
-tc_zn_phenomenological = claim(
-    "Using the McMillan formula with the standard value $\\mu^* = 0.1$, "
-    "the predicted superconducting transition temperature of zinc is "
-    "$T_c \\approx 1.37$ K, while the experimental value is 0.875 K, "
-    "a deviation of approximately 57%.",
-    title="Tc(Zn) Phenomenological Prediction",
+    prior=0.99,
 )
 
 # ---------------------------------------------------------------------------
