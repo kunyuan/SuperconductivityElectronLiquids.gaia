@@ -167,7 +167,7 @@
       "source_claim": "github:superconductivity_electron_liquids::tc_li_observation_binding"
     }
   ],
-  "ir_hash": "sha256:db0d843e20c47808c3915a798d26fdc0c439feb08e719e10fcd7bffe72a13be2",
+  "ir_hash": "sha256:12320328d27259cde089349c9df3693d1e2589bbda204b9c686641ff78889c71",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -1183,7 +1183,7 @@
     },
     {
       "content": "Computing the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ of the uniform electron gas (UEG) is a long-standing challenge: perturbation theory in the bare Coulomb interaction diverges for $r_s \\gtrsim 1$, and partial resummations (RPA, GW) miss crucial vertex corrections. A controlled, systematically improvable method is needed to evaluate $\\tilde\\Gamma^e$ in the metallic density range $r_s \\in [1, 6]$.",
-      "content_hash": "f6f9c28d5209de099e6463cf96589f2ed63444d7becaa04d1b07aa4df9b9b262",
+      "content_hash": "8901a954d9e77d54e3b2a54544746646174c0ee6f32aad1de821b4272536d3a9",
       "declaration_index": 0,
       "exported": false,
       "format": "markdown",
@@ -1192,7 +1192,7 @@
       "module": "s4_pseudopotential",
       "parameters": [],
       "title": "UEG Four-Point Vertex Challenge",
-      "type": "claim"
+      "type": "note"
     },
     {
       "content": "Variational diagrammatic Monte Carlo (vDiagMC) provides a controlled, systematically improvable method for computing Feynman diagrammatic series to high order: (i) bold-line (self-consistent) resummation avoids infrared divergences in individual diagrams, (ii) stochastic sampling of diagram topologies and internal variables accesses orders unreachable by deterministic methods, (iii) the series can be extrapolated to infinite order with controlled error bars. For the UEG, vDiagMC achieves reliable convergence of the irreducible vertex in the metallic density range.",
@@ -1267,13 +1267,15 @@
         "relation": {
           "conclusion": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
           "given": [
+            "github:superconductivity_electron_liquids::mu_microscopic_definition",
             "github:superconductivity_electron_liquids::vdiagmc_method",
-            "github:superconductivity_electron_liquids::homotopic_expansion"
+            "github:superconductivity_electron_liquids::homotopic_expansion",
+            "github:superconductivity_electron_liquids::bts_renormalization"
           ],
           "type": "observe"
         },
         "review": true,
-        "warrant": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) stochastically samples Feynman diagrams with bold-line propagators, and the homotopic expansion (@homotopic_expansion) provides the convergence acceleration. Conditional on both methodological assumptions, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale."
+        "warrant": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) stochastically samples Feynman diagrams with bold-line propagators, and the homotopic expansion (@homotopic_expansion) provides the convergence acceleration. Conditional on these methodological premises, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale — included as a premise because the claim text reports the BTS-renormalized values $\\mu^\\ast \\approx 0.12\\text{-}0.18$."
       },
       "module": "s4_pseudopotential",
       "parameters": [],
@@ -1777,6 +1779,7 @@
         "gaia": {
           "provenance": {
             "referenced_claims": [
+              "bts_renormalization",
               "mu_vdiagmc_values",
               "simple_metals_weak_lattice",
               "ueg_pseudopotential_parameterization"
@@ -1790,12 +1793,13 @@
           "conclusion": "github:superconductivity_electron_liquids::mu_available_for_simple_metals",
           "given": [
             "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
-            "github:superconductivity_electron_liquids::mu_vdiagmc_values"
+            "github:superconductivity_electron_liquids::mu_vdiagmc_values",
+            "github:superconductivity_electron_liquids::bts_renormalization"
           ],
           "type": "derive"
         },
         "review": true,
-        "warrant": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency."
+        "warrant": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency — included as a premise because the material-specific $\\mu^*$ is what is actually 'available' here."
       },
       "module": "s6_superconductors",
       "parameters": [],
@@ -3075,20 +3079,20 @@
       "type": "claim"
     },
     {
-      "content": "all_true(github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion)",
-      "content_hash": "19fd17ae33ae1e59dc41febac3a13bf5acee4af084a1dd02fd44455eb8a4bf1b",
+      "content": "all_true(github:superconductivity_electron_liquids::mu_microscopic_definition,github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion,github:superconductivity_electron_liquids::bts_renormalization)",
+      "content_hash": "1ec2904e4fdf57df9b217bcb1f35d113311247c70c0b6b52841d03dda38dca12",
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc",
-      "label": "__conjunction_result_e3ae32cc",
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_858c7249",
+      "label": "__conjunction_result_858c7249",
       "metadata": {
-        "canonical_name": "all_true(github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion)",
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::mu_microscopic_definition,github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion,github:superconductivity_electron_liquids::bts_renormalization)",
         "generated": true,
         "generated_kind": "helper_claim",
         "helper_kind": "conjunction_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "conjunction_result",
-        "owning_strategy_id": "lcs_1707ae5b64cb4147",
+        "owning_strategy_id": "lcs_7eefab14b09b9e5b",
         "owning_strategy_type": "deduction",
         "review": false,
         "visibility": "formal_internal"
@@ -3097,20 +3101,20 @@
       "type": "claim"
     },
     {
-      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
-      "content_hash": "90ee1b7e096186b3f77b383b444e71f5dc4ccaed62709c1544c2110723841084",
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_858c7249,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+      "content_hash": "35a7cadeb2b5c229ad0d040b5164c802646d02747a9b84f87e2fcf7884d75faa",
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::__implication_result_cbde1a67",
-      "label": "__implication_result_cbde1a67",
+      "id": "github:superconductivity_electron_liquids::__implication_result_bde291bf",
+      "label": "__implication_result_bde291bf",
       "metadata": {
-        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_858c7249,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
         "generated": true,
         "generated_kind": "helper_claim",
         "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "implication_result",
-        "owning_strategy_id": "lcs_1707ae5b64cb4147",
+        "owning_strategy_id": "lcs_7eefab14b09b9e5b",
         "owning_strategy_type": "deduction",
         "review": true,
         "visibility": "formal_internal"
@@ -3295,20 +3299,20 @@
       "type": "claim"
     },
     {
-      "content": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
-      "content_hash": "0c1546710ad4fa84b9ee1a856e7774f2cc3959a44696f2ec9f64225bce8b4c38",
+      "content": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values,github:superconductivity_electron_liquids::bts_renormalization)",
+      "content_hash": "0aea070189074846811bd445714b012e1c2bf6edcf03039a2b9c5ada0104d2d9",
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::__conjunction_result_f1b2c201",
-      "label": "__conjunction_result_f1b2c201",
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_145a64a6",
+      "label": "__conjunction_result_145a64a6",
       "metadata": {
-        "canonical_name": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values,github:superconductivity_electron_liquids::bts_renormalization)",
         "generated": true,
         "generated_kind": "helper_claim",
         "helper_kind": "conjunction_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "conjunction_result",
-        "owning_strategy_id": "lcs_c8240d89418f8b6d",
+        "owning_strategy_id": "lcs_c1e0b8975f936437",
         "owning_strategy_type": "deduction",
         "review": false,
         "visibility": "formal_internal"
@@ -3317,20 +3321,20 @@
       "type": "claim"
     },
     {
-      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_f1b2c201,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
-      "content_hash": "0122f39c0bdcf2219b81c923903dc9d41d2eefbc1a30b41f2ccb67038e2d184b",
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_145a64a6,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
+      "content_hash": "726ac2f06bd7aac0bfabcc1547df681d04975d89aba67c13f5728b331f57d215",
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::__implication_result_0c9612f3",
-      "label": "__implication_result_0c9612f3",
+      "id": "github:superconductivity_electron_liquids::__implication_result_88c1d26b",
+      "label": "__implication_result_88c1d26b",
       "metadata": {
-        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_f1b2c201,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_145a64a6,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
         "generated": true,
         "generated_kind": "helper_claim",
         "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "implication_result",
-        "owning_strategy_id": "lcs_c8240d89418f8b6d",
+        "owning_strategy_id": "lcs_c1e0b8975f936437",
         "owning_strategy_type": "deduction",
         "review": true,
         "visibility": "formal_internal"
@@ -4184,26 +4188,26 @@
     },
     {
       "background": [
-        "github:superconductivity_electron_liquids::ueg_vertex_challenge",
-        "github:superconductivity_electron_liquids::mu_microscopic_definition",
-        "github:superconductivity_electron_liquids::bts_renormalization"
+        "github:superconductivity_electron_liquids::ueg_vertex_challenge"
       ],
       "conclusion": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc",
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_858c7249",
             "operator": "conjunction",
             "variables": [
+              "github:superconductivity_electron_liquids::mu_microscopic_definition",
               "github:superconductivity_electron_liquids::vdiagmc_method",
-              "github:superconductivity_electron_liquids::homotopic_expansion"
+              "github:superconductivity_electron_liquids::homotopic_expansion",
+              "github:superconductivity_electron_liquids::bts_renormalization"
             ]
           },
           {
-            "conclusion": "github:superconductivity_electron_liquids::__implication_result_cbde1a67",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_bde291bf",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc",
+              "github:superconductivity_electron_liquids::__conjunction_result_858c7249",
               "github:superconductivity_electron_liquids::mu_vdiagmc_values"
             ]
           }
@@ -4219,16 +4223,18 @@
         ]
       },
       "premises": [
+        "github:superconductivity_electron_liquids::mu_microscopic_definition",
         "github:superconductivity_electron_liquids::vdiagmc_method",
-        "github:superconductivity_electron_liquids::homotopic_expansion"
+        "github:superconductivity_electron_liquids::homotopic_expansion",
+        "github:superconductivity_electron_liquids::bts_renormalization"
       ],
       "scope": "local",
       "steps": [
         {
-          "reasoning": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) stochastically samples Feynman diagrams with bold-line propagators, and the homotopic expansion (@homotopic_expansion) provides the convergence acceleration. Conditional on both methodological assumptions, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale."
+          "reasoning": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) stochastically samples Feynman diagrams with bold-line propagators, and the homotopic expansion (@homotopic_expansion) provides the convergence acceleration. Conditional on these methodological premises, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale — included as a premise because the claim text reports the BTS-renormalized values $\\mu^\\ast \\approx 0.12\\text{-}0.18$."
         }
       ],
-      "strategy_id": "lcs_1707ae5b64cb4147",
+      "strategy_id": "lcs_7eefab14b09b9e5b",
       "type": "deduction"
     },
     {
@@ -4473,18 +4479,19 @@
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_f1b2c201",
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_145a64a6",
             "operator": "conjunction",
             "variables": [
               "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
-              "github:superconductivity_electron_liquids::mu_vdiagmc_values"
+              "github:superconductivity_electron_liquids::mu_vdiagmc_values",
+              "github:superconductivity_electron_liquids::bts_renormalization"
             ]
           },
           {
-            "conclusion": "github:superconductivity_electron_liquids::__implication_result_0c9612f3",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_88c1d26b",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::__conjunction_result_f1b2c201",
+              "github:superconductivity_electron_liquids::__conjunction_result_145a64a6",
               "github:superconductivity_electron_liquids::mu_available_for_simple_metals"
             ]
           }
@@ -4501,15 +4508,16 @@
       },
       "premises": [
         "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
-        "github:superconductivity_electron_liquids::mu_vdiagmc_values"
+        "github:superconductivity_electron_liquids::mu_vdiagmc_values",
+        "github:superconductivity_electron_liquids::bts_renormalization"
       ],
       "scope": "local",
       "steps": [
         {
-          "reasoning": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency."
+          "reasoning": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency — included as a premise because the material-specific $\\mu^*$ is what is actually 'available' here."
         }
       ],
-      "strategy_id": "lcs_c8240d89418f8b6d",
+      "strategy_id": "lcs_c1e0b8975f936437",
       "type": "deduction"
     },
     {

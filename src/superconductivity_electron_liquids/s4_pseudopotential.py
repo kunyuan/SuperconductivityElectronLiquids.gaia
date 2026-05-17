@@ -6,16 +6,19 @@ Monte Carlo (vDiagMC), obtaining numerically exact values of mu at the Fermi
 energy scale, and confronting the RPA prediction of attractive mu*.
 """
 
-from gaia.engine.lang import claim, contradict, observe
+from gaia.engine.lang import claim, contradict, note, observe
 
 from .motivation import bts_renormalization, rpa_predicts_attractive_mu
 from .s3_downfolding import mu_microscopic_definition
 
 # ---------------------------------------------------------------------------
-# Leaf claims
+# Motivation note (problem statement — no probabilistic content)
 # ---------------------------------------------------------------------------
 
-ueg_vertex_challenge = claim(
+# Problem statement for why a controlled many-body method is needed at all;
+# not a premise of any computational result, so a non-probabilistic note()
+# rather than a claim() that BP would have to assign a belief to.
+ueg_vertex_challenge = note(
     "Computing the particle-particle irreducible four-point vertex "
     "$\\tilde\\Gamma^e$ of the uniform electron gas (UEG) is a "
     "long-standing challenge: perturbation theory in the bare Coulomb "
@@ -25,6 +28,10 @@ ueg_vertex_challenge = claim(
     "metallic density range $r_s \\in [1, 6]$.",
     title="UEG Four-Point Vertex Challenge",
 )
+
+# ---------------------------------------------------------------------------
+# Methodological premises
+# ---------------------------------------------------------------------------
 
 vdiagmc_method = claim(
     "Variational diagrammatic Monte Carlo (vDiagMC) provides a controlled, "
@@ -93,18 +100,25 @@ mu_vdiagmc_values = claim(
     },
 )
 
-# mu_vdiagmc_values is a numerical-computation INPUT to the package, not a
-# derivation. We register it as a *conditional observation*: the numerical
-# result is pinned to ``True`` only if (i) the vDiagMC series converges and
-# (ii) the homotopic expansion is valid — the two non-trivial methodological
-# assumptions whose failure would invalidate the values. By making these
-# assumptions explicit ``given=`` premises (themselves with no inline prior),
-# BP propagates uncertainty in the methodology directly into the μ* belief
-# rather than the author hand-tuning a single warrant probability.
+# mu_vdiagmc_values is a numerical-computation INPUT to the package. It is
+# registered as a *conditional observation* over four logically necessary
+# premises:
+#   - mu_microscopic_definition  (definitional: tells us WHAT μ_{ω_c} is —
+#                                 without it, the values are nameless numbers
+#                                 with no physical interpretation)
+#   - vdiagmc_method             (methodological: the vDiagMC series converges
+#                                 in the diagram orders sampled)
+#   - homotopic_expansion        (methodological: the homotopy convergence
+#                                 assumption is valid in this r_s range)
+#   - bts_renormalization        (methodological: BTS relation is used inside
+#                                 this claim to scale μ_EF → μ* at the Debye
+#                                 cutoff, see the claim text)
+# All four are given= rather than background= so they are actual premises of
+# the observation rather than mere contextual citations.
 observe(
     mu_vdiagmc_values,
-    given=(vdiagmc_method, homotopic_expansion),
-    background=[ueg_vertex_challenge, mu_microscopic_definition, bts_renormalization],
+    given=(mu_microscopic_definition, vdiagmc_method, homotopic_expansion, bts_renormalization),
+    background=[ueg_vertex_challenge],
     rationale=(
         "The microscopic definition of $\\mu_{\\omega_c}$ "
         "(@mu_microscopic_definition) reduces, for the uniform electron gas, "
@@ -113,11 +127,13 @@ observe(
         "(@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) "
         "stochastically samples Feynman diagrams with bold-line propagators, "
         "and the homotopic expansion (@homotopic_expansion) provides the "
-        "convergence acceleration. Conditional on both methodological "
-        "assumptions, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error "
+        "convergence acceleration. Conditional on these methodological "
+        "premises, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error "
         "bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization "
         "relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to "
-        "$\\mu^*$ at the Debye scale."
+        "$\\mu^*$ at the Debye scale — included as a premise because the "
+        "claim text reports the BTS-renormalized values $\\mu^\\ast \\approx "
+        "0.12\\text{-}0.18$."
     ),
 )
 
