@@ -1,18 +1,19 @@
-"""Electron-Phonon Coupling
+"""Section V — Electron-Phonon Coupling.
 
 Derives the EFT expression for the electron-phonon vertex, validates the DFPT
 approximation for simple metals by analyzing the three-point vertex corrections
-via vDiagMC and the Ward identity, and shows that quasiparticle mass renormalization
-is close to unity.
+via vDiagMC and the Ward identity, and shows that quasiparticle mass
+renormalization is close to unity.
 """
 
-from gaia.lang import claim, composite, deduction, induction, support
+from gaia.engine.lang import claim, derive, observe
 
 from .motivation import dfpt_computes_lambda
 from .s3_downfolding import lambda_microscopic_definition
+from .s4_pseudopotential import vdiagmc_method
 
 # ---------------------------------------------------------------------------
-# Leaf claims (no strategies)
+# Leaf claims
 # ---------------------------------------------------------------------------
 
 ward_identity = claim(
@@ -36,8 +37,26 @@ gamma3_vdiagmc = claim(
     title="vDiagMC Computation of Gamma_3",
     metadata={
         "figure": "artifacts/images/12_0.jpg",
-        "caption": "Fig. 8 | Comparison between the angle-resolved e-ph vertex correction in the UEG from vDiagMC (points) and DFPT (lines) for different r_s values.",
+        "caption": (
+            "Fig. 8 | Comparison between the angle-resolved e-ph vertex "
+            "correction in the UEG from vDiagMC (points) and DFPT (lines) "
+            "for different r_s values."
+        ),
     },
+)
+
+# gamma3_vdiagmc is a numerical-computation INPUT. Its reliability is
+# entirely a function of whether the vDiagMC series for the three-point
+# vertex converges within the diagram orders sampled. Pin it conditionally.
+observe(
+    gamma3_vdiagmc,
+    given=(vdiagmc_method,),
+    rationale=(
+        "The reported 10-20% vertex correction at finite $q$ is the "
+        "numerical output of the vDiagMC sampling; the result is pinned "
+        "as a measurement event conditional on the vDiagMC series "
+        "convergence assumption captured by @vdiagmc_method."
+    ),
 )
 
 dfpt_eph_ansatz = claim(
@@ -86,11 +105,10 @@ eft_eph_vertex = claim(
     title="EFT Electron-Phonon Vertex",
 )
 
-# deduction: lambda microscopic definition -> EFT vertex expression
-deduction(
-    premises=[lambda_microscopic_definition],
-    conclusion=eft_eph_vertex,
-    reason=(
+derive(
+    eft_eph_vertex,
+    given=(lambda_microscopic_definition,),
+    rationale=(
         "The microscopic definition of $\\lambda$ (@lambda_microscopic_definition) "
         "involves the Fermi-surface average of $W^{\\mathrm{ph}}$ weighted by "
         "quasiparticle factors. Expanding $W^{\\mathrm{ph}}$ in terms of the "
@@ -99,7 +117,6 @@ deduction(
         "yields the EFT vertex $g(k,q) = z^e \\cdot \\Gamma_3^e(k,q) \\cdot "
         "g_0(k,q)$."
     ),
-    prior=0.97,
 )
 
 gamma3_approximation = claim(
@@ -114,44 +131,31 @@ gamma3_approximation = claim(
     title="Approximate Gamma_3 within Fermi Sphere",
 )
 
-_support_ward = support(
-    premises=[ward_identity],
-    conclusion=gamma3_approximation,
-    reason=(
+# Two independent evidences both deriving gamma3_approximation:
+# the Ward identity (exact at q->0) and the vDiagMC computation (finite q).
+# Their inductive synthesis is encoded by both derive() actions targeting the
+# same conclusion claim; the legacy induction() summarization is implicit.
+derive(
+    gamma3_approximation,
+    given=(ward_identity,),
+    rationale=(
         "The Ward identity (@ward_identity) provides the exact value of "
         "$\\Gamma_3^e$ at $q = 0$: $\\Gamma_3^e(k, 0) = m^*/m$. This exact "
         "constraint anchors the approximation at zero momentum transfer."
     ),
-    prior=0.95,
 )
 
-_support_gamma3_vdiagmc = support(
-    premises=[gamma3_vdiagmc],
-    conclusion=gamma3_approximation,
-    reason=(
+derive(
+    gamma3_approximation,
+    given=(gamma3_vdiagmc,),
+    rationale=(
         "The vDiagMC computation (@gamma3_vdiagmc) shows that at finite $q$ "
         "within the Fermi sphere, vertex corrections remain modest (10--20%) "
         "and vary smoothly with momentum, supporting the approximation "
         "$\\Gamma_3^e \\approx m^*/m$ across the relevant momentum range."
     ),
-    prior=0.88,
 )
 
-_induction_gamma3 = induction(
-    _support_ward,
-    _support_gamma3_vdiagmc,
-    gamma3_approximation,
-    reason=(
-        "The Ward identity provides the exact value at $q = 0$ and the vDiagMC "
-        "computation confirms smooth, modest variations at finite $q$. By "
-        "interpolating between these two controlled limits, we obtain a reliable "
-        "approximation $\\Gamma_3^e \\approx m^*/m$ that captures the dominant "
-        "effect (mass renormalization) while bounding the error from momentum "
-        "dependence at the 10--15% level."
-    ),
-)
-
-# Intermediate claim for composite decomposition
 eft_vertex_matches_dfpt = claim(
     "In the uniform electron gas at densities $r_s \\in [1,5]$, the "
     "EFT electron-phonon vertex $g(\\mathbf{k},\\mathbf{q}) = "
@@ -165,22 +169,11 @@ eft_vertex_matches_dfpt = claim(
     title="EFT Vertex Matches DFPT",
 )
 
-dfpt_reliable_for_simple_metals = claim(
-    "For simple metals, the DFPT calculation of the electron-phonon "
-    "coupling constant $\\lambda$ is reliable: the EFT vertex matches "
-    "the DFPT expression at the vertex level, and the quasiparticle "
-    "density of states $N_F^*$ nearly equals the band density of states "
-    "$N_F^{(0)}$, so $\\lambda_{\\mathrm{EFT}} \\approx "
-    "\\lambda_{\\mathrm{DFPT}}$ with corrections at the few-percent level.",
-    title="DFPT Reliable for Simple Metals",
-)
-
-# Sub-step 1: EFT vertex + Gamma_3 approximation -> vertex-level match
-_s1 = deduction(
-    premises=[eft_eph_vertex, gamma3_approximation],
-    conclusion=eft_vertex_matches_dfpt,
+derive(
+    eft_vertex_matches_dfpt,
+    given=(eft_eph_vertex, gamma3_approximation),
     background=[dfpt_eph_ansatz],
-    reason=(
+    rationale=(
         "Substituting the approximate $\\Gamma_3^e \\approx m^*/m$ "
         "(@gamma3_approximation) into the EFT vertex expression "
         "(@eft_eph_vertex) $g = z^e \\cdot \\Gamma_3^e \\cdot g_0$, "
@@ -191,15 +184,23 @@ _s1 = deduction(
         "$g^{\\mathrm{KS}}(q)$. The vertex-level agreement holds for "
         "$|q| \\leq 2k_F$ with weak residual $k$-dependence."
     ),
-    prior=0.93,
 )
 
-# Sub-step 2: vertex match + mass near unity -> lambda match
-_s2 = deduction(
-    premises=[eft_vertex_matches_dfpt, quasiparticle_mass_near_unity],
-    conclusion=dfpt_reliable_for_simple_metals,
+dfpt_reliable_for_simple_metals = claim(
+    "For simple metals, the DFPT calculation of the electron-phonon "
+    "coupling constant $\\lambda$ is reliable: the EFT vertex matches "
+    "the DFPT expression at the vertex level, and the quasiparticle "
+    "density of states $N_F^*$ nearly equals the band density of states "
+    "$N_F^{(0)}$, so $\\lambda_{\\mathrm{EFT}} \\approx "
+    "\\lambda_{\\mathrm{DFPT}}$ with corrections at the few-percent level.",
+    title="DFPT Reliable for Simple Metals",
+)
+
+derive(
+    dfpt_reliable_for_simple_metals,
+    given=(eft_vertex_matches_dfpt, quasiparticle_mass_near_unity),
     background=[dfpt_computes_lambda],
-    reason=(
+    rationale=(
         "The vertex-level agreement $g \\approx g^{\\mathrm{KS}}$ "
         "(@eft_vertex_matches_dfpt) ensures the electron-phonon matrix "
         "elements match. To obtain $\\lambda$, these must be combined with "
@@ -209,13 +210,4 @@ _s2 = deduction(
         "$N_F^* \\approx N_F^{(0)}$, and therefore "
         "$\\lambda_{\\mathrm{EFT}} \\approx \\lambda_{\\mathrm{DFPT}}$."
     ),
-    prior=0.92,
-)
-
-# Composite: preserves coarse view (3 premises → conclusion)
-_composite_dfpt = composite(
-    premises=[eft_eph_vertex, gamma3_approximation,
-              quasiparticle_mass_near_unity],
-    conclusion=dfpt_reliable_for_simple_metals,
-    sub_strategies=[_s1, _s2],
 )

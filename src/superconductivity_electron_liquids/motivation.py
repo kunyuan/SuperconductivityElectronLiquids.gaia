@@ -1,17 +1,18 @@
-"""Introduction: Motivation and Background
+"""Introduction: Motivation and Background.
 
-Establishes the theoretical context (BCS/Migdal-Eliashberg) and the phenomenological
-limitations of traditional approaches to predicting superconducting Tc, motivating the
-need for a first-principles treatment of the Coulomb pseudopotential.
+Establishes the theoretical context (BCS / Migdal-Eliashberg) and the
+phenomenological limitations of traditional approaches to predicting
+superconducting Tc, motivating the need for a first-principles treatment
+of the Coulomb pseudopotential.
 """
 
-from gaia.lang import claim, deduction, question, setting
+from gaia.engine.lang import claim, derive, exclusive, infer, observe, question
 
 # ---------------------------------------------------------------------------
-# Settings — background frameworks
+# Framework claims (axiomatic but probabilistic; carry an inline prior)
 # ---------------------------------------------------------------------------
 
-bcs_theory = setting(
+bcs_theory = claim(
     "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron "
     "attraction leads to Cooper pairing instability at the Fermi surface, providing "
     "the fundamental framework for understanding conventional superconductors.",
@@ -19,7 +20,7 @@ bcs_theory = setting(
 )
 
 # ---------------------------------------------------------------------------
-# Claims — leaf nodes (no strategies)
+# Leaf claims (no derivation; priors carried inline)
 # ---------------------------------------------------------------------------
 
 adiabatic_approx = claim(
@@ -44,15 +45,19 @@ me_framework = claim(
     title="Migdal-Eliashberg Framework",
     metadata={
         "figure": "artifacts/images/4_0.jpg",
-        "caption": "Fig. 1 | Normal component of the electron self-energy approximated by the self-consistent Fock diagram with the phonon-mediated e-e interaction W^ph.",
+        "caption": (
+            "Fig. 1 | Normal component of the electron self-energy approximated "
+            "by the self-consistent Fock diagram with the phonon-mediated e-e "
+            "interaction W^ph."
+        ),
     },
 )
 
-deduction(
-    premises=[adiabatic_approx],
-    conclusion=me_framework,
+derive(
+    me_framework,
+    given=(adiabatic_approx,),
     background=[bcs_theory],
-    reason=(
+    rationale=(
         "The adiabatic condition $\\omega_D/E_F \\ll 1$ (@adiabatic_approx) "
         "ensures that the ratio of ionic to electronic energy scales is small. "
         "Migdal's theorem then proves that phonon vertex corrections beyond "
@@ -60,7 +65,6 @@ deduction(
         "establishing the Migdal-Eliashberg formalism as a controlled "
         "approximation built on the BCS pairing mechanism (@bcs_theory)."
     ),
-    prior=0.97,
 )
 
 bts_renormalization = claim(
@@ -133,7 +137,7 @@ dfpt_computes_lambda = claim(
 )
 
 # ---------------------------------------------------------------------------
-# Claims — experimental Tc values
+# Experimental Tc observations
 # ---------------------------------------------------------------------------
 
 tc_al_experimental = claim(
@@ -145,8 +149,7 @@ tc_al_experimental = claim(
 tc_li_experimental = claim(
     "The experimental superconducting transition temperature of lithium (Li) "
     "is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). "
-    "This measurement corresponds to the 9R crystal structure; the crystal "
-    "structure of lithium at ultra-low temperatures remains controversial.",
+    "This measurement corresponds to the 9R crystal structure.",
     title="Tc(Li) Experimental",
 )
 
@@ -156,35 +159,139 @@ tc_zn_experimental = claim(
     title="Tc(Zn) Experimental",
 )
 
-# ---------------------------------------------------------------------------
-# Claims — phenomenological Tc predictions
-# ---------------------------------------------------------------------------
-
-tc_al_phenomenological = claim(
-    "Using the McMillan formula (an empirical formula for $T_c$ based on "
-    "the electron-phonon coupling constant $\\lambda$ and Coulomb "
-    "pseudopotential $\\mu^*$) with the standard value $\\mu^* = 0.1$, "
-    "the predicted superconducting transition temperature of aluminum is "
-    "$T_c \\approx 1.9$ K, while the experimental value is 1.2 K, a "
-    "deviation of approximately 58%.",
-    title="Tc(Al) Phenomenological Prediction",
+# Premise capturing the dominant source of uncertainty in the Li Tc input:
+# at ultra-low temperatures the lithium crystal structure (9R vs HCP vs other)
+# is debated. The Tc(Li) observation in s6 is therefore declared *conditional*
+# on this premise — without an a-priori prior on the premise itself, BP lets
+# downstream evidence (Bayes likelihood vs ab initio prediction) decide its
+# belief rather than the author handwaving a value.
+li_crystal_structure_at_low_t = claim(
+    "Lithium's crystal structure at sub-kelvin temperatures is debated. "
+    "Measurements consistent with the 9R polytype are typically cited, but "
+    "the structural identification at the sample where $T_c \\approx 4 "
+    "\\times 10^{-4}$ K was inferred is not independently established. The "
+    "Tc(Li) experimental input therefore assumes 9R is the relevant phase.",
+    title="Li 9R Structural Assumption at Sub-Kelvin T",
 )
 
-tc_li_phenomenological = claim(
-    "Using the McMillan formula with $\\mu^* = 0.1$, the predicted "
-    "superconducting transition temperature of lithium is "
-    "$T_c \\approx 0.35$ K, while the experimental value is approximately "
-    "$4 \\times 10^{-4}$ K; the theory overestimates by about three orders "
-    "of magnitude.",
-    title="Tc(Li) Phenomenological Prediction",
+# ---------------------------------------------------------------------------
+# Li "is it actually superconducting?" discrimination layer.
+#
+# The lab observed a resistivity drop at ~0.4 mK. There are two competing
+# explanations for that datum: a genuine bulk SC transition, or a non-SC
+# anomaly (filamentary SC / surface effects / contact artifacts / structural
+# transition under sub-mK extreme conditions).  Because the gold-standard
+# Meissner-Ochsenfeld experiment has *not* been performed on this sample,
+# the latter possibility cannot be ruled out.
+#
+# Encoded structurally as:
+#   (1) two mutually exclusive hypothesis claims (no inline prior),
+#   (2) the actual zero-resistance observation pinned via observe(),
+#   (3) infer(...) with asymmetric P(e|h)/P(e|¬h) for that evidence,
+#       giving a modest Bayes factor (~3x for Li),
+#   (4) a *hypothetical* Meissner observation claim with the much stronger
+#       BF wired via infer(...) — but NOT observed, so it sits in the
+#       graph as a dormant edge ready to be activated if the experiment
+#       is ever performed,
+#   (5) a question() node recording the open inquiry status.
+# ---------------------------------------------------------------------------
+
+li_is_superconducting = claim(
+    "Li in the 9R structure undergoes a genuine bulk superconducting "
+    "transition at $T_c \\approx 4 \\times 10^{-4}$ K. The Cooper pair "
+    "condensate is bulk (not filamentary or surface), and the observed "
+    "resistive anomaly reflects this true SC state.",
+    title="Li is Bulk Superconducting",
 )
 
-tc_zn_phenomenological = claim(
-    "Using the McMillan formula with the standard value $\\mu^* = 0.1$, "
-    "the predicted superconducting transition temperature of zinc is "
-    "$T_c \\approx 1.37$ K, while the experimental value is 0.875 K, "
-    "a deviation of approximately 57%.",
-    title="Tc(Zn) Phenomenological Prediction",
+li_anomaly_not_sc = claim(
+    "The resistive anomaly observed in Li 9R at $\\sim 0.4$ mK is "
+    "*not* a bulk superconducting transition: it could be filamentary "
+    "SC on grain boundaries / impurity phases, surface superconductivity, "
+    "measurement / contact artifacts amplified at sub-mK temperatures, "
+    "a structural transition that mimics a SC signature, or another "
+    "phenomenon of the extreme sub-mK regime.",
+    title="Li Resistive Anomaly Is Not Bulk SC",
+)
+
+exclusive(
+    li_is_superconducting,
+    li_anomaly_not_sc,
+    rationale=(
+        "A specific sample either undergoes bulk SC or it does not. The "
+        "two interpretive hypotheses for the observed resistive anomaly "
+        "are mutually exclusive."
+    ),
+    label="li_sc_hypothesis_exclusive",
+)
+
+# Evidence #1: zero resistance was actually measured (observe + infer).
+li_zero_resistance_observed = claim(
+    "Resistivity of the Li 9R sample drops sharply to below the measurement "
+    "noise floor at $T \\approx 0.4$ mK (Schwarz et al. and follow-ups).",
+    title="Li Resistance Drop at ~0.4 mK",
+)
+observe(
+    li_zero_resistance_observed,
+    background=[li_crystal_structure_at_low_t],
+    rationale=(
+        "The resistive drop is the actual laboratory observation cited as "
+        "evidence for SC in Li at sub-mK temperatures. Pin via observe()."
+    ),
+    label="li_zero_r_observation",
+)
+
+infer(
+    li_zero_resistance_observed,
+    hypothesis=li_is_superconducting,
+    p_e_given_h=0.90,
+    p_e_given_not_h=0.30,
+    rationale=(
+        "Bulk SC almost always (>0.9) produces a sharp resistive drop to "
+        "below the noise floor, but in the sub-mK extreme regime the "
+        "non-SC alternative (filamentary SC, surface effects, contact "
+        "artifacts, structural transitions) can also produce such a "
+        "signature with non-negligible probability (~0.3). Bayes factor "
+        "~3x supports SC — informative but far from decisive."
+    ),
+    label="li_zero_r_supports_sc",
+)
+
+# Evidence #2: Meissner-Ochsenfeld experiment was NOT performed.
+# The claim is declared so the graph contains the structural edge, but
+# observe() is deliberately omitted: an unpinned evidence node carries
+# no force on BP until someone actually runs the experiment and pins it.
+li_meissner_observed = claim(
+    "Meissner-Ochsenfeld expulsion of magnetic flux is observed for the "
+    "Li 9R sample at sub-K temperatures, confirming bulk SC.",
+    title="Li Meissner Observation (hypothetical)",
+)
+
+infer(
+    li_meissner_observed,
+    hypothesis=li_is_superconducting,
+    p_e_given_h=0.99,
+    p_e_given_not_h=0.005,
+    rationale=(
+        "Meissner expulsion is essentially unique to bulk SC (BF ~200x). "
+        "The structural infer() edge sits in the graph as a dormant "
+        "discriminator: while li_meissner_observed remains unpinned the "
+        "factor exerts no force on the SC hypothesis posterior. If the "
+        "Meissner experiment is performed and observed (positive), simply "
+        "add observe(li_meissner_observed) and BP propagates the strong "
+        "evidence; if observed null, the factor flips against SC."
+    ),
+    label="li_meissner_would_support_sc",
+)
+
+li_meissner_inquiry = question(
+    "Has the Meissner-Ochsenfeld experiment been performed on the Li 9R "
+    "sample at sub-K temperatures? This is the gold-standard discriminator "
+    "between genuine bulk SC and the various non-SC explanations (BF ~200x "
+    "if positive; near-decisive ruling-out if null). The package currently "
+    "records no public data on this measurement.",
+    targets=[li_meissner_observed, li_is_superconducting, li_anomaly_not_sc],
+    title="Missing Meissner Experiment for Li 9R",
 )
 
 # ---------------------------------------------------------------------------

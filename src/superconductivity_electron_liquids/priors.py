@@ -1,84 +1,132 @@
-"""Leaf claim priors — package input interface.
+"""Prior assignments — author-side trust anchors.
 
-Each entry maps a leaf claim (not derived by any strategy) to its
-prior probability and a one-line justification. These are injected
-into claim metadata by ``gaia compile`` and read by the lowering
-layer during inference.
+Per the v0.5 methodology, prior values are attached only to claims that
+carry **explicit prior information** — experimental measurements, exact
+mathematical identities, well-established theoretical frameworks, or
+high-precision numerical benchmarks — not to author confidence about
+derivations or descriptive claims. Every prior set below names the
+specific source it draws on via ``source_id`` and a one-sentence
+``justification``.
+
+For claims whose reliability depends on a model assumption (e.g. the
+vDiagMC numerical results conditional on series convergence, or the
+Tc(Li) measurement conditional on the 9R structural identification),
+the conditional nature is encoded *structurally* via ``observe(...,
+given=premise_claim)`` in the source modules rather than baked into a
+single warrant prior here.
+
+Auto-imported by ``gaia build compile``.
 """
+
+from gaia.engine.lang import register_prior
 
 from .motivation import (
     adiabatic_approx,
-    bts_renormalization,
-    dfpt_computes_lambda,
-    me_downfolding_is_phenomenological,
-    mu_star_phenomenological,
-    phenomenological_me_theory,
-    rpa_predicts_attractive_mu,
+    bcs_theory,
     tc_al_experimental,
-    tc_al_phenomenological,
-    tc_li_experimental,
-    tc_li_phenomenological,
     tc_zn_experimental,
-    tc_zn_phenomenological,
 )
-from .s2_model import electron_phonon_action, precursory_cooper_flow
-from .s3_downfolding import (
-    cross_term_suppressed,
-    downfolding_validity_limits,
+from .s5_eph_coupling import quasiparticle_mass_near_unity, ward_identity
+from .s6_superconductors import simple_metals_weak_lattice
+
+# ---------------------------------------------------------------------------
+# Experimental trust anchors
+# ---------------------------------------------------------------------------
+
+register_prior(
+    tc_al_experimental,
+    0.99,
+    source_id="experimental_measurement",
+    justification=(
+        "Aluminium T_c = 1.2 K is a well-established laboratory value; the "
+        "1% residual reserves probability for systematic / structural "
+        "qualifications not formalized in this package."
+    ),
 )
-from .s4_pseudopotential import (
-    homotopic_expansion,
-    ueg_vertex_challenge,
-    vdiagmc_method,
+
+register_prior(
+    tc_zn_experimental,
+    0.99,
+    source_id="experimental_measurement",
+    justification=(
+        "Zinc T_c = 0.875 K is a well-established laboratory value; the 1% "
+        "residual reserves probability for systematic qualifications."
+    ),
 )
-from .s5_eph_coupling import (
-    dfpt_eph_ansatz,
-    gamma3_vdiagmc,
-    quasiparticle_mass_near_unity,
+
+# Note: tc_li_experimental intentionally has no inline prior. The reliability
+# of the cited 0.4 mK measurement is conditional on the 9R structural
+# identification, which is recorded structurally as
+# observe(tc_li_observation_binding, given=(li_crystal_structure_at_low_t,))
+# in s6_superconductors.py.
+
+# ---------------------------------------------------------------------------
+# Exact mathematical identity
+# ---------------------------------------------------------------------------
+
+register_prior(
     ward_identity,
+    0.98,
+    source_id="qft_exact_identity",
+    justification=(
+        "The Ward identity is an exact consequence of charge conservation in "
+        "QED/QFT; the 2% reserve accounts for the package's framework "
+        "assumptions (linearizable e-ion coupling, single-band approximation) "
+        "rather than the identity itself."
+    ),
 )
-from .s6_superconductors import (
+
+# ---------------------------------------------------------------------------
+# Theoretical frameworks (well-established, taken as background context)
+# ---------------------------------------------------------------------------
+
+register_prior(
+    bcs_theory,
+    0.98,
+    source_id="established_theoretical_framework",
+    justification=(
+        "BCS theory has been the canonical framework for conventional "
+        "phonon-mediated superconductors since 1957, with extensive "
+        "experimental validation across simple metals, alloys, and elemental "
+        "superconductors."
+    ),
+)
+
+register_prior(
+    adiabatic_approx,
+    0.95,
+    source_id="empirical_physical_scale",
+    justification=(
+        "For simple metals omega_D / E_F ~ 0.005, satisfying the adiabatic "
+        "small-parameter condition by two orders of magnitude. Migdal's "
+        "theorem has been validated across the relevant material class."
+    ),
+)
+
+# ---------------------------------------------------------------------------
+# Physical assertions backed by tight numerical benchmarks
+# ---------------------------------------------------------------------------
+
+register_prior(
     simple_metals_weak_lattice,
-    ueg_pseudopotential_parameterization,
+    0.90,
+    source_id="empirical_physical_assertion",
+    justification=(
+        "The nearly-free-electron character of Al, Li, Na, Mg, Zn implies "
+        "the spherical-Fermi-surface approximation holds at the few-percent "
+        "level; the crystalline mu* differs from the UEG mu* by only a few "
+        "percent at matched r_s."
+    ),
 )
 
-PRIORS: dict = {
-    # Fundamental physics
-    adiabatic_approx: (0.95, "omega_D/E_F ~ 0.005 for simple metals; Migdal theorem validated."),
-    bts_renormalization: (0.95, "Standard RG result (1958), widely verified."),
-    ward_identity: (0.98, "Exact QFT identity from charge conservation."),
-    cross_term_suppressed: (0.90, "omega_c^2/omega_p^2 <= 0.01; conservative plasmon-pole estimate."),
-
-    # Computational methods
-    vdiagmc_method: (0.90, "Rigorous Feynman diagram expansion; validated at r_s <= 5."),
-    homotopic_expansion: (0.88, "Log-divergence cure rigorous; conformal-map relies on analyticity."),
-    gamma3_vdiagmc: (0.88, "Systematic uncertainty from truncation; method validated elsewhere."),
-    quasiparticle_mass_near_unity: (0.92, "High-precision QMC/DiagMC: m*/m < 1% deviation for r_s <= 5."),
-    ueg_pseudopotential_parameterization: (0.85, "Mapping procedure reasonable; band-mass correction adds uncertainty."),
-
-    # RPA prediction
-    rpa_predicts_attractive_mu: (0.50, "RPA calc correct; physical content uncertain at r_s > 1."),
-
-    # Experimental Tc
-    tc_al_experimental: (0.99, "Well-established measurement."),
-    tc_zn_experimental: (0.99, "Well-established measurement."),
-    tc_li_experimental: (0.85, "Crystal structure controversial at ultra-low T."),
-
-    # Phenomenological Tc — priors reflect explanatory power (how well they match
-    # experiment), not calculation correctness.
-    tc_al_phenomenological: (0.35, "Predicts 1.9K vs experiment 1.2K (58% overestimate); poor match."),
-    tc_zn_phenomenological: (0.35, "Predicts 1.37K vs experiment 0.875K (57% overestimate); poor match."),
-    tc_li_phenomenological: (0.10, "Predicts 0.35K vs experiment 4e-4K (3 orders too high); very poor match."),
-
-    # Background / orphaned claims
-    ueg_vertex_challenge: (0.95, "Recognized challenge."),
-    me_downfolding_is_phenomenological: (0.95, "Well-known limitation."),
-    mu_star_phenomenological: (0.95, "Established practice."),
-    phenomenological_me_theory: (0.95, "Accurate description."),
-    simple_metals_weak_lattice: (0.90, "Well-supported."),
-    dfpt_computes_lambda: (0.92, "Established methodology."),
-    electron_phonon_action: (0.95, "Standard EFT decomposition."),
-    downfolding_validity_limits: (0.92, "Well-characterized."),
-    precursory_cooper_flow: (0.90, "Verified in prior work."),
-    dfpt_eph_ansatz: (0.90, "Standard DFPT expression."),
-}
+register_prior(
+    quasiparticle_mass_near_unity,
+    0.92,
+    source_id="qmc_numerical_data",
+    justification=(
+        "High-precision QMC and DiagMC calculations consistently show "
+        "|m*/m - 1| < 5-10% for r_s in [2,5]; uncertainty reflects the "
+        "spread across independent computations and material-specific band "
+        "corrections."
+    ),
+)
