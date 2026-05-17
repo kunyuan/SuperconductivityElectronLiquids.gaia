@@ -6,7 +6,7 @@ Monte Carlo (vDiagMC), obtaining numerically exact values of mu at the Fermi
 energy scale, and confronting the RPA prediction of attractive mu*.
 """
 
-from gaia.engine.lang import claim, contradict, derive
+from gaia.engine.lang import claim, contradict, observe
 
 from .motivation import bts_renormalization, rpa_predicts_attractive_mu
 from .s3_downfolding import mu_microscopic_definition
@@ -24,7 +24,6 @@ ueg_vertex_challenge = claim(
     "improvable method is needed to evaluate $\\tilde\\Gamma^e$ in the "
     "metallic density range $r_s \\in [1, 6]$.",
     title="UEG Four-Point Vertex Challenge",
-    prior=0.95,
 )
 
 vdiagmc_method = claim(
@@ -38,7 +37,6 @@ vdiagmc_method = claim(
     "UEG, vDiagMC achieves reliable convergence of the irreducible vertex "
     "in the metallic density range.",
     title="vDiagMC Method",
-    prior=0.90,
 )
 
 homotopic_expansion = claim(
@@ -50,7 +48,6 @@ homotopic_expansion = claim(
     "reach converged results for the four-point vertex at metallic "
     "densities with modest diagram orders ($n \\lesssim 7$).",
     title="Homotopic Expansion",
-    prior=0.88,
     metadata={
         "figure": "artifacts/images/10_0.jpg",
         "caption": (
@@ -96,7 +93,15 @@ mu_vdiagmc_values = claim(
     },
 )
 
-derive(
+# mu_vdiagmc_values is a numerical-computation INPUT to the package, not a
+# derivation. We register it as a *conditional observation*: the numerical
+# result is pinned to ``True`` only if (i) the vDiagMC series converges and
+# (ii) the homotopic expansion is valid — the two non-trivial methodological
+# assumptions whose failure would invalidate the values. By making these
+# assumptions explicit ``given=`` premises (themselves with no inline prior),
+# BP propagates uncertainty in the methodology directly into the μ* belief
+# rather than the author hand-tuning a single warrant probability.
+observe(
     mu_vdiagmc_values,
     given=(vdiagmc_method, homotopic_expansion),
     background=[ueg_vertex_challenge, mu_microscopic_definition, bts_renormalization],
@@ -106,17 +111,13 @@ derive(
         "to evaluating the particle-particle irreducible four-point vertex "
         "$\\tilde\\Gamma^e$ — a notoriously difficult quantity "
         "(@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) "
-        "provides a controlled, systematically improvable approach by "
-        "stochastically sampling Feynman diagrams with bold-line propagators. "
-        "The homotopic expansion (@homotopic_expansion) dramatically improves "
-        "convergence by reorganizing the series through a continuous deformation "
-        "of the bare interaction, enabling convergence at modest diagram orders. "
-        "Together, these yield numerically exact values of $\\mu_{E_F}(r_s)$ "
-        "with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). "
-        "The BTS renormalization relation (@bts_renormalization) then maps "
-        "$\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale, producing values "
-        "in the range 0.12--0.18 that are consistent with the empirical range "
-        "but now microscopically grounded."
+        "stochastically samples Feynman diagrams with bold-line propagators, "
+        "and the homotopic expansion (@homotopic_expansion) provides the "
+        "convergence acceleration. Conditional on both methodological "
+        "assumptions, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error "
+        "bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization "
+        "relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to "
+        "$\\mu^*$ at the Debye scale."
     ),
 )
 

@@ -15,6 +15,7 @@ from gaia.engine.lang import Constant, Real, claim, derive, equals, note, observ
 
 from .motivation import (
     dfpt_computes_lambda,
+    li_crystal_structure_at_low_t,
     mu_star_phenomenological,
     phenomenological_me_theory,
     tc_al_experimental,
@@ -97,7 +98,6 @@ simple_metals_weak_lattice = claim(
     "structure is well described by the homogeneous electron gas with "
     "minor crystal-field perturbations.",
     title="Simple Metals Have Weak Lattice Effects",
-    prior=0.90,
 )
 
 ueg_pseudopotential_parameterization = claim(
@@ -109,7 +109,6 @@ ueg_pseudopotential_parameterization = claim(
     "$\\mu^*(r_s)$ for any simple metal without additional adjustable "
     "parameters.",
     title="UEG mu* Parameterization and Mapping",
-    prior=0.85,
 )
 
 # ---------------------------------------------------------------------------
@@ -123,7 +122,6 @@ mu_available_for_simple_metals = claim(
     "via material-specific $r_s$ and band mass, then scaled to the Debye "
     "frequency via the BTS renormalization relation.",
     title="mu* Available for Simple Metals",
-    prior=0.88,
 )
 
 derive(
@@ -185,7 +183,6 @@ al_pressure_transition = claim(
     "superconductivity in Al vanishes at approximately 60 GPa; at 20 GPa, "
     "$T_c$ is already suppressed below 1 mK.",
     title="Al Pressure-Tc Transition",
-    prior=0.80,
     metadata={
         "figure": "artifacts/images/14_0.jpg",
         "caption": (
@@ -224,7 +221,6 @@ tc_mg_na_near_qpt = claim(
     "superconducting and non-superconducting ground states, where "
     "$T_c$ varies exponentially with small parameter changes.",
     title="Na and Mg Near Quantum Phase Transition",
-    prior=0.80,
     metadata={
         "figure": "artifacts/images/15_0.jpg",
         "caption": (
@@ -476,11 +472,13 @@ _tc_li_observation_binding.label = "tc_li_observation_binding"
 
 tc_li_observation = observe(
     _tc_li_observation_binding,
+    given=(li_crystal_structure_at_low_t,),
     background=[lithium_parameters, tc_li_experimental],
     rationale=(
         "Experimental T_c(Li) ≈ 4×10⁻⁴ K (@tc_li_experimental, 9R structure). "
-        "The crystal structure at sub-kelvin temperatures is still debated, "
-        "contributing some structural uncertainty to the comparison."
+        "Conditional on @li_crystal_structure_at_low_t — the sample's "
+        "structural identification at sub-Kelvin temperature is uncertain, "
+        "so the log Tc pin is conditional rather than unconditional."
     ),
     label="tc_li_observation",
 )

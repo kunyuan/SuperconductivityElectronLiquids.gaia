@@ -6,10 +6,11 @@ via vDiagMC and the Ward identity, and shows that quasiparticle mass
 renormalization is close to unity.
 """
 
-from gaia.engine.lang import claim, derive
+from gaia.engine.lang import claim, derive, observe
 
 from .motivation import dfpt_computes_lambda
 from .s3_downfolding import lambda_microscopic_definition
+from .s4_pseudopotential import vdiagmc_method
 
 # ---------------------------------------------------------------------------
 # Leaf claims
@@ -23,7 +24,6 @@ ward_identity = claim(
     "consequence of charge conservation and provides an exact constraint "
     "on vertex corrections at zero momentum transfer.",
     title="Ward Identity at q->0",
-    prior=0.98,
 )
 
 gamma3_vdiagmc = claim(
@@ -35,7 +35,6 @@ gamma3_vdiagmc = claim(
     "interpolated between the Ward-identity limit ($q \\to 0$) and "
     "the large-$q$ asymptotic behavior.",
     title="vDiagMC Computation of Gamma_3",
-    prior=0.88,
     metadata={
         "figure": "artifacts/images/12_0.jpg",
         "caption": (
@@ -44,6 +43,20 @@ gamma3_vdiagmc = claim(
             "for different r_s values."
         ),
     },
+)
+
+# gamma3_vdiagmc is a numerical-computation INPUT. Its reliability is
+# entirely a function of whether the vDiagMC series for the three-point
+# vertex converges within the diagram orders sampled. Pin it conditionally.
+observe(
+    gamma3_vdiagmc,
+    given=(vdiagmc_method,),
+    rationale=(
+        "The reported 10-20% vertex correction at finite $q$ is the "
+        "numerical output of the vDiagMC sampling; the result is pinned "
+        "as a measurement event conditional on the vDiagMC series "
+        "convergence assumption captured by @vdiagmc_method."
+    ),
 )
 
 dfpt_eph_ansatz = claim(
@@ -55,7 +68,6 @@ dfpt_eph_ansatz = claim(
     "exchange-correlation functional. The accuracy of this ansatz depends "
     "on how well DFT captures the relevant vertex corrections.",
     title="DFPT Expression for e-ph Coupling",
-    prior=0.90,
 )
 
 quasiparticle_mass_near_unity = claim(
@@ -67,7 +79,6 @@ quasiparticle_mass_near_unity = claim(
     "momentum-dependent mass enhancement, simplifying the mapping between "
     "microscopic and DFPT-level electron-phonon coupling.",
     title="Quasiparticle Mass Near Unity",
-    prior=0.92,
 )
 
 # ---------------------------------------------------------------------------

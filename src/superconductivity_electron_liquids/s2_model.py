@@ -25,7 +25,6 @@ electron_phonon_action = claim(
     "already included in the physical phonon dispersion to prevent double "
     "counting.",
     title="Electron-Phonon Action Decomposition",
-    prior=0.95,
     metadata={
         "figure": "artifacts/images/4_1.jpg",
         "caption": (
@@ -83,5 +82,4 @@ precursory_cooper_flow = claim(
     "$T_c = \\omega_\\Lambda e^{1/g}$; by computing in the normal state "
     "and extrapolating, one can predict $T_c$.",
     title="Precursory Cooper Flow",
-    prior=0.90,
 )

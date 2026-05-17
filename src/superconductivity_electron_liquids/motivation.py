@@ -17,7 +17,6 @@ bcs_theory = claim(
     "attraction leads to Cooper pairing instability at the Fermi surface, providing "
     "the fundamental framework for understanding conventional superconductors.",
     title="BCS Theory",
-    prior=0.98,
 )
 
 # ---------------------------------------------------------------------------
@@ -33,7 +32,6 @@ adiabatic_approx = claim(
     "(iii) the space-time scale separation between electron and phonon physics "
     "permits a controlled effective field theory (EFT) treatment.",
     title="Adiabatic Approximation",
-    prior=0.95,
 )
 
 me_framework = claim(
@@ -79,7 +77,6 @@ bts_renormalization = claim(
     "This relation ensures that physical observables do not depend on the "
     "choice of the arbitrary cutoff scale.",
     title="BTS Renormalization Relation",
-    prior=0.95,
 )
 
 me_downfolding_is_phenomenological = claim(
@@ -90,7 +87,6 @@ me_downfolding_is_phenomenological = claim(
     "fluctuations to quasiparticle renormalization and electron-phonon "
     "coupling, as well as non-local effects of screening.",
     title="ME Downfolding is Phenomenological",
-    prior=0.95,
 )
 
 phenomenological_me_theory = claim(
@@ -105,7 +101,6 @@ phenomenological_me_theory = claim(
     "several orders of magnitude in the predicted $T_c$, destroying "
     "predictive power.",
     title="Phenomenological ME Theory Limitations",
-    prior=0.95,
 )
 
 mu_star_phenomenological = claim(
@@ -115,7 +110,6 @@ mu_star_phenomenological = claim(
     "is typically treated as an adjustable parameter with empirical values "
     "in the range 0.1--0.2.",
     title="mu* as Phenomenological Parameter",
-    prior=0.95,
 )
 
 rpa_predicts_attractive_mu = claim(
@@ -130,7 +124,6 @@ rpa_predicts_attractive_mu = claim(
     "in this density regime and inconsistent with extensive experimental "
     "evidence.",
     title="RPA Predicts Attractive mu*",
-    prior=0.50,
 )
 
 dfpt_computes_lambda = claim(
@@ -141,7 +134,6 @@ dfpt_computes_lambda = claim(
     "distortions. DFPT has been validated for weakly correlated superconductors "
     "but its accuracy for strongly correlated systems is unknown.",
     title="DFPT Computes lambda",
-    prior=0.92,
 )
 
 # ---------------------------------------------------------------------------
@@ -152,23 +144,34 @@ tc_al_experimental = claim(
     "The experimental superconducting transition temperature of aluminum (Al) "
     "is $T_c^{\\mathrm{exp}} = 1.2$ K.",
     title="Tc(Al) Experimental",
-    prior=0.99,
 )
 
 tc_li_experimental = claim(
     "The experimental superconducting transition temperature of lithium (Li) "
     "is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). "
-    "This measurement corresponds to the 9R crystal structure; the crystal "
-    "structure of lithium at ultra-low temperatures remains controversial.",
+    "This measurement corresponds to the 9R crystal structure.",
     title="Tc(Li) Experimental",
-    prior=0.85,
 )
 
 tc_zn_experimental = claim(
     "The experimental superconducting transition temperature of zinc (Zn) "
     "is $T_c^{\\mathrm{exp}} = 0.875$ K.",
     title="Tc(Zn) Experimental",
-    prior=0.99,
+)
+
+# Premise capturing the dominant source of uncertainty in the Li Tc input:
+# at ultra-low temperatures the lithium crystal structure (9R vs HCP vs other)
+# is debated. The Tc(Li) observation in s6 is therefore declared *conditional*
+# on this premise — without an a-priori prior on the premise itself, BP lets
+# downstream evidence (Bayes likelihood vs ab initio prediction) decide its
+# belief rather than the author handwaving a value.
+li_crystal_structure_at_low_t = claim(
+    "Lithium's crystal structure at sub-kelvin temperatures is debated. "
+    "Measurements consistent with the 9R polytype are typically cited, but "
+    "the structural identification at the sample where $T_c \\approx 4 "
+    "\\times 10^{-4}$ K was inferred is not independently established. The "
+    "Tc(Li) experimental input therefore assumes 9R is the relevant phase.",
+    title="Li 9R Structural Assumption at Sub-Kelvin T",
 )
 
 # ---------------------------------------------------------------------------

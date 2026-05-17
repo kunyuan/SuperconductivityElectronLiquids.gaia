@@ -59,7 +59,6 @@ cross_term_suppressed = claim(
     "$\\omega_c/\\omega_p \\lesssim 0.1$, so cross terms contribute no more "
     "than 1%.",
     title="Cross-Channel Terms Suppressed",
-    prior=0.90,
 )
 
 # Smell-fix per migration plan: orphan claim → background note.
