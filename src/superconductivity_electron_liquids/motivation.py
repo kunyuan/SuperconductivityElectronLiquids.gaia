@@ -112,6 +112,46 @@ mu_star_phenomenological = claim(
     title="mu* as Phenomenological Parameter",
 )
 
+# Three "phenomenological" claims are logically chained, not independent:
+# mu_star being a fitted parameter (root) implies the downfolding procedure
+# itself is phenomenological (it bakes in a static μ* without microscopic
+# anchoring), which together with the exponential Tc sensitivity implies
+# the McMillan/Allen-Dynes framework loses predictive power. Without this
+# chain the three claims are redundant restatements; wiring them via
+# derive() makes the dependency explicit.
+
+derive(
+    me_downfolding_is_phenomenological,
+    given=(mu_star_phenomenological,),
+    rationale=(
+        "Because $\\mu^*$ is treated as an empirical adjustable parameter "
+        "rather than computed from first principles "
+        "(@mu_star_phenomenological), the downfolding procedure in "
+        "traditional Migdal-Eliashberg theory is necessarily phenomenological: "
+        "the Coulomb effect is replaced by a single static value with no "
+        "microscopic underpinning, and corrections from Coulomb fluctuations "
+        "to quasiparticle renormalization and electron-phonon coupling are "
+        "absent because the phenomenological closure provides no mechanism "
+        "to compute them."
+    ),
+)
+
+derive(
+    phenomenological_me_theory,
+    given=(me_downfolding_is_phenomenological,),
+    rationale=(
+        "Given the phenomenological character of the downfolding "
+        "(@me_downfolding_is_phenomenological), the resulting McMillan / "
+        "Allen-Dynes formula inherits the uncertainty in $\\mu^*$. The "
+        "dimensionless coupling $g = \\lambda - \\mu^*(1 + 0.62\\lambda)$ "
+        "appears exponentially in $T_c \\propto \\exp(-1/g)$, so the "
+        "empirical $\\mu^*$ range $[0.1, 0.2]$ amplifies into orders-of-"
+        "magnitude uncertainty in predicted $T_c$ for sub-Kelvin "
+        "superconductors — destroying predictive power precisely where "
+        "first-principles $\\mu^*$ would matter most."
+    ),
+)
+
 rpa_predicts_attractive_mu = claim(
     "When treating the dynamically screened Coulomb interaction within the "
     "random phase approximation (RPA), the predicted $\\mu^* < 0$ "

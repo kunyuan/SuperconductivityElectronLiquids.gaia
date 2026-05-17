@@ -2,7 +2,7 @@
 
 ## Modules
 
-- [motivation](Module-motivation) (24 nodes)
+- [motivation](Module-motivation) (26 nodes)
 - [s2_model](Module-s2-model) (4 nodes)
 - [s3_downfolding](Module-s3-downfolding) (22 nodes)
 - [s4_pseudopotential](Module-s4-pseudopotential) (6 nodes)
@@ -19,9 +19,11 @@
 | me_framework | claim | motivation | 0.98 |
 |  | claim | motivation | 0.50 |
 | bts_renormalization | claim | motivation | 0.97 |
-| me_downfolding_is_phenomenological | claim | motivation | 0.50 |
-| phenomenological_me_theory | claim | motivation | 0.15 |
-| mu_star_phenomenological | claim | motivation | 0.50 |
+| me_downfolding_is_phenomenological | claim | motivation | 0.47 |
+| phenomenological_me_theory | claim | motivation | 0.55 |
+| mu_star_phenomenological | claim | motivation | 0.31 |
+|  | claim | motivation | 0.50 |
+|  | claim | motivation | 0.50 |
 | rpa_predicts_attractive_mu | claim | motivation | 0.25 |
 | dfpt_computes_lambda | claim | motivation | 0.50 |
 | tc_al_experimental | claim | motivation | 0.99 |
@@ -44,7 +46,7 @@
 | precursory_cooper_flow | claim | s2_model | 0.50 |
 | pair_propagator_decomposition | note | s3_downfolding | — |
 | rpa_dynamic_screening | note | s3_downfolding | — |
-| cross_term_suppressed | claim | s3_downfolding | 0.60 |
+| cross_term_suppressed | claim | s3_downfolding | 0.59 |
 | downfolding_validity_limits | note | s3_downfolding | — |
 | downfolded_bse | claim | s3_downfolding | 0.89 |
 |  | claim | s3_downfolding | 0.50 |
@@ -57,17 +59,17 @@
 |  | claim | s3_downfolding | 0.50 |
 | lambda_microscopic_definition | claim | s3_downfolding | 0.95 |
 |  | claim | s3_downfolding | 0.50 |
-| mu_microscopic_definition | claim | s3_downfolding | 0.95 |
+| mu_microscopic_definition | claim | s3_downfolding | 0.94 |
 |  | claim | s3_downfolding | 0.50 |
 | mu_scale_independence | claim | s3_downfolding | 0.97 |
 |  | claim | s3_downfolding | 0.50 |
 | bts_microscopic_equivalence | claim | s3_downfolding | 1.00 |
 | ma_pseudopotential_justified | claim | s3_downfolding | 0.97 |
 |  | claim | s3_downfolding | 0.50 |
-| ueg_vertex_challenge | claim | s4_pseudopotential | 0.50 |
-| vdiagmc_method | claim | s4_pseudopotential | 0.53 |
+| ueg_vertex_challenge | note | s4_pseudopotential | — |
+| vdiagmc_method | claim | s4_pseudopotential | 0.54 |
 | homotopic_expansion | claim | s4_pseudopotential | 0.46 |
-| mu_vdiagmc_values | claim | s4_pseudopotential | 0.50 |
+| mu_vdiagmc_values | claim | s4_pseudopotential | 0.49 |
 |  | claim | s4_pseudopotential | 0.50 |
 | rpa_vs_vdiagmc | claim | s4_pseudopotential | 1.00 |
 | ward_identity | claim | s5_eph_coupling | 0.99 |
@@ -80,7 +82,7 @@
 | gamma3_approximation | claim | s5_eph_coupling | 1.00 |
 |  | claim | s5_eph_coupling | 0.50 |
 |  | claim | s5_eph_coupling | 0.50 |
-| eft_vertex_matches_dfpt | claim | s5_eph_coupling | 0.98 |
+| eft_vertex_matches_dfpt | claim | s5_eph_coupling | 0.99 |
 |  | claim | s5_eph_coupling | 0.50 |
 | dfpt_reliable_for_simple_metals | claim | s5_eph_coupling | 0.96 |
 |  | claim | s5_eph_coupling | 0.50 |
@@ -91,7 +93,7 @@
 | zinc_parameters | note | s6_superconductors | — |
 | simple_metals_weak_lattice | claim | s6_superconductors | 0.90 |
 | ueg_pseudopotential_parameterization | claim | s6_superconductors | 0.53 |
-| mu_available_for_simple_metals | claim | s6_superconductors | 0.73 |
+| mu_available_for_simple_metals | claim | s6_superconductors | 0.72 |
 |  | claim | s6_superconductors | 0.50 |
 | ab_initio_workflow | claim | s6_superconductors | 0.96 |
 |  | claim | s6_superconductors | 0.50 |
@@ -101,7 +103,7 @@
 |  | claim | s6_superconductors | 0.50 |
 | tc_al_predicted | claim | s6_superconductors | 0.98 |
 |  | claim | s6_superconductors | 0.50 |
-| tc_al_phenomenological | claim | s6_superconductors | 0.52 |
+| tc_al_phenomenological | claim | s6_superconductors | 0.58 |
 |  | claim | s6_superconductors | 0.50 |
 | tc_al_observation_binding | claim | s6_superconductors | 1.00 |
 |  | claim | s6_superconductors | 0.50 |
@@ -110,7 +112,7 @@
 | tc_al_likelihood | claim | s6_superconductors | 1.00 |
 | tc_zn_predicted | claim | s6_superconductors | 0.98 |
 |  | claim | s6_superconductors | 0.50 |
-| tc_zn_phenomenological | claim | s6_superconductors | 0.52 |
+| tc_zn_phenomenological | claim | s6_superconductors | 0.58 |
 |  | claim | s6_superconductors | 0.50 |
 | tc_zn_observation_binding | claim | s6_superconductors | 1.00 |
 |  | claim | s6_superconductors | 0.50 |
@@ -119,7 +121,7 @@
 | tc_zn_likelihood | claim | s6_superconductors | 1.00 |
 | tc_li_predicted | claim | s6_superconductors | 0.86 |
 |  | claim | s6_superconductors | 0.50 |
-| tc_li_phenomenological | claim | s6_superconductors | 0.51 |
+| tc_li_phenomenological | claim | s6_superconductors | 0.56 |
 |  | claim | s6_superconductors | 0.50 |
 | tc_li_observation_binding | claim | s6_superconductors | 0.75 |
 |  | claim | s6_superconductors | 0.50 |

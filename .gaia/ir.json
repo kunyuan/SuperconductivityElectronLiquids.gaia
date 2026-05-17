@@ -167,7 +167,7 @@
       "source_claim": "github:superconductivity_electron_liquids::tc_li_observation_binding"
     }
   ],
-  "ir_hash": "sha256:db0d843e20c47808c3915a798d26fdc0c439feb08e719e10fcd7bffe72a13be2",
+  "ir_hash": "sha256:d7706fa1034277580992aabe760bc84960469941f27bf9187b551fad948ac364",
   "knowledges": [
     {
       "content": "Bardeen-Cooper-Schrieffer (BCS) theory: phonon-mediated electron-electron attraction leads to Cooper pairing instability at the Fermi surface, providing the fundamental framework for understanding conventional superconductors.",
@@ -323,9 +323,75 @@
       "type": "claim"
     },
     {
+      "content": "derive warrants The downfolding procedure (integrating out high-energy degrees of freedom to obtain a low-energy effective theory) in traditional Migdal-Eliashberg (ME) theory is phenomenological: the Coulomb effect is replaced by a static pseudopotential $\\mu^*$, ignoring corrections from Coulomb fluctuations to quasiparticle renormalization and electron-phonon coupling, as well as non-local effects of screening.",
+      "content_hash": "3e4d3342b88d6bd3250e069d6a6598e0adfe9f931e2e8dce2873a6fde036db8f",
+      "declaration_index": 8,
+      "exported": false,
+      "format": "markdown",
+      "id": "github:superconductivity_electron_liquids::_anon_001",
+      "metadata": {
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_001",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "mu_star_phenomenological"
+            ]
+          }
+        },
+        "generated": true,
+        "helper_kind": "implication_warrant",
+        "pattern": "derivation",
+        "relation": {
+          "conclusion": "github:superconductivity_electron_liquids::me_downfolding_is_phenomenological",
+          "given": [
+            "github:superconductivity_electron_liquids::mu_star_phenomenological"
+          ],
+          "type": "derive"
+        },
+        "review": true,
+        "warrant": "Because $\\mu^*$ is treated as an empirical adjustable parameter rather than computed from first principles (@mu_star_phenomenological), the downfolding procedure in traditional Migdal-Eliashberg theory is necessarily phenomenological: the Coulomb effect is replaced by a single static value with no microscopic underpinning, and corrections from Coulomb fluctuations to quasiparticle renormalization and electron-phonon coupling are absent because the phenomenological closure provides no mechanism to compute them."
+      },
+      "module": "motivation",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "derive warrants Traditional electron-phonon superconductivity theory uses the McMillan (or Allen-Dynes) formula, with the electron-phonon coupling constant $\\lambda$ and Coulomb pseudopotential $\\mu^*$ as inputs to predict the superconducting transition temperature $T_c$. Since $\\mu^*$ cannot be reliably computed from first principles, it is typically assigned an empirical value $\\mu^* \\in [0.1, 0.2]$. For materials with $T_c$ in the sub-kelvin range, the exponential sensitivity $T_c \\propto \\exp(-1/g)$ to $\\mu^*$ causes this uncertainty to span several orders of magnitude in the predicted $T_c$, destroying predictive power.",
+      "content_hash": "9c92c195a156e1dd5b18689b1f3b84bdab439d34860862d3440e35d50af110c5",
+      "declaration_index": 9,
+      "exported": false,
+      "format": "markdown",
+      "id": "github:superconductivity_electron_liquids::_anon_002",
+      "metadata": {
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_002",
+        "gaia": {
+          "provenance": {
+            "referenced_claims": [
+              "me_downfolding_is_phenomenological"
+            ]
+          }
+        },
+        "generated": true,
+        "helper_kind": "implication_warrant",
+        "pattern": "derivation",
+        "relation": {
+          "conclusion": "github:superconductivity_electron_liquids::phenomenological_me_theory",
+          "given": [
+            "github:superconductivity_electron_liquids::me_downfolding_is_phenomenological"
+          ],
+          "type": "derive"
+        },
+        "review": true,
+        "warrant": "Given the phenomenological character of the downfolding (@me_downfolding_is_phenomenological), the resulting McMillan / Allen-Dynes formula inherits the uncertainty in $\\mu^*$. The dimensionless coupling $g = \\lambda - \\mu^*(1 + 0.62\\lambda)$ appears exponentially in $T_c \\propto \\exp(-1/g)$, so the empirical $\\mu^*$ range $[0.1, 0.2]$ amplifies into orders-of-magnitude uncertainty in predicted $T_c$ for sub-Kelvin superconductors — destroying predictive power precisely where first-principles $\\mu^*$ would matter most."
+      },
+      "module": "motivation",
+      "parameters": [],
+      "type": "claim"
+    },
+    {
       "content": "When treating the dynamically screened Coulomb interaction within the random phase approximation (RPA), the predicted $\\mu^* < 0$ (i.e. the Coulomb effect becomes net attractive in the Cooper channel) for Wigner-Seitz radius $r_s \\gtrsim 2$ ($r_s$ is proportional to the ratio of electron spacing to Bohr radius, measuring the ratio of Coulomb interaction to kinetic energy). However, RPA neglects beyond-RPA effects such as vertex corrections and self-energy renormalization for $r_s \\gtrsim 1$, making its predictions unreliable in this density regime and inconsistent with extensive experimental evidence.",
       "content_hash": "592db397d3ceb0d7723ee5b9004898e9018d42700658e4a08a38d3806740edf4",
-      "declaration_index": 8,
+      "declaration_index": 10,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::rpa_predicts_attractive_mu",
@@ -338,7 +404,7 @@
     {
       "content": "Density functional perturbation theory (DFPT) computes the electron-phonon coupling constant $\\lambda$ (a dimensionless parameter quantifying the phonon-mediated attraction strength at the Fermi surface) via the linear response of the Kohn-Sham ground-state energy to lattice distortions. DFPT has been validated for weakly correlated superconductors but its accuracy for strongly correlated systems is unknown.",
       "content_hash": "bd2c96f582df4e503791036087faa8609c457e246b2b1b7ce65c747fe81e2ca3",
-      "declaration_index": 9,
+      "declaration_index": 11,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::dfpt_computes_lambda",
@@ -351,7 +417,7 @@
     {
       "content": "The experimental superconducting transition temperature of aluminum (Al) is $T_c^{\\mathrm{exp}} = 1.2$ K.",
       "content_hash": "aa09a745c6a347fb802a0913236080b8d2cf250d8cff6d1d9bafb636b33dabcd",
-      "declaration_index": 10,
+      "declaration_index": 12,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::tc_al_experimental",
@@ -376,7 +442,7 @@
     {
       "content": "The experimental superconducting transition temperature of lithium (Li) is $T_c^{\\mathrm{exp}} \\approx 4 \\times 10^{-4}$ K (0.4 mK). This measurement corresponds to the 9R crystal structure.",
       "content_hash": "580cc8f539555d942ac619d1cd272005bcc9b0eeb60ab884983250c18ca7c506",
-      "declaration_index": 11,
+      "declaration_index": 13,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::tc_li_experimental",
@@ -389,7 +455,7 @@
     {
       "content": "The experimental superconducting transition temperature of zinc (Zn) is $T_c^{\\mathrm{exp}} = 0.875$ K.",
       "content_hash": "5b6e9b829a58469c7720410596a910f65db1f56266b96631c11373379d36642d",
-      "declaration_index": 12,
+      "declaration_index": 14,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::tc_zn_experimental",
@@ -414,7 +480,7 @@
     {
       "content": "Lithium's crystal structure at sub-kelvin temperatures is debated. Measurements consistent with the 9R polytype are typically cited, but the structural identification at the sample where $T_c \\approx 4 \\times 10^{-4}$ K was inferred is not independently established. The Tc(Li) experimental input therefore assumes 9R is the relevant phase.",
       "content_hash": "e4958b5bd208b88ad528c3bf18d0f4f5504a87f2c29387f3a978e9a9b3adcdd5",
-      "declaration_index": 13,
+      "declaration_index": 15,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::li_crystal_structure_at_low_t",
@@ -427,7 +493,7 @@
     {
       "content": "Li in the 9R structure undergoes a genuine bulk superconducting transition at $T_c \\approx 4 \\times 10^{-4}$ K. The Cooper pair condensate is bulk (not filamentary or surface), and the observed resistive anomaly reflects this true SC state.",
       "content_hash": "a1e4cd3c0037c40ad52db9d74716cab4759de763d7b28ef9f808409d76c2062a",
-      "declaration_index": 14,
+      "declaration_index": 16,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::li_is_superconducting",
@@ -440,7 +506,7 @@
     {
       "content": "The resistive anomaly observed in Li 9R at $\\sim 0.4$ mK is *not* a bulk superconducting transition: it could be filamentary SC on grain boundaries / impurity phases, surface superconductivity, measurement / contact artifacts amplified at sub-mK temperatures, a structural transition that mimics a SC signature, or another phenomenon of the extreme sub-mK regime.",
       "content_hash": "7d586642a07eec948841380f6e3571cd42c453b477f081dd982722964b68a1fc",
-      "declaration_index": 15,
+      "declaration_index": 17,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::li_anomaly_not_sc",
@@ -453,10 +519,10 @@
     {
       "content": "exactly one of Li in the 9R structure undergoes a genuine bulk superconducting transition at $T_c \\approx 4 \\times 10^{-4}$ K. The Cooper pair condensate is bulk (not filamentary or surface), and the observed resistive anomaly reflects this true SC state. and The resistive anomaly observed in Li 9R at $\\sim 0.4$ mK is *not* a bulk superconducting transition: it could be filamentary SC on grain boundaries / impurity phases, surface superconductivity, measurement / contact artifacts amplified at sub-mK temperatures, a structural transition that mimics a SC signature, or another phenomenon of the extreme sub-mK regime. is true.",
       "content_hash": "01aaf6988ccf1c1518bb98136517c9b383059158afef2bac77f21dd6b268c644",
-      "declaration_index": 16,
+      "declaration_index": 18,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_001",
+      "id": "github:superconductivity_electron_liquids::_anon_003",
       "metadata": {
         "generated": true,
         "helper_kind": "complement_result",
@@ -469,7 +535,7 @@
     {
       "content": "Resistivity of the Li 9R sample drops sharply to below the measurement noise floor at $T \\approx 0.4$ mK (Schwarz et al. and follow-ups).",
       "content_hash": "c5e8f1f8e622cfd161693411cb137ab3fabe388d4e50f509c55b4bc1d7e29a68",
-      "declaration_index": 17,
+      "declaration_index": 19,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::li_zero_resistance_observed",
@@ -485,7 +551,7 @@
             "pattern": "observation",
             "rationale": "The resistive drop is the actual laboratory observation cited as evidence for SC in Li at sub-mK temperatures. Pin via observe().",
             "warrants": [
-              "github:superconductivity_electron_liquids::_anon_002"
+              "github:superconductivity_electron_liquids::_anon_004"
             ]
           }
         ]
@@ -498,10 +564,10 @@
     {
       "content": "observe warrants Resistivity of the Li 9R sample drops sharply to below the measurement noise floor at $T \\approx 0.4$ mK (Schwarz et al. and follow-ups).",
       "content_hash": "a4d124d39b92382bff15ea77ebc7631073e2e551a3b0d64d7588a66770b5ac86",
-      "declaration_index": 18,
+      "declaration_index": 20,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_002",
+      "id": "github:superconductivity_electron_liquids::_anon_004",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::li_zero_r_observation",
         "generated": true,
@@ -522,10 +588,10 @@
     {
       "content": "Resistivity of the Li 9R sample drops sharply to below the measurement noise floor at $T \\approx 0.4$ mK (Schwarz et al. and follow-ups). statistically supports Li in the 9R structure undergoes a genuine bulk superconducting transition at $T_c \\approx 4 \\times 10^{-4}$ K. The Cooper pair condensate is bulk (not filamentary or surface), and the observed resistive anomaly reflects this true SC state..",
       "content_hash": "f09be5b9bb38053fffc0ed5ec6e979c366c79ea9d4590f1b85870210ff1a120a",
-      "declaration_index": 19,
+      "declaration_index": 21,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_003",
+      "id": "github:superconductivity_electron_liquids::_anon_005",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::li_zero_r_supports_sc",
         "generated": true,
@@ -547,7 +613,7 @@
     {
       "content": "Meissner-Ochsenfeld expulsion of magnetic flux is observed for the Li 9R sample at sub-K temperatures, confirming bulk SC.",
       "content_hash": "17382c69b387a47d0a57b8130104a973e3b14a8c0e0bf888c43b85206a549c44",
-      "declaration_index": 20,
+      "declaration_index": 22,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::li_meissner_observed",
@@ -560,10 +626,10 @@
     {
       "content": "Meissner-Ochsenfeld expulsion of magnetic flux is observed for the Li 9R sample at sub-K temperatures, confirming bulk SC. statistically supports Li in the 9R structure undergoes a genuine bulk superconducting transition at $T_c \\approx 4 \\times 10^{-4}$ K. The Cooper pair condensate is bulk (not filamentary or surface), and the observed resistive anomaly reflects this true SC state..",
       "content_hash": "afb8897627bb785e1c9ba4c9678de5be235483439762cd1825e52553a509039a",
-      "declaration_index": 21,
+      "declaration_index": 23,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_004",
+      "id": "github:superconductivity_electron_liquids::_anon_006",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::li_meissner_would_support_sc",
         "generated": true,
@@ -585,7 +651,7 @@
     {
       "content": "Has the Meissner-Ochsenfeld experiment been performed on the Li 9R sample at sub-K temperatures? This is the gold-standard discriminator between genuine bulk SC and the various non-SC explanations (BF ~200x if positive; near-decisive ruling-out if null). The package currently records no public data on this measurement.",
       "content_hash": "4e9cbe1fc3672695293586dd3ed678cbf2d26cc4edfe07bcb7fd90ee5086f4c9",
-      "declaration_index": 22,
+      "declaration_index": 24,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::li_meissner_inquiry",
@@ -598,7 +664,7 @@
     {
       "content": "Can the Coulomb pseudopotential $\\mu^*$ (the parameter quantifying effective electron-electron repulsion in the Cooper pairing channel) be computed from first principles with controlled accuracy, and can this yield quantitative predictions of the superconducting transition temperature $T_c$ for simple metals (e.g. Al, Li, Na, Mg)?",
       "content_hash": "5be398dbb2a5ff177e74aec9e9932a5990b2d23bbce664c9d24ea972112d1da2",
-      "declaration_index": 23,
+      "declaration_index": 25,
       "exported": false,
       "format": "markdown",
       "id": "github:superconductivity_electron_liquids::main_question",
@@ -648,9 +714,9 @@
       "declaration_index": 2,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_005",
+      "id": "github:superconductivity_electron_liquids::_anon_007",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_005",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_007",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -759,9 +825,9 @@
       "declaration_index": 5,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_006",
+      "id": "github:superconductivity_electron_liquids::_anon_008",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_006",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_008",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -813,9 +879,9 @@
       "declaration_index": 7,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_007",
+      "id": "github:superconductivity_electron_liquids::_anon_009",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_007",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_009",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -860,9 +926,9 @@
       "declaration_index": 9,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_008",
+      "id": "github:superconductivity_electron_liquids::_anon_010",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_008",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_010",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -932,9 +998,9 @@
       "declaration_index": 12,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_009",
+      "id": "github:superconductivity_electron_liquids::_anon_011",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_010",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_012",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -988,9 +1054,9 @@
       "declaration_index": 14,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_010",
+      "id": "github:superconductivity_electron_liquids::_anon_012",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_011",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_013",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1036,9 +1102,9 @@
       "declaration_index": 16,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_011",
+      "id": "github:superconductivity_electron_liquids::_anon_013",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_012",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_014",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1082,9 +1148,9 @@
       "declaration_index": 18,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_012",
+      "id": "github:superconductivity_electron_liquids::_anon_014",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_013",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_015",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1153,9 +1219,9 @@
       "declaration_index": 21,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_013",
+      "id": "github:superconductivity_electron_liquids::_anon_015",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_015",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_017",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1183,7 +1249,7 @@
     },
     {
       "content": "Computing the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ of the uniform electron gas (UEG) is a long-standing challenge: perturbation theory in the bare Coulomb interaction diverges for $r_s \\gtrsim 1$, and partial resummations (RPA, GW) miss crucial vertex corrections. A controlled, systematically improvable method is needed to evaluate $\\tilde\\Gamma^e$ in the metallic density range $r_s \\in [1, 6]$.",
-      "content_hash": "f6f9c28d5209de099e6463cf96589f2ed63444d7becaa04d1b07aa4df9b9b262",
+      "content_hash": "8901a954d9e77d54e3b2a54544746646174c0ee6f32aad1de821b4272536d3a9",
       "declaration_index": 0,
       "exported": false,
       "format": "markdown",
@@ -1192,7 +1258,7 @@
       "module": "s4_pseudopotential",
       "parameters": [],
       "title": "UEG Four-Point Vertex Challenge",
-      "type": "claim"
+      "type": "note"
     },
     {
       "content": "Variational diagrammatic Monte Carlo (vDiagMC) provides a controlled, systematically improvable method for computing Feynman diagrammatic series to high order: (i) bold-line (self-consistent) resummation avoids infrared divergences in individual diagrams, (ii) stochastic sampling of diagram topologies and internal variables accesses orders unreachable by deterministic methods, (iii) the series can be extrapolated to infinite order with controlled error bars. For the UEG, vDiagMC achieves reliable convergence of the irreducible vertex in the metallic density range.",
@@ -1247,9 +1313,9 @@
       "declaration_index": 4,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_014",
+      "id": "github:superconductivity_electron_liquids::_anon_016",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_016",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_018",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1267,13 +1333,15 @@
         "relation": {
           "conclusion": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
           "given": [
+            "github:superconductivity_electron_liquids::mu_microscopic_definition",
             "github:superconductivity_electron_liquids::vdiagmc_method",
-            "github:superconductivity_electron_liquids::homotopic_expansion"
+            "github:superconductivity_electron_liquids::homotopic_expansion",
+            "github:superconductivity_electron_liquids::bts_renormalization"
           ],
           "type": "observe"
         },
         "review": true,
-        "warrant": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) stochastically samples Feynman diagrams with bold-line propagators, and the homotopic expansion (@homotopic_expansion) provides the convergence acceleration. Conditional on both methodological assumptions, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale."
+        "warrant": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) stochastically samples Feynman diagrams with bold-line propagators, and the homotopic expansion (@homotopic_expansion) provides the convergence acceleration. Conditional on these methodological premises, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale — included as a premise because the claim text reports the BTS-renormalized values $\\mu^\\ast \\approx 0.12\\text{-}0.18$."
       },
       "module": "s4_pseudopotential",
       "parameters": [],
@@ -1352,9 +1420,9 @@
       "declaration_index": 2,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_015",
+      "id": "github:superconductivity_electron_liquids::_anon_017",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_018",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_020",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1445,9 +1513,9 @@
       "declaration_index": 6,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_016",
+      "id": "github:superconductivity_electron_liquids::_anon_018",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_019",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_021",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1491,9 +1559,9 @@
       "declaration_index": 8,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_017",
+      "id": "github:superconductivity_electron_liquids::_anon_019",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_020",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_022",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1524,9 +1592,9 @@
       "declaration_index": 9,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_018",
+      "id": "github:superconductivity_electron_liquids::_anon_020",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_021",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_023",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1570,9 +1638,9 @@
       "declaration_index": 11,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_019",
+      "id": "github:superconductivity_electron_liquids::_anon_021",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_022",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_024",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1619,9 +1687,9 @@
       "declaration_index": 13,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_020",
+      "id": "github:superconductivity_electron_liquids::_anon_022",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_023",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_025",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1771,12 +1839,13 @@
       "declaration_index": 8,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_021",
+      "id": "github:superconductivity_electron_liquids::_anon_023",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_024",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_026",
         "gaia": {
           "provenance": {
             "referenced_claims": [
+              "bts_renormalization",
               "mu_vdiagmc_values",
               "simple_metals_weak_lattice",
               "ueg_pseudopotential_parameterization"
@@ -1790,12 +1859,13 @@
           "conclusion": "github:superconductivity_electron_liquids::mu_available_for_simple_metals",
           "given": [
             "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
-            "github:superconductivity_electron_liquids::mu_vdiagmc_values"
+            "github:superconductivity_electron_liquids::mu_vdiagmc_values",
+            "github:superconductivity_electron_liquids::bts_renormalization"
           ],
           "type": "derive"
         },
         "review": true,
-        "warrant": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency."
+        "warrant": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency — included as a premise because the material-specific $\\mu^*$ is what is actually 'available' here."
       },
       "module": "s6_superconductors",
       "parameters": [],
@@ -1824,9 +1894,9 @@
       "declaration_index": 10,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_022",
+      "id": "github:superconductivity_electron_liquids::_anon_024",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_025",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_027",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1878,9 +1948,9 @@
       "declaration_index": 12,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_023",
+      "id": "github:superconductivity_electron_liquids::_anon_025",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_026",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_028",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1929,9 +1999,9 @@
       "declaration_index": 14,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_024",
+      "id": "github:superconductivity_electron_liquids::_anon_026",
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_027",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_029",
         "gaia": {
           "provenance": {
             "referenced_claims": [
@@ -1977,7 +2047,7 @@
       "declaration_index": 16,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_025",
+      "id": "github:superconductivity_electron_liquids::_anon_027",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::tc_al_predicted",
         "generated": true,
@@ -2015,7 +2085,7 @@
       "declaration_index": 18,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_026",
+      "id": "github:superconductivity_electron_liquids::_anon_028",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::tc_al_phenomenological",
         "generated": true,
@@ -2087,7 +2157,7 @@
             "pattern": "observation",
             "rationale": "Well-established measurement: T_c(Al) = 1.2 K (@tc_al_experimental). Pin via log Tc binding so the Bayesian log-Tc likelihood comparison sees the data point.",
             "warrants": [
-              "github:superconductivity_electron_liquids::_anon_027"
+              "github:superconductivity_electron_liquids::_anon_029"
             ]
           }
         ]
@@ -2108,7 +2178,7 @@
       "declaration_index": 20,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_027",
+      "id": "github:superconductivity_electron_liquids::_anon_029",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::tc_al_observation",
         "generated": true,
@@ -2262,7 +2332,7 @@
       "declaration_index": 25,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_028",
+      "id": "github:superconductivity_electron_liquids::_anon_030",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::tc_zn_predicted",
         "generated": true,
@@ -2300,7 +2370,7 @@
       "declaration_index": 27,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_029",
+      "id": "github:superconductivity_electron_liquids::_anon_031",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::tc_zn_phenomenological",
         "generated": true,
@@ -2372,7 +2442,7 @@
             "pattern": "observation",
             "rationale": "Well-established measurement: T_c(Zn) = 0.875 K (@tc_zn_experimental); pinned via log Tc binding.",
             "warrants": [
-              "github:superconductivity_electron_liquids::_anon_030"
+              "github:superconductivity_electron_liquids::_anon_032"
             ]
           }
         ]
@@ -2393,7 +2463,7 @@
       "declaration_index": 29,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_030",
+      "id": "github:superconductivity_electron_liquids::_anon_032",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::tc_zn_observation",
         "generated": true,
@@ -2547,7 +2617,7 @@
       "declaration_index": 34,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_031",
+      "id": "github:superconductivity_electron_liquids::_anon_033",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::tc_li_predicted",
         "gaia": {
@@ -2593,7 +2663,7 @@
       "declaration_index": 36,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_032",
+      "id": "github:superconductivity_electron_liquids::_anon_034",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::tc_li_phenomenological",
         "gaia": {
@@ -2672,7 +2742,7 @@
       "declaration_index": 38,
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::_anon_033",
+      "id": "github:superconductivity_electron_liquids::_anon_035",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::tc_li_observation",
         "gaia": {
@@ -2847,6 +2917,50 @@
         "helper_visibility": "formal_internal",
         "intermediate_role": "implication_result",
         "owning_strategy_id": "lcs_9479177dc7606a37",
+        "owning_strategy_type": "deduction",
+        "review": true,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::mu_star_phenomenological,github:superconductivity_electron_liquids::me_downfolding_is_phenomenological)",
+      "content_hash": "fc0b27182156f5aafa83395461cc7dbc42e52bf56ee57440a244fa1fbaa0e7d0",
+      "exported": false,
+      "format": "markdown",
+      "id": "github:superconductivity_electron_liquids::__implication_result_13f82ef5",
+      "label": "__implication_result_13f82ef5",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::mu_star_phenomenological,github:superconductivity_electron_liquids::me_downfolding_is_phenomenological)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_0022361121e237a7",
+        "owning_strategy_type": "deduction",
+        "review": true,
+        "visibility": "formal_internal"
+      },
+      "parameters": [],
+      "type": "claim"
+    },
+    {
+      "content": "implies(github:superconductivity_electron_liquids::me_downfolding_is_phenomenological,github:superconductivity_electron_liquids::phenomenological_me_theory)",
+      "content_hash": "15c871603a255739b1e64dfe15bf0920d21febaa7ded0802f9df5585251f8871",
+      "exported": false,
+      "format": "markdown",
+      "id": "github:superconductivity_electron_liquids::__implication_result_e4a2ec38",
+      "label": "__implication_result_e4a2ec38",
+      "metadata": {
+        "canonical_name": "implies(github:superconductivity_electron_liquids::me_downfolding_is_phenomenological,github:superconductivity_electron_liquids::phenomenological_me_theory)",
+        "generated": true,
+        "generated_kind": "helper_claim",
+        "helper_kind": "implication_result",
+        "helper_visibility": "formal_internal",
+        "intermediate_role": "implication_result",
+        "owning_strategy_id": "lcs_e1d424cae8ea3003",
         "owning_strategy_type": "deduction",
         "review": true,
         "visibility": "formal_internal"
@@ -3075,20 +3189,20 @@
       "type": "claim"
     },
     {
-      "content": "all_true(github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion)",
-      "content_hash": "19fd17ae33ae1e59dc41febac3a13bf5acee4af084a1dd02fd44455eb8a4bf1b",
+      "content": "all_true(github:superconductivity_electron_liquids::mu_microscopic_definition,github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion,github:superconductivity_electron_liquids::bts_renormalization)",
+      "content_hash": "1ec2904e4fdf57df9b217bcb1f35d113311247c70c0b6b52841d03dda38dca12",
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc",
-      "label": "__conjunction_result_e3ae32cc",
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_858c7249",
+      "label": "__conjunction_result_858c7249",
       "metadata": {
-        "canonical_name": "all_true(github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion)",
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::mu_microscopic_definition,github:superconductivity_electron_liquids::vdiagmc_method,github:superconductivity_electron_liquids::homotopic_expansion,github:superconductivity_electron_liquids::bts_renormalization)",
         "generated": true,
         "generated_kind": "helper_claim",
         "helper_kind": "conjunction_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "conjunction_result",
-        "owning_strategy_id": "lcs_1707ae5b64cb4147",
+        "owning_strategy_id": "lcs_7eefab14b09b9e5b",
         "owning_strategy_type": "deduction",
         "review": false,
         "visibility": "formal_internal"
@@ -3097,20 +3211,20 @@
       "type": "claim"
     },
     {
-      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
-      "content_hash": "90ee1b7e096186b3f77b383b444e71f5dc4ccaed62709c1544c2110723841084",
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_858c7249,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+      "content_hash": "35a7cadeb2b5c229ad0d040b5164c802646d02747a9b84f87e2fcf7884d75faa",
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::__implication_result_cbde1a67",
-      "label": "__implication_result_cbde1a67",
+      "id": "github:superconductivity_electron_liquids::__implication_result_bde291bf",
+      "label": "__implication_result_bde291bf",
       "metadata": {
-        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_858c7249,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
         "generated": true,
         "generated_kind": "helper_claim",
         "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "implication_result",
-        "owning_strategy_id": "lcs_1707ae5b64cb4147",
+        "owning_strategy_id": "lcs_7eefab14b09b9e5b",
         "owning_strategy_type": "deduction",
         "review": true,
         "visibility": "formal_internal"
@@ -3295,20 +3409,20 @@
       "type": "claim"
     },
     {
-      "content": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
-      "content_hash": "0c1546710ad4fa84b9ee1a856e7774f2cc3959a44696f2ec9f64225bce8b4c38",
+      "content": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values,github:superconductivity_electron_liquids::bts_renormalization)",
+      "content_hash": "0aea070189074846811bd445714b012e1c2bf6edcf03039a2b9c5ada0104d2d9",
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::__conjunction_result_f1b2c201",
-      "label": "__conjunction_result_f1b2c201",
+      "id": "github:superconductivity_electron_liquids::__conjunction_result_145a64a6",
+      "label": "__conjunction_result_145a64a6",
       "metadata": {
-        "canonical_name": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values)",
+        "canonical_name": "all_true(github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization,github:superconductivity_electron_liquids::mu_vdiagmc_values,github:superconductivity_electron_liquids::bts_renormalization)",
         "generated": true,
         "generated_kind": "helper_claim",
         "helper_kind": "conjunction_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "conjunction_result",
-        "owning_strategy_id": "lcs_c8240d89418f8b6d",
+        "owning_strategy_id": "lcs_c1e0b8975f936437",
         "owning_strategy_type": "deduction",
         "review": false,
         "visibility": "formal_internal"
@@ -3317,20 +3431,20 @@
       "type": "claim"
     },
     {
-      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_f1b2c201,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
-      "content_hash": "0122f39c0bdcf2219b81c923903dc9d41d2eefbc1a30b41f2ccb67038e2d184b",
+      "content": "implies(github:superconductivity_electron_liquids::__conjunction_result_145a64a6,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
+      "content_hash": "726ac2f06bd7aac0bfabcc1547df681d04975d89aba67c13f5728b331f57d215",
       "exported": false,
       "format": "markdown",
-      "id": "github:superconductivity_electron_liquids::__implication_result_0c9612f3",
-      "label": "__implication_result_0c9612f3",
+      "id": "github:superconductivity_electron_liquids::__implication_result_88c1d26b",
+      "label": "__implication_result_88c1d26b",
       "metadata": {
-        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_f1b2c201,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
+        "canonical_name": "implies(github:superconductivity_electron_liquids::__conjunction_result_145a64a6,github:superconductivity_electron_liquids::mu_available_for_simple_metals)",
         "generated": true,
         "generated_kind": "helper_claim",
         "helper_kind": "implication_result",
         "helper_visibility": "formal_internal",
         "intermediate_role": "implication_result",
-        "owning_strategy_id": "lcs_c8240d89418f8b6d",
+        "owning_strategy_id": "lcs_c1e0b8975f936437",
         "owning_strategy_type": "deduction",
         "review": true,
         "visibility": "formal_internal"
@@ -3688,14 +3802,14 @@
   "namespace": "github",
   "operators": [
     {
-      "conclusion": "github:superconductivity_electron_liquids::_anon_001",
+      "conclusion": "github:superconductivity_electron_liquids::_anon_003",
       "metadata": {
         "action_label": "github:superconductivity_electron_liquids::action::li_sc_hypothesis_exclusive",
         "pattern": "exclusive",
         "reason": "A specific sample either undergoes bulk SC or it does not. The two interpretive hypotheses for the observed resistive anomaly are mutually exclusive."
       },
       "operator": "complement",
-      "operator_id": "lco_af5db8df039ecff5",
+      "operator_id": "lco_660f8d81c0e5afb5",
       "scope": "local",
       "variables": [
         "github:superconductivity_electron_liquids::li_is_superconducting",
@@ -3790,6 +3904,76 @@
       "type": "deduction"
     },
     {
+      "conclusion": "github:superconductivity_electron_liquids::me_downfolding_is_phenomenological",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_13f82ef5",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::mu_star_phenomenological",
+              "github:superconductivity_electron_liquids::me_downfolding_is_phenomenological"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_001",
+        "formalization_template": "deduction",
+        "generated_formal_expr": true,
+        "pattern": "derivation",
+        "warrants": [
+          "github:superconductivity_electron_liquids::_anon_001"
+        ]
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::mu_star_phenomenological"
+      ],
+      "scope": "local",
+      "steps": [
+        {
+          "reasoning": "Because $\\mu^*$ is treated as an empirical adjustable parameter rather than computed from first principles (@mu_star_phenomenological), the downfolding procedure in traditional Migdal-Eliashberg theory is necessarily phenomenological: the Coulomb effect is replaced by a single static value with no microscopic underpinning, and corrections from Coulomb fluctuations to quasiparticle renormalization and electron-phonon coupling are absent because the phenomenological closure provides no mechanism to compute them."
+        }
+      ],
+      "strategy_id": "lcs_0022361121e237a7",
+      "type": "deduction"
+    },
+    {
+      "conclusion": "github:superconductivity_electron_liquids::phenomenological_me_theory",
+      "formal_expr": {
+        "operators": [
+          {
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_e4a2ec38",
+            "operator": "implication",
+            "variables": [
+              "github:superconductivity_electron_liquids::me_downfolding_is_phenomenological",
+              "github:superconductivity_electron_liquids::phenomenological_me_theory"
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_002",
+        "formalization_template": "deduction",
+        "generated_formal_expr": true,
+        "pattern": "derivation",
+        "warrants": [
+          "github:superconductivity_electron_liquids::_anon_002"
+        ]
+      },
+      "premises": [
+        "github:superconductivity_electron_liquids::me_downfolding_is_phenomenological"
+      ],
+      "scope": "local",
+      "steps": [
+        {
+          "reasoning": "Given the phenomenological character of the downfolding (@me_downfolding_is_phenomenological), the resulting McMillan / Allen-Dynes formula inherits the uncertainty in $\\mu^*$. The dimensionless coupling $g = \\lambda - \\mu^*(1 + 0.62\\lambda)$ appears exponentially in $T_c \\propto \\exp(-1/g)$, so the empirical $\\mu^*$ range $[0.1, 0.2]$ amplifies into orders-of-magnitude uncertainty in predicted $T_c$ for sub-Kelvin superconductors — destroying predictive power precisely where first-principles $\\mu^*$ would matter most."
+        }
+      ],
+      "strategy_id": "lcs_e1d424cae8ea3003",
+      "type": "deduction"
+    },
+    {
       "conclusion": "github:superconductivity_electron_liquids::li_zero_resistance_observed",
       "conditional_probabilities": [
         0.3,
@@ -3799,7 +3983,7 @@
         "action_label": "github:superconductivity_electron_liquids::action::li_zero_r_supports_sc",
         "pattern": "inference",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_003"
+          "github:superconductivity_electron_liquids::_anon_005"
         ]
       },
       "premises": [
@@ -3824,7 +4008,7 @@
         "action_label": "github:superconductivity_electron_liquids::action::li_meissner_would_support_sc",
         "pattern": "inference",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_004"
+          "github:superconductivity_electron_liquids::_anon_006"
         ]
       },
       "premises": [
@@ -3854,12 +4038,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_005",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_007",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_005"
+          "github:superconductivity_electron_liquids::_anon_007"
         ]
       },
       "premises": [
@@ -3901,12 +4085,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_006",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_008",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_006"
+          "github:superconductivity_electron_liquids::_anon_008"
         ]
       },
       "premises": [
@@ -3940,12 +4124,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_007",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_009",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_007"
+          "github:superconductivity_electron_liquids::_anon_009"
         ]
       },
       "premises": [
@@ -3978,12 +4162,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_008",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_010",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_008"
+          "github:superconductivity_electron_liquids::_anon_010"
         ]
       },
       "premises": [
@@ -4016,12 +4200,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_010",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_012",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_009"
+          "github:superconductivity_electron_liquids::_anon_011"
         ]
       },
       "premises": [
@@ -4054,12 +4238,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_011",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_013",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_010"
+          "github:superconductivity_electron_liquids::_anon_012"
         ]
       },
       "premises": [
@@ -4089,12 +4273,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_012",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_014",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_011"
+          "github:superconductivity_electron_liquids::_anon_013"
         ]
       },
       "premises": [
@@ -4124,12 +4308,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_013",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_015",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_012"
+          "github:superconductivity_electron_liquids::_anon_014"
         ]
       },
       "premises": [
@@ -4162,12 +4346,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_015",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_017",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_013"
+          "github:superconductivity_electron_liquids::_anon_015"
         ]
       },
       "premises": [
@@ -4184,51 +4368,53 @@
     },
     {
       "background": [
-        "github:superconductivity_electron_liquids::ueg_vertex_challenge",
-        "github:superconductivity_electron_liquids::mu_microscopic_definition",
-        "github:superconductivity_electron_liquids::bts_renormalization"
+        "github:superconductivity_electron_liquids::ueg_vertex_challenge"
       ],
       "conclusion": "github:superconductivity_electron_liquids::mu_vdiagmc_values",
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc",
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_858c7249",
             "operator": "conjunction",
             "variables": [
+              "github:superconductivity_electron_liquids::mu_microscopic_definition",
               "github:superconductivity_electron_liquids::vdiagmc_method",
-              "github:superconductivity_electron_liquids::homotopic_expansion"
+              "github:superconductivity_electron_liquids::homotopic_expansion",
+              "github:superconductivity_electron_liquids::bts_renormalization"
             ]
           },
           {
-            "conclusion": "github:superconductivity_electron_liquids::__implication_result_cbde1a67",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_bde291bf",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::__conjunction_result_e3ae32cc",
+              "github:superconductivity_electron_liquids::__conjunction_result_858c7249",
               "github:superconductivity_electron_liquids::mu_vdiagmc_values"
             ]
           }
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_016",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_018",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "observation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_014"
+          "github:superconductivity_electron_liquids::_anon_016"
         ]
       },
       "premises": [
+        "github:superconductivity_electron_liquids::mu_microscopic_definition",
         "github:superconductivity_electron_liquids::vdiagmc_method",
-        "github:superconductivity_electron_liquids::homotopic_expansion"
+        "github:superconductivity_electron_liquids::homotopic_expansion",
+        "github:superconductivity_electron_liquids::bts_renormalization"
       ],
       "scope": "local",
       "steps": [
         {
-          "reasoning": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) stochastically samples Feynman diagrams with bold-line propagators, and the homotopic expansion (@homotopic_expansion) provides the convergence acceleration. Conditional on both methodological assumptions, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale."
+          "reasoning": "The microscopic definition of $\\mu_{\\omega_c}$ (@mu_microscopic_definition) reduces, for the uniform electron gas, to evaluating the particle-particle irreducible four-point vertex $\\tilde\\Gamma^e$ — a notoriously difficult quantity (@ueg_vertex_challenge). The vDiagMC method (@vdiagmc_method) stochastically samples Feynman diagrams with bold-line propagators, and the homotopic expansion (@homotopic_expansion) provides the convergence acceleration. Conditional on these methodological premises, vDiagMC yields $\\mu_{E_F}(r_s)$ with controlled error bars (e.g. $\\mu_{E_F} = 0.53(2)$ at $r_s = 2$). The BTS renormalization relation (@bts_renormalization) then maps $\\mu_{E_F}$ down to $\\mu^*$ at the Debye scale — included as a premise because the claim text reports the BTS-renormalized values $\\mu^\\ast \\approx 0.12\\text{-}0.18$."
         }
       ],
-      "strategy_id": "lcs_1707ae5b64cb4147",
+      "strategy_id": "lcs_7eefab14b09b9e5b",
       "type": "deduction"
     },
     {
@@ -4246,12 +4432,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_018",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_020",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "observation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_015"
+          "github:superconductivity_electron_liquids::_anon_017"
         ]
       },
       "premises": [
@@ -4281,12 +4467,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_019",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_021",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_016"
+          "github:superconductivity_electron_liquids::_anon_018"
         ]
       },
       "premises": [
@@ -4316,12 +4502,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_020",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_022",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_017"
+          "github:superconductivity_electron_liquids::_anon_019"
         ]
       },
       "premises": [
@@ -4351,12 +4537,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_021",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_023",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_018"
+          "github:superconductivity_electron_liquids::_anon_020"
         ]
       },
       "premises": [
@@ -4397,12 +4583,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_022",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_024",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_019"
+          "github:superconductivity_electron_liquids::_anon_021"
         ]
       },
       "premises": [
@@ -4444,12 +4630,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_023",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_025",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_020"
+          "github:superconductivity_electron_liquids::_anon_022"
         ]
       },
       "premises": [
@@ -4473,43 +4659,45 @@
       "formal_expr": {
         "operators": [
           {
-            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_f1b2c201",
+            "conclusion": "github:superconductivity_electron_liquids::__conjunction_result_145a64a6",
             "operator": "conjunction",
             "variables": [
               "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
-              "github:superconductivity_electron_liquids::mu_vdiagmc_values"
+              "github:superconductivity_electron_liquids::mu_vdiagmc_values",
+              "github:superconductivity_electron_liquids::bts_renormalization"
             ]
           },
           {
-            "conclusion": "github:superconductivity_electron_liquids::__implication_result_0c9612f3",
+            "conclusion": "github:superconductivity_electron_liquids::__implication_result_88c1d26b",
             "operator": "implication",
             "variables": [
-              "github:superconductivity_electron_liquids::__conjunction_result_f1b2c201",
+              "github:superconductivity_electron_liquids::__conjunction_result_145a64a6",
               "github:superconductivity_electron_liquids::mu_available_for_simple_metals"
             ]
           }
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_024",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_026",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_021"
+          "github:superconductivity_electron_liquids::_anon_023"
         ]
       },
       "premises": [
         "github:superconductivity_electron_liquids::ueg_pseudopotential_parameterization",
-        "github:superconductivity_electron_liquids::mu_vdiagmc_values"
+        "github:superconductivity_electron_liquids::mu_vdiagmc_values",
+        "github:superconductivity_electron_liquids::bts_renormalization"
       ],
       "scope": "local",
       "steps": [
         {
-          "reasoning": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency."
+          "reasoning": "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG (@mu_vdiagmc_values). The parameterization procedure (@ueg_pseudopotential_parameterization) maps these to real materials using material-specific $r_s$ and band mass, justified by the weak lattice effects in simple metals (@simple_metals_weak_lattice). The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye frequency — included as a premise because the material-specific $\\mu^*$ is what is actually 'available' here."
         }
       ],
-      "strategy_id": "lcs_c8240d89418f8b6d",
+      "strategy_id": "lcs_c1e0b8975f936437",
       "type": "deduction"
     },
     {
@@ -4536,12 +4724,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_025",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_027",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_022"
+          "github:superconductivity_electron_liquids::_anon_024"
         ]
       },
       "premises": [
@@ -4576,12 +4764,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_026",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_028",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_023"
+          "github:superconductivity_electron_liquids::_anon_025"
         ]
       },
       "premises": [
@@ -4616,12 +4804,12 @@
         ]
       },
       "metadata": {
-        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_027",
+        "action_label": "github:superconductivity_electron_liquids::action::_anon_action_029",
         "formalization_template": "deduction",
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_024"
+          "github:superconductivity_electron_liquids::_anon_026"
         ]
       },
       "premises": [
@@ -4659,7 +4847,7 @@
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_025"
+          "github:superconductivity_electron_liquids::_anon_027"
         ]
       },
       "premises": [
@@ -4706,7 +4894,7 @@
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_026"
+          "github:superconductivity_electron_liquids::_anon_028"
         ]
       },
       "premises": [
@@ -4746,7 +4934,7 @@
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_028"
+          "github:superconductivity_electron_liquids::_anon_030"
         ]
       },
       "premises": [
@@ -4793,7 +4981,7 @@
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_029"
+          "github:superconductivity_electron_liquids::_anon_031"
         ]
       },
       "premises": [
@@ -4841,7 +5029,7 @@
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_031"
+          "github:superconductivity_electron_liquids::_anon_033"
         ]
       },
       "premises": [
@@ -4890,7 +5078,7 @@
         "generated_formal_expr": true,
         "pattern": "derivation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_032"
+          "github:superconductivity_electron_liquids::_anon_034"
         ]
       },
       "premises": [
@@ -4932,7 +5120,7 @@
         "generated_formal_expr": true,
         "pattern": "observation",
         "warrants": [
-          "github:superconductivity_electron_liquids::_anon_033"
+          "github:superconductivity_electron_liquids::_anon_035"
         ]
       },
       "premises": [

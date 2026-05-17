@@ -14,6 +14,7 @@ import gaia.engine.bayes as bayes
 from gaia.engine.lang import Constant, Real, claim, derive, equals, note, observe
 
 from .motivation import (
+    bts_renormalization,
     dfpt_computes_lambda,
     li_crystal_structure_at_low_t,
     li_is_superconducting,
@@ -127,7 +128,7 @@ mu_available_for_simple_metals = claim(
 
 derive(
     mu_available_for_simple_metals,
-    given=(ueg_pseudopotential_parameterization, mu_vdiagmc_values),
+    given=(ueg_pseudopotential_parameterization, mu_vdiagmc_values, bts_renormalization),
     background=[simple_metals_weak_lattice],
     rationale=(
         "The vDiagMC results provide $\\mu_{E_F}(r_s)$ for the UEG "
@@ -135,8 +136,9 @@ derive(
         "(@ueg_pseudopotential_parameterization) maps these to real materials "
         "using material-specific $r_s$ and band mass, justified by the weak "
         "lattice effects in simple metals (@simple_metals_weak_lattice). "
-        "The BTS relation scales $\\mu_{E_F}$ down to $\\mu^*$ at the Debye "
-        "frequency."
+        "The BTS relation (@bts_renormalization) scales $\\mu_{E_F}$ down to "
+        "$\\mu^*$ at the Debye frequency — included as a premise because the "
+        "material-specific $\\mu^*$ is what is actually 'available' here."
     ),
 )
 

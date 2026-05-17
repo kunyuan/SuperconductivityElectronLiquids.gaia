@@ -21,13 +21,14 @@ config:
 ---
 graph TB
     adiabatic_approx["Adiabatic Approximation\n(0.95 → 0.96)"]:::premise
-    phenomenological_me_theory["Phenomenological ME Theory Limitations\n(0.50 → 0.15)"]:::premise
+    bts_renormalization["BTS Renormalization Relation\n(0.50 → 0.97)"]:::premise
+    mu_star_phenomenological["mu#ast; as Phenomenological Parameter\n(0.50 → 0.31)"]:::premise
     li_is_superconducting["Li is Bulk Superconducting\n(0.50 → 0.75)"]:::premise
-    cross_term_suppressed["Cross-Channel Terms Suppressed\n(0.50 → 0.60)"]:::premise
+    cross_term_suppressed["Cross-Channel Terms Suppressed\n(0.50 → 0.59)"]:::premise
     downfolded_bse["★ Downfolded BSE\n(0.50 → 0.89)"]:::exported
-    vdiagmc_method["vDiagMC Method\n(0.50 → 0.53)"]:::premise
+    vdiagmc_method["vDiagMC Method\n(0.50 → 0.54)"]:::premise
     homotopic_expansion["Homotopic Expansion\n(0.50 → 0.46)"]:::premise
-    mu_vdiagmc_values["★ mu from vDiagMC: Numerical Values\n(0.50 → 0.50)"]:::exported
+    mu_vdiagmc_values["★ mu from vDiagMC: Numerical Values\n(0.50 → 0.49)"]:::exported
     ward_identity["Ward Identity at q->0\n(0.98 → 0.99)"]:::premise
     quasiparticle_mass_near_unity["Quasiparticle Mass Near Unity\n(0.92 → 0.93)"]:::premise
     dfpt_reliable_for_simple_metals["★ DFPT Reliable for Simple Metals\n(0.50 → 0.96)"]:::exported
@@ -43,21 +44,23 @@ graph TB
     tc_li_likelihood["★ tc_li_likelihood\n(1.00 → 1.00)"]:::exported
     li_anomaly_not_sc["Li Resistive Anomaly Is Not Bulk SC\n(0.50 → 0.25)"]:::premise
     x["?\n(0.50 → 1.00)"]:::premise
-    rpa_vs_vdiagmc["rpa_vs_vdiagmc\n(0.50 → 1.00)"]:::premise
+    bts_microscopic_equivalence["bts_microscopic_equivalence\n(0.50 → 1.00)"]:::premise
+    mu_scale_independence["BTS Relation as Corollary\n(0.50 → 0.97)"]:::premise
     rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast;\n(0.50 → 0.25)"]:::premise
+    rpa_vs_vdiagmc["rpa_vs_vdiagmc\n(0.50 → 1.00)"]:::premise
     strat_0(["infer\n0.31 bits"]):::weak
     ab_initio_workflow --> strat_0
     strat_0 --> al_pressure_transition
-    strat_1(["infer\n0.50 bits"]):::weak
+    strat_1(["infer\n0.58 bits"]):::weak
     ab_initio_workflow --> strat_1
-    phenomenological_me_theory --> strat_1
+    mu_star_phenomenological --> strat_1
     strat_1 --> tc_al_likelihood
     strat_2(["infer\n0.31 bits"]):::weak
     ab_initio_workflow --> strat_2
     strat_2 --> tc_al_predicted
-    strat_3(["infer\n0.26 bits"]):::weak
+    strat_3(["infer\n0.25 bits"]):::weak
     ab_initio_workflow --> strat_3
-    phenomenological_me_theory --> strat_3
+    mu_star_phenomenological --> strat_3
     strat_3 --> tc_li_likelihood
     strat_4(["infer\n0.20 bits"]):::weak
     ab_initio_workflow --> strat_4
@@ -66,41 +69,48 @@ graph TB
     strat_5(["infer\n0.31 bits"]):::weak
     ab_initio_workflow --> strat_5
     strat_5 --> tc_mg_na_near_qpt
-    strat_6(["infer\n0.45 bits"]):::weak
+    strat_6(["infer\n0.50 bits"]):::weak
     ab_initio_workflow --> strat_6
-    phenomenological_me_theory --> strat_6
+    mu_star_phenomenological --> strat_6
     strat_6 --> tc_zn_likelihood
     strat_7(["infer\n0.31 bits"]):::weak
     ab_initio_workflow --> strat_7
     strat_7 --> tc_zn_predicted
-    strat_8(["infer\n0.22 bits"]):::weak
+    strat_8(["infer\n0.24 bits"]):::weak
     adiabatic_approx --> strat_8
     cross_term_suppressed --> strat_8
     strat_8 --> downfolded_bse
-    strat_9(["infer\n0.02 bits"]):::weak
+    strat_9(["infer\n0.01 bits"]):::weak
+    bts_renormalization --> strat_9
     dfpt_reliable_for_simple_metals --> strat_9
     downfolded_bse --> strat_9
     mu_vdiagmc_values --> strat_9
     ueg_pseudopotential_parameterization --> strat_9
     strat_9 --> ab_initio_workflow
-    strat_10(["infer\n0.11 bits"]):::weak
+    strat_10(["infer\n0.07 bits"]):::weak
+    bts_renormalization --> strat_10
     downfolded_bse --> strat_10
-    quasiparticle_mass_near_unity --> strat_10
+    homotopic_expansion --> strat_10
     vdiagmc_method --> strat_10
-    ward_identity --> strat_10
-    strat_10 --> dfpt_reliable_for_simple_metals
-    strat_11(["infer\n0.19 bits"]):::weak
-    homotopic_expansion --> strat_11
+    strat_10 --> mu_vdiagmc_values
+    strat_11(["infer\n0.11 bits"]):::weak
+    downfolded_bse --> strat_11
+    quasiparticle_mass_near_unity --> strat_11
     vdiagmc_method --> strat_11
-    strat_11 --> mu_vdiagmc_values
+    ward_identity --> strat_11
+    strat_11 --> dfpt_reliable_for_simple_metals
     oper_0{{"⊕"}}
     li_is_superconducting --- oper_0
     li_anomaly_not_sc --- oper_0
     oper_0 --- ?
-    oper_1{{"⊗"}}:::contra
-    rpa_predicts_attractive_mu --- oper_1
-    mu_vdiagmc_values --- oper_1
-    oper_1 --- rpa_vs_vdiagmc
+    oper_1{{"≡"}}
+    mu_scale_independence --- oper_1
+    bts_renormalization --- oper_1
+    oper_1 --- bts_microscopic_equivalence
+    oper_2{{"⊗"}}:::contra
+    rpa_predicts_attractive_mu --- oper_2
+    mu_vdiagmc_values --- oper_2
+    oper_2 --- rpa_vs_vdiagmc
 
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
     classDef exported fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#333
@@ -116,7 +126,7 @@ graph TB
 | al_pressure_transition | Under hydrostatic pressure, the ab initio framework predicts that aluminum's ... | 0.50 | 0.98 |
 | dfpt_reliable_for_simple_metals | For simple metals, the DFPT calculation of the electron-phonon coupling const... | 0.50 | 0.96 |
 | downfolded_bse | The frequency-only downfolded Bethe-Salpeter equation: the full momentum-freq... | 0.50 | 0.89 |
-| mu_vdiagmc_values | vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopot... | 0.50 | 0.50 |
+| mu_vdiagmc_values | vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopot... | 0.50 | 0.49 |
 | tc_al_likelihood | Bayes likelihood comparison. | 1.00 | 1.00 |
 | tc_al_predicted | The ab initio EFT framework predicts $T_c^{\mathrm{EFT}} = 1.14$ K for alumin... | 0.50 | 0.98 |
 | tc_li_likelihood | Bayes likelihood comparison. | 1.00 | 1.00 |

@@ -27,9 +27,9 @@
 **caption:** Fig. 8 | Comparison between the angle-resolved e-ph vertex correction in the UEG from vDiagMC (points) and DFPT (lines) for different r_s values.
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::gamma3_approximation`
 
-### github:superconductivity_electron_liquids::_anon_015
+### github:superconductivity_electron_liquids::_anon_017
 
-**QID:** `github:superconductivity_electron_liquids::_anon_015`
+**QID:** `github:superconductivity_electron_liquids::_anon_017`
 **Type:** claim
 **Role:** orphaned
 **Content:** observe warrants vDiagMC computation of the three-point vertex $\Gamma_3^e(k, q)$ of the UEG at finite momentum transfer $q$ shows that vertex corrections are modest (10--20% level) for momenta within the Fermi sphere ($|k|, |k+q| \lesssim k_F$) at metallic densities $r_s \in [2, 4]$. The corrections vary smoothly with $q$ and can be accurately interpolated between the Ward-identity limit ($q \to 0$) and the large-$q$ asymptotic behavior.
@@ -39,7 +39,7 @@
 **review:** True
 **relation:** {'type': 'observe', 'given': ['github:superconductivity_electron_liquids::vdiagmc_method'], 'conclusion': 'github:superconductivity_electron_liquids::gamma3_vdiagmc'}
 **warrant:** The reported 10-20% vertex correction at finite $q$ is the numerical output of the vDiagMC sampling; the result is pinned as a measurement event conditional on the vDiagMC series convergence assumption captured by @vdiagmc_method.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_018
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_020
 **pattern:** observation
 **gaia:** {'provenance': {'referenced_claims': ['vdiagmc_method']}}
 
@@ -81,9 +81,9 @@ where $g_{\kappa\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\epsilon_\m
 **gaia:** {'provenance': {'referenced_claims': ['lambda_microscopic_definition']}}
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::eft_vertex_matches_dfpt`
 
-### github:superconductivity_electron_liquids::_anon_016
+### github:superconductivity_electron_liquids::_anon_018
 
-**QID:** `github:superconductivity_electron_liquids::_anon_016`
+**QID:** `github:superconductivity_electron_liquids::_anon_018`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants The EFT expression for the physical electron-phonon coupling vertex factorizes the bare coupling into a screening factor and vertex/quasiparticle renormalizations (Cai et al., Eq. 32):
@@ -97,7 +97,7 @@ where $g_{\kappa\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\epsilon_\m
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::lambda_microscopic_definition'], 'conclusion': 'github:superconductivity_electron_liquids::eft_eph_vertex'}
 **warrant:** The microscopic definition of $\lambda$ (@lambda_microscopic_definition) involves the Fermi-surface average of $W^{\mathrm{ph}}$ weighted by quasiparticle factors. Expanding $W^{\mathrm{ph}}$ in terms of the phonon propagator and electron-phonon vertices, and factoring out the quasiparticle weight $z^e$ from the pair propagator coherent part, yields the EFT vertex $g(k,q) = z^e \cdot \Gamma_3^e(k,q) \cdot g_0(k,q)$.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_019
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_021
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['lambda_microscopic_definition']}}
 
@@ -114,9 +114,9 @@ where $g_{\kappa\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\epsilon_\m
 **Premises:** `github:superconductivity_electron_liquids::gamma3_vdiagmc`
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::eft_vertex_matches_dfpt`
 
-### github:superconductivity_electron_liquids::_anon_017
+### github:superconductivity_electron_liquids::_anon_019
 
-**QID:** `github:superconductivity_electron_liquids::_anon_017`
+**QID:** `github:superconductivity_electron_liquids::_anon_019`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants The three-point vertex $\Gamma_3^e(k, q)$ for states within the Fermi sphere can be accurately approximated by interpolation between two controlled limits: (i) the exact Ward identity at $q \to 0$ giving $\Gamma_3^e = 1 - \partial\Sigma/\partial\epsilon_k = m^*/m$, and (ii) the vDiagMC results at finite $q$ showing smooth, modest variations. For simple metals, this yields $\Gamma_3^e \approx m^*/m$ to within 10--15% across the relevant momentum range.
@@ -126,13 +126,13 @@ where $g_{\kappa\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\epsilon_\m
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::ward_identity'], 'conclusion': 'github:superconductivity_electron_liquids::gamma3_approximation'}
 **warrant:** The Ward identity (@ward_identity) provides the exact value of $\Gamma_3^e$ at $q = 0$: $\Gamma_3^e(k, 0) = m^*/m$. This exact constraint anchors the approximation at zero momentum transfer.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_020
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_022
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['ward_identity']}}
 
-### github:superconductivity_electron_liquids::_anon_018
+### github:superconductivity_electron_liquids::_anon_020
 
-**QID:** `github:superconductivity_electron_liquids::_anon_018`
+**QID:** `github:superconductivity_electron_liquids::_anon_020`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants The three-point vertex $\Gamma_3^e(k, q)$ for states within the Fermi sphere can be accurately approximated by interpolation between two controlled limits: (i) the exact Ward identity at $q \to 0$ giving $\Gamma_3^e = 1 - \partial\Sigma/\partial\epsilon_k = m^*/m$, and (ii) the vDiagMC results at finite $q$ showing smooth, modest variations. For simple metals, this yields $\Gamma_3^e \approx m^*/m$ to within 10--15% across the relevant momentum range.
@@ -142,7 +142,7 @@ where $g_{\kappa\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\epsilon_\m
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::gamma3_vdiagmc'], 'conclusion': 'github:superconductivity_electron_liquids::gamma3_approximation'}
 **warrant:** The vDiagMC computation (@gamma3_vdiagmc) shows that at finite $q$ within the Fermi sphere, vertex corrections remain modest (10--20%) and vary smoothly with momentum, supporting the approximation $\Gamma_3^e \approx m^*/m$ across the relevant momentum range.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_021
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_023
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['gamma3_vdiagmc']}}
 
@@ -152,14 +152,14 @@ where $g_{\kappa\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\epsilon_\m
 **Type:** claim
 **Role:** derived
 **Content:** In the uniform electron gas at densities $r_s \in [1,5]$, the EFT electron-phonon vertex $g(\mathbf{k},\mathbf{q}) = g^{(0)}_{\mathbf{q}} \cdot (z^e/\epsilon_{\mathbf{q}}) \cdot \Gamma_3^e(\mathbf{k};\mathbf{q})$ is numerically well approximated by the DFPT Kohn-Sham screened potential $g^{\mathrm{KS}}(\mathbf{q}) = g^{(0)}_{\mathbf{q}} / [1 - (v_{\mathbf{q}} + f_{xc})\chi_0^e(\mathbf{q})]$ for Fermi-surface-relevant momentum transfers $|\mathbf{q}| \leq 2k_F$, with weak residual $\mathbf{k}$-dependence.
-**Belief:** 0.98
+**Belief:** 0.99
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::eft_eph_vertex`, `github:superconductivity_electron_liquids::gamma3_approximation`
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals`
 
-### github:superconductivity_electron_liquids::_anon_019
+### github:superconductivity_electron_liquids::_anon_021
 
-**QID:** `github:superconductivity_electron_liquids::_anon_019`
+**QID:** `github:superconductivity_electron_liquids::_anon_021`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants In the uniform electron gas at densities $r_s \in [1,5]$, the EFT electron-phonon vertex $g(\mathbf{k},\mathbf{q}) = g^{(0)}_{\mathbf{q}} \cdot (z^e/\epsilon_{\mathbf{q}}) \cdot \Gamma_3^e(\mathbf{k};\mathbf{q})$ is numerically well approximated by the DFPT Kohn-Sham screened potential $g^{\mathrm{KS}}(\mathbf{q}) = g^{(0)}_{\mathbf{q}} / [1 - (v_{\mathbf{q}} + f_{xc})\chi_0^e(\mathbf{q})]$ for Fermi-surface-relevant momentum transfers $|\mathbf{q}| \leq 2k_F$, with weak residual $\mathbf{k}$-dependence.
@@ -169,7 +169,7 @@ where $g_{\kappa\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\epsilon_\m
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::eft_eph_vertex', 'github:superconductivity_electron_liquids::gamma3_approximation'], 'conclusion': 'github:superconductivity_electron_liquids::eft_vertex_matches_dfpt'}
 **warrant:** Substituting the approximate $\Gamma_3^e \approx m^*/m$ (@gamma3_approximation) into the EFT vertex expression (@eft_eph_vertex) $g = z^e \cdot \Gamma_3^e \cdot g_0$, and using the Migdal relation $z^e \approx m/m^*$, the product $z^e \cdot \Gamma_3^e \approx (m/m^*)(m^*/m) = 1$. This means $g(k,q) \approx g_0(k,q)$, which after screening gives exactly the DFPT Kohn-Sham expression (@dfpt_eph_ansatz) $g^{\mathrm{KS}}(q)$. The vertex-level agreement holds for $|q| \leq 2k_F$ with weak residual $k$-dependence.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_022
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_024
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['dfpt_eph_ansatz', 'eft_eph_vertex', 'gamma3_approximation']}}
 
@@ -184,9 +184,9 @@ where $g_{\kappa\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\epsilon_\m
 **Premises:** `github:superconductivity_electron_liquids::eft_vertex_matches_dfpt`, `github:superconductivity_electron_liquids::quasiparticle_mass_near_unity`
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::ab_initio_workflow`
 
-### github:superconductivity_electron_liquids::_anon_020
+### github:superconductivity_electron_liquids::_anon_022
 
-**QID:** `github:superconductivity_electron_liquids::_anon_020`
+**QID:** `github:superconductivity_electron_liquids::_anon_022`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants For simple metals, the DFPT calculation of the electron-phonon coupling constant $\lambda$ is reliable: the EFT vertex matches the DFPT expression at the vertex level, and the quasiparticle density of states $N_F^*$ nearly equals the band density of states $N_F^{(0)}$, so $\lambda_{\mathrm{EFT}} \approx \lambda_{\mathrm{DFPT}}$ with corrections at the few-percent level.
@@ -196,6 +196,6 @@ where $g_{\kappa\mathbf{q}}^{(0)}$ is the bare e-ph matrix element, $\epsilon_\m
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::eft_vertex_matches_dfpt', 'github:superconductivity_electron_liquids::quasiparticle_mass_near_unity'], 'conclusion': 'github:superconductivity_electron_liquids::dfpt_reliable_for_simple_metals'}
 **warrant:** The vertex-level agreement $g \approx g^{\mathrm{KS}}$ (@eft_vertex_matches_dfpt) ensures the electron-phonon matrix elements match. To obtain $\lambda$, these must be combined with the density of states: EFT uses the quasiparticle $N_F^*$ while DFPT (@dfpt_computes_lambda) uses the band $N_F^{(0)}$. Since $m^*/m \approx 1$ (@quasiparticle_mass_near_unity), we have $N_F^* \approx N_F^{(0)}$, and therefore $\lambda_{\mathrm{EFT}} \approx \lambda_{\mathrm{DFPT}}$.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_023
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_025
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['dfpt_computes_lambda', 'eft_vertex_matches_dfpt', 'quasiparticle_mass_near_unity']}}

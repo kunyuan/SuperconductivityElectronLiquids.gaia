@@ -7,7 +7,7 @@ Gaia knowledge package: Superconductivity in Electron Liquids (arXiv:2512.19382)
 ```mermaid
 graph LR
     downfolded_bse["Downfolded BSE (0.89)"]:::derived
-    mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.50)"]:::derived
+    mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.49)"]:::derived
     dfpt_reliable_for_simple_metals["DFPT Reliable for Simple Metals (0.96)"]:::derived
     ab_initio_workflow["Ab Initio Tc Prediction Workflow (0.96)"]:::derived
     al_pressure_transition["Al Pressure-Tc Transition (0.98)"]:::derived
@@ -29,6 +29,7 @@ graph LR
     dfpt_reliable_for_simple_metals --> ab_initio_workflow
     downfolded_bse --> ab_initio_workflow
     downfolded_bse --> dfpt_reliable_for_simple_metals
+    downfolded_bse --> mu_vdiagmc_values
     mu_vdiagmc_values --> ab_initio_workflow
 
     classDef note fill:#f0f0f0,stroke:#999,color:#333
@@ -86,25 +87,29 @@ graph LR
 
 #### ME Downfolding is Phenomenological
 
-📌 `me_downfolding_is_phenomenological`   |   Belief: **0.50**
+📌 `me_downfolding_is_phenomenological`   |   Belief: **0.47**
 
 > The downfolding procedure (integrating out high-energy degrees of freedom to obtain a low-energy effective theory) in traditional Migdal-Eliashberg (ME) theory is phenomenological: the Coulomb effect is replaced by a static pseudopotential $\mu^*$, ignoring corrections from Coulomb fluctuations to quasiparticle renormalization and electron-phonon coupling, as well as non-local effects of screening.
+
+🔗 **deduction**([mu* as Phenomenological Parameter](#mu_star_phenomenological))
 
 
 <a id="phenomenological_me_theory"></a>
 
 #### Phenomenological ME Theory Limitations
 
-📌 `phenomenological_me_theory`   |   Belief: **0.15**
+📌 `phenomenological_me_theory`   |   Belief: **0.55**
 
 > Traditional electron-phonon superconductivity theory uses the McMillan (or Allen-Dynes) formula, with the electron-phonon coupling constant $\lambda$ and Coulomb pseudopotential $\mu^*$ as inputs to predict the superconducting transition temperature $T_c$. Since $\mu^*$ cannot be reliably computed from first principles, it is typically assigned an empirical value $\mu^* \in [0.1, 0.2]$. For materials with $T_c$ in the sub-kelvin range, the exponential sensitivity $T_c \propto \exp(-1/g)$ to $\mu^*$ causes this uncertainty to span several orders of magnitude in the predicted $T_c$, destroying predictive power.
+
+🔗 **deduction**([ME Downfolding is Phenomenological](#me_downfolding_is_phenomenological))
 
 
 <a id="mu_star_phenomenological"></a>
 
 #### mu* as Phenomenological Parameter
 
-📌 `mu_star_phenomenological`   |   Belief: **0.50**
+📌 `mu_star_phenomenological`   |   Belief: **0.31**
 
 > Due to the lack of a reliable microscopic calculation, the Coulomb pseudopotential $\mu^*$ (a dimensionless parameter describing the effective Coulomb repulsion strength in the low-energy pairing channel) is typically treated as an adjustable parameter with empirical values in the range 0.1--0.2.
 
@@ -229,9 +234,9 @@ graph TD
     electron_phonon_action["Electron-Phonon Action Decomposition (0.50)"]:::background
     bse_kernel_decomposition["BSE Kernel Decomposition (0.99)"]:::derived
     precursory_cooper_flow["Precursory Cooper Flow (0.50)"]:::background
-    strat_3(["deduction"])
-    me_framework --> strat_3
-    strat_3 --> bse_kernel_decomposition
+    strat_5(["deduction"])
+    me_framework --> strat_5
+    strat_5 --> bse_kernel_decomposition
 
     classDef note fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -279,13 +284,13 @@ graph TD
 graph TD
     adiabatic_approx["Adiabatic Approximation (0.96)"]:::external
     bts_renormalization["BTS Renormalization Relation (0.97)"]:::external
-    mu_star_phenomenological["mu#ast; as Phenomenological Parameter (0.50)"]:::external
+    mu_star_phenomenological["mu#ast; as Phenomenological Parameter (0.31)"]:::external
     electron_phonon_action["Electron-Phonon Action Decomposition (0.50)"]:::external
     bse_kernel_decomposition["BSE Kernel Decomposition (0.99)"]:::external
     precursory_cooper_flow["Precursory Cooper Flow (0.50)"]:::external
     pair_propagator_decomposition["Pair Propagator Decomposition"]:::note
     rpa_dynamic_screening["RPA Dynamic Screening"]:::note
-    cross_term_suppressed["Cross-Channel Terms Suppressed (0.60)"]:::premise
+    cross_term_suppressed["Cross-Channel Terms Suppressed (0.59)"]:::premise
     downfolding_validity_limits["Downfolding Validity Limits"]:::note
     downfolded_bse["Downfolded BSE (0.89)"]:::derived
     full_bse_toy_model["Full BSE Toy Model Result (1.00)"]:::derived
@@ -293,42 +298,42 @@ graph TD
     bse_toy_model_equivalence["bse_toy_model_equivalence (1.00)"]:::derived
     downfolded_me_equation["Downfolded ME Gap Equation (0.95)"]:::derived
     lambda_microscopic_definition["Microscopic Definition of lambda (0.95)"]:::derived
-    mu_microscopic_definition["Microscopic Definition of mu (0.95)"]:::derived
+    mu_microscopic_definition["Microscopic Definition of mu (0.94)"]:::derived
     mu_scale_independence["BTS Relation as Corollary (0.97)"]:::derived
     bts_microscopic_equivalence["bts_microscopic_equivalence (1.00)"]:::derived
     ma_pseudopotential_justified["Morel-Anderson Ansatz Justified (0.97)"]:::derived
-    strat_4(["deduction"])
-    cross_term_suppressed --> strat_4
-    bse_kernel_decomposition --> strat_4
-    pair_propagator_decomposition -.-> strat_4
-    adiabatic_approx -.-> strat_4
-    strat_4 --> downfolded_bse
-    strat_5(["deduction"])
-    bse_kernel_decomposition --> strat_5
-    rpa_dynamic_screening -.-> strat_5
-    strat_5 --> full_bse_toy_model
     strat_6(["deduction"])
-    downfolded_bse --> strat_6
-    rpa_dynamic_screening -.-> strat_6
-    strat_6 --> downfolded_bse_toy_model
+    cross_term_suppressed --> strat_6
+    bse_kernel_decomposition --> strat_6
+    pair_propagator_decomposition -.-> strat_6
+    adiabatic_approx -.-> strat_6
+    strat_6 --> downfolded_bse
     strat_7(["deduction"])
-    downfolded_bse --> strat_7
-    precursory_cooper_flow -.-> strat_7
-    strat_7 --> downfolded_me_equation
+    bse_kernel_decomposition --> strat_7
+    rpa_dynamic_screening -.-> strat_7
+    strat_7 --> full_bse_toy_model
     strat_8(["deduction"])
     downfolded_bse --> strat_8
-    electron_phonon_action -.-> strat_8
-    strat_8 --> lambda_microscopic_definition
+    rpa_dynamic_screening -.-> strat_8
+    strat_8 --> downfolded_bse_toy_model
     strat_9(["deduction"])
     downfolded_bse --> strat_9
-    strat_9 --> mu_microscopic_definition
+    precursory_cooper_flow -.-> strat_9
+    strat_9 --> downfolded_me_equation
     strat_10(["deduction"])
-    mu_microscopic_definition --> strat_10
-    strat_10 --> mu_scale_independence
+    downfolded_bse --> strat_10
+    electron_phonon_action -.-> strat_10
+    strat_10 --> lambda_microscopic_definition
     strat_11(["deduction"])
-    mu_microscopic_definition --> strat_11
-    mu_star_phenomenological -.-> strat_11
-    strat_11 --> ma_pseudopotential_justified
+    downfolded_bse --> strat_11
+    strat_11 --> mu_microscopic_definition
+    strat_12(["deduction"])
+    mu_microscopic_definition --> strat_12
+    strat_12 --> mu_scale_independence
+    strat_13(["deduction"])
+    mu_microscopic_definition --> strat_13
+    mu_star_phenomenological -.-> strat_13
+    strat_13 --> ma_pseudopotential_justified
     oper_1{{"≡"}}
     downfolded_bse_toy_model --- oper_1
     full_bse_toy_model --- oper_1
@@ -371,7 +376,7 @@ graph TD
 
 #### Cross-Channel Terms Suppressed
 
-📌 `cross_term_suppressed`   |   Belief: **0.60**
+📌 `cross_term_suppressed`   |   Belief: **0.59**
 
 > Cross terms mixing Coulomb and phonon channels are suppressed by the plasma frequency $\omega_p$, at order $O(\omega_c^2/\omega_p^2)$, where $\omega_c$ is an intermediate energy cutoff satisfying $\omega_D \ll \omega_c \ll E_F$. For most three-dimensional metals $\omega_c/\omega_p \lesssim 0.1$, so cross terms contribute no more than 1%.
 
@@ -463,7 +468,7 @@ graph TD
 
 #### Microscopic Definition of mu
 
-📌 `mu_microscopic_definition`   |   Belief: **0.95**
+📌 `mu_microscopic_definition`   |   Belief: **0.94**
 
 > The Coulomb pseudopotential $\mu_{\omega_c}(\omega, \omega')$ in the downfolded BSE has a microscopic definition: it is determined by the purely electronic particle-particle irreducible four-point vertex $\tilde\Gamma^e$ projected onto the Fermi surface, with the high-energy electronic degrees of freedom integrated out above the cutoff $\omega_c$.
 > 
@@ -517,19 +522,19 @@ graph TD
 graph TD
     bts_renormalization["BTS Renormalization Relation (0.97)"]:::external
     rpa_predicts_attractive_mu["RPA Predicts Attractive mu#ast; (0.25)"]:::external
-    mu_microscopic_definition["Microscopic Definition of mu (0.95)"]:::external
-    ueg_vertex_challenge["UEG Four-Point Vertex Challenge (0.50)"]:::background
-    vdiagmc_method["vDiagMC Method (0.53)"]:::premise
+    mu_microscopic_definition["Microscopic Definition of mu (0.94)"]:::external
+    ueg_vertex_challenge["UEG Four-Point Vertex Challenge"]:::note
+    vdiagmc_method["vDiagMC Method (0.54)"]:::premise
     homotopic_expansion["Homotopic Expansion (0.46)"]:::premise
-    mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.50)"]:::derived
+    mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.49)"]:::derived
     rpa_vs_vdiagmc["rpa_vs_vdiagmc (1.00)"]:::derived
-    strat_12(["deduction"])
-    vdiagmc_method --> strat_12
-    homotopic_expansion --> strat_12
-    ueg_vertex_challenge -.-> strat_12
-    mu_microscopic_definition -.-> strat_12
-    bts_renormalization -.-> strat_12
-    strat_12 --> mu_vdiagmc_values
+    strat_14(["deduction"])
+    mu_microscopic_definition --> strat_14
+    vdiagmc_method --> strat_14
+    homotopic_expansion --> strat_14
+    bts_renormalization --> strat_14
+    ueg_vertex_challenge -.-> strat_14
+    strat_14 --> mu_vdiagmc_values
     oper_2{{"≡"}}
     bts_renormalization --- oper_2
     oper_3{{"⊗"}}:::contra
@@ -552,7 +557,7 @@ graph TD
 
 #### UEG Four-Point Vertex Challenge
 
-📌 `ueg_vertex_challenge`   |   Belief: **0.50**
+📋 `ueg_vertex_challenge`
 
 > Computing the particle-particle irreducible four-point vertex $\tilde\Gamma^e$ of the uniform electron gas (UEG) is a long-standing challenge: perturbation theory in the bare Coulomb interaction diverges for $r_s \gtrsim 1$, and partial resummations (RPA, GW) miss crucial vertex corrections. A controlled, systematically improvable method is needed to evaluate $\tilde\Gamma^e$ in the metallic density range $r_s \in [1, 6]$.
 
@@ -561,7 +566,7 @@ graph TD
 
 #### vDiagMC Method
 
-📌 `vdiagmc_method`   |   Belief: **0.53**
+📌 `vdiagmc_method`   |   Belief: **0.54**
 
 > Variational diagrammatic Monte Carlo (vDiagMC) provides a controlled, systematically improvable method for computing Feynman diagrammatic series to high order: (i) bold-line (self-consistent) resummation avoids infrared divergences in individual diagrams, (ii) stochastic sampling of diagram topologies and internal variables accesses orders unreachable by deterministic methods, (iii) the series can be extrapolated to infinite order with controlled error bars. For the UEG, vDiagMC achieves reliable convergence of the irreducible vertex in the metallic density range.
 
@@ -579,7 +584,7 @@ graph TD
 
 #### mu from vDiagMC: Numerical Values ★
 
-📌 `mu_vdiagmc_values`   |   Belief: **0.50**
+📌 `mu_vdiagmc_values`   |   Belief: **0.49**
 
 > vDiagMC calculations of the UEG four-point vertex yield the Coulomb pseudopotential at the Fermi energy scale: $\mu_{E_F}(r_s)$ is positive and monotonically increasing with $r_s$ in the metallic density range, approximately following $\mu_{E_F} \approx 0.27\, r_s$. The complete set of values (Cai et al., TABLE I), computed at $\omega_c = 0.1\, E_F$ and rescaled to $E_F$ via the BTS relation:
 > 
@@ -590,7 +595,7 @@ graph TD
 > 
 > Numbers in parentheses indicate the systematic uncertainty in the last digit. These results, combined with the BTS relation, yield $\mu^\ast \approx 0.12\text{--}0.18$ at the Debye scale, consistent with the empirical range but now derived from first principles with controlled error bars of a few percent. The values are dramatically larger than the static RPA, Morel-Anderson, and dynamic RPA predictions for $r_s > 0.5$ — by a factor of three at $r_s = 5$ — and resolve the long-standing contradiction between phenomenological and RPA-based treatments of the Coulomb pseudopotential.
 
-🔗 **deduction**([vDiagMC Method](#vdiagmc_method), [Homotopic Expansion](#homotopic_expansion))
+🔗 **deduction**([Microscopic Definition of mu](#mu_microscopic_definition), [vDiagMC Method](#vdiagmc_method), [Homotopic Expansion](#homotopic_expansion), [BTS Renormalization Relation](#bts_renormalization))
 
 
 <a id="rpa_vs_vdiagmc"></a>
@@ -615,37 +620,37 @@ graph TD
 graph TD
     dfpt_computes_lambda["DFPT Computes lambda (0.50)"]:::external
     lambda_microscopic_definition["Microscopic Definition of lambda (0.95)"]:::external
-    vdiagmc_method["vDiagMC Method (0.53)"]:::external
+    vdiagmc_method["vDiagMC Method (0.54)"]:::external
     ward_identity["Ward Identity at q->0 (0.99)"]:::premise
     gamma3_vdiagmc["vDiagMC Computation of Gamma_3 (0.84)"]:::derived
     dfpt_eph_ansatz["DFPT Expression for e-ph Coupling (0.50)"]:::background
     quasiparticle_mass_near_unity["Quasiparticle Mass Near Unity (0.93)"]:::premise
     eft_eph_vertex["EFT Electron-Phonon Vertex (0.97)"]:::derived
     gamma3_approximation["Approximate Gamma_3 within Fermi Sphere (1.00)"]:::derived
-    eft_vertex_matches_dfpt["EFT Vertex Matches DFPT (0.98)"]:::derived
+    eft_vertex_matches_dfpt["EFT Vertex Matches DFPT (0.99)"]:::derived
     dfpt_reliable_for_simple_metals["DFPT Reliable for Simple Metals (0.96)"]:::derived
-    strat_13(["deduction"])
-    vdiagmc_method --> strat_13
-    strat_13 --> gamma3_vdiagmc
-    strat_14(["deduction"])
-    lambda_microscopic_definition --> strat_14
-    strat_14 --> eft_eph_vertex
     strat_15(["deduction"])
-    ward_identity --> strat_15
-    strat_15 --> gamma3_approximation
+    vdiagmc_method --> strat_15
+    strat_15 --> gamma3_vdiagmc
     strat_16(["deduction"])
-    gamma3_vdiagmc --> strat_16
-    strat_16 --> gamma3_approximation
+    lambda_microscopic_definition --> strat_16
+    strat_16 --> eft_eph_vertex
     strat_17(["deduction"])
-    eft_eph_vertex --> strat_17
-    gamma3_approximation --> strat_17
-    dfpt_eph_ansatz -.-> strat_17
-    strat_17 --> eft_vertex_matches_dfpt
+    ward_identity --> strat_17
+    strat_17 --> gamma3_approximation
     strat_18(["deduction"])
-    eft_vertex_matches_dfpt --> strat_18
-    quasiparticle_mass_near_unity --> strat_18
-    dfpt_computes_lambda -.-> strat_18
-    strat_18 --> dfpt_reliable_for_simple_metals
+    gamma3_vdiagmc --> strat_18
+    strat_18 --> gamma3_approximation
+    strat_19(["deduction"])
+    eft_eph_vertex --> strat_19
+    gamma3_approximation --> strat_19
+    dfpt_eph_ansatz -.-> strat_19
+    strat_19 --> eft_vertex_matches_dfpt
+    strat_20(["deduction"])
+    eft_vertex_matches_dfpt --> strat_20
+    quasiparticle_mass_near_unity --> strat_20
+    dfpt_computes_lambda -.-> strat_20
+    strat_20 --> dfpt_reliable_for_simple_metals
 
     classDef note fill:#f0f0f0,stroke:#999,color:#333
     classDef premise fill:#ddeeff,stroke:#4488bb,color:#333
@@ -726,7 +731,7 @@ graph TD
 
 #### EFT Vertex Matches DFPT
 
-📌 `eft_vertex_matches_dfpt`   |   Belief: **0.98**
+📌 `eft_vertex_matches_dfpt`   |   Belief: **0.99**
 
 > In the uniform electron gas at densities $r_s \in [1,5]$, the EFT electron-phonon vertex $g(\mathbf{k},\mathbf{q}) = g^{(0)}_{\mathbf{q}} \cdot (z^e/\epsilon_{\mathbf{q}}) \cdot \Gamma_3^e(\mathbf{k};\mathbf{q})$ is numerically well approximated by the DFPT Kohn-Sham screened potential $g^{\mathrm{KS}}(\mathbf{q}) = g^{(0)}_{\mathbf{q}} / [1 - (v_{\mathbf{q}} + f_{xc})\chi_0^e(\mathbf{q})]$ for Fermi-surface-relevant momentum transfers $|\mathbf{q}| \leq 2k_F$, with weak residual $\mathbf{k}$-dependence.
 
@@ -748,15 +753,16 @@ graph TD
 
 ```mermaid
 graph TD
-    phenomenological_me_theory["Phenomenological ME Theory Limitations (0.15)"]:::external
-    mu_star_phenomenological["mu#ast; as Phenomenological Parameter (0.50)"]:::external
+    bts_renormalization["BTS Renormalization Relation (0.97)"]:::external
+    phenomenological_me_theory["Phenomenological ME Theory Limitations (0.55)"]:::external
+    mu_star_phenomenological["mu#ast; as Phenomenological Parameter (0.31)"]:::external
     dfpt_computes_lambda["DFPT Computes lambda (0.50)"]:::external
     tc_li_experimental["Tc(Li) Experimental (0.50)"]:::external
     li_crystal_structure_at_low_t["Li 9R Structural Assumption at Sub-Kelvin T (0.50)"]:::external
     li_is_superconducting["Li is Bulk Superconducting (0.75)"]:::external
     precursory_cooper_flow["Precursory Cooper Flow (0.50)"]:::external
     downfolded_bse["Downfolded BSE (0.89)"]:::external
-    mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.50)"]:::external
+    mu_vdiagmc_values["mu from vDiagMC: Numerical Values (0.49)"]:::external
     dfpt_reliable_for_simple_metals["DFPT Reliable for Simple Metals (0.96)"]:::external
     aluminum_parameters["Aluminum Material Parameters"]:::note
     lithium_parameters["Lithium Material Parameters"]:::note
@@ -765,108 +771,114 @@ graph TD
     zinc_parameters["Zinc Material Parameters"]:::note
     simple_metals_weak_lattice["Simple Metals Have Weak Lattice Effects (0.90)"]:::background
     ueg_pseudopotential_parameterization["UEG mu#ast; Parameterization and Mapping (0.53)"]:::premise
-    mu_available_for_simple_metals["mu#ast; Available for Simple Metals (0.73)"]:::derived
+    mu_available_for_simple_metals["mu#ast; Available for Simple Metals (0.72)"]:::derived
     ab_initio_workflow["Ab Initio Tc Prediction Workflow (0.96)"]:::derived
     al_pressure_transition["Al Pressure-Tc Transition (0.98)"]:::derived
     tc_mg_na_near_qpt["Na and Mg Near Quantum Phase Transition (0.98)"]:::derived
     tc_al_predicted["tc_al_predicted (0.98)"]:::derived
-    tc_al_phenomenological["tc_al_phenomenological (0.52)"]:::derived
+    tc_al_phenomenological["tc_al_phenomenological (0.58)"]:::derived
     tc_al_observation_binding["tc_al_observation_binding (1.00)"]:::orphan
     eft_al_model["eft_al_model (0.50)"]:::orphan
     mcmillan_al_model["mcmillan_al_model (0.50)"]:::orphan
     tc_al_likelihood["tc_al_likelihood (1.00)"]:::derived
     tc_zn_predicted["tc_zn_predicted (0.98)"]:::derived
-    tc_zn_phenomenological["tc_zn_phenomenological (0.52)"]:::derived
+    tc_zn_phenomenological["tc_zn_phenomenological (0.58)"]:::derived
     tc_zn_observation_binding["tc_zn_observation_binding (1.00)"]:::orphan
     eft_zn_model["eft_zn_model (0.50)"]:::orphan
     mcmillan_zn_model["mcmillan_zn_model (0.50)"]:::orphan
     tc_zn_likelihood["tc_zn_likelihood (1.00)"]:::derived
     tc_li_predicted["tc_li_predicted (0.86)"]:::derived
-    tc_li_phenomenological["tc_li_phenomenological (0.51)"]:::derived
+    tc_li_phenomenological["tc_li_phenomenological (0.56)"]:::derived
     tc_li_observation_binding["tc_li_observation_binding (0.75)"]:::derived
     eft_li_model["eft_li_model (0.50)"]:::orphan
     mcmillan_li_model["mcmillan_li_model (0.50)"]:::orphan
     tc_li_likelihood["tc_li_likelihood (1.00)"]:::derived
-    strat_18(["deduction"])
-    dfpt_computes_lambda -.-> strat_18
-    strat_18 --> dfpt_reliable_for_simple_metals
-    strat_19(["deduction"])
-    ueg_pseudopotential_parameterization --> strat_19
-    mu_vdiagmc_values --> strat_19
-    simple_metals_weak_lattice -.-> strat_19
-    strat_19 --> mu_available_for_simple_metals
+    strat_14(["deduction"])
+    bts_renormalization --> strat_14
+    strat_14 --> mu_vdiagmc_values
     strat_20(["deduction"])
-    downfolded_bse --> strat_20
-    mu_available_for_simple_metals --> strat_20
-    dfpt_reliable_for_simple_metals --> strat_20
-    strat_20 --> ab_initio_workflow
+    dfpt_computes_lambda -.-> strat_20
+    strat_20 --> dfpt_reliable_for_simple_metals
     strat_21(["deduction"])
-    ab_initio_workflow --> strat_21
-    aluminum_parameters -.-> strat_21
-    strat_21 --> al_pressure_transition
+    ueg_pseudopotential_parameterization --> strat_21
+    mu_vdiagmc_values --> strat_21
+    bts_renormalization --> strat_21
+    simple_metals_weak_lattice -.-> strat_21
+    strat_21 --> mu_available_for_simple_metals
     strat_22(["deduction"])
-    ab_initio_workflow --> strat_22
-    magnesium_parameters -.-> strat_22
-    sodium_parameters -.-> strat_22
-    precursory_cooper_flow -.-> strat_22
-    strat_22 --> tc_mg_na_near_qpt
+    downfolded_bse --> strat_22
+    mu_available_for_simple_metals --> strat_22
+    dfpt_reliable_for_simple_metals --> strat_22
+    strat_22 --> ab_initio_workflow
     strat_23(["deduction"])
     ab_initio_workflow --> strat_23
     aluminum_parameters -.-> strat_23
-    strat_23 --> tc_al_predicted
+    strat_23 --> al_pressure_transition
     strat_24(["deduction"])
-    phenomenological_me_theory --> strat_24
-    mu_star_phenomenological --> strat_24
-    dfpt_computes_lambda --> strat_24
-    aluminum_parameters -.-> strat_24
-    strat_24 --> tc_al_phenomenological
+    ab_initio_workflow --> strat_24
+    magnesium_parameters -.-> strat_24
+    sodium_parameters -.-> strat_24
+    precursory_cooper_flow -.-> strat_24
+    strat_24 --> tc_mg_na_near_qpt
     strat_25(["deduction"])
     ab_initio_workflow --> strat_25
-    zinc_parameters -.-> strat_25
-    strat_25 --> tc_zn_predicted
+    aluminum_parameters -.-> strat_25
+    strat_25 --> tc_al_predicted
     strat_26(["deduction"])
     phenomenological_me_theory --> strat_26
     mu_star_phenomenological --> strat_26
     dfpt_computes_lambda --> strat_26
-    zinc_parameters -.-> strat_26
-    strat_26 --> tc_zn_phenomenological
+    aluminum_parameters -.-> strat_26
+    strat_26 --> tc_al_phenomenological
     strat_27(["deduction"])
     ab_initio_workflow --> strat_27
-    li_is_superconducting --> strat_27
-    lithium_parameters -.-> strat_27
-    strat_27 --> tc_li_predicted
+    zinc_parameters -.-> strat_27
+    strat_27 --> tc_zn_predicted
     strat_28(["deduction"])
     phenomenological_me_theory --> strat_28
     mu_star_phenomenological --> strat_28
     dfpt_computes_lambda --> strat_28
-    li_is_superconducting --> strat_28
-    lithium_parameters -.-> strat_28
-    strat_28 --> tc_li_phenomenological
+    zinc_parameters -.-> strat_28
+    strat_28 --> tc_zn_phenomenological
     strat_29(["deduction"])
-    li_crystal_structure_at_low_t --> strat_29
+    ab_initio_workflow --> strat_29
+    li_is_superconducting --> strat_29
     lithium_parameters -.-> strat_29
-    tc_li_experimental -.-> strat_29
-    strat_29 --> tc_li_observation_binding
-    strat_30(["infer"]):::weak
-    ab_initio_workflow --> strat_30
-    strat_30 --> tc_al_likelihood
-    strat_31(["infer"]):::weak
-    phenomenological_me_theory --> strat_31
-    strat_31 --> tc_al_likelihood
+    strat_29 --> tc_li_predicted
+    strat_30(["deduction"])
+    phenomenological_me_theory --> strat_30
+    mu_star_phenomenological --> strat_30
+    dfpt_computes_lambda --> strat_30
+    li_is_superconducting --> strat_30
+    lithium_parameters -.-> strat_30
+    strat_30 --> tc_li_phenomenological
+    strat_31(["deduction"])
+    li_crystal_structure_at_low_t --> strat_31
+    lithium_parameters -.-> strat_31
+    tc_li_experimental -.-> strat_31
+    strat_31 --> tc_li_observation_binding
     strat_32(["infer"]):::weak
     ab_initio_workflow --> strat_32
-    strat_32 --> tc_zn_likelihood
+    strat_32 --> tc_al_likelihood
     strat_33(["infer"]):::weak
     phenomenological_me_theory --> strat_33
-    strat_33 --> tc_zn_likelihood
+    strat_33 --> tc_al_likelihood
     strat_34(["infer"]):::weak
     ab_initio_workflow --> strat_34
-    strat_34 --> tc_li_likelihood
+    strat_34 --> tc_zn_likelihood
     strat_35(["infer"]):::weak
     phenomenological_me_theory --> strat_35
-    strat_35 --> tc_li_likelihood
+    strat_35 --> tc_zn_likelihood
+    strat_36(["infer"]):::weak
+    ab_initio_workflow --> strat_36
+    strat_36 --> tc_li_likelihood
+    strat_37(["infer"]):::weak
+    phenomenological_me_theory --> strat_37
+    strat_37 --> tc_li_likelihood
     oper_0{{"⊕"}}
     li_is_superconducting --- oper_0
+    oper_2{{"≡"}}
+    bts_renormalization --- oper_2
     oper_3{{"⊗"}}:::contra
     mu_vdiagmc_values --- oper_3
 
@@ -948,11 +960,11 @@ graph TD
 
 #### mu* Available for Simple Metals
 
-📌 `mu_available_for_simple_metals`   |   Belief: **0.73**
+📌 `mu_available_for_simple_metals`   |   Belief: **0.72**
 
 > For simple metals, the Coulomb pseudopotential $\mu^*$ can be obtained from first principles without adjustable parameters: the vDiagMC-computed $\mu_{E_F}(r_s)$ for the uniform electron gas is mapped to real materials via material-specific $r_s$ and band mass, then scaled to the Debye frequency via the BTS renormalization relation.
 
-🔗 **deduction**([UEG mu* Parameterization and Mapping](#ueg_pseudopotential_parameterization), [mu from vDiagMC: Numerical Values](#mu_vdiagmc_values))
+🔗 **deduction**([UEG mu* Parameterization and Mapping](#ueg_pseudopotential_parameterization), [mu from vDiagMC: Numerical Values](#mu_vdiagmc_values), [BTS Renormalization Relation](#bts_renormalization))
 
 
 <a id="ab_initio_workflow"></a>
@@ -1003,7 +1015,7 @@ graph TD
 
 #### tc_al_phenomenological
 
-📌 `tc_al_phenomenological`   |   Belief: **0.52**
+📌 `tc_al_phenomenological`   |   Belief: **0.58**
 
 > The phenomenological McMillan formula with the standard guess $\mu^* = 0.1$ predicts $T_c \approx 2.22$ K for aluminum, overestimating the experimental 1.2 K by ~85%.
 
@@ -1063,7 +1075,7 @@ graph TD
 
 #### tc_zn_phenomenological
 
-📌 `tc_zn_phenomenological`   |   Belief: **0.52**
+📌 `tc_zn_phenomenological`   |   Belief: **0.58**
 
 > The phenomenological McMillan formula with the standard guess $\mu^* = 0.1$ predicts $T_c \approx 1.37$ K for zinc, overestimating the experimental 0.875 K by ~57%.
 
@@ -1123,7 +1135,7 @@ graph TD
 
 #### tc_li_phenomenological
 
-📌 `tc_li_phenomenological`   |   Belief: **0.51**
+📌 `tc_li_phenomenological`   |   Belief: **0.56**
 
 > The phenomenological McMillan formula with $\mu^* = 0.1$ predicts $T_c \approx 0.35$ K for lithium, overestimating the experimental 4e-04 K by three orders of magnitude.
 
@@ -1176,10 +1188,12 @@ graph TD
 
 | Label | Type | Prior | Belief | Role |
 |-------|------|-------|--------|------|
-| [phenomenological_me_theory](#phenomenological_me_theory) | claim | — | 0.1474 | independent |
-| [rpa_predicts_attractive_mu](#rpa_predicts_attractive_mu) | claim | — | 0.2497 | independent |
-| [li_anomaly_not_sc](#li_anomaly_not_sc) | claim | — | 0.2509 | independent |
-| [homotopic_expansion](#homotopic_expansion) | claim | — | 0.4564 | independent |
+| [li_anomaly_not_sc](#li_anomaly_not_sc) | claim | — | 0.2504 | independent |
+| [rpa_predicts_attractive_mu](#rpa_predicts_attractive_mu) | claim | — | 0.2531 | independent |
+| [mu_star_phenomenological](#mu_star_phenomenological) | claim | — | 0.3129 | independent |
+| [homotopic_expansion](#homotopic_expansion) | claim | — | 0.4593 | independent |
+| [me_downfolding_is_phenomenological](#me_downfolding_is_phenomenological) | claim | — | 0.4693 | derived |
+| [mu_vdiagmc_values](#mu_vdiagmc_values) | claim | — | 0.4937 | derived |
 | [dfpt_computes_lambda](#dfpt_computes_lambda) | claim | — | 0.5000 | independent |
 | [dfpt_eph_ansatz](#dfpt_eph_ansatz) | claim | — | 0.5000 | background |
 | [eft_al_model](#eft_al_model) | claim | — | 0.5000 | orphaned |
@@ -1190,57 +1204,54 @@ graph TD
 | [mcmillan_al_model](#mcmillan_al_model) | claim | — | 0.5000 | orphaned |
 | [mcmillan_li_model](#mcmillan_li_model) | claim | — | 0.5000 | orphaned |
 | [mcmillan_zn_model](#mcmillan_zn_model) | claim | — | 0.5000 | orphaned |
-| [me_downfolding_is_phenomenological](#me_downfolding_is_phenomenological) | claim | — | 0.5000 | orphaned |
-| [mu_star_phenomenological](#mu_star_phenomenological) | claim | — | 0.5000 | independent |
 | [precursory_cooper_flow](#precursory_cooper_flow) | claim | — | 0.5000 | background |
 | [tc_li_experimental](#tc_li_experimental) | claim | — | 0.5000 | background |
-| [ueg_vertex_challenge](#ueg_vertex_challenge) | claim | — | 0.5000 | background |
-| [mu_vdiagmc_values](#mu_vdiagmc_values) | claim | — | 0.5017 | derived |
-| [tc_li_phenomenological](#tc_li_phenomenological) | claim | — | 0.5138 | derived |
-| [tc_al_phenomenological](#tc_al_phenomenological) | claim | — | 0.5184 | derived |
-| [tc_zn_phenomenological](#tc_zn_phenomenological) | claim | — | 0.5184 | derived |
 | [ueg_pseudopotential_parameterization](#ueg_pseudopotential_parameterization) | claim | — | 0.5269 | independent |
-| [vdiagmc_method](#vdiagmc_method) | claim | — | 0.5330 | independent |
-| [cross_term_suppressed](#cross_term_suppressed) | claim | — | 0.5973 | independent |
-| [mu_available_for_simple_metals](#mu_available_for_simple_metals) | claim | — | 0.7256 | derived |
+| [vdiagmc_method](#vdiagmc_method) | claim | — | 0.5357 | independent |
+| [phenomenological_me_theory](#phenomenological_me_theory) | claim | — | 0.5476 | derived |
+| [tc_li_phenomenological](#tc_li_phenomenological) | claim | — | 0.5586 | derived |
+| [tc_al_phenomenological](#tc_al_phenomenological) | claim | — | 0.5782 | derived |
+| [tc_zn_phenomenological](#tc_zn_phenomenological) | claim | — | 0.5782 | derived |
+| [cross_term_suppressed](#cross_term_suppressed) | claim | — | 0.5946 | independent |
+| [mu_available_for_simple_metals](#mu_available_for_simple_metals) | claim | — | 0.7211 | derived |
 | [li_meissner_observed](#li_meissner_observed) | claim | — | 0.7433 | derived |
-| [tc_li_observation_binding](#tc_li_observation_binding) | claim | — | 0.7495 | derived |
 | [li_is_superconducting](#li_is_superconducting) | claim | — | 0.7496 | independent |
-| [gamma3_vdiagmc](#gamma3_vdiagmc) | claim | — | 0.8429 | derived |
-| [tc_li_predicted](#tc_li_predicted) | claim | — | 0.8591 | derived |
-| [downfolded_bse](#downfolded_bse) | claim | — | 0.8948 | derived |
+| [tc_li_observation_binding](#tc_li_observation_binding) | claim | — | 0.7500 | derived |
+| [gamma3_vdiagmc](#gamma3_vdiagmc) | claim | — | 0.8443 | derived |
+| [tc_li_predicted](#tc_li_predicted) | claim | — | 0.8598 | derived |
+| [downfolded_bse](#downfolded_bse) | claim | — | 0.8908 | derived |
 | [simple_metals_weak_lattice](#simple_metals_weak_lattice) | claim | 0.90 | 0.9000 | background |
 | [quasiparticle_mass_near_unity](#quasiparticle_mass_near_unity) | claim | 0.92 | 0.9308 | independent |
-| [downfolded_me_equation](#downfolded_me_equation) | claim | — | 0.9465 | derived |
-| [mu_microscopic_definition](#mu_microscopic_definition) | claim | — | 0.9465 | derived |
-| [lambda_microscopic_definition](#lambda_microscopic_definition) | claim | — | 0.9465 | derived |
-| [adiabatic_approx](#adiabatic_approx) | claim | 0.95 | 0.9559 | independent |
-| [ab_initio_workflow](#ab_initio_workflow) | claim | — | 0.9602 | derived |
-| [dfpt_reliable_for_simple_metals](#dfpt_reliable_for_simple_metals) | claim | — | 0.9637 | derived |
-| [bts_renormalization](#bts_renormalization) | claim | — | 0.9714 | independent |
-| [ma_pseudopotential_justified](#ma_pseudopotential_justified) | claim | — | 0.9723 | derived |
-| [mu_scale_independence](#mu_scale_independence) | claim | — | 0.9723 | derived |
-| [eft_eph_vertex](#eft_eph_vertex) | claim | — | 0.9724 | derived |
-| [al_pressure_transition](#al_pressure_transition) | claim | — | 0.9791 | derived |
-| [tc_al_predicted](#tc_al_predicted) | claim | — | 0.9791 | derived |
-| [tc_mg_na_near_qpt](#tc_mg_na_near_qpt) | claim | — | 0.9791 | derived |
-| [tc_zn_predicted](#tc_zn_predicted) | claim | — | 0.9791 | derived |
+| [mu_microscopic_definition](#mu_microscopic_definition) | claim | — | 0.9427 | derived |
+| [downfolded_me_equation](#downfolded_me_equation) | claim | — | 0.9454 | derived |
+| [lambda_microscopic_definition](#lambda_microscopic_definition) | claim | — | 0.9454 | derived |
+| [adiabatic_approx](#adiabatic_approx) | claim | 0.95 | 0.9558 | independent |
+| [ab_initio_workflow](#ab_initio_workflow) | claim | — | 0.9600 | derived |
+| [dfpt_reliable_for_simple_metals](#dfpt_reliable_for_simple_metals) | claim | — | 0.9647 | derived |
+| [bts_renormalization](#bts_renormalization) | claim | — | 0.9713 | independent |
+| [ma_pseudopotential_justified](#ma_pseudopotential_justified) | claim | — | 0.9713 | derived |
+| [mu_scale_independence](#mu_scale_independence) | claim | — | 0.9713 | derived |
+| [eft_eph_vertex](#eft_eph_vertex) | claim | — | 0.9727 | derived |
+| [al_pressure_transition](#al_pressure_transition) | claim | — | 0.9800 | derived |
+| [tc_al_predicted](#tc_al_predicted) | claim | — | 0.9800 | derived |
+| [tc_mg_na_near_qpt](#tc_mg_na_near_qpt) | claim | — | 0.9800 | derived |
+| [tc_zn_predicted](#tc_zn_predicted) | claim | — | 0.9800 | derived |
 | [bcs_theory](#bcs_theory) | claim | 0.98 | 0.9800 | background |
-| [me_framework](#me_framework) | claim | — | 0.9803 | derived |
-| [eft_vertex_matches_dfpt](#eft_vertex_matches_dfpt) | claim | — | 0.9847 | derived |
-| [ward_identity](#ward_identity) | claim | 0.98 | 0.9884 | independent |
+| [me_framework](#me_framework) | claim | — | 0.9810 | derived |
+| [eft_vertex_matches_dfpt](#eft_vertex_matches_dfpt) | claim | — | 0.9857 | derived |
+| [ward_identity](#ward_identity) | claim | 0.98 | 0.9885 | independent |
 | [tc_al_experimental](#tc_al_experimental) | claim | 0.99 | 0.9900 | orphaned |
 | [tc_zn_experimental](#tc_zn_experimental) | claim | 0.99 | 0.9900 | orphaned |
-| [bse_kernel_decomposition](#bse_kernel_decomposition) | claim | — | 0.9929 | derived |
-| [downfolded_bse_toy_model](#downfolded_bse_toy_model) | claim | — | 0.9983 | derived |
-| [gamma3_approximation](#gamma3_approximation) | claim | — | 0.9984 | derived |
-| [full_bse_toy_model](#full_bse_toy_model) | claim | — | 0.9984 | derived |
-| [bts_microscopic_equivalence](#bts_microscopic_equivalence) | claim | — | 0.9990 | structural |
+| [bse_kernel_decomposition](#bse_kernel_decomposition) | claim | — | 0.9936 | derived |
+| [gamma3_approximation](#gamma3_approximation) | claim | — | 0.9985 | derived |
+| [downfolded_bse_toy_model](#downfolded_bse_toy_model) | claim | — | 0.9987 | derived |
+| [full_bse_toy_model](#full_bse_toy_model) | claim | — | 0.9987 | derived |
 | [tc_al_observation_binding](#tc_al_observation_binding) | claim | 1.00 | 0.9990 | orphaned |
 | [tc_zn_observation_binding](#tc_zn_observation_binding) | claim | 1.00 | 0.9990 | orphaned |
 | [li_zero_resistance_observed](#li_zero_resistance_observed) | claim | 1.00 | 0.9993 | derived |
-| [rpa_vs_vdiagmc](#rpa_vs_vdiagmc) | claim | — | 0.9995 | structural |
-| [bse_toy_model_equivalence](#bse_toy_model_equivalence) | claim | — | 0.9999 | structural |
 | [tc_al_likelihood](#tc_al_likelihood) | claim | 1.00 | 0.9999 | derived |
 | [tc_zn_likelihood](#tc_zn_likelihood) | claim | 1.00 | 0.9999 | derived |
 | [tc_li_likelihood](#tc_li_likelihood) | claim | 1.00 | 1.0000 | derived |
+| [bse_toy_model_equivalence](#bse_toy_model_equivalence) | claim | — | 1.0000 | structural |
+| [bts_microscopic_equivalence](#bts_microscopic_equivalence) | claim | — | 1.0000 | structural |
+| [rpa_vs_vdiagmc](#rpa_vs_vdiagmc) | claim | — | 1.0000 | structural |
