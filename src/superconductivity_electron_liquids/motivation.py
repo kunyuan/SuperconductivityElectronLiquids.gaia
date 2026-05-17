@@ -6,7 +6,7 @@ superconducting Tc, motivating the need for a first-principles treatment
 of the Coulomb pseudopotential.
 """
 
-from gaia.engine.lang import claim, derive, question
+from gaia.engine.lang import claim, derive, exclusive, infer, observe, question
 
 # ---------------------------------------------------------------------------
 # Framework claims (axiomatic but probabilistic; carry an inline prior)
@@ -172,6 +172,126 @@ li_crystal_structure_at_low_t = claim(
     "\\times 10^{-4}$ K was inferred is not independently established. The "
     "Tc(Li) experimental input therefore assumes 9R is the relevant phase.",
     title="Li 9R Structural Assumption at Sub-Kelvin T",
+)
+
+# ---------------------------------------------------------------------------
+# Li "is it actually superconducting?" discrimination layer.
+#
+# The lab observed a resistivity drop at ~0.4 mK. There are two competing
+# explanations for that datum: a genuine bulk SC transition, or a non-SC
+# anomaly (filamentary SC / surface effects / contact artifacts / structural
+# transition under sub-mK extreme conditions).  Because the gold-standard
+# Meissner-Ochsenfeld experiment has *not* been performed on this sample,
+# the latter possibility cannot be ruled out.
+#
+# Encoded structurally as:
+#   (1) two mutually exclusive hypothesis claims (no inline prior),
+#   (2) the actual zero-resistance observation pinned via observe(),
+#   (3) infer(...) with asymmetric P(e|h)/P(e|¬h) for that evidence,
+#       giving a modest Bayes factor (~3x for Li),
+#   (4) a *hypothetical* Meissner observation claim with the much stronger
+#       BF wired via infer(...) — but NOT observed, so it sits in the
+#       graph as a dormant edge ready to be activated if the experiment
+#       is ever performed,
+#   (5) a question() node recording the open inquiry status.
+# ---------------------------------------------------------------------------
+
+li_is_superconducting = claim(
+    "Li in the 9R structure undergoes a genuine bulk superconducting "
+    "transition at $T_c \\approx 4 \\times 10^{-4}$ K. The Cooper pair "
+    "condensate is bulk (not filamentary or surface), and the observed "
+    "resistive anomaly reflects this true SC state.",
+    title="Li is Bulk Superconducting",
+)
+
+li_anomaly_not_sc = claim(
+    "The resistive anomaly observed in Li 9R at $\\sim 0.4$ mK is "
+    "*not* a bulk superconducting transition: it could be filamentary "
+    "SC on grain boundaries / impurity phases, surface superconductivity, "
+    "measurement / contact artifacts amplified at sub-mK temperatures, "
+    "a structural transition that mimics a SC signature, or another "
+    "phenomenon of the extreme sub-mK regime.",
+    title="Li Resistive Anomaly Is Not Bulk SC",
+)
+
+exclusive(
+    li_is_superconducting,
+    li_anomaly_not_sc,
+    rationale=(
+        "A specific sample either undergoes bulk SC or it does not. The "
+        "two interpretive hypotheses for the observed resistive anomaly "
+        "are mutually exclusive."
+    ),
+    label="li_sc_hypothesis_exclusive",
+)
+
+# Evidence #1: zero resistance was actually measured (observe + infer).
+li_zero_resistance_observed = claim(
+    "Resistivity of the Li 9R sample drops sharply to below the measurement "
+    "noise floor at $T \\approx 0.4$ mK (Schwarz et al. and follow-ups).",
+    title="Li Resistance Drop at ~0.4 mK",
+)
+observe(
+    li_zero_resistance_observed,
+    background=[li_crystal_structure_at_low_t],
+    rationale=(
+        "The resistive drop is the actual laboratory observation cited as "
+        "evidence for SC in Li at sub-mK temperatures. Pin via observe()."
+    ),
+    label="li_zero_r_observation",
+)
+
+infer(
+    li_zero_resistance_observed,
+    hypothesis=li_is_superconducting,
+    p_e_given_h=0.90,
+    p_e_given_not_h=0.30,
+    rationale=(
+        "Bulk SC almost always (>0.9) produces a sharp resistive drop to "
+        "below the noise floor, but in the sub-mK extreme regime the "
+        "non-SC alternative (filamentary SC, surface effects, contact "
+        "artifacts, structural transitions) can also produce such a "
+        "signature with non-negligible probability (~0.3). Bayes factor "
+        "~3x supports SC — informative but far from decisive."
+    ),
+    label="li_zero_r_supports_sc",
+)
+
+# Evidence #2: Meissner-Ochsenfeld experiment was NOT performed.
+# The claim is declared so the graph contains the structural edge, but
+# observe() is deliberately omitted: an unpinned evidence node carries
+# no force on BP until someone actually runs the experiment and pins it.
+li_meissner_observed = claim(
+    "Meissner-Ochsenfeld expulsion of magnetic flux is observed for the "
+    "Li 9R sample at sub-K temperatures, confirming bulk SC.",
+    title="Li Meissner Observation (hypothetical)",
+)
+
+infer(
+    li_meissner_observed,
+    hypothesis=li_is_superconducting,
+    p_e_given_h=0.99,
+    p_e_given_not_h=0.005,
+    rationale=(
+        "Meissner expulsion is essentially unique to bulk SC (BF ~200x). "
+        "The structural infer() edge sits in the graph as a dormant "
+        "discriminator: while li_meissner_observed remains unpinned the "
+        "factor exerts no force on the SC hypothesis posterior. If the "
+        "Meissner experiment is performed and observed (positive), simply "
+        "add observe(li_meissner_observed) and BP propagates the strong "
+        "evidence; if observed null, the factor flips against SC."
+    ),
+    label="li_meissner_would_support_sc",
+)
+
+li_meissner_inquiry = question(
+    "Has the Meissner-Ochsenfeld experiment been performed on the Li 9R "
+    "sample at sub-K temperatures? This is the gold-standard discriminator "
+    "between genuine bulk SC and the various non-SC explanations (BF ~200x "
+    "if positive; near-decisive ruling-out if null). The package currently "
+    "records no public data on this measurement.",
+    targets=[li_meissner_observed, li_is_superconducting, li_anomaly_not_sc],
+    title="Missing Meissner Experiment for Li 9R",
 )
 
 # ---------------------------------------------------------------------------

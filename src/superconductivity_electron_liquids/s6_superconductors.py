@@ -16,6 +16,7 @@ from gaia.engine.lang import Constant, Real, claim, derive, equals, note, observ
 from .motivation import (
     dfpt_computes_lambda,
     li_crystal_structure_at_low_t,
+    li_is_superconducting,
     mu_star_phenomenological,
     phenomenological_me_theory,
     tc_al_experimental,
@@ -442,11 +443,14 @@ tc_li_predicted = derive(
     f"The large $\\mu^*$ from $r_s = 3.25$ nearly cancels the moderate "
     f"$\\lambda$, pushing $T_c$ into the sub-mK regime. Experimental: "
     f"$T_c \\approx {MATERIAL_PARAMS['li']['tc_exp']:.0e}$ K.",
-    given=(ab_initio_workflow,),
+    given=(ab_initio_workflow, li_is_superconducting),
     background=[lithium_parameters],
     rationale=(
         "Plug Li's first-principles inputs into the McMillan estimator; "
-        "near-cancellation of g amplifies parameter sensitivity exponentially."
+        "near-cancellation of g amplifies parameter sensitivity exponentially. "
+        "Conditional on @li_is_superconducting because the predicted Tc value "
+        "only carries operational meaning if the observed sub-mK resistive "
+        "anomaly is in fact a bulk SC transition rather than a non-SC artifact."
     ),
     label="tc_li_predicted",
 )
@@ -457,9 +461,13 @@ tc_li_phenomenological = derive(
     f"{mcmillan_tc(MATERIAL_PARAMS['li']['lam'], 0.10, MATERIAL_PARAMS['li']['omega_log']):.2f}$ K "
     f"for lithium, overestimating the experimental "
     f"{MATERIAL_PARAMS['li']['tc_exp']:.0e} K by three orders of magnitude.",
-    given=(phenomenological_me_theory, mu_star_phenomenological, dfpt_computes_lambda),
+    given=(phenomenological_me_theory, mu_star_phenomenological, dfpt_computes_lambda, li_is_superconducting),
     background=[lithium_parameters],
-    rationale="McMillan with fixed empirical μ* = 0.1 applied to Li's λ, ω_log.",
+    rationale=(
+        "McMillan with fixed empirical μ* = 0.1 applied to Li's λ, ω_log; "
+        "conditional on @li_is_superconducting for the same reason as the "
+        "EFT prediction."
+    ),
     label="tc_li_phenomenological",
 )
 
@@ -487,11 +495,13 @@ eft_li_model = bayes.model(
     ab_initio_workflow,
     observable=log_tc_li,
     distribution=bayes.Normal(mu=eft_log_tc_mean("li"), sigma=eft_log_tc_sigma("li")),
-    background=[lithium_parameters],
+    background=[lithium_parameters, li_is_superconducting],
     rationale=(
         "EFT prediction: μ* = 0.18 (vDiagMC + BTS) → Tc ≈ 2e-3 K. Note: σ "
         "for Li is large because the exponential sensitivity to g near the "
-        "QPT magnifies any μ*_EFT uncertainty."
+        "QPT magnifies any μ*_EFT uncertainty. Comparison is only "
+        "meaningful given @li_is_superconducting; non-SC explanations of "
+        "the resistive anomaly would invalidate the log-Tc framing."
     ),
     label="eft_li_model",
 )
@@ -501,10 +511,11 @@ mcmillan_li_model = bayes.model(
     phenomenological_me_theory,
     observable=log_tc_li,
     distribution=bayes.Normal(mu=_mcmillan_li_mean, sigma=_mcmillan_li_sigma),
-    background=[lithium_parameters, mu_star_phenomenological],
+    background=[lithium_parameters, mu_star_phenomenological, li_is_superconducting],
     rationale=(
         "Traditional McMillan: μ* ~ Uniform[0.1, 0.2] propagated for Li; "
-        "near-QPT exponential sensitivity gives a very broad log-Tc spread."
+        "near-QPT exponential sensitivity gives a very broad log-Tc spread. "
+        "Conditional on @li_is_superconducting (same caveat as eft_li_model)."
     ),
     label="mcmillan_li_model",
 )
