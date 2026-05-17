@@ -1,6 +1,6 @@
 {
   "package_name": "superconductivity_electron_liquids",
-  "generated_at": "2026-05-17T06:22:31.715392+00:00",
+  "generated_at": "2026-05-17T09:36:25.830868+00:00",
   "wiki_pages": [
     "Home.md",
     "Module-Root.md",
@@ -53,7 +53,7 @@
     "tc_zn_likelihood",
     "tc_zn_predicted"
   ],
-  "total_claims": 102,
-  "total_beliefs": 112,
+  "total_claims": 103,
+  "total_beliefs": 114,
   "readme_placeholders": []
 }

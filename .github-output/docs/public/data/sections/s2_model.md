@@ -16,16 +16,16 @@
 **Type:** claim
 **Role:** derived
 **Content:** The kernel of the Bethe-Salpeter equation (BSE) can be decomposed into the purely electronic particle-particle irreducible four-point vertex $\tilde\Gamma^e$ (encoding all non-perturbative Coulomb effects) and the phonon-mediated effective electron-electron interaction $W^{\mathrm{ph}}$: $\tilde\Gamma = \tilde\Gamma^e + W^{\mathrm{ph}} + O(\omega_D/E_F)$. Migdal's theorem ensures that higher-order phonon vertex corrections are suppressed by the adiabatic small parameter.
-**Belief:** 0.99
+**Belief:** 0.84
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::me_framework`
 **figure:** artifacts/images/4_2.jpg
 **caption:** Fig. 3 | Self-consistent Bethe-Salpeter equation for the anomalous vertex in momentum space, with kernel consisting of the electronic four-point vertex Gamma_e and phonon-mediated interaction W^ph.
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::downfolded_bse`; deduction -> `github:superconductivity_electron_liquids::full_bse_toy_model`
 
-### github:superconductivity_electron_liquids::_anon_005
+### github:superconductivity_electron_liquids::_anon_007
 
-**QID:** `github:superconductivity_electron_liquids::_anon_005`
+**QID:** `github:superconductivity_electron_liquids::_anon_007`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants The kernel of the Bethe-Salpeter equation (BSE) can be decomposed into the purely electronic particle-particle irreducible four-point vertex $\tilde\Gamma^e$ (encoding all non-perturbative Coulomb effects) and the phonon-mediated effective electron-electron interaction $W^{\mathrm{ph}}$: $\tilde\Gamma = \tilde\Gamma^e + W^{\mathrm{ph}} + O(\omega_D/E_F)$. Migdal's theorem ensures that higher-order phonon vertex corrections are suppressed by the adiabatic small parameter.
@@ -35,7 +35,7 @@
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::me_framework'], 'conclusion': 'github:superconductivity_electron_liquids::bse_kernel_decomposition'}
 **warrant:** Migdal's theorem (@me_framework) guarantees that phonon vertex corrections to the BSE kernel are suppressed at $O(\omega_D/E_F)$. This allows the full particle-particle irreducible kernel to be separated into a purely electronic four-point vertex $\tilde\Gamma^e$ (which encodes all non-perturbative Coulomb correlations and is independent of phonon details) and the phonon-mediated interaction $W^{\mathrm{ph}}$ (which includes the dressed phonon propagator, bare coupling, electronic screening, and vertex corrections). Cross terms between these two contributions are higher order in $\omega_D/E_F$ and can be neglected.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_005
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_007
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['me_framework']}}
 

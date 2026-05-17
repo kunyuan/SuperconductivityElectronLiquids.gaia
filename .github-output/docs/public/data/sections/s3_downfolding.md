@@ -20,7 +20,7 @@
 **Type:** claim
 **Role:** independent
 **Content:** Cross terms mixing Coulomb and phonon channels are suppressed by the plasma frequency $\omega_p$, at order $O(\omega_c^2/\omega_p^2)$, where $\omega_c$ is an intermediate energy cutoff satisfying $\omega_D \ll \omega_c \ll E_F$. For most three-dimensional metals $\omega_c/\omega_p \lesssim 0.1$, so cross terms contribute no more than 1%.
-**Belief:** 0.60
+**Belief:** 0.09
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::downfolded_bse`
 
 ### downfolding_validity_limits
@@ -40,14 +40,14 @@
 $$\Lambda_\omega = \eta_\omega + \pi T \sum_{|\omega'|<\omega_c} \bigl(\lambda_{\omega\omega'} - \mu_{\omega_c}\bigr) \frac{z_{\omega'}^{\mathrm{ph}}}{|\omega'|}\, \Lambda_{\omega'}.$$
 
 Here $\eta_\omega$ is the symmetry-breaking pair source (set to unity for numerical convenience without affecting $T_c$), $z_\omega^{\mathrm{ph}}$ is the e-ph quasiparticle weight (Cai et al., Eq. 21), and the kernel decomposes into the phonon-mediated attraction $\lambda_{\omega\omega'}$ and the Coulomb pseudopotential $\mu_{\omega_c}$, both with microscopic definitions in terms of electron vertex functions. Corrections are bounded by three small parameters: $\omega_D/E_F$, $\omega_c^2/\omega_p^2$, and $T/\omega_c$. The momentum integration is absorbed into the density of states, and the pair propagator's coherent part generates the BCS logarithm that drives the Cooper instability.
-**Belief:** 0.89
+**Belief:** 0.02
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::cross_term_suppressed`, `github:superconductivity_electron_liquids::bse_kernel_decomposition`
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::downfolded_bse_toy_model`; deduction -> `github:superconductivity_electron_liquids::downfolded_me_equation`; deduction -> `github:superconductivity_electron_liquids::lambda_microscopic_definition`; deduction -> `github:superconductivity_electron_liquids::mu_microscopic_definition`; deduction -> `github:superconductivity_electron_liquids::ab_initio_workflow`
 
-### github:superconductivity_electron_liquids::_anon_006
+### github:superconductivity_electron_liquids::_anon_008
 
-**QID:** `github:superconductivity_electron_liquids::_anon_006`
+**QID:** `github:superconductivity_electron_liquids::_anon_008`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants The frequency-only downfolded Bethe-Salpeter equation: the full momentum-frequency BSE kernel reduces to a one-dimensional integral equation in Matsubara frequency for the Fermi-surface-averaged anomalous vertex $\Lambda_\omega$ (Cai et al., Eq. 20):
@@ -61,7 +61,7 @@ Here $\eta_\omega$ is the symmetry-breaking pair source (set to unity for numeri
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::cross_term_suppressed', 'github:superconductivity_electron_liquids::bse_kernel_decomposition'], 'conclusion': 'github:superconductivity_electron_liquids::downfolded_bse'}
 **warrant:** Starting from the full BSE with kernel decomposed into $\tilde\Gamma^e + W^{\mathrm{ph}}$ (@bse_kernel_decomposition), we substitute the exact pair propagator decomposition (@pair_propagator_decomposition) which splits $GG$ into a BCS-like coherent piece $\Pi_{\mathrm{BCS}}$ and an incoherent remainder $\phi$. The coherent piece carries the Cooper logarithm and defines the low-energy pairing channel. Momentum summation over the coherent part yields a frequency-only kernel. The cross terms mixing Coulomb and phonon channels are suppressed at $O(\omega_c^2/\omega_p^2)$ (@cross_term_suppressed), justifying their neglect. Under the adiabatic condition (@adiabatic_approx), residual phonon vertex corrections are negligible. The result is a one-dimensional integral equation in Matsubara frequency with microscopically defined $\lambda$ and $\mu_{\omega_c}$ kernels.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_006
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_008
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['adiabatic_approx', 'bse_kernel_decomposition', 'cross_term_suppressed', 'pair_propagator_decomposition']}}
 
@@ -71,16 +71,16 @@ Here $\eta_\omega$ is the symmetry-breaking pair source (set to unity for numeri
 **Type:** claim
 **Role:** derived
 **Content:** For a toy model with aluminum-like parameters (Wigner-Seitz radius $r_s = 1.92$, adiabatic ratio $\omega_D/E_F = 0.005$), numerically solving the full frequency-momentum dependent Bethe-Salpeter equation (BSE) — using RPA dynamically screened Coulomb interaction as the electron irreducible vertex plus a model phonon interaction, without any downfolding approximation — yields a superconducting transition temperature $T_c^{\mathrm{full}}/T_F = 10^{-5.668}$, where $T_F$ is the Fermi temperature.
-**Belief:** 1.00
+**Belief:** 0.92
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::bse_kernel_decomposition`
 **figure:** artifacts/images/8_1.jpg
 **caption:** Fig. 5 | Comparison between the precursory Cooper flow solutions of the full and downfolded BSE for a toy model, demonstrating 0.2% agreement in Tc.
 **Referenced by:** unknown -> `github:superconductivity_electron_liquids::bse_toy_model_equivalence`
 
-### github:superconductivity_electron_liquids::_anon_007
+### github:superconductivity_electron_liquids::_anon_009
 
-**QID:** `github:superconductivity_electron_liquids::_anon_007`
+**QID:** `github:superconductivity_electron_liquids::_anon_009`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants For a toy model with aluminum-like parameters (Wigner-Seitz radius $r_s = 1.92$, adiabatic ratio $\omega_D/E_F = 0.005$), numerically solving the full frequency-momentum dependent Bethe-Salpeter equation (BSE) — using RPA dynamically screened Coulomb interaction as the electron irreducible vertex plus a model phonon interaction, without any downfolding approximation — yields a superconducting transition temperature $T_c^{\mathrm{full}}/T_F = 10^{-5.668}$, where $T_F$ is the Fermi temperature.
@@ -90,7 +90,7 @@ Here $\eta_\omega$ is the symmetry-breaking pair source (set to unity for numeri
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::bse_kernel_decomposition'], 'conclusion': 'github:superconductivity_electron_liquids::full_bse_toy_model'}
 **warrant:** Using the Bethe-Salpeter equation with the kernel decomposition (@bse_kernel_decomposition) into the electronic four-point vertex (approximated by RPA dynamically screened Coulomb interaction, @rpa_dynamic_screening) and a model phonon-mediated interaction, numerically solve the full frequency-momentum BSE for a toy model at $r_s = 1.92$, $\omega_D/E_F = 0.005$. The precursory Cooper flow analysis of the solution yields $T_c^{\mathrm{full}}/T_F = 10^{-5.668}$.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_007
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_009
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['bse_kernel_decomposition', 'rpa_dynamic_screening']}}
 
@@ -100,14 +100,14 @@ Here $\eta_\omega$ is the symmetry-breaking pair source (set to unity for numeri
 **Type:** claim
 **Role:** derived
 **Content:** For the same toy model (aluminum-like parameters $r_s = 1.92$, $\omega_D/E_F = 0.005$), solving the downfolded frequency-only Bethe-Salpeter equation yields $T_c^{\mathrm{approx}}/T_F = 10^{-5.667}$, where $T_F$ is the Fermi temperature.
-**Belief:** 1.00
+**Belief:** 0.92
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::downfolded_bse`
 **Referenced by:** unknown -> `github:superconductivity_electron_liquids::bse_toy_model_equivalence`
 
-### github:superconductivity_electron_liquids::_anon_008
+### github:superconductivity_electron_liquids::_anon_010
 
-**QID:** `github:superconductivity_electron_liquids::_anon_008`
+**QID:** `github:superconductivity_electron_liquids::_anon_010`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants For the same toy model (aluminum-like parameters $r_s = 1.92$, $\omega_D/E_F = 0.005$), solving the downfolded frequency-only Bethe-Salpeter equation yields $T_c^{\mathrm{approx}}/T_F = 10^{-5.667}$, where $T_F$ is the Fermi temperature.
@@ -117,7 +117,7 @@ Here $\eta_\omega$ is the symmetry-breaking pair source (set to unity for numeri
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::downfolded_bse'], 'conclusion': 'github:superconductivity_electron_liquids::downfolded_bse_toy_model'}
 **warrant:** Apply the downfolded frequency-only BSE (@downfolded_bse) to the same toy model (RPA dynamically screened Coulomb interaction @rpa_dynamic_screening, $r_s = 1.92$, $\omega_D/E_F = 0.005$). Solving the frequency-only equation yields $T_c^{\mathrm{approx}}/T_F = 10^{-5.667}$.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_008
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_010
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['downfolded_bse', 'rpa_dynamic_screening']}}
 
@@ -139,13 +139,13 @@ Here $\eta_\omega$ is the symmetry-breaking pair source (set to unity for numeri
 **Type:** claim
 **Role:** derived
 **Content:** At the superconducting critical temperature $T_c$, the downfolded Bethe-Salpeter equation reduces to the traditional linearized Migdal-Eliashberg (ME) gap equation: $\Delta_\omega = \pi T_c \sum_{|\omega'|<\omega_c} (\lambda_{\omega\omega'} - \mu^*) \frac{z_{\omega'}^{\mathrm{ph}}}{|\omega'|} \Delta_{\omega'}$. As $T \to T_c$, the anomalous vertex diverges as $\Lambda_{k\omega} \sim \Delta_{k\omega}/(T - T_c)$, causing the source term $\eta$ to become irrelevant. The diverging prefactor $(T - T_c)^{-1}$ cancels between the two sides of the equation, yielding the gap equation with $\mu^* \equiv \mu_{\omega_c}$. This establishes the microscopic foundation for the ME equation with precise definitions of $\mu^*$ and $\lambda$ in terms of electron vertex functions.
-**Belief:** 0.95
+**Belief:** 0.51
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::downfolded_bse`
 
-### github:superconductivity_electron_liquids::_anon_009
+### github:superconductivity_electron_liquids::_anon_011
 
-**QID:** `github:superconductivity_electron_liquids::_anon_009`
+**QID:** `github:superconductivity_electron_liquids::_anon_011`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants At the superconducting critical temperature $T_c$, the downfolded Bethe-Salpeter equation reduces to the traditional linearized Migdal-Eliashberg (ME) gap equation: $\Delta_\omega = \pi T_c \sum_{|\omega'|<\omega_c} (\lambda_{\omega\omega'} - \mu^*) \frac{z_{\omega'}^{\mathrm{ph}}}{|\omega'|} \Delta_{\omega'}$. As $T \to T_c$, the anomalous vertex diverges as $\Lambda_{k\omega} \sim \Delta_{k\omega}/(T - T_c)$, causing the source term $\eta$ to become irrelevant. The diverging prefactor $(T - T_c)^{-1}$ cancels between the two sides of the equation, yielding the gap equation with $\mu^* \equiv \mu_{\omega_c}$. This establishes the microscopic foundation for the ME equation with precise definitions of $\mu^*$ and $\lambda$ in terms of electron vertex functions.
@@ -155,7 +155,7 @@ Here $\eta_\omega$ is the symmetry-breaking pair source (set to unity for numeri
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::downfolded_bse'], 'conclusion': 'github:superconductivity_electron_liquids::downfolded_me_equation'}
 **warrant:** Starting from the downfolded BSE (@downfolded_bse), consider the behavior near the Cooper instability. The precursory Cooper flow (@precursory_cooper_flow) shows that the anomalous vertex diverges as $\Lambda \sim \Delta/(T - T_c)$ when $T \to T_c$. Substituting this scaling into the downfolded BSE, the source term $\eta$ becomes negligible compared to the diverging vertex, and the $(T - T_c)^{-1}$ prefactor cancels on both sides. The result is the linearized gap equation — identical in form to the traditional ME equation, but now with $\mu^*$ and $\lambda$ having precise microscopic definitions from the downfolding.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_010
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_012
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['downfolded_bse', 'precursory_cooper_flow']}}
 
@@ -171,15 +171,15 @@ In the standard ME normalization, the static dimensionless coupling follows the 
 $$\lambda = N_F \sum_\kappa \left\langle \frac{g_\kappa^2(\mathbf{k}, \mathbf{q})}{\omega_{\kappa, \mathbf{q}}^2}\right\rangle_{\mathrm{FS}},$$
 
 with $|\mathbf{k}| = |\mathbf{k} + \mathbf{q}| = k_F$, $N_F$ the density of states at the Fermi level, and $g_\kappa(\mathbf{k}, \mathbf{q})$ the physical screened-and-renormalized e-ph vertex (see @eft_eph_vertex). This definition reduces to the standard Eliashberg $\lambda$ in the adiabatic limit but retains dynamical corrections from the electron self-energy.
-**Belief:** 0.95
+**Belief:** 0.22
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::downfolded_bse`
 **gaia:** {'provenance': {'referenced_claims': ['eft_eph_vertex']}}
 **Referenced by:** deduction -> `github:superconductivity_electron_liquids::eft_eph_vertex`
 
-### github:superconductivity_electron_liquids::_anon_010
+### github:superconductivity_electron_liquids::_anon_012
 
-**QID:** `github:superconductivity_electron_liquids::_anon_010`
+**QID:** `github:superconductivity_electron_liquids::_anon_012`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants The electron-phonon coupling $\lambda(\omega, \omega')$ in the downfolded BSE has a microscopic definition: it is the Fermi-surface average of the phonon-mediated interaction $W^{\mathrm{ph}}$ weighted by quasiparticle renormalization factors $z^e$ and $z_\omega^{\mathrm{ph}}$.
@@ -195,7 +195,7 @@ with $|\mathbf{k}| = |\mathbf{k} + \mathbf{q}| = k_F$, $N_F$ the density of stat
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::downfolded_bse'], 'conclusion': 'github:superconductivity_electron_liquids::lambda_microscopic_definition'}
 **warrant:** The downfolded BSE (@downfolded_bse) expresses the pairing kernel as $K = \lambda - \mu_{\omega_c}$. The phonon-mediated part $\lambda(\omega, \omega')$ arises from projecting $W^{\mathrm{ph}}$ (the phonon-mediated interaction from the electron-phonon action decomposition, @electron_phonon_action) onto the Fermi surface using the coherent part of the pair propagator. The counterterm $S_{\mathrm{CT}}$ in the action ensures no double-counting of the static screening already included in the physical phonon dispersion. The resulting expression for $\lambda$ involves the Fermi-surface average of $W^{\mathrm{ph}}$ weighted by quasiparticle factors, providing a controlled microscopic definition that generalizes the standard Eliashberg coupling constant.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_011
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_013
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['downfolded_bse', 'eft_eph_vertex', 'electron_phonon_action']}}
 
@@ -215,14 +215,14 @@ where $\gamma_T$ is computed directly from the four-point vertex (Cai et al., Eq
 $$\gamma_T \equiv z_e^2\, N_F^{\ast}\, \bigl\langle \Gamma_4^e(\mathbf{k}_F, \omega_0;\, \mathbf{k}_F', \omega_0)\bigr\rangle_{\mathbf{k}_F, \mathbf{k}_F'},\qquad \omega_0 = \pi T.$$
 
 Here $z_e$ is the electronic quasiparticle weight, $N_F^\ast$ is the quasiparticle density of states, and $\Gamma_4^e$ is the full electronic four-point vertex on the Fermi surface evaluated at the lowest Matsubara frequency $\omega_0 = \pi T$. Inverting Eq. 23 yields $\mu_{\omega_c}$ from the measured $\gamma_T$, providing a precise meaning to the Coulomb pseudopotential as the effective repulsion in the low-energy pairing channel, renormalized by all electronic correlations.
-**Belief:** 0.95
+**Belief:** 0.19
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::downfolded_bse`
-**Referenced by:** deduction -> `github:superconductivity_electron_liquids::mu_scale_independence`; deduction -> `github:superconductivity_electron_liquids::ma_pseudopotential_justified`
+**Referenced by:** deduction -> `github:superconductivity_electron_liquids::mu_scale_independence`; deduction -> `github:superconductivity_electron_liquids::ma_pseudopotential_justified`; deduction -> `github:superconductivity_electron_liquids::mu_vdiagmc_values`
 
-### github:superconductivity_electron_liquids::_anon_011
+### github:superconductivity_electron_liquids::_anon_013
 
-**QID:** `github:superconductivity_electron_liquids::_anon_011`
+**QID:** `github:superconductivity_electron_liquids::_anon_013`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants The Coulomb pseudopotential $\mu_{\omega_c}(\omega, \omega')$ in the downfolded BSE has a microscopic definition: it is determined by the purely electronic particle-particle irreducible four-point vertex $\tilde\Gamma^e$ projected onto the Fermi surface, with the high-energy electronic degrees of freedom integrated out above the cutoff $\omega_c$.
@@ -242,7 +242,7 @@ Here $z_e$ is the electronic quasiparticle weight, $N_F^\ast$ is the quasipartic
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::downfolded_bse'], 'conclusion': 'github:superconductivity_electron_liquids::mu_microscopic_definition'}
 **warrant:** The downfolded BSE (@downfolded_bse) separates the pairing kernel into phonon ($\lambda$) and Coulomb ($\mu_{\omega_c}$) contributions. The Coulomb part is obtained by projecting the purely electronic irreducible four-point vertex $\tilde\Gamma^e$ from the BSE kernel onto the Fermi surface, with frequency integration restricted to the range above $\omega_c$ handled by the incoherent part of the pair propagator. This construction defines $\mu_{\omega_c}$ as a functional of $\tilde\Gamma^e$ — the quantity that encodes all non-perturbative Coulomb correlations — evaluated at a specific energy scale, without any phenomenological input.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_012
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_014
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['downfolded_bse']}}
 
@@ -252,14 +252,14 @@ Here $z_e$ is the electronic quasiparticle weight, $N_F^\ast$ is the quasipartic
 **Type:** claim
 **Role:** derived
 **Content:** The BTS renormalization relation $\mu_{\omega_c} = \mu_{\omega_c'} / (1 + \mu_{\omega_c'} \ln(\omega_c'/\omega_c))$ emerges as a corollary of the microscopic definition of $\mu_{\omega_c}$: changing the cutoff $\omega_c$ reshuffles contributions between the explicit Coulomb kernel and the Cooper logarithm in the BCS propagator, leaving the physical $T_c$ invariant. This provides a microscopic derivation of the originally phenomenological BTS relation.
-**Belief:** 0.97
+**Belief:** 0.58
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::mu_microscopic_definition`
 **Referenced by:** unknown -> `github:superconductivity_electron_liquids::bts_microscopic_equivalence`
 
-### github:superconductivity_electron_liquids::_anon_012
+### github:superconductivity_electron_liquids::_anon_014
 
-**QID:** `github:superconductivity_electron_liquids::_anon_012`
+**QID:** `github:superconductivity_electron_liquids::_anon_014`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants The BTS renormalization relation $\mu_{\omega_c} = \mu_{\omega_c'} / (1 + \mu_{\omega_c'} \ln(\omega_c'/\omega_c))$ emerges as a corollary of the microscopic definition of $\mu_{\omega_c}$: changing the cutoff $\omega_c$ reshuffles contributions between the explicit Coulomb kernel and the Cooper logarithm in the BCS propagator, leaving the physical $T_c$ invariant. This provides a microscopic derivation of the originally phenomenological BTS relation.
@@ -269,7 +269,7 @@ Here $z_e$ is the electronic quasiparticle weight, $N_F^\ast$ is the quasipartic
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::mu_microscopic_definition'], 'conclusion': 'github:superconductivity_electron_liquids::mu_scale_independence'}
 **warrant:** Given the microscopic definition of $\mu_{\omega_c}$ (@mu_microscopic_definition) as a Fermi-surface projection of $\tilde\Gamma^e$ with a cutoff at $\omega_c$, we can examine how $\mu$ transforms when $\omega_c$ is varied. Shifting the cutoff from $\omega_c'$ to $\omega_c$ transfers spectral weight between the explicit Coulomb kernel and the BCS Cooper logarithm $\ln(\omega_c'/T)$ in the coherent pair propagator. Requiring that the physical observable ($T_c$) remain invariant under this reshuffling yields the BTS relation $\mu_{\omega_c} = \mu_{\omega_c'} / (1 + \mu_{\omega_c'} \ln(\omega_c'/\omega_c))$ as an exact consequence of the downfolded theory's structure, rather than an ad hoc ansatz.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_013
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_015
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['mu_microscopic_definition']}}
 
@@ -291,13 +291,13 @@ Here $z_e$ is the electronic quasiparticle weight, $N_F^\ast$ is the quasipartic
 **Type:** claim
 **Role:** derived
 **Content:** The Morel-Anderson constant-pseudopotential ansatz — treating $\mu_{\omega_c}$ as approximately frequency-independent — is microscopically justified: the four-point vertex $\tilde\Gamma^e$ varies on electronic energy scales ($E_F$), which are much larger than the phonon scale ($\omega_D$). Within the low-energy window $|\omega|, |\omega'| < \omega_c \ll E_F$, the Coulomb kernel is effectively constant, validating the traditional constant-$\mu^*$ treatment used in Eliashberg theory.
-**Belief:** 0.97
+**Belief:** 0.59
 **Derived from:** deduction
 **Premises:** `github:superconductivity_electron_liquids::mu_microscopic_definition`
 
-### github:superconductivity_electron_liquids::_anon_013
+### github:superconductivity_electron_liquids::_anon_015
 
-**QID:** `github:superconductivity_electron_liquids::_anon_013`
+**QID:** `github:superconductivity_electron_liquids::_anon_015`
 **Type:** claim
 **Role:** orphaned
 **Content:** derive warrants The Morel-Anderson constant-pseudopotential ansatz — treating $\mu_{\omega_c}$ as approximately frequency-independent — is microscopically justified: the four-point vertex $\tilde\Gamma^e$ varies on electronic energy scales ($E_F$), which are much larger than the phonon scale ($\omega_D$). Within the low-energy window $|\omega|, |\omega'| < \omega_c \ll E_F$, the Coulomb kernel is effectively constant, validating the traditional constant-$\mu^*$ treatment used in Eliashberg theory.
@@ -307,6 +307,6 @@ Here $z_e$ is the electronic quasiparticle weight, $N_F^\ast$ is the quasipartic
 **review:** True
 **relation:** {'type': 'derive', 'given': ['github:superconductivity_electron_liquids::mu_microscopic_definition'], 'conclusion': 'github:superconductivity_electron_liquids::ma_pseudopotential_justified'}
 **warrant:** The microscopic definition of $\mu_{\omega_c}$ (@mu_microscopic_definition) shows it is determined by the electronic four-point vertex $\tilde\Gamma^e$, which varies on the scale of $E_F$. Within the low-energy window $|\omega|, |\omega'| < \omega_c$ where $\omega_c \ll E_F$, the frequency dependence of $\tilde\Gamma^e$ is negligible, so $\mu_{\omega_c}(\omega, \omega') \approx \mu_{\omega_c}$ becomes effectively a constant. This provides a first-principles justification for the phenomenological Morel-Anderson ansatz (@mu_star_phenomenological) that treats $\mu^*$ as a single number rather than a frequency-dependent kernel. The justification holds precisely because the energy-scale hierarchy $\omega_c \ll E_F$ is maintained.
-**action_label:** github:superconductivity_electron_liquids::action::_anon_action_015
+**action_label:** github:superconductivity_electron_liquids::action::_anon_action_017
 **pattern:** derivation
 **gaia:** {'provenance': {'referenced_claims': ['mu_microscopic_definition', 'mu_star_phenomenological']}}
